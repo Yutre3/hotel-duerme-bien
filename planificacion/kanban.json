@@ -1,0 +1,42 @@
+[
+  {
+    "estado": "Por hacer",
+    "tarea": "Validar identificación, tarifas, permisos y reglas pendientes",
+    "referencia": "P01-P09"
+  },
+  {
+    "estado": "Por hacer",
+    "tarea": "Recibir plantilla, rúbrica y retroalimentación de Evaluación 1",
+    "referencia": "P10"
+  },
+  {
+    "estado": "Por hacer",
+    "tarea": "Guardar diagramas y mockups en la plataforma acordada",
+    "referencia": "Modelado"
+  },
+  {
+    "estado": "Por hacer",
+    "tarea": "Crear y publicar repositorio GitHub",
+    "referencia": "Entrega"
+  },
+  {
+    "estado": "En revisión",
+    "tarea": "Informe de requerimientos",
+    "referencia": "RF01-RF09"
+  },
+  {
+    "estado": "En revisión",
+    "tarea": "Casos de uso y flujos",
+    "referencia": "CU01-CU10"
+  },
+  {
+    "estado": "En revisión",
+    "tarea": "Clases y modelo en 3FN",
+    "referencia": "RF01-RF09"
+  },
+  {
+    "estado": "En revisión",
+    "tarea": "Wireframes y maqueta navegable",
+    "referencia": "RF01-RF09"
+  }
+]
