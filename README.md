@@ -79,3 +79,7 @@ No se recibieron rúbrica, plantilla IEEE 830 original, videos ni archivos PPT/P
 [Generador del informe y diagramas](scripts/generar_entregables.py) · [Dependencias](scripts/requirements.txt)
 
 Sin conexión: descargar el repositorio y abrir `index.html`, `mockups/index.html` o `prototipo/index.html`.
+
+## Vista del prototipo publicado
+
+![Prototipo público de Duerme Bien](evidencia/prototipo-publicado.jpg)
