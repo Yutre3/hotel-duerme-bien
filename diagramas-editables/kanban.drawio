@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram id="kanban" name="Kanban · Duerme Bien">
+    <mxGraphModel grid="1" gridSize="10" page="1" pageWidth="1600" pageHeight="1080">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="col0" value="Por hacer" style="rounded=0;verticalAlign=top;align=left;spacing=18;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#edf4f7;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="40" y="100" width="360" height="850" />
+        </mxCell>
+        <mxCell id="task0-0" value="Validar identificación y&#10;reglas de habitación&#10;compartida" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#ffffff;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="55" y="175" width="330" height="150" />
+        </mxCell>
+        <mxCell id="task0-1" value="Validar tarifa y fórmula&#10;definitiva de cobro" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#ffffff;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="55" y="360" width="330" height="150" />
+        </mxCell>
+        <mxCell id="task0-2" value="Validar permisos y&#10;condiciones de gestión de&#10;reservas" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#ffffff;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="55" y="545" width="330" height="150" />
+        </mxCell>
+        <mxCell id="task0-3" value="Recibir rúbrica y&#10;retroalimentación de&#10;Evaluación 1" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#ffffff;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="55" y="730" width="330" height="150" />
+        </mxCell>
+        <mxCell id="col1" value="En curso" style="rounded=0;verticalAlign=top;align=left;spacing=18;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#edf4f7;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="430" y="100" width="360" height="850" />
+        </mxCell>
+        <mxCell id="none" value="Sin tareas en curso" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#ffffff;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="445" y="175" width="330" height="100" />
+        </mxCell>
+        <mxCell id="col2" value="En revisión" style="rounded=0;verticalAlign=top;align=left;spacing=18;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#edf4f7;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="820" y="100" width="360" height="850" />
+        </mxCell>
+        <mxCell id="task2-0" value="Informe de requerimientos y&#10;entrevista simulada" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#ffffff;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="835" y="175" width="330" height="150" />
+        </mxCell>
+        <mxCell id="task2-1" value="Casos de uso, procesos y&#10;modelo de datos" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#ffffff;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="835" y="360" width="330" height="150" />
+        </mxCell>
+        <mxCell id="task2-2" value="Sketch, wireframes y mockups" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#ffffff;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="835" y="545" width="330" height="150" />
+        </mxCell>
+        <mxCell id="task2-3" value="Prueba académica del&#10;prototipo" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#ffffff;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="835" y="730" width="330" height="150" />
+        </mxCell>
+        <mxCell id="col3" value="Terminado" style="rounded=0;verticalAlign=top;align=left;spacing=18;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#edf4f7;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1210" y="100" width="360" height="850" />
+        </mxCell>
+        <mxCell id="task3-0" value="Conservar los 11 materiales&#10;originales" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#ffffff;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1225" y="175" width="330" height="150" />
+        </mxCell>
+        <mxCell id="task3-1" value="Reconstruir diagramas nativos&#10;y enlazar el editor" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#ffffff;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1225" y="360" width="330" height="150" />
+        </mxCell>
+        <mxCell id="task3-2" value="Implementar pasajeros&#10;individuales y costos" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#ffffff;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1225" y="545" width="330" height="150" />
+        </mxCell>
+        <mxCell id="task3-3" value="Verificar procesos y publicar&#10;la entrega" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#ffffff;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1225" y="730" width="330" height="150" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

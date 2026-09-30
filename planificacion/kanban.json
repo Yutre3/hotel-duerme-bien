@@ -1,42 +1,50 @@
 [
   {
     "estado": "Por hacer",
-    "tarea": "Validar identificación, tarifas, permisos y reglas pendientes",
-    "referencia": "P01-P09"
+    "tarea": "Validar identificación y reglas de habitación compartida"
   },
   {
     "estado": "Por hacer",
-    "tarea": "Recibir plantilla, rúbrica y retroalimentación de Evaluación 1",
-    "referencia": "P10"
+    "tarea": "Validar tarifa y fórmula definitiva de cobro"
   },
   {
     "estado": "Por hacer",
-    "tarea": "Guardar diagramas y mockups en la plataforma acordada",
-    "referencia": "Modelado"
+    "tarea": "Validar permisos y condiciones de gestión de reservas"
+  },
+  {
+    "estado": "Por hacer",
+    "tarea": "Recibir rúbrica y retroalimentación de Evaluación 1"
+  },
+  {
+    "estado": "En revisión",
+    "tarea": "Informe de requerimientos y entrevista simulada"
+  },
+  {
+    "estado": "En revisión",
+    "tarea": "Casos de uso, procesos y modelo de datos"
+  },
+  {
+    "estado": "En revisión",
+    "tarea": "Sketch, wireframes y mockups"
+  },
+  {
+    "estado": "En revisión",
+    "tarea": "Prueba académica del prototipo"
   },
   {
     "estado": "Terminado",
-    "tarea": "Crear y publicar repositorio GitHub",
-    "referencia": "Entrega"
+    "tarea": "Conservar los 11 materiales originales"
   },
   {
-    "estado": "En revisión",
-    "tarea": "Informe de requerimientos",
-    "referencia": "RF01-RF09"
+    "estado": "Terminado",
+    "tarea": "Reconstruir diagramas nativos y enlazar el editor"
   },
   {
-    "estado": "En revisión",
-    "tarea": "Casos de uso y flujos",
-    "referencia": "CU01-CU10"
+    "estado": "Terminado",
+    "tarea": "Implementar pasajeros individuales y costos"
   },
   {
-    "estado": "En revisión",
-    "tarea": "Clases y modelo en 3FN",
-    "referencia": "RF01-RF09"
-  },
-  {
-    "estado": "En revisión",
-    "tarea": "Wireframes y maqueta navegable",
-    "referencia": "RF01-RF09"
+    "estado": "Terminado",
+    "tarea": "Verificar procesos y publicar la entrega"
   }
 ]

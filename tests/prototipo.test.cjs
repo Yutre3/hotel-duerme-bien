@@ -1,34 +1,31 @@
-const fs=require('node:fs');
-const path=require('node:path');
-const vm=require('node:vm');
 const assert=require('node:assert/strict');
-
-// Pruebas de operaciones y validación. La inspección visual se realiza por separado.
-const nodes=new Map(),storage=new Map();
-function node(selector){
-  if(!nodes.has(selector))nodes.set(selector,{value:'',innerHTML:'',textContent:'',className:'',dataset:{},classList:{add(){},remove(){},toggle(){}},handlers:{},addEventListener(type,fn){this.handlers[type]=fn},reset(){}});
-  return nodes.get(selector);
-}
-const context=vm.createContext({document:{querySelector:node,querySelectorAll:()=>[]},localStorage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v),removeItem:k=>storage.delete(k)},Date,console});
-vm.runInContext(fs.readFileSync(path.join(__dirname,'../prototipo/app.js'),'utf8'),context);
-const data=()=>JSON.parse(vm.runInContext('JSON.stringify(db())',context));
-const value=(id,v)=>node(id).value=String(v);
-const submit=id=>node(id).handlers.submit({preventDefault(){},target:node(id)});
-
-value('#roomNumber','400');value('#roomCapacity','2.5');value('#roomOrientation','Norte');submit('#roomForm');
-assert.equal(data().habitaciones.length,3,'Rechaza capacidades decimales');
-value('#roomCapacity',2);submit('#roomForm');assert.equal(data().habitaciones.length,4);
-submit('#roomForm');assert.equal(data().habitaciones.length,4,'Rechaza número duplicado');
-
-value('#reservationGuest',1);value('#reservationRoom',1);value('#reservationEntry','2026-10-01');value('#reservationExit','2026-10-03');value('#reservationCount',3);submit('#reservationForm');assert.equal(data().reservas.length,0,'Rechaza exceso de capacidad');
-value('#reservationCount',2);submit('#reservationForm');assert.equal(data().reservas.length,1);
-value('#reservationRoom',1);value('#reservationCount',1);submit('#reservationForm');assert.equal(data().reservas.length,1,'Rechaza reserva superpuesta');
-value('#reservationEntry','2026-10-03');value('#reservationExit','2026-10-05');submit('#reservationForm');assert.equal(data().reservas.length,2,'Permite intervalos contiguos');
-
-value('#checkinReservation',1);submit('#checkinForm');assert.equal(data().estadias.length,1);assert.equal(data().habitaciones[0].estado,'OCUPADA');
-submit('#checkinForm');assert.equal(data().estadias.length,1,'Rechaza doble check-in');
-value('#checkoutStay',1);value('#costPerGuest','');value('#checkoutNights',2);submit('#checkoutForm');assert.equal(data().estadias[0].estado,'ACTIVA','No confirma sin tarifa de prueba');
-value('#costPerGuest',-1);submit('#checkoutForm');assert.equal(data().estadias[0].estado,'ACTIVA','Rechaza tarifa negativa');
-value('#costPerGuest',10000);submit('#checkoutForm');assert.equal(data().estadias[0].total,40000);assert.equal(data().estadias[0].costoPorPasajero,20000);assert.equal(data().habitaciones[0].estado,'DISPONIBLE');
-submit('#checkoutForm');assert.equal(data().estadias[0].total,40000,'Rechaza segundo check-out');
-console.log('Validaciones de capacidad, fechas, reserva, check-in y check-out: correctas.');
+const H=require('../prototipo/engine.js');
+const d=H.seed(),admin=1,enc=2;
+assert.throws(()=>H.room(d,enc,{numero:'500',capacidad:2,orientacion:'Norte'}),/permiso/);
+assert.throws(()=>H.room(d,admin,{numero:'201',capacidad:2,orientacion:'Sur'}),/duplicado/);
+assert.throws(()=>H.room(d,admin,{numero:'500',capacidad:1.5,orientacion:'Norte'}),/entero/);
+assert.throws(()=>H.guest(d,enc,{identificacion:'DEMO-01',nombres:'Ana',apellidos:'Uno'}),/registrada/);
+const r=H.reservation(d,enc,{titularId:1,habitacionId:1,entrada:'2026-10-01',salida:'2026-10-03',cantidad:2});
+assert.throws(()=>H.reservation(d,enc,{titularId:1,habitacionId:1,entrada:'2026-10-02',salida:'2026-10-04',cantidad:1}),/disponible/);
+assert.throws(()=>H.reservation(d,enc,{titularId:1,habitacionId:2,entrada:'2026-10-01',salida:'2026-10-03',cantidad:3}),/Capacidad/);
+const adjacent=H.reservation(d,enc,{titularId:1,habitacionId:1,entrada:'2026-10-03',salida:'2026-10-05',cantidad:1});
+assert.throws(()=>H.checkin(d,enc,{reservaId:r.id,huespedIds:[1]}),/todos/);
+assert.throws(()=>H.checkin(d,enc,{reservaId:r.id,huespedIds:[1,1]}),/duplicados/);
+const stay=H.checkin(d,enc,{reservaId:r.id,huespedIds:[1,2]});
+assert.equal(d.participaciones.length,2);assert.equal(d.reservas[0].estado,'CHECK_IN');
+assert.throws(()=>H.checkin(d,enc,{reservaId:r.id,huespedIds:[1,2]}),/REGISTRADA/);
+assert.throws(()=>H.checkin(d,enc,{habitacionId:2,entrada:'2026-10-01',salida:'2026-10-03',huespedIds:[1]}),/activa/);
+assert.throws(()=>H.quote(d,stay.id,'2026-10-03',''),/entero/);
+assert.throws(()=>H.checkout(d,enc,{estadiaId:stay.id,salida:'2026-10-03',tarifaCLP:10000,confirmado:false}),/confirme/);
+assert.throws(()=>H.checkout(d,enc,{estadiaId:stay.id,salida:'2026-10-04',tarifaCLP:10000,confirmado:true}),/conflicto/);
+const q=H.checkout(d,enc,{estadiaId:stay.id,salida:'2026-10-03',tarifaCLP:10000,confirmado:true});
+assert.equal(q.total,40000);assert.deepEqual(d.participaciones.map(p=>p.costoCLP),[20000,20000]);assert.equal(H.occupied(d,1),false);
+assert.throws(()=>H.checkout(d,enc,{estadiaId:stay.id,salida:'2026-10-03',tarifaCLP:10000,confirmado:true}),/ACTIVA/);
+H.reservation(d,enc,{...adjacent,id:adjacent.id,salida:'2026-10-06'});assert.equal(adjacent.salida,'2026-10-06');
+H.cancel(d,enc,adjacent.id);assert.equal(adjacent.estado,'CANCELADA');assert(H.available(d,'2026-10-03','2026-10-06').some(h=>h.id===1));
+assert.throws(()=>H.reservation(d,enc,{...adjacent,id:adjacent.id}),/REGISTRADA/);
+const direct=H.checkin(d,enc,{habitacionId:2,entrada:'2026-10-06',salida:'2026-10-07',huespedIds:[1]});assert.equal(direct.reservaId,null);
+assert.equal(H.reports(d,'2026-10-01','2026-10-04').estadias.length,1);
+assert.throws(()=>H.user(d,admin,{nombre:'admin_demo',rolId:2}),/duplicado/);
+assert.throws(()=>H.user(d,admin,{id:1,nombre:'admin_demo',rolId:2,activo:true}),/propio/);
+console.log('Pruebas aprobadas: roles, duplicados, capacidad, fechas, solapamiento, reservas, pasajeros individuales, check-in directo, costo por huésped, check-out y reportes.');

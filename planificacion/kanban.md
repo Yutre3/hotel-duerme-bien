@@ -1,16 +1,18 @@
-# Planificación inicial
+# Kanban · Duerme Bien
 
-Columnas: Por hacer, En curso, En revisión y Terminado.
+| Estado | Tarea |
+|---|---|
+| Por hacer | Validar identificación y reglas de habitación compartida |
+| Por hacer | Validar tarifa y fórmula definitiva de cobro |
+| Por hacer | Validar permisos y condiciones de gestión de reservas |
+| Por hacer | Recibir rúbrica y retroalimentación de Evaluación 1 |
+| En revisión | Informe de requerimientos y entrevista simulada |
+| En revisión | Casos de uso, procesos y modelo de datos |
+| En revisión | Sketch, wireframes y mockups |
+| En revisión | Prueba académica del prototipo |
+| Terminado | Conservar los 11 materiales originales |
+| Terminado | Reconstruir diagramas nativos y enlazar el editor |
+| Terminado | Implementar pasajeros individuales y costos |
+| Terminado | Verificar procesos y publicar la entrega |
 
-| Estado | Tarea | Referencia |
-|---|---|---|
-| Por hacer | Validar identificación, tarifas, permisos y reglas pendientes | P01-P09 |
-| Por hacer | Recibir plantilla, rúbrica y retroalimentación de Evaluación 1 | P10 |
-| Por hacer | Guardar diagramas y mockups en la plataforma acordada | Modelado |
-| Terminado | Crear y publicar repositorio GitHub | Entrega |
-| En revisión | Informe de requerimientos | RF01-RF09 |
-| En revisión | Casos de uso y flujos | CU01-CU10 |
-| En revisión | Clases y modelo en 3FN | RF01-RF09 |
-| En revisión | Wireframes y maqueta navegable | RF01-RF09 |
-
-No se establecen fechas ni integrantes porque no se proporcionaron. En revisión no significa aprobado por el docente.
+Terminado indica trabajo técnico realizado. La revisión académica y la validación del hotel siguen pendientes.

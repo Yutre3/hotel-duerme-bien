@@ -1,0 +1,21 @@
+{
+  "tema": "Sistema de Pasajeros de Hotel - Duerme Bien",
+  "casos": [
+    ["CU01", "Iniciar sesión", "RF07"],
+    ["CU02", "Gestionar habitaciones", "RF01"],
+    ["CU03", "Registrar huéspedes", "RF02"],
+    ["CU04", "Registrar check-in", "RF02, RF03, RF04"],
+    ["CU05", "Consultar disponibilidad", "RF03"],
+    ["CU06", "Registrar check-out", "RF05, RF06"],
+    ["CU07", "Calcular cuenta por pasajero", "RF06"],
+    ["CU08", "Gestionar usuarios", "RF07"],
+    ["CU09", "Registrar reserva", "RF03, RF08"],
+    ["CU10", "Generar informes", "RF09"],
+    ["CU11", "Modificar reserva", "RF03, RF08"],
+    ["CU12", "Cancelar reserva", "RF08"]
+  ],
+  "permisos_propuestos": {"Administrador": ["habitaciones", "huespedes", "disponibilidad", "reservas", "checkin", "checkout", "usuarios", "informes"], "Encargado": ["huespedes", "disponibilidad", "reservas", "checkin", "checkout"]},
+  "pantallas": [["acceso", "Acceso"], ["disponibilidad", "Disponibilidad"], ["habitaciones", "Habitaciones"], ["huespedes", "Huéspedes"], ["reservas", "Reservas"], ["checkin", "Check-in"], ["checkout", "Check-out"], ["informes", "Informes"], ["usuarios", "Usuarios"]],
+  "decisiones": ["Una habitación por reserva y estadía; se reserva la habitación completa.", "Intervalos de alojamiento [entrada, salida): una salida permite otra entrada ese día.", "Perfiles y campos de identificación son propuestas pendientes de entrevista.", "El cobro de demostración usa tarifa por pasajero y noche; no es una regla confirmada del hotel.", "Una reserva REGISTRADA se puede modificar o cancelar; al ingresar pasa a CHECK_IN y al salir a FINALIZADA."],
+  "fuentes_tecnicas": ["https://www.omg.org/spec/UML/2.5.1", "https://www.drawio.com/docs/diagram-types/uml/class-diagrams/", "https://www.drawio.com/docs/diagram-types/entity-relationship-tables/", "https://balsamiq.com/blog/what-are-wireframes/"]
+}

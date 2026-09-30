@@ -8,62 +8,88 @@
 
 ### 1. Informe de requerimientos
 
-[Ver PDF](informe/informe-con-diagramas.pdf) · [Ver informe editable](informe/requerimientos-y-modelado.md)
+[Informe PDF completo](informe/informe-con-diagramas.pdf) · [Informe editable](informe/requerimientos-y-modelado.md)
 
-### 2. Casos de uso
+### 2. Casos de uso · Operación
 
-![Casos de uso](diagramas/casos-de-uso.svg)
+![Casos de uso · Operación](diagramas/casos-de-uso.svg)
 
-[Ver imagen](diagramas/casos-de-uso.svg) · [PDF](diagramas/casos-de-uso.pdf) · [Editar en diagrams.net](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fcasos-de-uso.drawio)
+[Ver imagen](diagramas/casos-de-uso.svg) · [PDF](diagramas/casos-de-uso.pdf) · [Editar](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fcasos-de-uso.drawio)
 
-### 3. Flujo de check-in
+### 3. Casos de uso · Administración
 
-![Flujo de check-in](diagramas/flujo-check-in.svg)
+![Casos de uso · Administración](diagramas/casos-de-uso-administracion.svg)
 
-[Ver imagen](diagramas/flujo-check-in.svg) · [PDF](diagramas/flujo-check-in.pdf) · [Editar en diagrams.net](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fflujo-check-in.drawio)
+[Ver imagen](diagramas/casos-de-uso-administracion.svg) · [PDF](diagramas/casos-de-uso-administracion.pdf) · [Editar](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fcasos-de-uso-administracion.drawio)
 
-### 4. Flujo de check-out
+### 4. Registro de reserva
 
-![Flujo de check-out](diagramas/flujo-check-out.svg)
+![Registro de reserva](diagramas/flujo-reserva.svg)
 
-[Ver imagen](diagramas/flujo-check-out.svg) · [PDF](diagramas/flujo-check-out.pdf) · [Editar en diagrams.net](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fflujo-check-out.drawio)
+[Ver imagen](diagramas/flujo-reserva.svg) · [PDF](diagramas/flujo-reserva.pdf) · [Editar](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fflujo-reserva.drawio)
 
-### 5. Flujo de reserva
+### 5. Modificación y cancelación
 
-![Flujo de reserva](diagramas/flujo-reserva.svg)
+![Modificación y cancelación](diagramas/flujo-gestion-reservas.svg)
 
-[Ver imagen](diagramas/flujo-reserva.svg) · [PDF](diagramas/flujo-reserva.pdf) · [Editar en diagrams.net](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fflujo-reserva.drawio)
+[Ver imagen](diagramas/flujo-gestion-reservas.svg) · [PDF](diagramas/flujo-gestion-reservas.pdf) · [Editar](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fflujo-gestion-reservas.drawio)
 
-### 6. Diagrama de clases
+### 6. Check-in
 
-![Diagrama de clases](diagramas/diagrama-de-clases.svg)
+![Check-in](diagramas/flujo-check-in.svg)
 
-[Ver imagen](diagramas/diagrama-de-clases.svg) · [PDF](diagramas/diagrama-de-clases.pdf) · [Editar en diagrams.net](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fdiagrama-de-clases.drawio)
+[Ver imagen](diagramas/flujo-check-in.svg) · [PDF](diagramas/flujo-check-in.pdf) · [Editar](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fflujo-check-in.drawio)
 
-### 7. Modelo de base de datos
+### 7. Check-out
 
-![Modelo de base de datos](diagramas/modelo-de-datos.svg)
+![Check-out](diagramas/flujo-check-out.svg)
 
-[Ver imagen](diagramas/modelo-de-datos.svg) · [PDF](diagramas/modelo-de-datos.pdf) · [Editar en diagrams.net](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fmodelo-de-datos.drawio)
+[Ver imagen](diagramas/flujo-check-out.svg) · [PDF](diagramas/flujo-check-out.pdf) · [Editar](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fflujo-check-out.drawio)
 
-### 8. Wireframes y mockups
+### 8. Clases de dominio
 
-![Wireframe](mockups/wireframe.svg)
+![Clases de dominio](diagramas/diagrama-de-clases.svg)
 
-![Mockup](mockups/mockup.svg)
+[Ver imagen](diagramas/diagrama-de-clases.svg) · [PDF](diagramas/diagrama-de-clases.pdf) · [Editar](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fdiagrama-de-clases.drawio)
 
-[Ver pantallas](https://yutre3.github.io/hotel-duerme-bien/mockups/) · [Editar las 9 pantallas en diagrams.net](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Finterfaces.drawio) · [Editar HTML](https://github.dev/Yutre3/hotel-duerme-bien/blob/main/mockups/index.html)
+### 9. Modelo lógico de base de datos
 
-### 9. Prototipo funcional
+![Modelo lógico de base de datos](diagramas/modelo-de-datos.svg)
 
-![Prototipo](evidencia/prototipo-publicado.jpg)
+[Ver imagen](diagramas/modelo-de-datos.svg) · [PDF](diagramas/modelo-de-datos.pdf) · [Editar](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fmodelo-de-datos.drawio)
+
+### 10. Sketch
+
+![Sketch](mockups/sketch.svg)
+
+[Editar](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fsketch.drawio)
+
+### 11. Wireframes y mockups
+
+[Ver las nueve pantallas](https://yutre3.github.io/hotel-duerme-bien/mockups/) · [Editar todas las vistas](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Finterfaces.drawio)
+
+| Pantalla | Wireframe | Mockup | Editar |
+|---|---|---|---|
+| Acceso | ![Acceso](mockups/wireframe-acceso.svg) | ![Acceso](mockups/mockup-acceso.svg) | [Wireframe](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fwireframe-acceso.drawio) · [Mockup](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fmockup-acceso.drawio) |
+| Disponibilidad | ![Disponibilidad](mockups/wireframe-disponibilidad.svg) | ![Disponibilidad](mockups/mockup-disponibilidad.svg) | [Wireframe](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fwireframe-disponibilidad.drawio) · [Mockup](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fmockup-disponibilidad.drawio) |
+| Habitaciones | ![Habitaciones](mockups/wireframe-habitaciones.svg) | ![Habitaciones](mockups/mockup-habitaciones.svg) | [Wireframe](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fwireframe-habitaciones.drawio) · [Mockup](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fmockup-habitaciones.drawio) |
+| Huéspedes | ![Huéspedes](mockups/wireframe-huespedes.svg) | ![Huéspedes](mockups/mockup-huespedes.svg) | [Wireframe](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fwireframe-huespedes.drawio) · [Mockup](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fmockup-huespedes.drawio) |
+| Reservas | ![Reservas](mockups/wireframe-reservas.svg) | ![Reservas](mockups/mockup-reservas.svg) | [Wireframe](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fwireframe-reservas.drawio) · [Mockup](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fmockup-reservas.drawio) |
+| Check-in | ![Check-in](mockups/wireframe-checkin.svg) | ![Check-in](mockups/mockup-checkin.svg) | [Wireframe](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fwireframe-checkin.drawio) · [Mockup](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fmockup-checkin.drawio) |
+| Check-out | ![Check-out](mockups/wireframe-checkout.svg) | ![Check-out](mockups/mockup-checkout.svg) | [Wireframe](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fwireframe-checkout.drawio) · [Mockup](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fmockup-checkout.drawio) |
+| Informes | ![Informes](mockups/wireframe-informes.svg) | ![Informes](mockups/mockup-informes.svg) | [Wireframe](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fwireframe-informes.drawio) · [Mockup](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fmockup-informes.drawio) |
+| Usuarios | ![Usuarios](mockups/wireframe-usuarios.svg) | ![Usuarios](mockups/mockup-usuarios.svg) | [Wireframe](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fwireframe-usuarios.drawio) · [Mockup](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fmockup-usuarios.drawio) |
+
+### 12. Prototipo funcional
 
 [Abrir prototipo](https://yutre3.github.io/hotel-duerme-bien/prototipo/) · [Editar código](https://github.dev/Yutre3/hotel-duerme-bien/tree/main/prototipo)
 
-### 10. Kanban
+### 13. Kanban
 
-[Ver Kanban](planificacion/kanban.md) · [Editar](https://github.dev/Yutre3/hotel-duerme-bien/blob/main/planificacion/kanban.md)
+![Kanban](diagramas/kanban.svg)
+
+[Ver tablero](planificacion/kanban.md) · [Editar](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fkanban.drawio)
 
 ### Materiales y referencias
 
-[Materiales originales](fuentes/) · [Referencia](https://github.com/Yutre3/diego) · [Código y pruebas](tests/prototipo.test.cjs)
+[Materiales originales](https://github.com/Yutre3/hotel-duerme-bien/tree/main/fuentes) · [Referencias técnicas](informe/requerimientos-y-modelado.md#12-referencias) · [Repositorio de referencia](https://github.com/Yutre3/diego) · [Pruebas](tests/prototipo.test.cjs)

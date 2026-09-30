@@ -1,0 +1,4205 @@
+[
+  {
+    "key": "casos-de-uso",
+    "title": "Casos de uso · Operación del hotel",
+    "nodes": {
+      "limit": {
+        "id": "limit",
+        "label": "Duerme Bien",
+        "x": 260,
+        "y": 85,
+        "w": 1330,
+        "h": 1470,
+        "shape": "frame",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "enc": {
+        "id": "enc",
+        "label": "Encargado",
+        "x": 35,
+        "y": 600,
+        "w": 165,
+        "h": 175,
+        "shape": "actor",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "CU01": {
+        "id": "CU01",
+        "label": "CU01\nIniciar sesión",
+        "x": 340,
+        "y": 170,
+        "w": 440,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "CU03": {
+        "id": "CU03",
+        "label": "CU03\nRegistrar huéspedes",
+        "x": 340,
+        "y": 345,
+        "w": 440,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "CU04": {
+        "id": "CU04",
+        "label": "CU04\nRegistrar check-in",
+        "x": 340,
+        "y": 520,
+        "w": 440,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "CU09": {
+        "id": "CU09",
+        "label": "CU09\nRegistrar reserva",
+        "x": 340,
+        "y": 695,
+        "w": 440,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "CU11": {
+        "id": "CU11",
+        "label": "CU11\nModificar reserva",
+        "x": 340,
+        "y": 870,
+        "w": 440,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "CU12": {
+        "id": "CU12",
+        "label": "CU12\nCancelar reserva",
+        "x": 340,
+        "y": 1045,
+        "w": 440,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "CU06": {
+        "id": "CU06",
+        "label": "CU06\nRegistrar check-out",
+        "x": 340,
+        "y": 1280,
+        "w": 440,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "CU05": {
+        "id": "CU05",
+        "label": "CU05\nConsultar disponibilidad",
+        "x": 1070,
+        "y": 685,
+        "w": 440,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "CU07": {
+        "id": "CU07",
+        "label": "CU07\nCalcular cuenta por pasajero",
+        "x": 1070,
+        "y": 1280,
+        "w": 440,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      }
+    },
+    "edges": [
+      {
+        "a": "enc",
+        "b": "CU01",
+        "points": [
+          [
+            117.5,
+            661.25
+          ],
+          [
+            340,
+            215.0
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          0.35
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "enc",
+        "b": "CU03",
+        "points": [
+          [
+            117.5,
+            661.25
+          ],
+          [
+            340,
+            390.0
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          0.35
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "enc",
+        "b": "CU04",
+        "points": [
+          [
+            117.5,
+            661.25
+          ],
+          [
+            340,
+            565.0
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          0.35
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "enc",
+        "b": "CU09",
+        "points": [
+          [
+            117.5,
+            661.25
+          ],
+          [
+            340,
+            740.0
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          0.35
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "enc",
+        "b": "CU11",
+        "points": [
+          [
+            117.5,
+            661.25
+          ],
+          [
+            340,
+            915.0
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          0.35
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "enc",
+        "b": "CU12",
+        "points": [
+          [
+            117.5,
+            661.25
+          ],
+          [
+            340,
+            1090.0
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          0.35
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "enc",
+        "b": "CU06",
+        "points": [
+          [
+            117.5,
+            661.25
+          ],
+          [
+            340,
+            1325.0
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          0.35
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "CU04",
+        "b": "CU05",
+        "points": [
+          [
+            780,
+            565.0
+          ],
+          [
+            1070,
+            730.0
+          ]
+        ],
+        "label": "«include»",
+        "kind": "include",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": [
+          900,
+          550
+        ]
+      },
+      {
+        "a": "CU09",
+        "b": "CU05",
+        "points": [
+          [
+            780,
+            740.0
+          ],
+          [
+            1070,
+            730.0
+          ]
+        ],
+        "label": "«include»",
+        "kind": "include",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": [
+          900,
+          725
+        ]
+      },
+      {
+        "a": "CU11",
+        "b": "CU05",
+        "points": [
+          [
+            780,
+            915.0
+          ],
+          [
+            1070,
+            730.0
+          ]
+        ],
+        "label": "«include»",
+        "kind": "include",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": [
+          900,
+          900
+        ]
+      },
+      {
+        "a": "CU06",
+        "b": "CU07",
+        "points": [
+          [
+            780,
+            1325.0
+          ],
+          [
+            1070,
+            1325.0
+          ]
+        ],
+        "label": "«include»",
+        "kind": "include",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": [
+          925,
+          1305
+        ]
+      },
+      {
+        "a": "enc",
+        "b": "CU05",
+        "points": [
+          [
+            117.5,
+            661.25
+          ],
+          [
+            225,
+            661
+          ],
+          [
+            225,
+            285
+          ],
+          [
+            1550,
+            285
+          ],
+          [
+            1550,
+            730
+          ],
+          [
+            1510,
+            730.0
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          0.35
+        ],
+        "target": [
+          1,
+          0.5
+        ],
+        "labelpos": null
+      }
+    ]
+  },
+  {
+    "key": "casos-de-uso-administracion",
+    "title": "Casos de uso · Administración",
+    "nodes": {
+      "limit": {
+        "id": "limit",
+        "label": "Duerme Bien",
+        "x": 420,
+        "y": 85,
+        "w": 820,
+        "h": 850,
+        "shape": "frame",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "enc": {
+        "id": "enc",
+        "label": "Encargado",
+        "x": 115,
+        "y": 100,
+        "w": 165,
+        "h": 175,
+        "shape": "actor",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "admin": {
+        "id": "admin",
+        "label": "Administrador",
+        "x": 115,
+        "y": 550,
+        "w": 165,
+        "h": 175,
+        "shape": "actor",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "CU02": {
+        "id": "CU02",
+        "label": "CU02\nGestionar habitaciones",
+        "x": 585,
+        "y": 290,
+        "w": 470,
+        "h": 95,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "CU08": {
+        "id": "CU08",
+        "label": "CU08\nGestionar usuarios",
+        "x": 585,
+        "y": 510,
+        "w": 470,
+        "h": 95,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "CU10": {
+        "id": "CU10",
+        "label": "CU10\nGenerar informes",
+        "x": 585,
+        "y": 730,
+        "w": 470,
+        "h": 95,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      }
+    },
+    "edges": [
+      {
+        "a": "admin",
+        "b": "enc",
+        "points": [
+          [
+            197.5,
+            550
+          ],
+          [
+            197.5,
+            275
+          ]
+        ],
+        "label": "",
+        "kind": "general",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          0
+        ],
+        "target": [
+          0.5,
+          1
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "admin",
+        "b": "CU02",
+        "points": [
+          [
+            197.5,
+            611.25
+          ],
+          [
+            585,
+            337.5
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          0.35
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "admin",
+        "b": "CU08",
+        "points": [
+          [
+            197.5,
+            611.25
+          ],
+          [
+            585,
+            557.5
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          0.35
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "admin",
+        "b": "CU10",
+        "points": [
+          [
+            197.5,
+            611.25
+          ],
+          [
+            585,
+            777.5
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          0.35
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null
+      }
+    ]
+  },
+  {
+    "key": "flujo-reserva",
+    "title": "Registrar reserva · CU09",
+    "nodes": {
+      "inicio": {
+        "id": "inicio",
+        "label": "Inicio",
+        "x": 450,
+        "y": 95,
+        "w": 480,
+        "h": 95,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "datos": {
+        "id": "datos",
+        "label": "Capturar titular, habitación,\nfechas y cantidad de pasajeros",
+        "x": 450,
+        "y": 260,
+        "w": 480,
+        "h": 95,
+        "shape": "input",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "validar": {
+        "id": "validar",
+        "label": "¿Titular registrado y\ndatos completos y válidos?",
+        "x": 450,
+        "y": 425,
+        "w": 480,
+        "h": 95,
+        "shape": "diamond",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "consultar": {
+        "id": "consultar",
+        "label": "Consultar disponibilidad\npara intervalo y capacidad · CU05",
+        "x": 450,
+        "y": 590,
+        "w": 480,
+        "h": 95,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "disponible": {
+        "id": "disponible",
+        "label": "¿Habitación disponible\ny capacidad suficiente?",
+        "x": 450,
+        "y": 755,
+        "w": 480,
+        "h": 95,
+        "shape": "diamond",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "confirmar": {
+        "id": "confirmar",
+        "label": "¿Confirma la reserva?",
+        "x": 450,
+        "y": 920,
+        "w": 480,
+        "h": 95,
+        "shape": "diamond",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "guardar": {
+        "id": "guardar",
+        "label": "Guardar reserva REGISTRADA",
+        "x": 450,
+        "y": 1085,
+        "w": 480,
+        "h": 95,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "respuesta": {
+        "id": "respuesta",
+        "label": "Mostrar número y resumen\nde reserva registrada",
+        "x": 450,
+        "y": 1250,
+        "w": 480,
+        "h": 95,
+        "shape": "input",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "fin": {
+        "id": "fin",
+        "label": "Fin",
+        "x": 450,
+        "y": 1415,
+        "w": 480,
+        "h": 95,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "error0": {
+        "id": "error0",
+        "label": "Mostrar campos\nque requieren corrección",
+        "x": 1090,
+        "y": 425,
+        "w": 330,
+        "h": 95,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "error1": {
+        "id": "error1",
+        "label": "Mostrar conflicto y\notras habitaciones",
+        "x": 1090,
+        "y": 755,
+        "w": 330,
+        "h": 95,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "error2": {
+        "id": "error2",
+        "label": "Cancelar la operación",
+        "x": 1090,
+        "y": 920,
+        "w": 330,
+        "h": 95,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "error2fin": {
+        "id": "error2fin",
+        "label": "Fin sin cambios",
+        "x": 1090,
+        "y": 1045,
+        "w": 330,
+        "h": 70,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      }
+    },
+    "edges": [
+      {
+        "a": "inicio",
+        "b": "datos",
+        "points": [
+          [
+            690.0,
+            190
+          ],
+          [
+            690.0,
+            260
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          225
+        ]
+      },
+      {
+        "a": "datos",
+        "b": "validar",
+        "points": [
+          [
+            690.0,
+            355
+          ],
+          [
+            690.0,
+            425
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          390
+        ]
+      },
+      {
+        "a": "validar",
+        "b": "consultar",
+        "points": [
+          [
+            690.0,
+            520
+          ],
+          [
+            690.0,
+            590
+          ]
+        ],
+        "label": "Sí",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          555
+        ]
+      },
+      {
+        "a": "consultar",
+        "b": "disponible",
+        "points": [
+          [
+            690.0,
+            685
+          ],
+          [
+            690.0,
+            755
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          720
+        ]
+      },
+      {
+        "a": "disponible",
+        "b": "confirmar",
+        "points": [
+          [
+            690.0,
+            850
+          ],
+          [
+            690.0,
+            920
+          ]
+        ],
+        "label": "Sí",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          885
+        ]
+      },
+      {
+        "a": "confirmar",
+        "b": "guardar",
+        "points": [
+          [
+            690.0,
+            1015
+          ],
+          [
+            690.0,
+            1085
+          ]
+        ],
+        "label": "Sí",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          1050
+        ]
+      },
+      {
+        "a": "guardar",
+        "b": "respuesta",
+        "points": [
+          [
+            690.0,
+            1180
+          ],
+          [
+            690.0,
+            1250
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          1215
+        ]
+      },
+      {
+        "a": "respuesta",
+        "b": "fin",
+        "points": [
+          [
+            690.0,
+            1345
+          ],
+          [
+            690.0,
+            1415
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          1380
+        ]
+      },
+      {
+        "a": "validar",
+        "b": "error0",
+        "points": [
+          [
+            930,
+            472.5
+          ],
+          [
+            1090,
+            472.5
+          ]
+        ],
+        "label": "No",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": [
+          1010,
+          457
+        ]
+      },
+      {
+        "a": "error0",
+        "b": "datos",
+        "points": [
+          [
+            1420,
+            472.5
+          ],
+          [
+            1460,
+            472.5
+          ],
+          [
+            1460,
+            230
+          ],
+          [
+            690,
+            230
+          ],
+          [
+            690.0,
+            260
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "disponible",
+        "b": "error1",
+        "points": [
+          [
+            930,
+            802.5
+          ],
+          [
+            1090,
+            802.5
+          ]
+        ],
+        "label": "No",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": [
+          1010,
+          787
+        ]
+      },
+      {
+        "a": "error1",
+        "b": "datos",
+        "points": [
+          [
+            1420,
+            802.5
+          ],
+          [
+            1500,
+            802.5
+          ],
+          [
+            1500,
+            230
+          ],
+          [
+            690,
+            230
+          ],
+          [
+            690.0,
+            260
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "confirmar",
+        "b": "error2",
+        "points": [
+          [
+            930,
+            967.5
+          ],
+          [
+            1090,
+            967.5
+          ]
+        ],
+        "label": "No",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": [
+          1010,
+          952
+        ]
+      },
+      {
+        "a": "error2",
+        "b": "error2fin",
+        "points": [
+          [
+            1255.0,
+            1015
+          ],
+          [
+            1255.0,
+            1045
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      }
+    ]
+  },
+  {
+    "key": "flujo-check-in",
+    "title": "Check-in y asignación · CU04",
+    "nodes": {
+      "inicio": {
+        "id": "inicio",
+        "label": "Inicio",
+        "x": 450,
+        "y": 95,
+        "w": 480,
+        "h": 95,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "datos": {
+        "id": "datos",
+        "label": "Seleccionar reserva o ingreso directo;\nhabitación, fechas y todos los huéspedes",
+        "x": 450,
+        "y": 260,
+        "w": 480,
+        "h": 95,
+        "shape": "input",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "origen": {
+        "id": "origen",
+        "label": "¿Sin reserva o reserva\nREGISTRADA?",
+        "x": 450,
+        "y": 425,
+        "w": 480,
+        "h": 95,
+        "shape": "diamond",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "identificar": {
+        "id": "identificar",
+        "label": "Validar huéspedes registrados\ny cantidad de pasajeros",
+        "x": 450,
+        "y": 590,
+        "w": 480,
+        "h": 95,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "validar": {
+        "id": "validar",
+        "label": "¿Fechas y pasajeros válidos,\nsin estadía activa previa?",
+        "x": 450,
+        "y": 755,
+        "w": 480,
+        "h": 95,
+        "shape": "diamond",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "consulta": {
+        "id": "consulta",
+        "label": "Revisar capacidad, reservas\ny ocupación actual · CU05",
+        "x": 450,
+        "y": 920,
+        "w": 480,
+        "h": 95,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "disponible": {
+        "id": "disponible",
+        "label": "¿Habitación disponible y\ncapacidad suficiente?",
+        "x": 450,
+        "y": 1085,
+        "w": 480,
+        "h": 95,
+        "shape": "diamond",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "confirmar": {
+        "id": "confirmar",
+        "label": "¿Confirma el ingreso?",
+        "x": 450,
+        "y": 1250,
+        "w": 480,
+        "h": 95,
+        "shape": "diamond",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "guardar": {
+        "id": "guardar",
+        "label": "Crear estadía ACTIVA\ny registrar ESTADIA_HUESPED",
+        "x": 450,
+        "y": 1415,
+        "w": 480,
+        "h": 95,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "actualizar": {
+        "id": "actualizar",
+        "label": "Si hay reserva: pasar a CHECK_IN;\nmostrar habitación OCUPADA",
+        "x": 450,
+        "y": 1580,
+        "w": 480,
+        "h": 95,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "respuesta": {
+        "id": "respuesta",
+        "label": "Mostrar estadía y\nlista de pasajeros asignados",
+        "x": 450,
+        "y": 1745,
+        "w": 480,
+        "h": 95,
+        "shape": "input",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "fin": {
+        "id": "fin",
+        "label": "Fin",
+        "x": 450,
+        "y": 1910,
+        "w": 480,
+        "h": 95,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "error0": {
+        "id": "error0",
+        "label": "Informar reserva inválida\no ya utilizada",
+        "x": 1090,
+        "y": 425,
+        "w": 330,
+        "h": 95,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "error1": {
+        "id": "error1",
+        "label": "Identificar pasajeros faltantes\no corregir sus datos",
+        "x": 1090,
+        "y": 755,
+        "w": 330,
+        "h": 95,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "error2": {
+        "id": "error2",
+        "label": "Mostrar conflicto; elegir\nfechas o habitación distintas",
+        "x": 1090,
+        "y": 1085,
+        "w": 330,
+        "h": 95,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "error3": {
+        "id": "error3",
+        "label": "Cancelar la operación",
+        "x": 1090,
+        "y": 1250,
+        "w": 330,
+        "h": 95,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "error3fin": {
+        "id": "error3fin",
+        "label": "Fin sin cambios",
+        "x": 1090,
+        "y": 1375,
+        "w": 330,
+        "h": 70,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      }
+    },
+    "edges": [
+      {
+        "a": "inicio",
+        "b": "datos",
+        "points": [
+          [
+            690.0,
+            190
+          ],
+          [
+            690.0,
+            260
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          225
+        ]
+      },
+      {
+        "a": "datos",
+        "b": "origen",
+        "points": [
+          [
+            690.0,
+            355
+          ],
+          [
+            690.0,
+            425
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          390
+        ]
+      },
+      {
+        "a": "origen",
+        "b": "identificar",
+        "points": [
+          [
+            690.0,
+            520
+          ],
+          [
+            690.0,
+            590
+          ]
+        ],
+        "label": "Sí",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          555
+        ]
+      },
+      {
+        "a": "identificar",
+        "b": "validar",
+        "points": [
+          [
+            690.0,
+            685
+          ],
+          [
+            690.0,
+            755
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          720
+        ]
+      },
+      {
+        "a": "validar",
+        "b": "consulta",
+        "points": [
+          [
+            690.0,
+            850
+          ],
+          [
+            690.0,
+            920
+          ]
+        ],
+        "label": "Sí",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          885
+        ]
+      },
+      {
+        "a": "consulta",
+        "b": "disponible",
+        "points": [
+          [
+            690.0,
+            1015
+          ],
+          [
+            690.0,
+            1085
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          1050
+        ]
+      },
+      {
+        "a": "disponible",
+        "b": "confirmar",
+        "points": [
+          [
+            690.0,
+            1180
+          ],
+          [
+            690.0,
+            1250
+          ]
+        ],
+        "label": "Sí",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          1215
+        ]
+      },
+      {
+        "a": "confirmar",
+        "b": "guardar",
+        "points": [
+          [
+            690.0,
+            1345
+          ],
+          [
+            690.0,
+            1415
+          ]
+        ],
+        "label": "Sí",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          1380
+        ]
+      },
+      {
+        "a": "guardar",
+        "b": "actualizar",
+        "points": [
+          [
+            690.0,
+            1510
+          ],
+          [
+            690.0,
+            1580
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          1545
+        ]
+      },
+      {
+        "a": "actualizar",
+        "b": "respuesta",
+        "points": [
+          [
+            690.0,
+            1675
+          ],
+          [
+            690.0,
+            1745
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          1710
+        ]
+      },
+      {
+        "a": "respuesta",
+        "b": "fin",
+        "points": [
+          [
+            690.0,
+            1840
+          ],
+          [
+            690.0,
+            1910
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          1875
+        ]
+      },
+      {
+        "a": "origen",
+        "b": "error0",
+        "points": [
+          [
+            930,
+            472.5
+          ],
+          [
+            1090,
+            472.5
+          ]
+        ],
+        "label": "No",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": [
+          1010,
+          457
+        ]
+      },
+      {
+        "a": "error0",
+        "b": "datos",
+        "points": [
+          [
+            1420,
+            472.5
+          ],
+          [
+            1460,
+            472.5
+          ],
+          [
+            1460,
+            230
+          ],
+          [
+            690,
+            230
+          ],
+          [
+            690.0,
+            260
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "validar",
+        "b": "error1",
+        "points": [
+          [
+            930,
+            802.5
+          ],
+          [
+            1090,
+            802.5
+          ]
+        ],
+        "label": "No",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": [
+          1010,
+          787
+        ]
+      },
+      {
+        "a": "error1",
+        "b": "datos",
+        "points": [
+          [
+            1420,
+            802.5
+          ],
+          [
+            1500,
+            802.5
+          ],
+          [
+            1500,
+            230
+          ],
+          [
+            690,
+            230
+          ],
+          [
+            690.0,
+            260
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "disponible",
+        "b": "error2",
+        "points": [
+          [
+            930,
+            1132.5
+          ],
+          [
+            1090,
+            1132.5
+          ]
+        ],
+        "label": "No",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": [
+          1010,
+          1117
+        ]
+      },
+      {
+        "a": "error2",
+        "b": "datos",
+        "points": [
+          [
+            1420,
+            1132.5
+          ],
+          [
+            1540,
+            1132.5
+          ],
+          [
+            1540,
+            230
+          ],
+          [
+            690,
+            230
+          ],
+          [
+            690.0,
+            260
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "confirmar",
+        "b": "error3",
+        "points": [
+          [
+            930,
+            1297.5
+          ],
+          [
+            1090,
+            1297.5
+          ]
+        ],
+        "label": "No",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": [
+          1010,
+          1282
+        ]
+      },
+      {
+        "a": "error3",
+        "b": "error3fin",
+        "points": [
+          [
+            1255.0,
+            1345
+          ],
+          [
+            1255.0,
+            1375
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      }
+    ]
+  },
+  {
+    "key": "flujo-check-out",
+    "title": "Check-out y cuenta · CU06",
+    "nodes": {
+      "inicio": {
+        "id": "inicio",
+        "label": "Inicio",
+        "x": 450,
+        "y": 95,
+        "w": 480,
+        "h": 95,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "seleccionar": {
+        "id": "seleccionar",
+        "label": "Seleccionar estadía\ny fecha de salida real",
+        "x": 450,
+        "y": 260,
+        "w": 480,
+        "h": 95,
+        "shape": "input",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "activa": {
+        "id": "activa",
+        "label": "¿Estadía ACTIVA y\nsalida posterior a entrada?",
+        "x": 450,
+        "y": 425,
+        "w": 480,
+        "h": 95,
+        "shape": "diamond",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "pasajeros": {
+        "id": "pasajeros",
+        "label": "Recuperar huéspedes asignados\ny parámetros de cobro",
+        "x": 450,
+        "y": 590,
+        "w": 480,
+        "h": 95,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "regla": {
+        "id": "regla",
+        "label": "¿Regla de cobro y\ntarifa válidas y definidas?",
+        "x": 450,
+        "y": 755,
+        "w": 480,
+        "h": 95,
+        "shape": "diamond",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "cuenta": {
+        "id": "cuenta",
+        "label": "Calcular costo por pasajero\ny total de cuenta · CU07",
+        "x": 450,
+        "y": 920,
+        "w": 480,
+        "h": 95,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "detalle": {
+        "id": "detalle",
+        "label": "Mostrar detalle por huésped,\nperíodo, costos y total",
+        "x": 450,
+        "y": 1085,
+        "w": 480,
+        "h": 95,
+        "shape": "input",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "confirmar": {
+        "id": "confirmar",
+        "label": "¿Confirma la cuenta\ny la salida?",
+        "x": 450,
+        "y": 1250,
+        "w": 480,
+        "h": 95,
+        "shape": "diamond",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "conflicto": {
+        "id": "conflicto",
+        "label": "¿Salida sin conflicto con\nreservas posteriores?",
+        "x": 450,
+        "y": 1415,
+        "w": 480,
+        "h": 95,
+        "shape": "diamond",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "guardar": {
+        "id": "guardar",
+        "label": "Guardar costo de cada pasajero\ny estadía FINALIZADA",
+        "x": 450,
+        "y": 1580,
+        "w": 480,
+        "h": 95,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "liberar": {
+        "id": "liberar",
+        "label": "Cerrar reserva asociada, si existe;\nliberar ocupación de habitación",
+        "x": 450,
+        "y": 1745,
+        "w": 480,
+        "h": 95,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "fin": {
+        "id": "fin",
+        "label": "Fin",
+        "x": 450,
+        "y": 1910,
+        "w": 480,
+        "h": 95,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "error0": {
+        "id": "error0",
+        "label": "Informar estadía\no fecha inválidas",
+        "x": 1090,
+        "y": 425,
+        "w": 330,
+        "h": 95,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "error1": {
+        "id": "error1",
+        "label": "Solicitar definición o\ncorrección del cobro",
+        "x": 1090,
+        "y": 755,
+        "w": 330,
+        "h": 95,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "error2": {
+        "id": "error2",
+        "label": "Mantener estadía ACTIVA",
+        "x": 1090,
+        "y": 1250,
+        "w": 330,
+        "h": 95,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "error2fin": {
+        "id": "error2fin",
+        "label": "Fin sin cambios",
+        "x": 1090,
+        "y": 1375,
+        "w": 330,
+        "h": 70,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "error3": {
+        "id": "error3",
+        "label": "Resolver fecha de salida\ny conflicto de reserva",
+        "x": 1090,
+        "y": 1415,
+        "w": 330,
+        "h": 95,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      }
+    },
+    "edges": [
+      {
+        "a": "inicio",
+        "b": "seleccionar",
+        "points": [
+          [
+            690.0,
+            190
+          ],
+          [
+            690.0,
+            260
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          225
+        ]
+      },
+      {
+        "a": "seleccionar",
+        "b": "activa",
+        "points": [
+          [
+            690.0,
+            355
+          ],
+          [
+            690.0,
+            425
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          390
+        ]
+      },
+      {
+        "a": "activa",
+        "b": "pasajeros",
+        "points": [
+          [
+            690.0,
+            520
+          ],
+          [
+            690.0,
+            590
+          ]
+        ],
+        "label": "Sí",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          555
+        ]
+      },
+      {
+        "a": "pasajeros",
+        "b": "regla",
+        "points": [
+          [
+            690.0,
+            685
+          ],
+          [
+            690.0,
+            755
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          720
+        ]
+      },
+      {
+        "a": "regla",
+        "b": "cuenta",
+        "points": [
+          [
+            690.0,
+            850
+          ],
+          [
+            690.0,
+            920
+          ]
+        ],
+        "label": "Sí",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          885
+        ]
+      },
+      {
+        "a": "cuenta",
+        "b": "detalle",
+        "points": [
+          [
+            690.0,
+            1015
+          ],
+          [
+            690.0,
+            1085
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          1050
+        ]
+      },
+      {
+        "a": "detalle",
+        "b": "confirmar",
+        "points": [
+          [
+            690.0,
+            1180
+          ],
+          [
+            690.0,
+            1250
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          1215
+        ]
+      },
+      {
+        "a": "confirmar",
+        "b": "conflicto",
+        "points": [
+          [
+            690.0,
+            1345
+          ],
+          [
+            690.0,
+            1415
+          ]
+        ],
+        "label": "Sí",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          1380
+        ]
+      },
+      {
+        "a": "conflicto",
+        "b": "guardar",
+        "points": [
+          [
+            690.0,
+            1510
+          ],
+          [
+            690.0,
+            1580
+          ]
+        ],
+        "label": "Sí",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          1545
+        ]
+      },
+      {
+        "a": "guardar",
+        "b": "liberar",
+        "points": [
+          [
+            690.0,
+            1675
+          ],
+          [
+            690.0,
+            1745
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          1710
+        ]
+      },
+      {
+        "a": "liberar",
+        "b": "fin",
+        "points": [
+          [
+            690.0,
+            1840
+          ],
+          [
+            690.0,
+            1910
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          720,
+          1875
+        ]
+      },
+      {
+        "a": "activa",
+        "b": "error0",
+        "points": [
+          [
+            930,
+            472.5
+          ],
+          [
+            1090,
+            472.5
+          ]
+        ],
+        "label": "No",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": [
+          1010,
+          457
+        ]
+      },
+      {
+        "a": "error0",
+        "b": "seleccionar",
+        "points": [
+          [
+            1420,
+            472.5
+          ],
+          [
+            1460,
+            472.5
+          ],
+          [
+            1460,
+            230
+          ],
+          [
+            690,
+            230
+          ],
+          [
+            690.0,
+            260
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "regla",
+        "b": "error1",
+        "points": [
+          [
+            930,
+            802.5
+          ],
+          [
+            1090,
+            802.5
+          ]
+        ],
+        "label": "No",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": [
+          1010,
+          787
+        ]
+      },
+      {
+        "a": "error1",
+        "b": "pasajeros",
+        "points": [
+          [
+            1420,
+            802.5
+          ],
+          [
+            1500,
+            802.5
+          ],
+          [
+            1500,
+            560
+          ],
+          [
+            690,
+            560
+          ],
+          [
+            690.0,
+            590
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "confirmar",
+        "b": "error2",
+        "points": [
+          [
+            930,
+            1297.5
+          ],
+          [
+            1090,
+            1297.5
+          ]
+        ],
+        "label": "No",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": [
+          1010,
+          1282
+        ]
+      },
+      {
+        "a": "error2",
+        "b": "error2fin",
+        "points": [
+          [
+            1255.0,
+            1345
+          ],
+          [
+            1255.0,
+            1375
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "conflicto",
+        "b": "error3",
+        "points": [
+          [
+            930,
+            1462.5
+          ],
+          [
+            1090,
+            1462.5
+          ]
+        ],
+        "label": "No",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": [
+          1010,
+          1447
+        ]
+      },
+      {
+        "a": "error3",
+        "b": "seleccionar",
+        "points": [
+          [
+            1420,
+            1462.5
+          ],
+          [
+            1580,
+            1462.5
+          ],
+          [
+            1580,
+            230
+          ],
+          [
+            690,
+            230
+          ],
+          [
+            690.0,
+            260
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      }
+    ]
+  },
+  {
+    "key": "flujo-gestion-reservas",
+    "title": "Modificar o cancelar reserva · CU11 / CU12",
+    "nodes": {
+      "inicio": {
+        "id": "inicio",
+        "label": "Inicio",
+        "x": 525,
+        "y": 85,
+        "w": 400,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "select": {
+        "id": "select",
+        "label": "Seleccionar reserva",
+        "x": 525,
+        "y": 240,
+        "w": 400,
+        "h": 90,
+        "shape": "input",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "estado": {
+        "id": "estado",
+        "label": "¿Reserva REGISTRADA?",
+        "x": 525,
+        "y": 405,
+        "w": 400,
+        "h": 90,
+        "shape": "diamond",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "op": {
+        "id": "op",
+        "label": "¿Modificar o cancelar?",
+        "x": 525,
+        "y": 580,
+        "w": 400,
+        "h": 90,
+        "shape": "diamond",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "mod": {
+        "id": "mod",
+        "label": "Modificar fechas,\nhabitación o cantidad",
+        "x": 120,
+        "y": 790,
+        "w": 400,
+        "h": 90,
+        "shape": "input",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "disp": {
+        "id": "disp",
+        "label": "Validar datos y disponibilidad",
+        "x": 120,
+        "y": 950,
+        "w": 400,
+        "h": 90,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "ok": {
+        "id": "ok",
+        "label": "¿Cambio válido?",
+        "x": 120,
+        "y": 1110,
+        "w": 400,
+        "h": 90,
+        "shape": "diamond",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "save": {
+        "id": "save",
+        "label": "Guardar cambios",
+        "x": 120,
+        "y": 1340,
+        "w": 400,
+        "h": 90,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "cancel": {
+        "id": "cancel",
+        "label": "Confirmar cancelación",
+        "x": 930,
+        "y": 790,
+        "w": 400,
+        "h": 90,
+        "shape": "diamond",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "canceled": {
+        "id": "canceled",
+        "label": "Marcar CANCELADA;\nliberar disponibilidad",
+        "x": 930,
+        "y": 1030,
+        "w": 400,
+        "h": 90,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "fin": {
+        "id": "fin",
+        "label": "Fin",
+        "x": 525,
+        "y": 1510,
+        "w": 400,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "invalid": {
+        "id": "invalid",
+        "label": "Informar que no se puede\nmodificar ni cancelar",
+        "x": 1060,
+        "y": 400,
+        "w": 400,
+        "h": 90,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      }
+    },
+    "edges": [
+      {
+        "a": "inicio",
+        "b": "select",
+        "points": [
+          [
+            725.0,
+            175
+          ],
+          [
+            725.0,
+            240
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "select",
+        "b": "estado",
+        "points": [
+          [
+            725.0,
+            330
+          ],
+          [
+            725.0,
+            405
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "estado",
+        "b": "op",
+        "points": [
+          [
+            725.0,
+            495
+          ],
+          [
+            725.0,
+            580
+          ]
+        ],
+        "label": "Sí",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "mod",
+        "b": "disp",
+        "points": [
+          [
+            320.0,
+            880
+          ],
+          [
+            320.0,
+            950
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "disp",
+        "b": "ok",
+        "points": [
+          [
+            320.0,
+            1040
+          ],
+          [
+            320.0,
+            1110
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "ok",
+        "b": "save",
+        "points": [
+          [
+            320.0,
+            1200
+          ],
+          [
+            320.0,
+            1340
+          ]
+        ],
+        "label": "Sí",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "estado",
+        "b": "invalid",
+        "points": [
+          [
+            925,
+            450.0
+          ],
+          [
+            1060,
+            445.0
+          ]
+        ],
+        "label": "No",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "invalid",
+        "b": "fin",
+        "points": [
+          [
+            1460,
+            445.0
+          ],
+          [
+            1470,
+            445
+          ],
+          [
+            1470,
+            1555
+          ],
+          [
+            925,
+            1555.0
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          1,
+          0.5
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "op",
+        "b": "mod",
+        "points": [
+          [
+            725.0,
+            670
+          ],
+          [
+            320,
+            710
+          ],
+          [
+            320.0,
+            790
+          ]
+        ],
+        "label": "Modificar",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          340,
+          705
+        ]
+      },
+      {
+        "a": "op",
+        "b": "cancel",
+        "points": [
+          [
+            725.0,
+            670
+          ],
+          [
+            1130,
+            710
+          ],
+          [
+            1130.0,
+            790
+          ]
+        ],
+        "label": "Cancelar",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          1120,
+          705
+        ]
+      },
+      {
+        "a": "ok",
+        "b": "mod",
+        "points": [
+          [
+            120,
+            1155.0
+          ],
+          [
+            65,
+            1155
+          ],
+          [
+            65,
+            835
+          ],
+          [
+            120,
+            835.0
+          ]
+        ],
+        "label": "No: corregir",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0,
+          0.5
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": [
+          180,
+          1040
+        ]
+      },
+      {
+        "a": "save",
+        "b": "fin",
+        "points": [
+          [
+            320.0,
+            1430
+          ],
+          [
+            320,
+            1555
+          ],
+          [
+            525,
+            1555.0
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "cancel",
+        "b": "canceled",
+        "points": [
+          [
+            1130.0,
+            880
+          ],
+          [
+            1130.0,
+            1030
+          ]
+        ],
+        "label": "Sí",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "cancel",
+        "b": "fin",
+        "points": [
+          [
+            1330,
+            835.0
+          ],
+          [
+            1400,
+            835
+          ],
+          [
+            1400,
+            1470
+          ],
+          [
+            725,
+            1470
+          ],
+          [
+            725.0,
+            1510
+          ]
+        ],
+        "label": "No",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          1360,
+          900
+        ]
+      },
+      {
+        "a": "canceled",
+        "b": "fin",
+        "points": [
+          [
+            1130.0,
+            1120
+          ],
+          [
+            1130,
+            1555
+          ],
+          [
+            925,
+            1555.0
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          1,
+          0.5
+        ],
+        "labelpos": null
+      }
+    ]
+  },
+  {
+    "key": "diagrama-de-clases",
+    "title": "Clases de dominio · Duerme Bien",
+    "nodes": {
+      "ROL": {
+        "id": "ROL",
+        "label": "Rol",
+        "x": 75,
+        "y": 110,
+        "w": 490,
+        "h": 154,
+        "shape": "table",
+        "attrs": [
+          "- id: int",
+          "- nombre: String"
+        ],
+        "methods": [
+          "+ permite(operacion: String): bool"
+        ],
+        "fill": "#ffffff"
+      },
+      "USUARIO": {
+        "id": "USUARIO",
+        "label": "Usuario",
+        "x": 800,
+        "y": 110,
+        "w": 490,
+        "h": 266,
+        "shape": "table",
+        "attrs": [
+          "- id: int",
+          "- nombreUsuario: String",
+          "- hashClave: String",
+          "- activo: bool"
+        ],
+        "methods": [
+          "+ iniciarSesion(clave: String): Sesion",
+          "+ asignarRol(rol: Rol): void",
+          "+ desactivar(): void"
+        ],
+        "fill": "#ffffff"
+      },
+      "HABITACION": {
+        "id": "HABITACION",
+        "label": "Habitacion",
+        "x": 1525,
+        "y": 110,
+        "w": 490,
+        "h": 238,
+        "shape": "table",
+        "attrs": [
+          "- id: int",
+          "- numero: String",
+          "- capacidad: int",
+          "- orientacion: String"
+        ],
+        "methods": [
+          "+ disponible(entrada, salida): bool",
+          "+ actualizarDatos(): void"
+        ],
+        "fill": "#ffffff"
+      },
+      "HUESPED": {
+        "id": "HUESPED",
+        "label": "Huesped",
+        "x": 75,
+        "y": 690,
+        "w": 490,
+        "h": 238,
+        "shape": "table",
+        "attrs": [
+          "- id: int",
+          "- identificacion: String",
+          "- nombres: String",
+          "- apellidos: String"
+        ],
+        "methods": [
+          "+ registrar(): void",
+          "+ consultarHistorial(): List<Estadia>"
+        ],
+        "fill": "#ffffff"
+      },
+      "RESERVA": {
+        "id": "RESERVA",
+        "label": "Reserva",
+        "x": 800,
+        "y": 690,
+        "w": 490,
+        "h": 294,
+        "shape": "table",
+        "attrs": [
+          "- id: int",
+          "- entrada: Date",
+          "- salida: Date",
+          "- cantidadPasajeros: int",
+          "- estado: EstadoReserva"
+        ],
+        "methods": [
+          "+ registrar(): void",
+          "+ modificar(): void",
+          "+ cancelar(): void"
+        ],
+        "fill": "#ffffff"
+      },
+      "ESTADIA": {
+        "id": "ESTADIA",
+        "label": "Estadia",
+        "x": 1525,
+        "y": 690,
+        "w": 490,
+        "h": 322,
+        "shape": "table",
+        "attrs": [
+          "- id: int",
+          "- entrada: Date",
+          "- salidaPrevista: Date",
+          "- salidaReal: Date [0..1]",
+          "- estado: EstadoEstadia",
+          "- nochesCobradas: int [0..1]"
+        ],
+        "methods": [
+          "+ registrarCheckIn(): void",
+          "+ calcularCuenta(): Dinero",
+          "+ registrarCheckOut(): void"
+        ],
+        "fill": "#ffffff"
+      },
+      "ESTADIA_HUESPED": {
+        "id": "ESTADIA_HUESPED",
+        "label": "EstadiaHuesped",
+        "x": 800,
+        "y": 1350,
+        "w": 490,
+        "h": 154,
+        "shape": "table",
+        "attrs": [
+          "- tarifaCLP: Dinero [0..1]",
+          "- costoCLP: Dinero [0..1]"
+        ],
+        "methods": [
+          "+ calcularCosto(regla): Dinero"
+        ],
+        "fill": "#ffffff"
+      }
+    },
+    "edges": [
+      {
+        "a": "ROL",
+        "b": "USUARIO",
+        "points": [
+          [
+            565,
+            163.9
+          ],
+          [
+            800,
+            168.52
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "1",
+        "tm": "0..*",
+        "source": [
+          1,
+          0.35
+        ],
+        "target": [
+          0,
+          0.22
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "HABITACION",
+        "b": "ESTADIA",
+        "points": [
+          [
+            1917.0,
+            348
+          ],
+          [
+            1917.0,
+            690
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "1",
+        "tm": "0..*",
+        "source": [
+          0.8,
+          1
+        ],
+        "target": [
+          0.8,
+          0
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "HABITACION",
+        "b": "RESERVA",
+        "points": [
+          [
+            1525,
+            169.5
+          ],
+          [
+            1430,
+            175
+          ],
+          [
+            1430,
+            590
+          ],
+          [
+            1045,
+            590
+          ],
+          [
+            1045.0,
+            690
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "1",
+        "tm": "0..*",
+        "source": [
+          0,
+          0.25
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "HUESPED",
+        "b": "RESERVA",
+        "points": [
+          [
+            565,
+            761.4
+          ],
+          [
+            800,
+            778.2
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "1",
+        "tm": "0..*",
+        "source": [
+          1,
+          0.3
+        ],
+        "target": [
+          0,
+          0.3
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "RESERVA",
+        "b": "ESTADIA",
+        "points": [
+          [
+            1290,
+            895.8
+          ],
+          [
+            1525,
+            915.4
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "0..1",
+        "tm": "0..1",
+        "source": [
+          1,
+          0.7
+        ],
+        "target": [
+          0,
+          0.7
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "HUESPED",
+        "b": "ESTADIA_HUESPED",
+        "points": [
+          [
+            320.0,
+            928
+          ],
+          [
+            320,
+            1480
+          ],
+          [
+            800,
+            1427.0
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "1",
+        "tm": "0..*",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "ESTADIA",
+        "b": "ESTADIA_HUESPED",
+        "points": [
+          [
+            1868.0,
+            1012
+          ],
+          [
+            1868,
+            1480
+          ],
+          [
+            1290,
+            1427.0
+          ]
+        ],
+        "label": "",
+        "kind": "composition",
+        "sm": "1",
+        "tm": "1..*",
+        "source": [
+          0.7,
+          1
+        ],
+        "target": [
+          1,
+          0.5
+        ],
+        "labelpos": null
+      }
+    ]
+  },
+  {
+    "key": "modelo-de-datos",
+    "title": "Modelo lógico de datos · 3FN",
+    "nodes": {
+      "ROL": {
+        "id": "ROL",
+        "label": "ROL",
+        "x": 75,
+        "y": 110,
+        "w": 490,
+        "h": 126,
+        "shape": "table",
+        "attrs": [
+          "PK id_rol : INTEGER",
+          "UQ nombre : VARCHAR(30)"
+        ],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "USUARIO": {
+        "id": "USUARIO",
+        "label": "USUARIO",
+        "x": 800,
+        "y": 110,
+        "w": 490,
+        "h": 210,
+        "shape": "table",
+        "attrs": [
+          "PK id_usuario : INTEGER",
+          "FK id_rol : INTEGER NOT NULL",
+          "UQ nombre_usuario : VARCHAR(50)",
+          "hash_clave : VARCHAR(255)",
+          "activo : BOOLEAN"
+        ],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "HABITACION": {
+        "id": "HABITACION",
+        "label": "HABITACION",
+        "x": 1525,
+        "y": 110,
+        "w": 490,
+        "h": 182,
+        "shape": "table",
+        "attrs": [
+          "PK id_habitacion : INTEGER",
+          "UQ numero : VARCHAR(20)",
+          "capacidad : INTEGER CHECK > 0",
+          "orientacion : VARCHAR(30)"
+        ],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "HUESPED": {
+        "id": "HUESPED",
+        "label": "HUESPED",
+        "x": 75,
+        "y": 690,
+        "w": 490,
+        "h": 182,
+        "shape": "table",
+        "attrs": [
+          "PK id_huesped : INTEGER",
+          "UQ identificacion : VARCHAR(50)",
+          "nombres : VARCHAR(100)",
+          "apellidos : VARCHAR(100)"
+        ],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "RESERVA": {
+        "id": "RESERVA",
+        "label": "RESERVA",
+        "x": 800,
+        "y": 690,
+        "w": 490,
+        "h": 266,
+        "shape": "table",
+        "attrs": [
+          "PK id_reserva : INTEGER",
+          "FK id_huesped_titular : INTEGER",
+          "FK id_habitacion : INTEGER",
+          "fecha_entrada : DATE",
+          "fecha_salida : DATE",
+          "cantidad_pasajeros : INTEGER > 0",
+          "estado : VARCHAR(20)"
+        ],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "ESTADIA": {
+        "id": "ESTADIA",
+        "label": "ESTADIA",
+        "x": 1525,
+        "y": 690,
+        "w": 490,
+        "h": 294,
+        "shape": "table",
+        "attrs": [
+          "PK id_estadia : INTEGER",
+          "FK id_habitacion : INTEGER",
+          "FK/UQ id_reserva : INTEGER NULL",
+          "fecha_entrada : DATE",
+          "fecha_salida_prevista : DATE",
+          "fecha_salida_real : DATE NULL",
+          "estado : VARCHAR(20)",
+          "noches_cobradas : INTEGER NULL > 0"
+        ],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "ESTADIA_HUESPED": {
+        "id": "ESTADIA_HUESPED",
+        "label": "ESTADIA_HUESPED",
+        "x": 800,
+        "y": 1350,
+        "w": 490,
+        "h": 182,
+        "shape": "table",
+        "attrs": [
+          "PK/FK id_estadia : INTEGER",
+          "PK/FK id_huesped : INTEGER",
+          "tarifa_clp : INTEGER NULL >= 0",
+          "costo_clp : INTEGER NULL >= 0"
+        ],
+        "methods": [],
+        "fill": "#ffffff"
+      }
+    },
+    "edges": [
+      {
+        "a": "ROL",
+        "b": "USUARIO",
+        "points": [
+          [
+            565,
+            154.1
+          ],
+          [
+            800,
+            156.2
+          ]
+        ],
+        "label": "",
+        "kind": "er",
+        "sm": "one",
+        "tm": "zeromany",
+        "source": [
+          1,
+          0.35
+        ],
+        "target": [
+          0,
+          0.22
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "HABITACION",
+        "b": "ESTADIA",
+        "points": [
+          [
+            1917.0,
+            292
+          ],
+          [
+            1917.0,
+            690
+          ]
+        ],
+        "label": "",
+        "kind": "er",
+        "sm": "one",
+        "tm": "zeromany",
+        "source": [
+          0.8,
+          1
+        ],
+        "target": [
+          0.8,
+          0
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "HABITACION",
+        "b": "RESERVA",
+        "points": [
+          [
+            1525,
+            155.5
+          ],
+          [
+            1430,
+            175
+          ],
+          [
+            1430,
+            590
+          ],
+          [
+            1045,
+            590
+          ],
+          [
+            1045.0,
+            690
+          ]
+        ],
+        "label": "",
+        "kind": "er",
+        "sm": "one",
+        "tm": "zeromany",
+        "source": [
+          0,
+          0.25
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "HUESPED",
+        "b": "RESERVA",
+        "points": [
+          [
+            565,
+            744.6
+          ],
+          [
+            800,
+            769.8
+          ]
+        ],
+        "label": "",
+        "kind": "er",
+        "sm": "one",
+        "tm": "zeromany",
+        "source": [
+          1,
+          0.3
+        ],
+        "target": [
+          0,
+          0.3
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "RESERVA",
+        "b": "ESTADIA",
+        "points": [
+          [
+            1290,
+            876.2
+          ],
+          [
+            1525,
+            895.8
+          ]
+        ],
+        "label": "",
+        "kind": "er",
+        "sm": "zeroone",
+        "tm": "zeroone",
+        "source": [
+          1,
+          0.7
+        ],
+        "target": [
+          0,
+          0.7
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "HUESPED",
+        "b": "ESTADIA_HUESPED",
+        "points": [
+          [
+            320.0,
+            872
+          ],
+          [
+            320,
+            1480
+          ],
+          [
+            800,
+            1441.0
+          ]
+        ],
+        "label": "",
+        "kind": "er",
+        "sm": "one",
+        "tm": "zeromany",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "ESTADIA",
+        "b": "ESTADIA_HUESPED",
+        "points": [
+          [
+            1868.0,
+            984
+          ],
+          [
+            1868,
+            1480
+          ],
+          [
+            1290,
+            1441.0
+          ]
+        ],
+        "label": "",
+        "kind": "er",
+        "sm": "one",
+        "tm": "onemany",
+        "source": [
+          0.7,
+          1
+        ],
+        "target": [
+          1,
+          0.5
+        ],
+        "labelpos": null
+      }
+    ]
+  }
+]

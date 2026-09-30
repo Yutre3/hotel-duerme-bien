@@ -1,374 +1,512 @@
 # Sistema de Pasajeros de Hotel - Duerme Bien
 
-Luis Huenchul
+Tema 6 · Luis Huenchul
+
+Informe de requerimientos y modelado
 
 ## 1. Introducción
 
 ### 1.1 Propósito
-Definir los requerimientos y el modelado del sistema que reemplazará las planillas Excel del hotel Duerme Bien. El documento sigue las secciones IEEE 830 adaptadas que enumera «Definición de proyectos(2).docx». La plantilla original y la rúbrica no están entre los adjuntos.
+Definir qué debe hacer el sistema que reemplazará las planillas Excel del hotel Duerme Bien y relacionar requerimientos, casos de uso, procesos, datos e interfaces. Se utilizan las secciones IEEE 830 adaptadas enumeradas en el documento de definición de proyectos.
 
 ### 1.2 Alcance
-Registrar habitaciones y huéspedes, asignar habitaciones, controlar ocupación y disponibilidad, calcular costos por pasajero, gestionar perfiles y presentar informes de ocupación y reservas. Se modelan check-in, check-out y reservas. No se incorporan servicios ajenos al tema 6.
+Habitaciones, huéspedes, ocupación y disponibilidad, check-in, check-out, costos por pasajero, reservas, usuarios y los informes de ocupación y reservas. Se conserva el tema 6; no se agregan pagos electrónicos, restaurante, inventario ni otros servicios.
 
 ### 1.3 Público objetivo
-Administrador y encargados del hotel, docente y equipo de desarrollo.
+Administrador y encargados del hotel, equipo de desarrollo y docente.
 
 ### 1.4 Definiciones
-Huésped: pasajero alojado. Habitación: unidad con capacidad y orientación. Reserva: solicitud de alojamiento para fechas futuras. Estadía: registro del alojamiento efectivo. Check-in: inicio de la estadía. Check-out: cierre de la estadía. Mockup: diseño visual. Wireframe: estructura de interfaz. Prototipo: simulación navegable.
+Huésped: pasajero identificado. Reserva: alojamiento previsto para un período. Estadía: alojamiento efectivamente registrado. Participación: vínculo entre una estadía y uno de sus huéspedes. Check-in: ingreso y asignación. Check-out: cálculo de cuenta y cierre. Wireframe: estructura de pantalla. Mockup: diseño visual. Prototipo: interfaz que permite probar el flujo.
 
 ## 2. Descripción general
 
 ### 2.1 Perspectiva del producto
-El sistema centraliza la información hoy registrada en Excel. El material no fija lenguaje, motor de base de datos, infraestructura ni tipo de instalación. Este trabajo presenta el análisis y diseño preliminar.
+El sistema centraliza la información hoy mantenida en Excel. Las habitaciones conservan capacidad y orientación; las reservas y estadías conservan su historial. La disponibilidad se obtiene de los registros vigentes, en lugar de guardar un estado futuro ambiguo en la habitación.
 
 ### 2.2 Funciones generales
-Las funciones se detallan en RF01 a RF09 y se conectan con los casos de uso, clases, modelo de datos y pantallas.
+Registro y edición de habitaciones, registro de huéspedes, consulta de disponibilidad, asignación de huéspedes, cierre de estadías, cálculo individual, reservas, gestión de perfiles e informes.
 
 ### 2.3 Clases de usuario
-Administrador y encargado de hotel, expresamente indicados en el tema 6. Para el diseño se propone que el administrador gestione usuarios y habitaciones e informes, y el encargado atienda huéspedes, estadías y reservas. Esta distribución debe validarse en la toma de requerimientos. El huésped no se representa como usuario directo: el caso no solicita autoservicio.
+El caso identifica Administrador y Encargado. Para este diseño se propone que el Administrador herede las interacciones operativas del Encargado y además administre habitaciones, usuarios e informes. Es una matriz propuesta, no una respuesta real del hotel. En las clases de dominio se representa un Usuario asociado a un Rol; no se duplican las mismas personas en subclases de usuarios.
 
 ### 2.4 Entorno operativo
-La instalación final no está definida. La maqueta local funciona en un navegador y representa únicamente la interfaz. No implementa autenticación real ni una base de datos productiva.
+El prototipo usa HTML, CSS y JavaScript en el navegador, con almacenamiento local. Implementa operaciones y validaciones para demostrar el diseño. La selección de usuario simula una sesión; no autentica identidades reales. El sistema final necesita servidor, base de datos, control transaccional y autenticación segura. El caso no fija motor ni infraestructura.
 
 ### 2.5 Restricciones
-Conservar los perfiles del caso, la capacidad y orientación de habitaciones, los costos por pasajero y los informes. Mantener trazabilidad. Aplicar los símbolos y relaciones UML de los archivos de referencia. Los importes de la maqueta se expresan en pesos chilenos si se ingresa una tarifa de prueba.
+Mantener capacidad, orientación, asignación de pasajeros, cálculo individual, ambos perfiles e informes. No inventar tarifas ni entrevistas reales. Los ejemplos son ficticios y los importes se expresan en CLP.
 
 ### 2.6 Supuestos y dependencias
-La separación entre reserva y estadía y la asignación de una habitación completa son decisiones preliminares de modelado. El caso no aclara si permite habitaciones compartidas, varias habitaciones por reserva ni cambios de habitación durante una estadía. El diseño debe revisarse si esas condiciones cambian.
+Se propone una habitación completa por reserva y estadía; cada estadía identifica a todos sus pasajeros. Los intervalos se interpretan como [entrada, salida): una salida permite otra entrada ese día. Compartir habitación entre estadías, reservas de varias habitaciones, permisos exactos y regla de cobro requieren confirmación. El diseño se ajustará si la entrevista define esas condiciones de otra forma.
 
-## 3. Requisitos específicos preliminares
+## 3. Requerimientos
 
-### 3.1 Requisitos funcionales
+### 3.1 Requerimientos funcionales
+| ID | Requerimiento | Criterio observable |
+| --- | --- | --- |
+| RF01 | Gestionar habitaciones | Registrar número único, capacidad entera positiva y orientación. Editar sin invalidar reservas o estadías vigentes. |
+| RF02 | Registrar e identificar huéspedes | Guardar identificación única, nombres y apellidos; seleccionar huéspedes existentes para evitar duplicarlos. Asociar cada pasajero a su estadía. |
+| RF03 | Consultar ocupación y disponibilidad | Mostrar ocupación actual y habitaciones compatibles con fechas y cantidad de pasajeros. Considerar reservas vigentes y estadías activas. |
+| RF04 | Registrar check-in | Permitir ingreso con o sin reserva. Verificar habitación, intervalo y todos los pasajeros; crear estadía activa y asignaciones individuales. |
+| RF05 | Registrar check-out | Seleccionar estadía activa, revisar la cuenta y confirmar la salida. Conservar historial y liberar ocupación. |
+| RF06 | Calcular costos por pasajero | Obtener huéspedes de la estadía, aplicar la regla de cobro y mostrar cada costo y total. Conservar los resultados individuales. |
+| RF07 | Gestionar usuarios y perfiles | Registrar usuarios, asignar Administrador o Encargado, controlar operaciones por perfil y estado activo. |
+| RF08 | Gestionar reservas | Registrar titular, habitación, fechas y cantidad. Modificar o cancelar sólo reservas registradas; comprobar disponibilidad antes de guardar. |
+| RF09 | Generar informes | Consultar ocupación y reservas para un período; mostrar habitación, fechas, pasajeros y estado; representar también resultados vacíos. |
 
-| ID | Requisito | Comportamiento |
-|---|---|---|
+### 3.2 Requerimientos no funcionales propuestos
+| ID | Criterio | Aceptación |
+| --- | --- | --- |
+| RNF01 | Acceso por perfil | Rechazar una operación restringida aun si se intenta fuera de la navegación visible. |
+| RNF02 | Integridad de datos | Rechazar duplicados, fechas incoherentes, capacidades inválidas y pasajeros no identificados. |
+| RNF03 | Usabilidad | Etiquetas, navegación consistente, detalle de cuenta y mensajes concretos de corrección. |
+| RNF04 | Persistencia | Los datos de demostración sobreviven al recargar el navegador; el sistema final usa almacenamiento central. |
+| RNF05 | Consistencia concurrente | El sistema final confirma disponibilidad y guarda asignación en una transacción. El prototipo local no demuestra concurrencia entre dispositivos. |
+| RNF06 | Trazabilidad y mantenimiento | Conservar un código único por caso de uso y la relación con requerimientos, datos y pantallas. |
 
-| RF01 | Registrar y editar habitaciones | Número, capacidad y orientación. |
+### 3.3 Matriz de permisos propuesta
+| Operación | Encargado | Administrador |
+| --- | --- | --- |
+| Acceso y consulta de disponibilidad | Sí | Sí |
+| Huéspedes, reservas, check-in y check-out | Sí | Sí |
+| Gestión de habitaciones | No | Sí |
+| Gestión de usuarios | No | Sí |
+| Informes de ocupación y reservas | No | Sí |
 
-| RF02 | Registrar huéspedes | Identificar al huésped y asociarlo a una habitación mediante su estadía. |
+## 4. Reglas de negocio
+| ID | Regla | Origen |
+| --- | --- | --- |
+| RN01 | Pasajeros de una estadía <= capacidad de habitación. | Derivada del control de capacidad. |
+| RN02 | No confirmar reservas o estadías con intervalos incompatibles en la misma habitación. | Derivada de disponibilidad. |
+| RN03 | Cada pasajero se registra individualmente en ESTADIA_HUESPED; no se guarda sólo una cantidad. | Derivada de registro y costo por pasajero. |
+| RN04 | Check-out incluye calcular cuenta por pasajero y requiere confirmación antes de cerrar. | Imagen UML del hotel y diseño del proceso. |
+| RN05 | Reserva REGISTRADA pasa a CHECK_IN al ingresar; al salir pasa a FINALIZADA. CANCELADA deja de bloquear disponibilidad. | Estados propuestos para gestionar reservas. |
+| RN06 | Sólo una estadía ACTIVA puede cerrarse. La salida libera ocupación y conserva historial. | Proceso de check-out. |
+| RN07 | Cada usuario tiene un rol válido: Administrador o Encargado. | Perfiles explícitos del tema 6. |
+| RN08 | Un huésped no se asigna a dos estadías activas simultáneas. | Propuesta de integridad de asignación. |
+| RN09 | No borrar reservas canceladas ni estadías finalizadas para liberar una habitación. | Propuesta para conservar los informes históricos. |
 
-| RF03 | Consultar disponibilidad y ocupación | Consultar habitaciones para un intervalo y cantidad de pasajeros. |
-
-| RF04 | Registrar check-in | Asignar una habitación disponible y registrar los pasajeros de la estadía. |
-
-| RF05 | Registrar check-out | Finalizar la estadía y liberar la habitación. Incluir el cálculo de cuenta. |
-
-| RF06 | Calcular costos por pasajero | Calcular y mostrar costos de cada pasajero. La fórmula y tarifa requieren confirmación. |
-
-| RF07 | Gestionar usuarios y perfiles | Distinguir administrador y encargado del hotel. La matriz detallada de permisos es preliminar. |
-
-| RF08 | Registrar y gestionar reservas | Guardar fechas, habitación solicitada y cantidad de pasajeros. |
-
-| RF09 | Generar informes | Mostrar ocupación y reservas con filtros de fecha. |
-
-### 3.2 Requisitos no funcionales propuestos
-
-El documento de definición solicita requisitos no funcionales, pero no establece valores. Los siguientes criterios son propuestas verificables, pendientes de validación con el cliente simulado.
-
-| ID | Requisito propuesto | Criterio de aceptación |
-|---|---|---|
-
-| RNF01 | Acceso según perfil | Un usuario sin permiso no puede ejecutar operaciones restringidas. |
-
-| RNF02 | Integridad | Rechazar capacidades inválidas, fechas incoherentes y asignaciones que excedan capacidad. |
-
-| RNF03 | Usabilidad | Campos etiquetados, navegación consistente y mensajes de corrección en los formularios. |
-
-| RNF04 | Conservación de datos | Los registros guardados siguen disponibles al cerrar y abrir el sistema final. |
-
-| RNF05 | Consistencia de disponibilidad | Dos operaciones concurrentes no confirman la misma habitación para intervalos incompatibles. |
-
-## 4. Reglas de negocio conocidas y derivadas
-
-| ID | Regla | Origen y estado |
-|---|---|---|
-
-| RN01 | La cantidad de pasajeros asignados no debe superar la capacidad de la habitación. | Derivada de capacidad y asignación del tema 6. |
-
-| RN02 | Una habitación no se asigna a estadías simultáneas que superen su disponibilidad. | Derivada del control de ocupación. Propuesta: reservar la habitación completa. |
-
-| RN03 | El check-out termina la estadía y libera la habitación. | Proceso explícito del tema 6. |
-
-| RN04 | El check-out incluye calcular la cuenta. | UML_CASOS_DE_USO_2(2).jpg. |
-
-| RN05 | La disponibilidad futura considera reservas vigentes y estadías registradas. | Derivada de reservas y disponibilidad. |
-
-| RN06 | Los perfiles del sistema son administrador y encargado de hotel. | Funciones explícitas del tema 6. |
-
-### 4.1 Cobro pendiente de definir
-El caso exige cálculo automático por pasajero, pero no indica tarifa ni unidad de cobro. No se fija una fórmula como regla del hotel. Para probar la pantalla se ofrece una simulación opcional: costo por pasajero = tarifa de prueba × noches de prueba. Esta fórmula no constituye un requerimiento confirmado. El modelo almacena el costo calculado de cada pasajero como resultado del cobro.
+### 4.1 Cálculo de costos
+El caso exige cálculo automático por pasajero, pero no entrega tarifa ni unidad de cobro. Para demostrar la operación se ingresa una tarifa ficticia por pasajero y noche. Las noches se calculan a partir de las fechas; costo individual = tarifa de prueba x noches y total = suma de los costos individuales. Se conserva la tarifa aplicada y el costo en cada participación; las noches comunes de la cuenta se guardan una sola vez en ESTADIA. Esto no confirma la política real de cobro. No se agregan impuestos, descuentos ni pagos que no estén en el caso.
 
 ## 5. Toma de requerimientos
-No se ha recibido una entrevista previa ni retroalimentación de la Evaluación 1. El análisis se basa en el caso escrito. Las siguientes preguntas forman el guion de entrevista simulada y quedan pendientes de respuesta.
 
-| ID | Pregunta | Requisito afectado |
-|---|---|---|
+### 5.1 Ejercicio de entrevista simulada
+La actividad solicita entrevista simulada. El siguiente registro organiza preguntas y respuestas sustentadas en el caso escrito; no representa una conversación que haya ocurrido con el hotel. Las respuestas que no constan en el caso quedan pendientes.
+| Pregunta | Respuesta del cliente simulado basada en el caso | Trazabilidad |
+| --- | --- | --- |
+| ¿Qué se quiere reemplazar? | Las planillas Excel usadas para habitaciones y pasajeros. | Propósito |
+| ¿Qué se registra de habitaciones? | Capacidad y orientación; se propone un número único para identificarlas. | RF01 |
+| ¿Qué se controla de los pasajeros? | Su registro y asignación a habitaciones, ocupación y costos. | RF02-RF06 |
+| ¿Qué usuarios existen? | Administrador y encargados del hotel. | RF07 |
+| ¿Qué informes se necesitan? | Ocupación y reservas. | RF09 |
+| ¿Qué tarifa y fórmula utiliza el hotel? | El caso no las define; confirmar antes de implementar el cobro final. | RF06 |
+| ¿Se reserva una habitación completa o camas? | No consta; el diseño propone habitación completa. | RF03, RF08 |
+| ¿Qué permisos exactos tiene cada perfil? | No consta; validar la matriz propuesta. | RF07 |
 
-| P01 | ¿Qué datos identifican de forma única a cada huésped? | RF02 |
+### 5.2 Preguntas pendientes
+| ID | Pregunta | Afecta |
+| --- | --- | --- |
+| P01 | ¿Qué tipo de identificación y datos personales son obligatorios? | RF02 |
+| P02 | ¿Tarifa por noche/día? ¿Puede variar por huésped, habitación o período? | RF06 |
+| P03 | ¿Habitaciones compartidas o una habitación por estadía? | RF03, RF04 |
+| P04 | ¿Varias habitaciones por reserva? | RF08 |
+| P05 | ¿Cambios de habitación durante la estadía? | RF04 |
+| P06 | ¿Permisos definitivos por rol? | RF07 |
+| P07 | ¿Condiciones definitivas para modificar/cancelar y extender salidas? | RF05, RF08 |
+| P08 | ¿Campos y filtros exactos de informes? | RF09 |
+| P09 | ¿Entorno final, respaldo y concurrencia? | RNF04, RNF05 |
+| P10 | ¿Plantilla original, rúbrica y retroalimentación de Evaluación 1? | Evaluación 2 |
 
-| P02 | ¿La tarifa se cobra por noche, día u otra unidad? ¿Cómo se calcula por pasajero? | RF06 |
-
-| P03 | ¿Puede una habitación compartirse entre estadías distintas? | RF03, RF04 |
-
-| P04 | ¿Una reserva puede incluir varias habitaciones? | RF08 |
-
-| P05 | ¿Se permiten cambios de habitación durante la estadía? | RF04 |
-
-| P06 | ¿Qué permisos exactos corresponden a cada perfil? | RF07 |
-
-| P07 | ¿Qué estados y condiciones permiten modificar o cancelar reservas? | RF08 |
-
-| P08 | ¿Qué filtros y campos deben aparecer en los informes? | RF09 |
-
-| P09 | ¿Cuál es el entorno de instalación y cómo se conservarán los datos? | RNF04 |
-
-| P10 | ¿Qué plantilla y rúbrica se utilizarán para la entrega? | Informe |
-
-## 6. Factibilidad inicial
+## 6. Factibilidad
 
 ### 6.1 Técnica
-Las funciones se pueden representar mediante formularios, reglas de validación y una base de datos relacional. El modelo distingue habitaciones, huéspedes, reservas y estadías para conservar el historial. La selección tecnológica requiere conocer infraestructura y entorno. La viabilidad final depende de resolver permisos, cobro y concurrencia.
+El prototipo verifica que los procesos pueden expresarse mediante formularios, reglas y relaciones entre registros. El modelo usa siete entidades relacionales y una tabla de unión para pasajeros. El sistema final requiere transacciones para impedir doble asignación, credenciales seguras y persistencia central. El navegador local permite revisar funcionalidades, pero no sustituye esas capacidades.
 
 ### 6.2 De negocio
-El sistema responde al objetivo de reemplazar planillas y controlar ocupación. La centralización puede reducir registros duplicados y asignaciones incompatibles. No se cuantifican ahorros, costos ni retorno porque no hay datos económicos en el caso.
+La propuesta responde al objetivo de centralizar el registro, evitar duplicados y consultar ocupación y reservas. No se calculan costos de implementación, ahorros ni rentabilidad porque el caso no entrega datos económicos. La factibilidad final depende de validar reglas y entorno con el cliente simulado.
 
-## 7. Modelado UML y de procesos
+## 7. Modelado funcional
 
 ### 7.1 Casos de uso
-Los actores corresponden a roles. Las asociaciones con casos de uso son líneas sin flecha. La relación <<include>> apunta al caso incluido. CU06 incluye CU07, siguiendo la imagen del hotel. CU04 y CU09 incluyen CU05 porque consultar disponibilidad es obligatorio en el diseño propuesto. No se añade <<extend>> artificialmente: el caso no especifica una función opcional que lo justifique.
+Se presentan dos vistas del mismo sistema: operación y administración. CU01-CU12 mantienen el mismo significado en diagramas, especificaciones y trazabilidad. Las asociaciones actor-caso son continuas y sin flecha. Las inclusiones son discontinuas, con flecha hacia el caso incluido. CU04, CU09 y CU11 incluyen consultar disponibilidad; CU06 incluye calcular cuenta. El Administrador especializa al actor Encargado en la matriz propuesta, mediante triángulo hueco hacia Encargado. No se inventa una extensión sólo para mostrar el símbolo extend. El Huésped es una entidad atendida por los encargados, no un usuario directo del sistema en el caso dado.
 
-El archivo diagramas/casos-de-uso.svg contiene los actores fuera del límite del sistema. La autenticación se trata como precondición de las operaciones para evitar saturar el diagrama con inclusiones.
+### CU01 - Iniciar sesión
 
-### 7.2 Especificaciones de casos de uso
+Actor: Administrador y Encargado.
 
-#### CU01 - Iniciar sesión
+Precondiciones: Usuario registrado y activo.
 
-Actor: Administrador y encargado.
+Flujo principal:
+1. Ingresar identificación y credencial.
+2. Validar identidad y estado.
+3. Recuperar rol y permisos.
+4. Abrir sesión y navegación autorizada.
 
-Precondición: Usuario registrado.
+Alternativas y errores:
+A1. Credencial incorrecta o usuario inactivo: rechazar el ingreso y permitir corregir.
 
-Flujo principal: Ingresar credenciales. Validar identidad. Abrir la sesión con el perfil correspondiente.
-
-Alternativa: Credenciales incorrectas: mostrar error y permitir corregir.
-
-Postcondición: Sesión activa.
+Postcondición: Sesión activa con el perfil asignado.
 
 Trazabilidad: RF07.
 
-#### CU02 - Gestionar habitaciones
+Observación: En el prototipo se selecciona un usuario demo; no se implementa la autenticación productiva.
 
-Actor: Administrador (propuesta).
+### CU02 - Gestionar habitaciones
 
-Precondición: Sesión activa con permiso.
+Actor: Administrador.
 
-Flujo principal: Ingresar número, capacidad y orientación. Validar. Guardar habitación o modificación.
+Precondiciones: Sesión con permiso de administración.
 
-Alternativa: Número repetido o capacidad inválida: corregir sin guardar.
+Flujo principal:
+1. Seleccionar registro nuevo o habitación existente.
+2. Ingresar número, capacidad y orientación.
+3. Validar número único y capacidad.
+4. Si es edición, revisar registros vigentes.
+5. Guardar y actualizar el listado.
+
+Alternativas y errores:
+A1. Datos inválidos o número duplicado: corregir.
+A2. Habitación con reserva registrada o estadía activa: no modificar sus características en la propuesta.
 
 Postcondición: Habitación registrada o actualizada.
 
 Trazabilidad: RF01.
 
-#### CU03 - Registrar huésped
+Observación: RF01; la restricción de edición es una propuesta para proteger asignaciones existentes.
 
-Actor: Encargado (propuesta).
+### CU03 - Registrar huéspedes
 
-Precondición: Sesión activa.
+Actor: Encargado; Administrador por herencia de interacciones.
 
-Flujo principal: Ingresar identificación y nombre. Revisar si existe. Guardar registro nuevo o seleccionar el existente.
+Precondiciones: Sesión con permiso.
 
-Alternativa: Datos incompletos: corregir. Registro existente: reutilizar.
+Flujo principal:
+1. Ingresar identificación, nombres y apellidos.
+2. Buscar coincidencia de identificación.
+3. Registrar un nuevo huésped.
+4. Mostrar el registro para seleccionarlo en reserva o check-in.
 
-Postcondición: Huésped identificado.
+Alternativas y errores:
+A1. Identificación ya existente: informar y seleccionar el huésped registrado.
+A2. Datos incompletos: corregir.
+
+Postcondición: Huésped identificado sin duplicación.
 
 Trazabilidad: RF02.
 
-#### CU04 - Registrar check-in
+Observación: El tipo de identificación se valida en la entrevista; no se exige RUT sin evidencia del caso.
 
-Actor: Encargado (propuesta).
+### CU04 - Registrar check-in
 
-Precondición: Sesión activa. Habitación disponible.
+Actor: Encargado; Administrador por herencia de interacciones.
 
-Flujo principal: Seleccionar fechas y pasajeros. Consultar disponibilidad (CU05). Seleccionar habitación. Asociar huéspedes. Guardar estadía activa.
+Precondiciones: Sesión con permiso; huéspedes registrados. Si se usa reserva, debe estar REGISTRADA.
 
-Alternativa: No hay disponibilidad o se supera capacidad: corregir selección sin asignar.
+Flujo principal:
+1. Seleccionar reserva o ingreso directo.
+2. Definir habitación y fechas o recuperar las de la reserva.
+3. Identificar a todos los huéspedes.
+4. Verificar fechas, duplicados y ausencia de otra estadía activa de esos huéspedes.
+5. Incluir CU05: consultar disponibilidad y capacidad.
+6. Confirmar ingreso.
+7. Crear ESTADIA ACTIVA y una participación por huésped.
+8. Si corresponde, pasar reserva a CHECK_IN.
 
-Postcondición: Estadía activa y habitación ocupada.
+Alternativas y errores:
+A1. Reserva cancelada o ya utilizada: seleccionar otra o ingreso directo.
+A2. Faltan pasajeros identificados, fechas inválidas o huésped ya alojado: corregir.
+A3. Capacidad insuficiente o conflicto: elegir otra habitación o intervalo.
+A4. No confirmar: terminar sin guardar.
+
+Postcondición: Estadía activa con sus pasajeros; habitación ocupada.
 
 Trazabilidad: RF02, RF03, RF04.
 
-#### CU05 - Consultar disponibilidad
+Observación: La disponibilidad es una validación del flujo, no una precondición asumida como cierta.
 
-Actor: Encargado (propuesta).
+### CU05 - Consultar disponibilidad
 
-Precondición: Sesión activa.
+Actor: Encargado; Administrador por herencia de interacciones.
 
-Flujo principal: Ingresar intervalo y cantidad de pasajeros. Revisar capacidad, reservas y estadías. Mostrar habitaciones compatibles.
+Precondiciones: Sesión con permiso.
 
-Alternativa: Fechas inválidas: solicitar corrección. Sin resultados: mostrar mensaje.
+Flujo principal:
+1. Ingresar entrada, salida y cantidad.
+2. Validar intervalo y cantidad entera positiva.
+3. Filtrar habitaciones por capacidad.
+4. Excluir reservas REGISTRADAS/CHECK_IN y estadías ACTIVA que se superpongan.
+5. Mostrar habitaciones compatibles.
 
-Postcondición: Listado de disponibilidad.
+Alternativas y errores:
+A1. Fechas inválidas: corregir.
+A2. Sin resultados: mostrar listado vacío y permitir otra consulta.
+
+Postcondición: Disponibilidad consultable para el intervalo.
 
 Trazabilidad: RF03.
 
-#### CU06 - Registrar check-out
+Observación: Puede ejecutarse directamente o como inclusión de CU04, CU09 y CU11.
 
-Actor: Encargado (propuesta).
+### CU06 - Registrar check-out
 
-Precondición: Estadía activa.
+Actor: Encargado; Administrador por herencia de interacciones.
 
-Flujo principal: Seleccionar estadía. Revisar pasajeros. Ejecutar Calcular cuenta (CU07). Confirmar salida. Finalizar estadía y liberar habitación.
+Precondiciones: Sesión con permiso y estadía ACTIVA.
 
-Alternativa: Tarifa o regla de cobro sin definir: impedir confirmar cuenta y solicitar definición.
+Flujo principal:
+1. Seleccionar estadía y salida real.
+2. Recuperar todos sus pasajeros.
+3. Incluir CU07: calcular cuenta individual y total.
+4. Mostrar detalle de cuenta.
+5. Confirmar cuenta y salida.
+6. Revisar posibles conflictos al extender la salida.
+7. Guardar costos individuales y salida real.
+8. Pasar estadía y reserva asociada a FINALIZADA.
+9. Liberar ocupación de habitación.
 
-Postcondición: Estadía finalizada y habitación liberada.
+Alternativas y errores:
+A1. Estadía no activa o salida inválida: rechazar.
+A2. Regla o tarifa sin definir: solicitar definición antes de cerrar.
+A3. No confirmar: conservar estadía activa.
+A4. Extensión de salida con conflicto: resolverlo antes de guardar.
+
+Postcondición: Estadía finalizada, cuenta conservada y habitación liberada.
 
 Trazabilidad: RF05, RF06.
 
-#### CU07 - Calcular cuenta
+Observación: La liberación no elimina reservas futuras ni historial.
 
-Actor: Incluido en CU06.
+### CU07 - Calcular cuenta por pasajero
 
-Precondición: Estadía identificada y regla de cobro definida.
+Actor: Invocado por CU06.
 
-Flujo principal: Obtener pasajeros y datos de cobro. Aplicar regla aprobada por el hotel. Mostrar costo por pasajero y total.
+Precondiciones: Estadía activa, pasajeros identificados y regla de cobro definida.
 
-Alternativa: Regla o tarifa faltante: informar que no se puede calcular.
+Flujo principal:
+1. Recuperar período y pasajeros.
+2. Obtener parámetros de la regla aprobada.
+3. Calcular costo de cada pasajero.
+4. Sumar los costos para obtener total.
+5. Presentar el detalle para revisión.
 
-Postcondición: Costos calculados y visibles.
+Alternativas y errores:
+A1. Regla, tarifa o período inválido: no producir una cuenta confirmable.
+A2. Importe fuera del rango admitido: rechazar el cálculo.
+
+Postcondición: Cuenta calculada, sin finalizar todavía la estadía.
 
 Trazabilidad: RF06.
 
-#### CU08 - Gestionar usuarios
+Observación: En la demostración: noches = salida - entrada; costo individual = tarifa de prueba x noches. El caso no confirma esta fórmula.
 
-Actor: Administrador (propuesta).
+### CU08 - Gestionar usuarios
 
-Precondición: Sesión con permiso administrativo.
+Actor: Administrador.
 
-Flujo principal: Registrar usuario. Asignar perfil administrador o encargado. Guardar cambios.
+Precondiciones: Sesión con permiso administrativo.
 
-Alternativa: Usuario duplicado o perfil inválido: corregir.
+Flujo principal:
+1. Seleccionar nuevo usuario o existente.
+2. Ingresar nombre de usuario.
+3. Asignar rol Administrador o Encargado.
+4. Indicar estado activo en edición.
+5. Validar y guardar.
 
-Postcondición: Usuario con perfil asignado.
+Alternativas y errores:
+A1. Nombre duplicado o rol inexistente: corregir.
+A2. Cambio del propio rol/estado durante sesión: rechazar en la propuesta.
+
+Postcondición: Usuario guardado con un rol válido.
 
 Trazabilidad: RF07.
 
-#### CU09 - Gestionar reservas
+Observación: Las credenciales seguras pertenecen a la implementación final; el prototipo usa usuarios demo.
 
-Actor: Encargado (propuesta).
+### CU09 - Registrar reserva
 
-Precondición: Sesión activa.
+Actor: Encargado; Administrador por herencia de interacciones.
 
-Flujo principal: Ingresar huésped titular, fechas y pasajeros. Consultar disponibilidad (CU05). Seleccionar habitación. Guardar reserva.
+Precondiciones: Sesión con permiso y titular registrado.
 
-Alternativa: Fechas inválidas, capacidad excedida o conflicto: corregir antes de guardar.
+Flujo principal:
+1. Seleccionar titular y habitación.
+2. Ingresar entrada, salida y cantidad.
+3. Validar datos.
+4. Incluir CU05 para fechas y capacidad.
+5. Confirmar.
+6. Guardar reserva REGISTRADA y mostrar su número.
 
-Postcondición: Reserva registrada.
+Alternativas y errores:
+A1. Fecha, cantidad o titular inválidos: corregir.
+A2. Conflicto de disponibilidad: cambiar selección.
+A3. No confirmar: no crear reserva.
 
-Trazabilidad: RF08, RF03.
+Postcondición: Reserva registrada; ocupación actual de habitación no cambia.
 
-#### CU10 - Generar informes
+Trazabilidad: RF03, RF08.
 
-Actor: Administrador (propuesta).
+Observación: La reserva bloquea el intervalo futuro, no marca la habitación como ocupada físicamente.
 
-Precondición: Sesión con permiso.
+### CU10 - Generar informes
 
-Flujo principal: Seleccionar ocupación o reservas. Indicar fechas. Consultar datos y presentar resultados.
+Actor: Administrador.
 
-Alternativa: Sin registros: mostrar informe vacío con mensaje.
+Precondiciones: Sesión con permiso y período válido.
 
-Postcondición: Informe consultable.
+Flujo principal:
+1. Seleccionar fechas desde/hasta.
+2. Consultar estadías que intersectan el período.
+3. Mostrar informe de ocupación con pasajeros y estados.
+4. Consultar reservas que intersectan el período.
+5. Mostrar titular, habitación, fechas y estado.
+
+Alternativas y errores:
+A1. Período inválido: corregir.
+A2. Sin datos: mostrar informe vacío, no un error.
+
+Postcondición: Informes visibles para el período.
 
 Trazabilidad: RF09.
 
-### 7.3 Flujos
-Los tres procesos se documentan por separado: check-in, check-out y reserva. Se usan inicio/fin, entrada de datos, decisiones y acciones, tomando como referencia diagrama_de_procesos(2).jpg. Los errores de entrada vuelven a la captura. Los conflictos de disponibilidad permiten corregir o terminar sin guardar.
+Observación: Las reservas CANCELADAS se conservan en el informe histórico con su estado.
 
-### 7.4 Clases
-Cada clase muestra nombre, atributos y operaciones. Los atributos privados llevan «-» y los métodos públicos «+». Administrador y Encargado especializan Usuario mediante generalización, sin cardinalidad en la herencia. Estadia se asocia con Habitacion y compone sus registros EstadiaHuesped. Cada registro vincula un Huesped y conserva su costo calculado. La relación es de composición con Estadia, no con Huesped, porque un huésped existe independientemente de una estadía.
+### CU11 - Modificar reserva
 
-## 8. Modelo de datos y normalización
+Actor: Encargado; Administrador por herencia de interacciones.
 
-### 8.1 Entidades
-ROL: id_rol (PK), nombre (único). USUARIO: id_usuario (PK), id_rol (FK), nombre_usuario (único), hash_clave. HABITACION: id_habitacion (PK), numero (único), capacidad, orientacion. HUESPED: id_huesped (PK), identificacion (único, pendiente de confirmar tipo), nombres, apellidos. RESERVA: id_reserva (PK), id_huesped_titular (FK), id_habitacion (FK), fecha_entrada, fecha_salida, cantidad_pasajeros, estado. ESTADIA: id_estadia (PK), id_habitacion (FK), id_reserva (FK opcional y única), fecha_entrada, fecha_salida_prevista, fecha_salida_real (opcional), estado. ESTADIA_HUESPED: id_estadia (PK/FK), id_huesped (PK/FK), costo_calculado_clp (opcional hasta calcular).
+Precondiciones: Sesión con permiso y reserva REGISTRADA.
 
-### 8.2 Cardinalidades
-Un rol agrupa cero o muchos usuarios y cada usuario tiene un rol. Una habitación tiene cero o muchas reservas y estadías a lo largo del tiempo. Cada reserva y estadía tiene una habitación en este diseño preliminar. Un huésped puede ser titular de varias reservas. Una reserva puede originar cero o una estadía y una estadía puede no provenir de reserva. Una estadía activa tiene uno o más pasajeros y un huésped puede tener muchas estadías mediante ESTADIA_HUESPED. Una clave foránea por sí sola no evita superposición de fechas: esa regla requiere validación transaccional en el sistema final.
+Flujo principal:
+1. Seleccionar reserva.
+2. Cambiar habitación, titular, fechas o cantidad.
+3. Validar campos.
+4. Incluir CU05 excluyendo la propia reserva del conflicto.
+5. Confirmar y guardar cambios.
 
-### 8.3 Primera forma normal
-Cada campo representa un valor. Los huéspedes no se almacenan como una lista dentro de una habitación o estadía. Nombres y apellidos se separan según el enfoque del material de normalización.
+Alternativas y errores:
+A1. Reserva en otro estado: impedir modificación.
+A2. Capacidad o disponibilidad incompatibles: corregir sin perder la reserva original.
+A3. No confirmar: conservar valores originales.
 
-### 8.4 Segunda forma normal
-En ESTADIA_HUESPED el costo calculado depende de la participación de un huésped en una estadía, es decir, de la clave compuesta completa. Los datos personales dependen de HUESPED y las fechas de ESTADIA.
+Postcondición: Reserva actualizada y todavía REGISTRADA.
 
-### 8.5 Tercera forma normal
-El nombre del rol permanece en ROL y se referencia por su clave. La capacidad y orientación permanecen en HABITACION. Los datos del huésped no se copian en las reservas o estadías. El total de cuenta y la disponibilidad se derivan para evitar duplicación. El costo por participación es un resultado histórico, no una tarifa general duplicada.
+Trazabilidad: RF03, RF08.
 
-## 9. Wireframes, mockups y prototipo
+Observación: No se modifica una reserva ya usada para check-in.
 
-La estructura de pantallas mantiene acceso, disponibilidad, habitaciones, huéspedes, reservas, check-in, check-out, informes y usuarios. Las vistas siguen la distinción del documento MOCKUP_COMPLETO: wireframe en escala de grises, mockup con estilo y prototipo navegable.
+### CU12 - Cancelar reserva
 
-mockups/index.html permite navegar entre pantallas y alternar la vista de wireframe. Los datos de ejemplo son ficticios y están identificados. El cálculo de cuenta usa exclusivamente una tarifa de prueba ingresada por el usuario. La maqueta no guarda información real ni representa un sistema final.
+Actor: Encargado; Administrador por herencia de interacciones.
 
-### 9.1 Plataformas del material
-MOCKUP_COMPLETO(2).pdf, página 16, menciona Cacoo para diagramas y wireframes. Las páginas 25-26 mencionan Justinmind, Axure, Balsamiq y MockFlow, entre otras. La página 25 también permite realizar un prototipo con HTML/CSS. El material no obliga a una sola plataforma. No se presenta una creación local como si se hubiera guardado en Cacoo. El editor de Cacoo requiere acceso a una cuenta para completar esa parte online.
+Precondiciones: Sesión con permiso y reserva REGISTRADA.
 
-## 10. Planificación inicial
-El tablero Kanban incluye Por hacer, En curso, En revisión y Terminado. Los artefactos preparados quedan En revisión, porque faltan la validación del caso y la rúbrica. Las preguntas pendientes y el guardado en las plataformas quedan Por hacer. No se inventan integrantes, plazos ni aprobaciones.
+Flujo principal:
+1. Seleccionar reserva.
+2. Solicitar cancelación.
+3. Confirmar la decisión.
+4. Marcar CANCELADA.
+5. Liberar su bloqueo de disponibilidad sin borrar historial.
+
+Alternativas y errores:
+A1. Reserva en otro estado: impedir cancelación.
+A2. No confirmar: conservar reserva registrada.
+
+Postcondición: Reserva cancelada, conservada en el historial.
+
+Trazabilidad: RF08.
+
+Observación: La cancelación no se modela como extend obligatorio ni como borrado de datos.
+
+### 7.2 Procesos
+Los flujos muestran inicio/fin, entradas/salidas, acciones, decisiones con salidas etiquetadas, retornos por error y finalización sin cambios. Se separan registrar reserva, check-in, check-out y modificar/cancelar reserva. Cada decisión tiene dos salidas. Cancelar una operación conserva el registro original; cancelar una reserva cambia su estado, no borra su historial.
+
+## 8. Clases y modelo de datos
+
+### 8.1 Clases de dominio
+Rol, Usuario, Habitacion, Huesped, Reserva, Estadia y EstadiaHuesped muestran nombre, atributos privados y operaciones públicas con tipos. Usuario se asocia a Rol. Estadia compone sus participaciones EstadiaHuesped; el rombo sólido se ubica en Estadia. Huesped existe independientemente de una participación. Las multiplicidades se indican en cada extremo, no como una etiqueta ambigua en el centro. Los actores Administrador/Encargado representan interacciones; los registros de usuarios se almacenan mediante Usuario y Rol.
+
+### 8.2 Diccionario y claves
+| Entidad | Clave primaria | Referencias y unicidad | Uso |
+| --- | --- | --- | --- |
+| ROL | id_rol | nombre único | Administrador o Encargado. |
+| USUARIO | id_usuario | id_rol -> ROL; nombre_usuario único | Perfil, estado y credencial del sistema final. |
+| HABITACION | id_habitacion | numero único | Capacidad positiva y orientación. |
+| HUESPED | id_huesped | identificacion única | Identidad, nombres y apellidos. |
+| RESERVA | id_reserva | id_habitacion -> HABITACION; id_huesped_titular -> HUESPED | Fechas, cantidad y estado. |
+| ESTADIA | id_estadia | id_habitacion -> HABITACION; id_reserva opcional y único -> RESERVA | Fechas reales/previstas, estado y noches cobradas. |
+| ESTADIA_HUESPED | (id_estadia, id_huesped) | id_estadia -> ESTADIA; id_huesped -> HUESPED | Cada pasajero; tarifa aplicada y costo histórico. |
+
+### 8.3 Cardinalidades y restricciones
+| Relación | Cardinalidad | Interpretación |
+| --- | --- | --- |
+| ROL - USUARIO | 1 : 0..* | Un usuario tiene exactamente un rol; un rol puede no tener usuarios. |
+| HABITACION - RESERVA | 1 : 0..* | Una reserva tiene una habitación; una habitación tiene muchas reservas en el tiempo. |
+| HABITACION - ESTADIA | 1 : 0..* | Una estadía tiene una habitación; una habitación conserva distintas estadías históricas. |
+| HUESPED - RESERVA | 1 : 0..* | Una reserva tiene un titular; un huésped puede titularizar varias reservas. |
+| RESERVA - ESTADIA | 0..1 : 0..1 | Una reserva origina como máximo una estadía; puede existir estadía sin reserva. |
+| ESTADIA - ESTADIA_HUESPED | 1 : 1..* | Cada estadía registrada tiene uno o más pasajeros. |
+| HUESPED - ESTADIA_HUESPED | 1 : 0..* | Cada participación identifica un huésped; el huésped puede alojarse varias veces. |
+
+El modelo lógico usa notación pata de cuervo, claves PK/FK/UQ y tipos de datos propuestos. NULL identifica información todavía no definida: reserva de origen de un ingreso directo, salida real de una estadía activa y resultados de cobro antes de cerrar. El resto de los campos de identificación y referencias obligatorias debe ser NOT NULL. Las fechas deben respetar salida > entrada; capacidad y cantidad son enteros positivos. La pareja de ESTADIA_HUESPED es única. Capacidad, superposición y mínimo de un pasajero requieren validación conjunta/transaccional: una FK aislada no garantiza esas reglas.
+
+### 8.4 Normalización
+
+Primera forma normal: cada celda almacena un valor. Los pasajeros de una estadía no se guardan en una lista dentro de HABITACION; cada participación es una fila de ESTADIA_HUESPED.
+
+Segunda forma normal: las tablas de identificación tienen claves simples. En la tabla de unión, los datos personales dependen de id_huesped y se mantienen en HUESPED; fechas y noches comunes dependen de id_estadia y se mantienen en ESTADIA. La tarifa aplicada y el costo histórico se vinculan a la participación completa.
+
+Tercera forma normal: nombre del rol está en ROL; capacidad y orientación están en HABITACION; nombres del titular están en HUESPED. Esos datos no se repiten en RESERVA o ESTADIA. La ocupación y el total de cuenta se derivan, en lugar de duplicarlos como fuentes de verdad. El costo individual se conserva como resultado histórico de una regla de cobro aplicada; la tarifa de referencia no es una tabla de precios del hotel. La regla real podría requerir otra estructura una vez validada.
+
+## 9. Sketch, wireframes, mockups y prototipo
+
+Sketch: distribución inicial de cabecera, navegación, indicadores, formulario y resultados. Wireframes: nueve pantallas con campos, controles, listados y acciones sin depender del estilo visual. Mockups: las mismas nueve pantallas con identidad gráfica y ejemplos de datos. Prototipo: navegación y operaciones con persistencia local y validaciones del modelo.
+| Pantalla | Datos y acciones principales | Casos de uso |
+| --- | --- | --- |
+| Acceso | Selección de usuario demo y perfil asignado. | CU01 |
+| Disponibilidad | Fechas, cantidad, capacidad y habitaciones compatibles; ocupación actual. | CU05 |
+| Habitaciones | Número, capacidad, orientación; registrar y editar. | CU02 |
+| Huéspedes | Identificación, nombres y apellidos; registro y selección posterior. | CU03 |
+| Reservas | Titular, habitación, fechas, cantidad; registrar, modificar, cancelar. | CU09, CU11, CU12 |
+| Check-in | Reserva o ingreso directo; habitación, fechas y cada pasajero. | CU04 |
+| Check-out | Estadía, salida, tarifa ficticia, cálculo individual, total y confirmación. | CU06, CU07 |
+| Informes | Período, ocupación y reservas con estados. | CU10 |
+| Usuarios | Nombre único, perfil y estado; registrar y editar. | CU08 |
+
+### 9.1 Archivos editables
+Los diagramas y todas las vistas de interfaz tienen archivos nativos .drawio con figuras, textos y conectores unidos a los elementos; no son imágenes pegadas en un lienzo. La galería permite abrir cada archivo directamente en diagrams.net. interfaces.drawio reúne sketch y las dieciocho vistas de wireframe/mockup. Los enlaces de edición de código usan github.dev. El material de mockups menciona distintas plataformas, incluido Cacoo, Balsamiq y prototipos HTML/CSS. Se conserva diagrams.net porque es el formato del repositorio de referencia. No se afirma haber creado proyectos en plataformas distintas.
+
+### 9.2 Alcance implementado
+El prototipo registra y edita habitaciones, identifica huéspedes, gestiona reservas, realiza check-in con o sin reserva, registra cada pasajero, calcula noches a partir de fechas y conserva costos individuales al salir. Controla las operaciones por rol demo y genera informes por período. No implementa autenticación productiva, servidor, base de datos central ni exclusión concurrente entre dispositivos. Estas diferencias se mantienen visibles en la documentación para no presentar una maqueta como un sistema instalado en el hotel.
+
+## 10. Planificación Kanban
+
+El tablero conserva tareas técnicas terminadas, artefactos en revisión y decisiones pendientes. Terminar la implementación no equivale a aprobación del docente. No se inventan integrantes ni plazos. Las decisiones sobre identificación, cobro, permisos, habitación compartida y entorno permanecen por validar; la rúbrica y retroalimentación no fueron recibidas.
 
 ## 11. Trazabilidad
+| RF | Casos de uso | Clases/entidades | Pantallas |
+| --- | --- | --- | --- |
+| RF01 | CU02 | Habitacion | habitaciones |
+| RF02 | CU03, CU04 | Huesped, EstadiaHuesped | huespedes, checkin |
+| RF03 | CU05 | Habitacion, Reserva, Estadia | disponibilidad |
+| RF04 | CU04 | Estadia, EstadiaHuesped | checkin |
+| RF05 | CU06, CU07 | Estadia, EstadiaHuesped | checkout |
+| RF06 | CU07 | EstadiaHuesped | checkout |
+| RF07 | CU01, CU08 | Usuario, Rol | acceso, usuarios |
+| RF08 | CU09, CU11, CU12 | Reserva, Habitacion, Huesped | reservas |
+| RF09 | CU10 | Reserva, Estadia, Habitacion | informes |
 
-| Requisito | Caso de uso | Clases o entidades | Pantalla |
-|---|---|---|---|
-
-| RF01 | CU02 | Habitacion | Habitaciones |
-
-| RF02 | CU03, CU04 | Huesped, EstadiaHuesped | Huéspedes, Check-in |
-
-| RF03 | CU05 | Habitacion, Reserva, Estadia | Disponibilidad |
-
-| RF04 | CU04 | Estadia, EstadiaHuesped | Check-in |
-
-| RF05 | CU06, CU07 | Estadia, EstadiaHuesped | Check-out |
-
-| RF06 | CU07 | EstadiaHuesped | Check-out |
-
-| RF07 | CU01, CU08 | Usuario, Rol | Usuarios, Acceso |
-
-| RF08 | CU09 | Reserva | Reservas |
-
-| RF09 | CU10 | Reserva, Estadia, Habitacion | Informes |
+### 11.1 Verificación
+Las pruebas del motor comprueban acceso restringido, duplicados, capacidad, fechas, solapamiento, intervalos contiguos, modificación/cancelación de reservas, identificación de todos los pasajeros, check-in directo, repetición de operaciones, costos por huésped, liberación de ocupación e informes por fechas. La revisión del modelado comprueba códigos de casos, cobertura de requisitos, conectores, decisiones y cardinalidades. Las pruebas técnicas no reemplazan la aprobación académica ni la validación de reglas del hotel.
 
 ## 12. Referencias
 
-1. Definición de proyectos(2).docx: tema 6 y esquema de entregables UA1, Evaluaciones 1 y 2.
+Materiales del profesor utilizados: Definición de proyectos(2).docx; UML_CASOS_DE_USO_2(2).jpg; UML_CASOS_DE_USO(2).jpg; CASOS_DE_USO_como_iniciar(2).pdf; CASOS_DE_USO_extend_y_include(2).pdf; diagrama_de_procesos(2).jpg; Diagramas de Clase(2).pdf; GUIA_diagramas_de_clase(2).pdf; MODELO_E_R_NORMALIZACION(1).pdf; MOCKUP_COMPLETO(2).pdf; Github_Git_VSCode(1).docx. Se conservan los originales en fuentes/.
 
-2. UML_CASOS_DE_USO_2(2).jpg: ejemplo hotel, check-out incluye calcular cuenta.
+Referencias técnicas de notación y diseño consultadas para la revisión:
+1. OMG. UML 2.5.1: https://www.omg.org/spec/UML/2.5.1
+2. draw.io. Clases UML: https://www.drawio.com/docs/diagram-types/uml/class-diagrams/
+3. draw.io. Modelo entidad-relación: https://www.drawio.com/docs/diagram-types/entity-relationship-tables/
+4. Balsamiq. Wireframes: https://balsamiq.com/blog/what-are-wireframes/
+5. Referencia de organización y prototipo inicial: https://github.com/Yutre3/diego
 
-3. UML_CASOS_DE_USO(2).jpg: ejemplo de actores, límite y relaciones de inclusión/extensión.
-
-4. CASOS_DE_USO_como_iniciar(2).pdf: actores, casos de uso, flechas y límites.
-
-5. CASOS_DE_USO_extend_y_include(2).pdf: inclusión obligatoria, extensión condicional y uso moderado.
-
-6. diagrama_de_procesos(2).jpg: captura, validación y retorno por error.
-
-7. Diagramas de Clase(2).pdf y GUIA_diagramas_de_clase(2).pdf: atributos, métodos, visibilidad y relaciones. El ejercicio de empleados se usa como referencia técnica, sin incorporar sus funcionalidades al hotel.
-
-8. MODELO_E_R_NORMALIZACION(1).pdf: 1FN, 2FN y 3FN.
-
-9. MOCKUP_COMPLETO(2).pdf: wireframes, mockups, prototipos y herramientas.
-
-10. Github_Git_VSCode(1).docx: repositorio, control de versiones y colaboración.
-
-### Enlaces contenidos en las fuentes
-Cacoo: https://cacoo.com/
-MockFlow: http://www.mockflow.com/
-Justinmind: http://www.justinmind.com/
-Axure: http://www.axure.com/
-Balsamiq: http://balsamiq.com/products/mockups/
-GitHub: https://github.com
-Git: https://git-scm.com/downloads
-
-### Material no recibido
-No hay archivos PPT/PPTX, videos ni enlaces a videos entre los 11 adjuntos. Los PDFs sirven como material de clase. No se atribuyen al profesor criterios de una rúbrica no proporcionada ni resultados de una entrevista no realizada.
+Estas referencias aportan notación y técnicas, no funciones nuevas del negocio. El alcance proviene del tema 6. No se recibieron rúbrica, plantilla IEEE original, PPT/PPTX ni videos; no se simula haberlos consultado.

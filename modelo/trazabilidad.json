@@ -1,0 +1,74 @@
+[
+  {
+    "id": "RF01",
+    "nombre": "Gestionar habitaciones",
+    "criterio": "Registrar número único, capacidad entera positiva y orientación. Editar sin invalidar reservas o estadías vigentes.",
+    "casos": "CU02",
+    "entidades": "Habitacion",
+    "pantallas": "habitaciones"
+  },
+  {
+    "id": "RF02",
+    "nombre": "Registrar e identificar huéspedes",
+    "criterio": "Guardar identificación única, nombres y apellidos; seleccionar huéspedes existentes para evitar duplicarlos. Asociar cada pasajero a su estadía.",
+    "casos": "CU03, CU04",
+    "entidades": "Huesped, EstadiaHuesped",
+    "pantallas": "huespedes, checkin"
+  },
+  {
+    "id": "RF03",
+    "nombre": "Consultar ocupación y disponibilidad",
+    "criterio": "Mostrar ocupación actual y habitaciones compatibles con fechas y cantidad de pasajeros. Considerar reservas vigentes y estadías activas.",
+    "casos": "CU05",
+    "entidades": "Habitacion, Reserva, Estadia",
+    "pantallas": "disponibilidad"
+  },
+  {
+    "id": "RF04",
+    "nombre": "Registrar check-in",
+    "criterio": "Permitir ingreso con o sin reserva. Verificar habitación, intervalo y todos los pasajeros; crear estadía activa y asignaciones individuales.",
+    "casos": "CU04",
+    "entidades": "Estadia, EstadiaHuesped",
+    "pantallas": "checkin"
+  },
+  {
+    "id": "RF05",
+    "nombre": "Registrar check-out",
+    "criterio": "Seleccionar estadía activa, revisar la cuenta y confirmar la salida. Conservar historial y liberar ocupación.",
+    "casos": "CU06, CU07",
+    "entidades": "Estadia, EstadiaHuesped",
+    "pantallas": "checkout"
+  },
+  {
+    "id": "RF06",
+    "nombre": "Calcular costos por pasajero",
+    "criterio": "Obtener huéspedes de la estadía, aplicar la regla de cobro y mostrar cada costo y total. Conservar los resultados individuales.",
+    "casos": "CU07",
+    "entidades": "EstadiaHuesped",
+    "pantallas": "checkout"
+  },
+  {
+    "id": "RF07",
+    "nombre": "Gestionar usuarios y perfiles",
+    "criterio": "Registrar usuarios, asignar Administrador o Encargado, controlar operaciones por perfil y estado activo.",
+    "casos": "CU01, CU08",
+    "entidades": "Usuario, Rol",
+    "pantallas": "acceso, usuarios"
+  },
+  {
+    "id": "RF08",
+    "nombre": "Gestionar reservas",
+    "criterio": "Registrar titular, habitación, fechas y cantidad. Modificar o cancelar sólo reservas registradas; comprobar disponibilidad antes de guardar.",
+    "casos": "CU09, CU11, CU12",
+    "entidades": "Reserva, Habitacion, Huesped",
+    "pantallas": "reservas"
+  },
+  {
+    "id": "RF09",
+    "nombre": "Generar informes",
+    "criterio": "Consultar ocupación y reservas para un período; mostrar habitación, fechas, pasajeros y estado; representar también resultados vacíos.",
+    "casos": "CU10",
+    "entidades": "Reserva, Estadia, Habitacion",
+    "pantallas": "informes"
+  }
+]
