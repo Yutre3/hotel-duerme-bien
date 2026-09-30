@@ -2,84 +2,68 @@
 
 **Tema 6 · Luis Huenchul**
 
-**[VER TODOS LOS ENTREGABLES](https://yutre3.github.io/hotel-duerme-bien/)** · **[ABRIR PROTOTIPO FUNCIONAL](https://yutre3.github.io/hotel-duerme-bien/prototipo/)**
+[Ver entrega](https://yutre3.github.io/hotel-duerme-bien/) · [Abrir prototipo](https://yutre3.github.io/hotel-duerme-bien/prototipo/)
 
-## Informe de requerimientos y modelado
+## Entrega
 
-[Informe PDF con diagramas](informe/informe-con-diagramas.pdf) · [Informe editable](informe/requerimientos-y-modelado.md)
+### 1. Informe de requerimientos
 
-Incluye introducción, descripción general, requerimientos preliminares, reglas de negocio, toma de requerimientos, factibilidad, casos de uso, normalización y trazabilidad.
+[Ver PDF](informe/informe-con-diagramas.pdf) · [Ver informe editable](informe/requerimientos-y-modelado.md)
 
-## Casos de uso
+### 2. Casos de uso
 
 ![Casos de uso](diagramas/casos-de-uso.svg)
 
-[PDF](diagramas/casos-de-uso.pdf) · [Archivo editable](diagramas-editables/casos-de-uso.drawio) · [Abrir editor](https://app.diagrams.net/?mode=github#HYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fcasos-de-uso.drawio)
+[Ver imagen](diagramas/casos-de-uso.svg) · [PDF](diagramas/casos-de-uso.pdf) · [Editar en diagrams.net](https://app.diagrams.net/?mode=github#HYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fcasos-de-uso.drawio)
 
-## Procesos
+### 3. Flujo de check-in
 
-### Check-in
+![Flujo de check-in](diagramas/flujo-check-in.svg)
 
-![Check-in](diagramas/flujo-check-in.svg)
+[Ver imagen](diagramas/flujo-check-in.svg) · [PDF](diagramas/flujo-check-in.pdf) · [Editar en diagrams.net](https://app.diagrams.net/?mode=github#HYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fflujo-check-in.drawio)
 
-[PDF](diagramas/flujo-check-in.pdf) · [Archivo editable](diagramas-editables/flujo-check-in.drawio)
+### 4. Flujo de check-out
 
-### Check-out
+![Flujo de check-out](diagramas/flujo-check-out.svg)
 
-![Check-out](diagramas/flujo-check-out.svg)
+[Ver imagen](diagramas/flujo-check-out.svg) · [PDF](diagramas/flujo-check-out.pdf) · [Editar en diagrams.net](https://app.diagrams.net/?mode=github#HYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fflujo-check-out.drawio)
 
-[PDF](diagramas/flujo-check-out.pdf) · [Archivo editable](diagramas-editables/flujo-check-out.drawio)
+### 5. Flujo de reserva
 
-### Reservas
+![Flujo de reserva](diagramas/flujo-reserva.svg)
 
-![Reservas](diagramas/flujo-reserva.svg)
+[Ver imagen](diagramas/flujo-reserva.svg) · [PDF](diagramas/flujo-reserva.pdf) · [Editar en diagrams.net](https://app.diagrams.net/?mode=github#HYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fflujo-reserva.drawio)
 
-[PDF](diagramas/flujo-reserva.pdf) · [Archivo editable](diagramas-editables/flujo-reserva.drawio)
+### 6. Diagrama de clases
 
-## Diagrama de clases
+![Diagrama de clases](diagramas/diagrama-de-clases.svg)
 
-![Clases](diagramas/diagrama-de-clases.svg)
+[Ver imagen](diagramas/diagrama-de-clases.svg) · [PDF](diagramas/diagrama-de-clases.pdf) · [Editar en diagrams.net](https://app.diagrams.net/?mode=github#HYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fdiagrama-de-clases.drawio)
 
-[PDF](diagramas/diagrama-de-clases.pdf) · [Archivo editable](diagramas-editables/diagrama-de-clases.drawio)
+### 7. Modelo de base de datos
 
-## Modelo de datos
+![Modelo de base de datos](diagramas/modelo-de-datos.svg)
 
-![Modelo de datos](diagramas/modelo-de-datos.svg)
+[Ver imagen](diagramas/modelo-de-datos.svg) · [PDF](diagramas/modelo-de-datos.pdf) · [Editar en diagrams.net](https://app.diagrams.net/?mode=github#HYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fmodelo-de-datos.drawio)
 
-[PDF](diagramas/modelo-de-datos.pdf) · [Archivo editable](diagramas-editables/modelo-de-datos.drawio)
+### 8. Wireframes y mockups
 
-## Mockups y wireframes
+![Wireframe](mockups/wireframe.svg)
 
-[Ver pantallas navegables](https://yutre3.github.io/hotel-duerme-bien/mockups/) · [Código](mockups/index.html)
+![Mockup](mockups/mockup.svg)
 
-Las pantallas corresponden a acceso, disponibilidad, habitaciones, huéspedes, reservas, check-in, check-out, informes y usuarios. «Ver wireframe» alterna la estructura en escala de grises.
+[Ver pantallas](https://yutre3.github.io/hotel-duerme-bien/mockups/) · [Editar las 9 pantallas en diagrams.net](https://app.diagrams.net/?mode=github#HYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Finterfaces.drawio) · [Editar HTML](https://github.dev/Yutre3/hotel-duerme-bien/blob/main/mockups/index.html)
 
-## Prototipo funcional
+### 9. Prototipo funcional
 
-[Abrir prototipo](https://yutre3.github.io/hotel-duerme-bien/prototipo/) · [HTML](prototipo/index.html) · [JavaScript](prototipo/app.js) · [Estilos](prototipo/styles.css)
+![Prototipo](evidencia/prototipo-publicado.jpg)
 
-Permite registrar datos ficticios de habitaciones, huéspedes, reservas y usuarios, realizar check-in y check-out y consultar informes. Conserva los registros de prueba en este navegador y valida fechas y capacidad. La tarifa de prueba se ingresa manualmente. El cálculo demostrativo usa tarifa × noches por pasajero, en pesos chilenos.
+[Abrir prototipo](https://yutre3.github.io/hotel-duerme-bien/prototipo/) · [Editar código](https://github.dev/Yutre3/hotel-duerme-bien/tree/main/prototipo)
 
-No implementa autenticación real ni sustituye una base de datos del hotel. Los permisos, los datos obligatorios de huéspedes y la regla real de cobro requieren validación.
+### 10. Kanban
 
-## Planificación
+[Ver Kanban](planificacion/kanban.md) · [Editar](https://github.dev/Yutre3/hotel-duerme-bien/blob/main/planificacion/kanban.md)
 
-[Ver Kanban](planificacion/kanban.md) · [Datos del tablero](planificacion/kanban.json)
+### Materiales y referencias
 
-## Materiales originales
-
-Los 11 archivos recibidos se conservan sin modificación en [fuentes](fuentes/): definición del tema 6, casos de uso, ejemplos UML, procesos, clases, normalización, mockups y Git/GitHub/VS Code. El informe indica cómo se utilizó cada fuente.
-
-Referencia de organización y base del prototipo: [Yutre3/diego](https://github.com/Yutre3/diego). Los nuevos diagramas, el informe y la maqueta están en este repositorio. Los archivos `.drawio` permiten editar las figuras en diagrams.net, siguiendo el formato de la referencia. No se declara que los archivos se hayan guardado en Cacoo.
-
-No se recibieron rúbrica, plantilla IEEE 830 original, videos ni archivos PPT/PPTX. Las decisiones no especificadas en el caso se identifican como preliminares.
-
-## Código de generación
-
-[Generador del informe y diagramas](scripts/generar_entregables.py) · [Dependencias](scripts/requirements.txt)
-
-Sin conexión: descargar el repositorio y abrir `index.html`, `mockups/index.html` o `prototipo/index.html`.
-
-## Vista del prototipo publicado
-
-![Prototipo público de Duerme Bien](evidencia/prototipo-publicado.jpg)
+[Materiales originales](fuentes/) · [Referencia](https://github.com/Yutre3/diego) · [Código y pruebas](tests/prototipo.test.cjs)

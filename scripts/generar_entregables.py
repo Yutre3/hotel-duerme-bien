@@ -8,6 +8,7 @@ from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 
 ROOT=Path(__file__).resolve().parents[1]
+PORTADA_GUARDADA={p:p.read_text() for p in [ROOT/'README.md',ROOT/'index.html'] if p.exists()}
 for d in ['fuentes','informe','diagramas','mockups','planificacion']:(ROOT/d).mkdir(parents=True,exist_ok=True)
 for p in (ROOT/'fuentes').iterdir():
     if p.is_file():pass  # Los originales ya se conservan en fuentes.
@@ -339,3 +340,9 @@ El material no contiene rúbrica, plantilla IEEE 830, entrevista previa, PPT/PPT
 Abrir `mockups/index.html` en el navegador. La vista «Wireframe» usa escala de grises. La maqueta contiene datos ficticios y una simulación opcional de cobro. No representa una aplicación productiva.
 ''')
 print(ROOT)
+
+# Conservar la portada y regenerar las versiones revisadas.
+for p,contenido in PORTADA_GUARDADA.items():p.write_text(contenido)
+import runpy
+runpy.run_path(str(ROOT/"scripts/revisar_diagramas.py"))
+runpy.run_path(str(ROOT/"scripts/generar_interfaces.py"))
