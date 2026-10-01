@@ -1,5 +1,5 @@
 from pathlib import Path
-import json,html,math,xml.etree.ElementTree as ET
+import json,html,math,textwrap,xml.etree.ElementTree as ET
 from reportlab.pdfgen import canvas
 from reportlab.lib import colors
 ROOT=Path(__file__).resolve().parents[1]
@@ -131,11 +131,10 @@ def flow(key,title,steps,branches):
  for i in range(len(steps)-1):
   id=steps[i][0];label='Sí' if steps[i][2]=='diamond' else '';d.edge(id,steps[i+1][0],label=label,labelpos=(720,95+i*165+130))
  for i,(origin,text,back) in enumerate(branches):
-  n=d.nodes[origin];side='error'+str(i);d.node(side,text,1090,n['y'],330,95);d.edge(origin,side,label='No',source=(1,.5),target=(0,.5),labelpos=(1010,n['y']+32))
-  if back:
-   target=d.nodes[back];corridor=1460+i*40;d.edge(side,back,points=[(corridor,n['y']+47.5),(corridor,target['y']-30),(690,target['y']-30)],source=(1,.5),target=(.5,0))
-  else:
-   d.node(side+'fin','Fin sin cambios',1090,n['y']+125,330,70,'ellipse');d.edge(side,side+'fin')
+  n=d.nodes[origin];side='error'+str(i)
+  # Cada alternativa termina en un solo resultado, sin retornos ni cajas repetidas.
+  ending='Fin ·\n'+'\n'.join(textwrap.wrap(text.replace('\n',' ').lower(),28))
+  d.node(side,ending,1090,n['y'],390,95,'ellipse');d.edge(origin,side,label='No',source=(1,.5),target=(0,.5),labelpos=(1010,n['y']+32))
  return d
 flow('flujo-reserva','Registrar reserva · CU09',[
  ('inicio','Inicio','ellipse'),('datos','Capturar titular, habitación,\nfechas y cantidad de pasajeros','input'),('validar','¿Titular registrado y\ndatos completos y válidos?','diamond'),('consultar','Consultar disponibilidad\npara intervalo y capacidad · CU05','rect'),('disponible','¿Habitación disponible\ny capacidad suficiente?','diamond'),('confirmar','¿Confirma la reserva?','diamond'),('guardar','Guardar reserva REGISTRADA','rect'),('respuesta','Mostrar número y resumen\nde reserva registrada','input'),('fin','Fin','ellipse')], [('validar','Mostrar campos\nque requieren corrección','datos'),('disponible','Mostrar conflicto y\notras habitaciones','datos'),('confirmar','Cancelar la operación',None)])
@@ -143,13 +142,25 @@ flow('flujo-check-in','Check-in y asignación · CU04',[
  ('inicio','Inicio','ellipse'),('datos','Seleccionar reserva o ingreso directo;\nhabitación, fechas y todos los huéspedes','input'),('origen','¿Sin reserva o reserva\nREGISTRADA?','diamond'),('identificar','Validar huéspedes registrados\ny cantidad de pasajeros','rect'),('validar','¿Fechas y pasajeros válidos,\nsin estadía activa previa?','diamond'),('consulta','Revisar capacidad, reservas\ny ocupación actual · CU05','rect'),('disponible','¿Habitación disponible y\ncapacidad suficiente?','diamond'),('confirmar','¿Confirma el ingreso?','diamond'),('guardar','Crear estadía ACTIVA\ny registrar ESTADIA_HUESPED','rect'),('actualizar','Si hay reserva: pasar a CHECK_IN;\nmostrar habitación OCUPADA','rect'),('respuesta','Mostrar estadía y\nlista de pasajeros asignados','input'),('fin','Fin','ellipse')], [('origen','Informar reserva inválida\no ya utilizada','datos'),('validar','Identificar pasajeros faltantes\no corregir sus datos','datos'),('disponible','Mostrar conflicto; elegir\nfechas o habitación distintas','datos'),('confirmar','Cancelar la operación',None)])
 flow('flujo-check-out','Check-out y cuenta · CU06',[
  ('inicio','Inicio','ellipse'),('seleccionar','Seleccionar estadía\ny fecha de salida real','input'),('activa','¿Estadía ACTIVA y\nsalida posterior a entrada?','diamond'),('pasajeros','Recuperar huéspedes asignados\ny parámetros de cobro','rect'),('regla','¿Regla de cobro y\ntarifa válidas y definidas?','diamond'),('cuenta','Calcular costo por pasajero\ny total de cuenta · CU07','rect'),('detalle','Mostrar detalle por huésped,\nperíodo, costos y total','input'),('confirmar','¿Confirma la cuenta\ny la salida?','diamond'),('conflicto','¿Salida sin conflicto con\nreservas posteriores?','diamond'),('guardar','Guardar costo de cada pasajero\ny estadía FINALIZADA','rect'),('liberar','Cerrar reserva asociada, si existe;\nliberar ocupación de habitación','rect'),('fin','Fin','ellipse')], [('activa','Informar estadía\no fecha inválidas','seleccionar'),('regla','Solicitar definición o\ncorrección del cobro','pasajeros'),('confirmar','Mantener estadía ACTIVA',None),('conflicto','Resolver fecha de salida\ny conflicto de reserva','seleccionar')])
-# Gestión de reservas: separar las dos operaciones para evitar mezclar sus reglas.
-d=D('flujo-gestion-reservas','Modificar o cancelar reserva · CU11 / CU12',1500,1700)
-for id,t,x,y,sh in [('inicio','Inicio',525,85,'ellipse'),('select','Seleccionar reserva',525,240,'input'),('estado','¿Reserva REGISTRADA?',525,405,'diamond'),('op','¿Modificar o cancelar?',525,580,'diamond'),('mod','Modificar fechas,\nhabitación o cantidad',120,790,'input'),('disp','Validar datos y disponibilidad',120,950,'rect'),('ok','¿Cambio válido?',120,1110,'diamond'),('save','Guardar cambios',120,1340,'rect'),('cancel','Confirmar cancelación',930,790,'diamond'),('canceled','Marcar CANCELADA;\nliberar disponibilidad',930,1030,'rect'),('fin','Fin',525,1510,'ellipse'),('invalid','Informar que no se puede\nmodificar ni cancelar',1060,400,'rect')]:d.node(id,t,x,y,400,90,sh)
-for a,b in [('inicio','select'),('select','estado'),('estado','op'),('mod','disp'),('disp','ok'),('ok','save')]:d.edge(a,b,label='Sí' if a in ['estado','ok'] else '')
-d.edge('estado','invalid',source=(1,.5),target=(0,.5),label='No');d.edge('invalid','fin',points=[(1470,445),(1470,1555)],source=(1,.5),target=(1,.5))
-d.edge('op','mod',points=[(320,710)],label='Modificar',labelpos=(340,705));d.edge('op','cancel',points=[(1130,710)],label='Cancelar',labelpos=(1120,705))
-d.edge('ok','mod',points=[(65,1155),(65,835)],source=(0,.5),target=(0,.5),label='No: corregir',labelpos=(180,1040));d.edge('save','fin',points=[(320,1555)],target=(0,.5));d.edge('cancel','canceled',label='Sí');d.edge('cancel','fin',points=[(1400,835),(1400,1470),(725,1470)],source=(1,.5),target=(.5,0),label='No',labelpos=(1360,900));d.edge('canceled','fin',points=[(1130,1555)],target=(1,.5))
+# Gestión de reservas: dos ramas limpias y un final propio para cada resultado.
+d=D('flujo-gestion-reservas','Modificar o cancelar reserva · CU11 / CU12',1800,1530)
+nodes=[
+ ('inicio','Inicio',550,70,'ellipse'),('select','Seleccionar reserva',550,215,'input'),
+ ('estado','¿Reserva REGISTRADA?',550,360,'diamond'),('op','¿Modificar o cancelar?',550,530,'diamond'),
+ ('invalid','Informar que la reserva\nno admite cambios',1050,360,'rect'),('invalidFin','Fin sin cambios',1050,500,'ellipse'),
+ ('mod','Modificar fechas,\nhabitación o cantidad',120,730,'input'),('disp','Validar datos y disponibilidad',120,885,'rect'),
+ ('ok','¿Cambio válido?',120,1040,'diamond'),('save','Guardar cambios',120,1200,'rect'),('modFin','Fin · reserva modificada',120,1360,'ellipse'),
+ ('modNo','Fin sin cambios',520,1040,'ellipse'),
+ ('cancel','¿Confirma la cancelación?',950,730,'diamond'),('canceled','Marcar CANCELADA y\nliberar disponibilidad',950,930,'rect'),
+ ('cancelFin','Fin · reserva cancelada',950,1090,'ellipse')]
+for id,t,x,y,sh in nodes:d.node(id,t,x,y,400,90,sh)
+d.node('cancelNo','Fin sin cambios',1450,850,300,80,'ellipse')
+for a,b in [('inicio','select'),('select','estado'),('estado','op'),('mod','disp'),('disp','ok'),('ok','save'),('save','modFin'),('invalid','invalidFin'),('cancel','canceled'),('canceled','cancelFin')]:d.edge(a,b,label='Sí' if a in ['estado','ok','cancel'] else '')
+d.edge('estado','invalid',source=(1,.5),target=(0,.5),label='No')
+d.edge('op','mod',points=[(320,650)],label='Modificar',labelpos=(350,650))
+d.edge('op','cancel',points=[(1150,650)],label='Cancelar',labelpos=(1120,650))
+d.edge('ok','modNo',source=(1,.5),target=(0,.5),label='No')
+d.edge('cancel','cancelNo',points=[(1400,775),(1600,775)],source=(1,.5),target=(.5,0),label='No',labelpos=(1415,755))
 
 # Clases y entidades provienen de las mismas definiciones.
 tables={

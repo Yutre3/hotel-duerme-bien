@@ -750,47 +750,35 @@
       },
       "error0": {
         "id": "error0",
-        "label": "Mostrar campos\nque requieren corrección",
+        "label": "Fin ·\nmostrar campos que requieren\ncorrección",
         "x": 1090,
         "y": 425,
-        "w": 330,
+        "w": 390,
         "h": 95,
-        "shape": "rect",
+        "shape": "ellipse",
         "attrs": [],
         "methods": [],
         "fill": "#ffffff"
       },
       "error1": {
         "id": "error1",
-        "label": "Mostrar conflicto y\notras habitaciones",
+        "label": "Fin ·\nmostrar conflicto y otras\nhabitaciones",
         "x": 1090,
         "y": 755,
-        "w": 330,
+        "w": 390,
         "h": 95,
-        "shape": "rect",
+        "shape": "ellipse",
         "attrs": [],
         "methods": [],
         "fill": "#ffffff"
       },
       "error2": {
         "id": "error2",
-        "label": "Cancelar la operación",
+        "label": "Fin ·\ncancelar la operación",
         "x": 1090,
         "y": 920,
-        "w": 330,
+        "w": 390,
         "h": 95,
-        "shape": "rect",
-        "attrs": [],
-        "methods": [],
-        "fill": "#ffffff"
-      },
-      "error2fin": {
-        "id": "error2fin",
-        "label": "Fin sin cambios",
-        "x": 1090,
-        "y": 1045,
-        "w": 330,
-        "h": 70,
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
@@ -1069,45 +1057,6 @@
         ]
       },
       {
-        "a": "error0",
-        "b": "datos",
-        "points": [
-          [
-            1420,
-            472.5
-          ],
-          [
-            1460,
-            472.5
-          ],
-          [
-            1460,
-            230
-          ],
-          [
-            690,
-            230
-          ],
-          [
-            690.0,
-            260
-          ]
-        ],
-        "label": "",
-        "kind": "arrow",
-        "sm": "",
-        "tm": "",
-        "source": [
-          1,
-          0.5
-        ],
-        "target": [
-          0.5,
-          0
-        ],
-        "labelpos": null
-      },
-      {
         "a": "disponible",
         "b": "error1",
         "points": [
@@ -1138,45 +1087,6 @@
         ]
       },
       {
-        "a": "error1",
-        "b": "datos",
-        "points": [
-          [
-            1420,
-            802.5
-          ],
-          [
-            1500,
-            802.5
-          ],
-          [
-            1500,
-            230
-          ],
-          [
-            690,
-            230
-          ],
-          [
-            690.0,
-            260
-          ]
-        ],
-        "label": "",
-        "kind": "arrow",
-        "sm": "",
-        "tm": "",
-        "source": [
-          1,
-          0.5
-        ],
-        "target": [
-          0.5,
-          0
-        ],
-        "labelpos": null
-      },
-      {
         "a": "confirmar",
         "b": "error2",
         "points": [
@@ -1205,33 +1115,6 @@
           1010,
           952
         ]
-      },
-      {
-        "a": "error2",
-        "b": "error2fin",
-        "points": [
-          [
-            1255.0,
-            1015
-          ],
-          [
-            1255.0,
-            1045
-          ]
-        ],
-        "label": "",
-        "kind": "arrow",
-        "sm": "",
-        "tm": "",
-        "source": [
-          0.5,
-          1
-        ],
-        "target": [
-          0.5,
-          0
-        ],
-        "labelpos": null
       }
     ]
   },
@@ -1385,59 +1268,47 @@
       },
       "error0": {
         "id": "error0",
-        "label": "Informar reserva inválida\no ya utilizada",
+        "label": "Fin ·\ninformar reserva inválida o\nya utilizada",
         "x": 1090,
         "y": 425,
-        "w": 330,
+        "w": 390,
         "h": 95,
-        "shape": "rect",
+        "shape": "ellipse",
         "attrs": [],
         "methods": [],
         "fill": "#ffffff"
       },
       "error1": {
         "id": "error1",
-        "label": "Identificar pasajeros faltantes\no corregir sus datos",
+        "label": "Fin ·\nidentificar pasajeros\nfaltantes o corregir sus\ndatos",
         "x": 1090,
         "y": 755,
-        "w": 330,
+        "w": 390,
         "h": 95,
-        "shape": "rect",
+        "shape": "ellipse",
         "attrs": [],
         "methods": [],
         "fill": "#ffffff"
       },
       "error2": {
         "id": "error2",
-        "label": "Mostrar conflicto; elegir\nfechas o habitación distintas",
+        "label": "Fin ·\nmostrar conflicto; elegir\nfechas o habitación\ndistintas",
         "x": 1090,
         "y": 1085,
-        "w": 330,
+        "w": 390,
         "h": 95,
-        "shape": "rect",
+        "shape": "ellipse",
         "attrs": [],
         "methods": [],
         "fill": "#ffffff"
       },
       "error3": {
         "id": "error3",
-        "label": "Cancelar la operación",
+        "label": "Fin ·\ncancelar la operación",
         "x": 1090,
         "y": 1250,
-        "w": 330,
+        "w": 390,
         "h": 95,
-        "shape": "rect",
-        "attrs": [],
-        "methods": [],
-        "fill": "#ffffff"
-      },
-      "error3fin": {
-        "id": "error3fin",
-        "label": "Fin sin cambios",
-        "x": 1090,
-        "y": 1375,
-        "w": 330,
-        "h": 70,
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
@@ -1806,45 +1677,6 @@
         ]
       },
       {
-        "a": "error0",
-        "b": "datos",
-        "points": [
-          [
-            1420,
-            472.5
-          ],
-          [
-            1460,
-            472.5
-          ],
-          [
-            1460,
-            230
-          ],
-          [
-            690,
-            230
-          ],
-          [
-            690.0,
-            260
-          ]
-        ],
-        "label": "",
-        "kind": "arrow",
-        "sm": "",
-        "tm": "",
-        "source": [
-          1,
-          0.5
-        ],
-        "target": [
-          0.5,
-          0
-        ],
-        "labelpos": null
-      },
-      {
         "a": "validar",
         "b": "error1",
         "points": [
@@ -1873,45 +1705,6 @@
           1010,
           787
         ]
-      },
-      {
-        "a": "error1",
-        "b": "datos",
-        "points": [
-          [
-            1420,
-            802.5
-          ],
-          [
-            1500,
-            802.5
-          ],
-          [
-            1500,
-            230
-          ],
-          [
-            690,
-            230
-          ],
-          [
-            690.0,
-            260
-          ]
-        ],
-        "label": "",
-        "kind": "arrow",
-        "sm": "",
-        "tm": "",
-        "source": [
-          1,
-          0.5
-        ],
-        "target": [
-          0.5,
-          0
-        ],
-        "labelpos": null
       },
       {
         "a": "disponible",
@@ -1944,45 +1737,6 @@
         ]
       },
       {
-        "a": "error2",
-        "b": "datos",
-        "points": [
-          [
-            1420,
-            1132.5
-          ],
-          [
-            1540,
-            1132.5
-          ],
-          [
-            1540,
-            230
-          ],
-          [
-            690,
-            230
-          ],
-          [
-            690.0,
-            260
-          ]
-        ],
-        "label": "",
-        "kind": "arrow",
-        "sm": "",
-        "tm": "",
-        "source": [
-          1,
-          0.5
-        ],
-        "target": [
-          0.5,
-          0
-        ],
-        "labelpos": null
-      },
-      {
         "a": "confirmar",
         "b": "error3",
         "points": [
@@ -2011,33 +1765,6 @@
           1010,
           1282
         ]
-      },
-      {
-        "a": "error3",
-        "b": "error3fin",
-        "points": [
-          [
-            1255.0,
-            1345
-          ],
-          [
-            1255.0,
-            1375
-          ]
-        ],
-        "label": "",
-        "kind": "arrow",
-        "sm": "",
-        "tm": "",
-        "source": [
-          0.5,
-          1
-        ],
-        "target": [
-          0.5,
-          0
-        ],
-        "labelpos": null
       }
     ]
   },
@@ -2191,47 +1918,35 @@
       },
       "error0": {
         "id": "error0",
-        "label": "Informar estadía\no fecha inválidas",
+        "label": "Fin ·\ninformar estadía o fecha\ninválidas",
         "x": 1090,
         "y": 425,
-        "w": 330,
+        "w": 390,
         "h": 95,
-        "shape": "rect",
+        "shape": "ellipse",
         "attrs": [],
         "methods": [],
         "fill": "#ffffff"
       },
       "error1": {
         "id": "error1",
-        "label": "Solicitar definición o\ncorrección del cobro",
+        "label": "Fin ·\nsolicitar definición o\ncorrección del cobro",
         "x": 1090,
         "y": 755,
-        "w": 330,
+        "w": 390,
         "h": 95,
-        "shape": "rect",
+        "shape": "ellipse",
         "attrs": [],
         "methods": [],
         "fill": "#ffffff"
       },
       "error2": {
         "id": "error2",
-        "label": "Mantener estadía ACTIVA",
+        "label": "Fin ·\nmantener estadía activa",
         "x": 1090,
         "y": 1250,
-        "w": 330,
+        "w": 390,
         "h": 95,
-        "shape": "rect",
-        "attrs": [],
-        "methods": [],
-        "fill": "#ffffff"
-      },
-      "error2fin": {
-        "id": "error2fin",
-        "label": "Fin sin cambios",
-        "x": 1090,
-        "y": 1375,
-        "w": 330,
-        "h": 70,
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
@@ -2239,12 +1954,12 @@
       },
       "error3": {
         "id": "error3",
-        "label": "Resolver fecha de salida\ny conflicto de reserva",
+        "label": "Fin ·\nresolver fecha de salida y\nconflicto de reserva",
         "x": 1090,
         "y": 1415,
-        "w": 330,
+        "w": 390,
         "h": 95,
-        "shape": "rect",
+        "shape": "ellipse",
         "attrs": [],
         "methods": [],
         "fill": "#ffffff"
@@ -2612,45 +2327,6 @@
         ]
       },
       {
-        "a": "error0",
-        "b": "seleccionar",
-        "points": [
-          [
-            1420,
-            472.5
-          ],
-          [
-            1460,
-            472.5
-          ],
-          [
-            1460,
-            230
-          ],
-          [
-            690,
-            230
-          ],
-          [
-            690.0,
-            260
-          ]
-        ],
-        "label": "",
-        "kind": "arrow",
-        "sm": "",
-        "tm": "",
-        "source": [
-          1,
-          0.5
-        ],
-        "target": [
-          0.5,
-          0
-        ],
-        "labelpos": null
-      },
-      {
         "a": "regla",
         "b": "error1",
         "points": [
@@ -2679,45 +2355,6 @@
           1010,
           787
         ]
-      },
-      {
-        "a": "error1",
-        "b": "pasajeros",
-        "points": [
-          [
-            1420,
-            802.5
-          ],
-          [
-            1500,
-            802.5
-          ],
-          [
-            1500,
-            560
-          ],
-          [
-            690,
-            560
-          ],
-          [
-            690.0,
-            590
-          ]
-        ],
-        "label": "",
-        "kind": "arrow",
-        "sm": "",
-        "tm": "",
-        "source": [
-          1,
-          0.5
-        ],
-        "target": [
-          0.5,
-          0
-        ],
-        "labelpos": null
       },
       {
         "a": "confirmar",
@@ -2750,33 +2387,6 @@
         ]
       },
       {
-        "a": "error2",
-        "b": "error2fin",
-        "points": [
-          [
-            1255.0,
-            1345
-          ],
-          [
-            1255.0,
-            1375
-          ]
-        ],
-        "label": "",
-        "kind": "arrow",
-        "sm": "",
-        "tm": "",
-        "source": [
-          0.5,
-          1
-        ],
-        "target": [
-          0.5,
-          0
-        ],
-        "labelpos": null
-      },
-      {
         "a": "conflicto",
         "b": "error3",
         "points": [
@@ -2805,45 +2415,6 @@
           1010,
           1447
         ]
-      },
-      {
-        "a": "error3",
-        "b": "seleccionar",
-        "points": [
-          [
-            1420,
-            1462.5
-          ],
-          [
-            1580,
-            1462.5
-          ],
-          [
-            1580,
-            230
-          ],
-          [
-            690,
-            230
-          ],
-          [
-            690.0,
-            260
-          ]
-        ],
-        "label": "",
-        "kind": "arrow",
-        "sm": "",
-        "tm": "",
-        "source": [
-          1,
-          0.5
-        ],
-        "target": [
-          0.5,
-          0
-        ],
-        "labelpos": null
       }
     ]
   },
@@ -2854,8 +2425,8 @@
       "inicio": {
         "id": "inicio",
         "label": "Inicio",
-        "x": 525,
-        "y": 85,
+        "x": 550,
+        "y": 70,
         "w": 400,
         "h": 90,
         "shape": "ellipse",
@@ -2866,8 +2437,8 @@
       "select": {
         "id": "select",
         "label": "Seleccionar reserva",
-        "x": 525,
-        "y": 240,
+        "x": 550,
+        "y": 215,
         "w": 400,
         "h": 90,
         "shape": "input",
@@ -2878,8 +2449,8 @@
       "estado": {
         "id": "estado",
         "label": "¿Reserva REGISTRADA?",
-        "x": 525,
-        "y": 405,
+        "x": 550,
+        "y": 360,
         "w": 400,
         "h": 90,
         "shape": "diamond",
@@ -2890,11 +2461,35 @@
       "op": {
         "id": "op",
         "label": "¿Modificar o cancelar?",
-        "x": 525,
-        "y": 580,
+        "x": 550,
+        "y": 530,
         "w": 400,
         "h": 90,
         "shape": "diamond",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "invalid": {
+        "id": "invalid",
+        "label": "Informar que la reserva\nno admite cambios",
+        "x": 1050,
+        "y": 360,
+        "w": 400,
+        "h": 90,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "invalidFin": {
+        "id": "invalidFin",
+        "label": "Fin sin cambios",
+        "x": 1050,
+        "y": 500,
+        "w": 400,
+        "h": 90,
+        "shape": "ellipse",
         "attrs": [],
         "methods": [],
         "fill": "#ffffff"
@@ -2903,7 +2498,7 @@
         "id": "mod",
         "label": "Modificar fechas,\nhabitación o cantidad",
         "x": 120,
-        "y": 790,
+        "y": 730,
         "w": 400,
         "h": 90,
         "shape": "input",
@@ -2915,7 +2510,7 @@
         "id": "disp",
         "label": "Validar datos y disponibilidad",
         "x": 120,
-        "y": 950,
+        "y": 885,
         "w": 400,
         "h": 90,
         "shape": "rect",
@@ -2927,7 +2522,7 @@
         "id": "ok",
         "label": "¿Cambio válido?",
         "x": 120,
-        "y": 1110,
+        "y": 1040,
         "w": 400,
         "h": 90,
         "shape": "diamond",
@@ -2939,7 +2534,7 @@
         "id": "save",
         "label": "Guardar cambios",
         "x": 120,
-        "y": 1340,
+        "y": 1200,
         "w": 400,
         "h": 90,
         "shape": "rect",
@@ -2947,11 +2542,35 @@
         "methods": [],
         "fill": "#ffffff"
       },
+      "modFin": {
+        "id": "modFin",
+        "label": "Fin · reserva modificada",
+        "x": 120,
+        "y": 1360,
+        "w": 400,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "modNo": {
+        "id": "modNo",
+        "label": "Fin sin cambios",
+        "x": 520,
+        "y": 1040,
+        "w": 400,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
       "cancel": {
         "id": "cancel",
-        "label": "Confirmar cancelación",
-        "x": 930,
-        "y": 790,
+        "label": "¿Confirma la cancelación?",
+        "x": 950,
+        "y": 730,
         "w": 400,
         "h": 90,
         "shape": "diamond",
@@ -2961,9 +2580,9 @@
       },
       "canceled": {
         "id": "canceled",
-        "label": "Marcar CANCELADA;\nliberar disponibilidad",
-        "x": 930,
-        "y": 1030,
+        "label": "Marcar CANCELADA y\nliberar disponibilidad",
+        "x": 950,
+        "y": 930,
         "w": 400,
         "h": 90,
         "shape": "rect",
@@ -2971,11 +2590,11 @@
         "methods": [],
         "fill": "#ffffff"
       },
-      "fin": {
-        "id": "fin",
-        "label": "Fin",
-        "x": 525,
-        "y": 1510,
+      "cancelFin": {
+        "id": "cancelFin",
+        "label": "Fin · reserva cancelada",
+        "x": 950,
+        "y": 1090,
         "w": 400,
         "h": 90,
         "shape": "ellipse",
@@ -2983,14 +2602,14 @@
         "methods": [],
         "fill": "#ffffff"
       },
-      "invalid": {
-        "id": "invalid",
-        "label": "Informar que no se puede\nmodificar ni cancelar",
-        "x": 1060,
-        "y": 400,
-        "w": 400,
-        "h": 90,
-        "shape": "rect",
+      "cancelNo": {
+        "id": "cancelNo",
+        "label": "Fin sin cambios",
+        "x": 1450,
+        "y": 850,
+        "w": 300,
+        "h": 80,
+        "shape": "ellipse",
         "attrs": [],
         "methods": [],
         "fill": "#ffffff"
@@ -3002,12 +2621,12 @@
         "b": "select",
         "points": [
           [
-            725.0,
-            175
+            750.0,
+            160
           ],
           [
-            725.0,
-            240
+            750.0,
+            215
           ]
         ],
         "label": "",
@@ -3029,12 +2648,12 @@
         "b": "estado",
         "points": [
           [
-            725.0,
-            330
+            750.0,
+            305
           ],
           [
-            725.0,
-            405
+            750.0,
+            360
           ]
         ],
         "label": "",
@@ -3056,12 +2675,12 @@
         "b": "op",
         "points": [
           [
-            725.0,
-            495
+            750.0,
+            450
           ],
           [
-            725.0,
-            580
+            750.0,
+            530
           ]
         ],
         "label": "Sí",
@@ -3084,11 +2703,11 @@
         "points": [
           [
             320.0,
-            880
+            820
           ],
           [
             320.0,
-            950
+            885
           ]
         ],
         "label": "",
@@ -3111,11 +2730,11 @@
         "points": [
           [
             320.0,
-            1040
+            975
           ],
           [
             320.0,
-            1110
+            1040
           ]
         ],
         "label": "",
@@ -3138,14 +2757,122 @@
         "points": [
           [
             320.0,
-            1200
+            1130
           ],
           [
             320.0,
-            1340
+            1200
           ]
         ],
         "label": "Sí",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "save",
+        "b": "modFin",
+        "points": [
+          [
+            320.0,
+            1290
+          ],
+          [
+            320.0,
+            1360
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "invalid",
+        "b": "invalidFin",
+        "points": [
+          [
+            1250.0,
+            450
+          ],
+          [
+            1250.0,
+            500
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "cancel",
+        "b": "canceled",
+        "points": [
+          [
+            1150.0,
+            820
+          ],
+          [
+            1150.0,
+            930
+          ]
+        ],
+        "label": "Sí",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "canceled",
+        "b": "cancelFin",
+        "points": [
+          [
+            1150.0,
+            1020
+          ],
+          [
+            1150.0,
+            1090
+          ]
+        ],
+        "label": "",
         "kind": "arrow",
         "sm": "",
         "tm": "",
@@ -3164,12 +2891,12 @@
         "b": "invalid",
         "points": [
           [
-            925,
-            450.0
+            950,
+            405.0
           ],
           [
-            1060,
-            445.0
+            1050,
+            405.0
           ]
         ],
         "label": "No",
@@ -3187,55 +2914,20 @@
         "labelpos": null
       },
       {
-        "a": "invalid",
-        "b": "fin",
-        "points": [
-          [
-            1460,
-            445.0
-          ],
-          [
-            1470,
-            445
-          ],
-          [
-            1470,
-            1555
-          ],
-          [
-            925,
-            1555.0
-          ]
-        ],
-        "label": "",
-        "kind": "arrow",
-        "sm": "",
-        "tm": "",
-        "source": [
-          1,
-          0.5
-        ],
-        "target": [
-          1,
-          0.5
-        ],
-        "labelpos": null
-      },
-      {
         "a": "op",
         "b": "mod",
         "points": [
           [
-            725.0,
-            670
+            750.0,
+            620
           ],
           [
             320,
-            710
+            650
           ],
           [
             320.0,
-            790
+            730
           ]
         ],
         "label": "Modificar",
@@ -3251,8 +2943,8 @@
           0
         ],
         "labelpos": [
-          340,
-          705
+          350,
+          650
         ]
       },
       {
@@ -3260,16 +2952,16 @@
         "b": "cancel",
         "points": [
           [
-            725.0,
-            670
+            750.0,
+            620
           ],
           [
-            1130,
-            710
+            1150,
+            650
           ],
           [
-            1130.0,
-            790
+            1150.0,
+            730
           ]
         ],
         "label": "Cancelar",
@@ -3286,71 +2978,29 @@
         ],
         "labelpos": [
           1120,
-          705
+          650
         ]
       },
       {
         "a": "ok",
-        "b": "mod",
+        "b": "modNo",
         "points": [
           [
-            120,
-            1155.0
+            520,
+            1085.0
           ],
           [
-            65,
-            1155
-          ],
-          [
-            65,
-            835
-          ],
-          [
-            120,
-            835.0
+            520,
+            1085.0
           ]
         ],
-        "label": "No: corregir",
+        "label": "No",
         "kind": "arrow",
         "sm": "",
         "tm": "",
         "source": [
-          0,
+          1,
           0.5
-        ],
-        "target": [
-          0,
-          0.5
-        ],
-        "labelpos": [
-          180,
-          1040
-        ]
-      },
-      {
-        "a": "save",
-        "b": "fin",
-        "points": [
-          [
-            320.0,
-            1430
-          ],
-          [
-            320,
-            1555
-          ],
-          [
-            525,
-            1555.0
-          ]
-        ],
-        "label": "",
-        "kind": "arrow",
-        "sm": "",
-        "tm": "",
-        "source": [
-          0.5,
-          1
         ],
         "target": [
           0,
@@ -3360,54 +3010,23 @@
       },
       {
         "a": "cancel",
-        "b": "canceled",
+        "b": "cancelNo",
         "points": [
           [
-            1130.0,
-            880
-          ],
-          [
-            1130.0,
-            1030
-          ]
-        ],
-        "label": "Sí",
-        "kind": "arrow",
-        "sm": "",
-        "tm": "",
-        "source": [
-          0.5,
-          1
-        ],
-        "target": [
-          0.5,
-          0
-        ],
-        "labelpos": null
-      },
-      {
-        "a": "cancel",
-        "b": "fin",
-        "points": [
-          [
-            1330,
-            835.0
+            1350,
+            775.0
           ],
           [
             1400,
-            835
+            775
           ],
           [
-            1400,
-            1470
+            1600,
+            775
           ],
           [
-            725,
-            1470
-          ],
-          [
-            725.0,
-            1510
+            1600.0,
+            850
           ]
         ],
         "label": "No",
@@ -3423,40 +3042,9 @@
           0
         ],
         "labelpos": [
-          1360,
-          900
+          1415,
+          755
         ]
-      },
-      {
-        "a": "canceled",
-        "b": "fin",
-        "points": [
-          [
-            1130.0,
-            1120
-          ],
-          [
-            1130,
-            1555
-          ],
-          [
-            925,
-            1555.0
-          ]
-        ],
-        "label": "",
-        "kind": "arrow",
-        "sm": "",
-        "tm": "",
-        "source": [
-          0.5,
-          1
-        ],
-        "target": [
-          1,
-          0.5
-        ],
-        "labelpos": null
       }
     ]
   },
