@@ -1,4 +1,4 @@
-# Hotel Duerme Bien
+# Hotel Duerme Bien.
 
 **Tema 6 · Sistema de Pasajeros de Hotel · Luis Huenchul**
 
