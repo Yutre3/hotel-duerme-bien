@@ -28,19 +28,19 @@
       "FK id_huesped_titular: INTEGER NOT NULL",
       "FK id_habitacion: INTEGER NOT NULL",
       "fecha_entrada: DATE NOT NULL",
-      "fecha_salida: DATE NOT NULL",
-      "cantidad_pasajeros: INTEGER NOT NULL, > 0",
-      "estado: VARCHAR(20) NOT NULL"
+      "fecha_salida: DATE NOT NULL, posterior a entrada",
+      "cantidad_pasajeros: INTEGER NOT NULL, mayor que 0",
+      "estado: REGISTRADA, CHECK_IN o CANCELADA"
     ],
     "ESTADIA": [
       "PK id_estadia: INTEGER",
       "FK id_habitacion: INTEGER NOT NULL",
       "FK id_reserva: INTEGER NULL UNIQUE",
       "fecha_entrada: DATE NOT NULL",
-      "fecha_salida_prevista: DATE NOT NULL",
+      "fecha_salida_prevista: DATE NOT NULL, posterior a entrada",
       "fecha_salida_real: DATE NULL",
-      "estado: VARCHAR(20) NOT NULL",
-      "noches_cobradas: INTEGER NULL, > 0"
+      "estado: ACTIVA o FINALIZADA",
+      "noches_cobradas: INTEGER NULL, mayor que 0"
     ],
     "ESTADIA_HUESPED": [
       "PK/FK id_estadia: INTEGER NOT NULL",
@@ -55,11 +55,11 @@
       "b": "USUARIO",
       "points": [
         [
-          700,
+          760,
           181.0
         ],
         [
-          880,
+          940,
           167.5
         ]
       ],
@@ -82,11 +82,11 @@
       "b": "RESERVA",
       "points": [
         [
-          284.0,
+          305.0,
           714
         ],
         [
-          284.0,
+          305.0,
           970
         ]
       ],
@@ -109,19 +109,19 @@
       "b": "ESTADIA",
       "points": [
         [
-          700,
+          760,
           526.8
         ],
         [
-          785,
+          850,
           527
         ],
         [
-          785,
+          850,
           1062
         ],
         [
-          880,
+          940,
           1045.6
         ]
       ],
@@ -144,19 +144,19 @@
       "b": "RESERVA",
       "points": [
         [
-          880,
+          940,
           667.2
         ],
         [
-          815,
+          850,
           667
         ],
         [
-          815,
+          850,
           1032
         ],
         [
-          700,
+          760,
           1031.56
         ]
       ],
@@ -179,11 +179,11 @@
       "b": "ESTADIA",
       "points": [
         [
-          700,
+          760,
           1192.3
         ],
         [
-          880,
+          940,
           1215.7
         ]
       ],
@@ -206,23 +206,23 @@
       "b": "ESTADIA_HUESPED",
       "points": [
         [
-          1232.0,
+          1150.0,
           1348
         ],
         [
-          1232,
-          1580
+          1150,
+          1550
         ],
         [
-          1190,
-          1580
+          1250,
+          1550
         ],
         [
-          1190,
+          1250,
           1842
         ],
         [
-          1110,
+          1200,
           1842.1
         ]
       ],
@@ -231,7 +231,7 @@
       "sm": "one",
       "tm": "onemany",
       "source": [
-        0.55,
+        0.3,
         1
       ],
       "target": [
@@ -245,23 +245,23 @@
       "b": "ESTADIA_HUESPED",
       "points": [
         [
-          1520,
+          1640,
           608.7
         ],
         [
-          1545,
+          1660,
           609
         ],
         [
-          1545,
-          1620
+          1660,
+          1640
         ],
         [
-          950,
-          1620
+          1025,
+          1640
         ],
         [
-          950.0,
+          1025.0,
           1690
         ]
       ],

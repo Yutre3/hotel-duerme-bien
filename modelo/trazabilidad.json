@@ -19,7 +19,7 @@
     "id": "RF03",
     "nombre": "Consultar ocupación y disponibilidad",
     "criterio": "Mostrar ocupación actual y habitaciones compatibles con fechas y cantidad de pasajeros. Considerar reservas vigentes y estadías activas.",
-    "casos": "CU05",
+    "casos": "CU04, CU05, CU09, CU11",
     "entidades": "Habitacion, Reserva, Estadia",
     "pantallas": "disponibilidad"
   },
@@ -35,7 +35,7 @@
     "id": "RF05",
     "nombre": "Registrar check-out",
     "criterio": "Seleccionar estadía activa, revisar la cuenta y confirmar la salida. Conservar historial y liberar ocupación.",
-    "casos": "CU06, CU07",
+    "casos": "CU06",
     "entidades": "Estadia, EstadiaHuesped",
     "pantallas": "checkout"
   },
@@ -43,7 +43,7 @@
     "id": "RF06",
     "nombre": "Calcular costos por pasajero",
     "criterio": "Obtener huéspedes de la estadía, aplicar la regla de cobro y mostrar cada costo y total. Conservar los resultados individuales.",
-    "casos": "CU07",
+    "casos": "CU06, CU07",
     "entidades": "EstadiaHuesped",
     "pantallas": "checkout"
   },
