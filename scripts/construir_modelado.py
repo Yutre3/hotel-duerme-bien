@@ -97,7 +97,7 @@ class D:
    if kind=='composition':sa='diamond'
    er={'one':'ERmandOne','zeroone':'ERzeroToOne','many':'ERmany','zeromany':'ERzeroToMany','onemany':'ERoneToMany'}
    if kind=='er':sa=er[e['sm']];ea=er[e['tm']]
-   style=f'html=0;edgeStyle=none;rounded=0;strokeWidth=2;strokeColor={EDGE};fontSize=16;endArrow={ea};endFill=0;startArrow={sa};startFill={1 if kind=="composition" else 0};exitX={e["source"][0]};exitY={e["source"][1]};exitPerimeter=0;entryX={e["target"][0]};entryY={e["target"][1]};entryPerimeter=0;'+('dashed=1;' if kind=='include' else '')
+   style=f'html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=24;rounded=0;strokeWidth=2;strokeColor={EDGE};fontSize=16;endArrow={ea};endFill=0;startArrow={sa};startFill={1 if kind=="composition" else 0};exitX={e["source"][0]};exitY={e["source"][1]};exitPerimeter=0;entryX={e["target"][0]};entryY={e["target"][1]};entryPerimeter=0;'+('dashed=1;' if kind=='include' else '')
    c=ET.SubElement(root,'mxCell',id='edge'+str(i),value=e['label'],style=style,edge='1',source=e['a'],target=e['b'],parent='1');geo=ET.SubElement(c,'mxGeometry',relative='1',attrib={'as':'geometry'});arr=ET.SubElement(geo,'Array',attrib={'as':'points'})
    for x,y in e['points'][1:-1]:ET.SubElement(arr,'mxPoint',x=str(x),y=str(y))
    if kind!='er':
@@ -111,18 +111,18 @@ cases={i:n for i,n,_ in MODEL['casos']}
 d=D('casos-de-uso','Casos de uso · Operación del hotel',1650,1640)
 d.node('limit','Duerme Bien',260,85,1330,1470,'frame');d.node('enc','Encargado',35,600,165,175,'actor')
 ys={'CU01':170,'CU03':345,'CU04':520,'CU09':695,'CU11':870,'CU12':1045,'CU06':1280}
-for id,y in ys.items():d.node(id,id+'\n'+cases[id],340,y,440,90,'ellipse');d.edge('enc',id,kind='association',source=(.5,.35),target=(0,.5))
+for i,(id,y) in enumerate(ys.items()):
+ d.node(id,id+'\n'+cases[id],340,y,440,90,'ellipse')
+ # Cada asociación sale por un punto diferente y va directamente a su caso.
+ d.edge('enc',id,kind='association',source=(1,.16+i*.115),target=(0,.5))
 d.node('CU05','CU05\n'+cases['CU05'],1070,685,440,90,'ellipse');d.node('CU07','CU07\n'+cases['CU07'],1070,1280,440,90,'ellipse')
-for id in ['CU04','CU09','CU11']:d.edge(id,'CU05',label='«include»',kind='include',source=(1,.5),target=(0,.5),labelpos=(900,ys[id]+30))
+for id,ty in [('CU04',.25),('CU09',.5),('CU11',.75)]:
+ d.edge(id,'CU05',label='«include»',kind='include',source=(1,.5),target=(0,ty),labelpos=(900,ys[id]+30))
 d.edge('CU06','CU07',label='«include»',kind='include',source=(1,.5),target=(0,.5),labelpos=(925,1305))
-# Consulta independiente, además de la operación incluida.
-d.edge('enc','CU05',points=[(225,661),(225,285),(1550,285),(1550,730)],kind='association',source=(.5,.35),target=(1,.5))
-d.note('Asociación: línea continua. Inclusión: línea discontinua hacia el caso obligatorio.',825,1598)
 d=D('casos-de-uso-administracion','Casos de uso · Administración',1320,1020)
 d.node('limit','Duerme Bien',420,85,820,850,'frame');d.node('enc','Encargado',115,100,165,175,'actor');d.node('admin','Administrador',115,550,165,175,'actor');d.edge('admin','enc',kind='general',source=(.5,0),target=(.5,1))
 for i,id in enumerate(['CU02','CU08','CU10']):
  d.node(id,id+'\n'+cases[id],585,290+i*220,470,95,'ellipse');d.edge('admin',id,kind='association',source=(.5,.35),target=(0,.5))
-d.note('Administrador hereda las interacciones de Encargado en esta propuesta de permisos.',660,975)
 
 # Flujos con rutas de validación, rechazo, cancelación y confirmación.
 def flow(key,title,steps,branches):
@@ -169,8 +169,9 @@ dbattrs={
  'ESTADIA':['PK id_estadia : INTEGER','FK id_habitacion : INTEGER','FK/UQ id_reserva : INTEGER NULL','fecha_entrada : DATE','fecha_salida_prevista : DATE','fecha_salida_real : DATE NULL','estado : VARCHAR(20)','noches_cobradas : INTEGER NULL > 0'],
  'ESTADIA_HUESPED':['PK/FK id_estadia : INTEGER','PK/FK id_huesped : INTEGER','tarifa_clp : INTEGER NULL >= 0','costo_clp : INTEGER NULL >= 0']}
 layout={'ROL':(75,110),'USUARIO':(800,110),'HABITACION':(1525,110),'HUESPED':(75,690),'RESERVA':(800,690),'ESTADIA':(1525,690),'ESTADIA_HUESPED':(800,1350)}
+layout['ESTADIA_HUESPED']=(800,1280)
 for key,title,cl in [('diagrama-de-clases','Clases de dominio · Duerme Bien',True),('modelo-de-datos','Modelo lógico de datos · 3FN',False)]:
- d=D(key,title,2200,1810)
+ d=D(key,title,2200,1540)
  for id,(x,y) in layout.items():
   n,attrs,methods=tables[id];attrs=['- '+v for v in attrs] if cl else dbattrs[id];methods=['+ '+v for v in methods] if cl else [];h=70+(len(attrs)+len(methods))*28;d.node(id,n if cl else id,x,y,490,h,'table',attrs,methods)
  def rel(a,b,source,target,points=None,sm='1',tm='0..*',composition=False):d.edge(a,b,points=points,source=source,target=target,kind='composition' if composition else 'association' if cl else 'er',sm=sm if cl else {'1':'one','0..1':'zeroone'}[sm],tm=tm if cl else {'0..*':'zeromany','1..*':'onemany','0..1':'zeroone'}[tm])
@@ -179,10 +180,7 @@ for key,title,cl in [('diagrama-de-clases','Clases de dominio · Duerme Bien',Tr
  rel('HABITACION','RESERVA',(0,.25),(.5,0),[(1430,175),(1430,590),(1045,590)])
  rel('HUESPED','RESERVA',(1,.3),(0,.3))
  rel('RESERVA','ESTADIA',(1,.7),(0,.7),sm='0..1',tm='0..1')
- rel('HUESPED','ESTADIA_HUESPED',(.5,1),(0,.5),[(320,1480)])
- rel('ESTADIA','ESTADIA_HUESPED',(.7,1),(1,.5),[(1868,1480)],tm='1..*',composition=cl)
- d.note('Una habitación por reserva y estadía. Los pasajeros se identifican en ESTADIA_HUESPED.',1100,1700)
- d.note('Tarifa y noches: datos históricos del cálculo de demostración; la regla real se valida con el hotel.',1100,1735)
- d.note('Estados reserva: REGISTRADA / CHECK_IN / CANCELADA / FINALIZADA. Estadía: ACTIVA / FINALIZADA.',1100,1770)
+ rel('HUESPED','ESTADIA_HUESPED',(.5,1),(0,.5),[(320,1160),(700,1160),(700,1360)])
+ rel('ESTADIA','ESTADIA_HUESPED',(.7,1),(1,.5),[(1868,1160),(2000,1160),(2000,1360)],tm='1..*',composition=cl)
 for d in ALL:d.save()
 (ROOT/'modelo/diagramas.json').write_text(json.dumps([dict(key=d.key,title=d.title,nodes=d.nodes,edges=d.edges) for d in ALL],ensure_ascii=False,indent=2))
