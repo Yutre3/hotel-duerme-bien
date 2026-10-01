@@ -1,52 +1,52 @@
 {
   "entidades": {
     "ROL": [
-      "PK id_rol: INTEGER",
-      "nombre: VARCHAR(30) NOT NULL UNIQUE"
+      "PK id_rol : INTEGER",
+      "UQ nombre : VARCHAR(30)"
     ],
     "USUARIO": [
-      "PK id_usuario: INTEGER",
-      "FK id_rol: INTEGER NOT NULL",
-      "nombre_usuario: VARCHAR(50) NOT NULL UNIQUE",
-      "hash_clave: VARCHAR(255) NOT NULL",
-      "activo: BOOLEAN NOT NULL"
+      "PK id_usuario : INTEGER",
+      "FK id_rol : INTEGER NOT NULL",
+      "UQ nombre_usuario : VARCHAR(50)",
+      "hash_clave : VARCHAR(255)",
+      "activo : BOOLEAN"
     ],
     "HABITACION": [
-      "PK id_habitacion: INTEGER",
-      "numero: VARCHAR(20) NOT NULL UNIQUE",
-      "capacidad: INTEGER NOT NULL, mayor que 0",
-      "orientacion: VARCHAR(30) NOT NULL"
+      "PK id_habitacion : INTEGER",
+      "UQ numero : VARCHAR(20)",
+      "capacidad : INTEGER CHECK > 0",
+      "orientacion : VARCHAR(30)"
     ],
     "HUESPED": [
-      "PK id_huesped: INTEGER",
-      "identificacion: VARCHAR(50) NOT NULL UNIQUE",
-      "nombres: VARCHAR(100) NOT NULL",
-      "apellidos: VARCHAR(100) NOT NULL"
+      "PK id_huesped : INTEGER",
+      "UQ identificacion : VARCHAR(50)",
+      "nombres : VARCHAR(100)",
+      "apellidos : VARCHAR(100)"
     ],
     "RESERVA": [
-      "PK id_reserva: INTEGER",
-      "FK id_huesped_titular: INTEGER NOT NULL",
-      "FK id_habitacion: INTEGER NOT NULL",
-      "fecha_entrada: DATE NOT NULL",
-      "fecha_salida: DATE NOT NULL, posterior a entrada",
-      "cantidad_pasajeros: INTEGER NOT NULL, mayor que 0",
-      "estado: REGISTRADA, CHECK_IN o CANCELADA"
+      "PK id_reserva : INTEGER",
+      "FK id_huesped_titular : INTEGER",
+      "FK id_habitacion : INTEGER",
+      "fecha_entrada : DATE",
+      "fecha_salida : DATE",
+      "cantidad_pasajeros : INTEGER > 0",
+      "estado : VARCHAR(20)"
     ],
     "ESTADIA": [
-      "PK id_estadia: INTEGER",
-      "FK id_habitacion: INTEGER NOT NULL",
-      "FK id_reserva: INTEGER NULL UNIQUE",
-      "fecha_entrada: DATE NOT NULL",
-      "fecha_salida_prevista: DATE NOT NULL, posterior a entrada",
-      "fecha_salida_real: DATE NULL",
-      "estado: ACTIVA o FINALIZADA",
-      "noches_cobradas: INTEGER NULL, mayor que 0"
+      "PK id_estadia : INTEGER",
+      "FK id_habitacion : INTEGER",
+      "FK/UQ id_reserva : INTEGER NULL",
+      "fecha_entrada : DATE",
+      "fecha_salida_prevista : DATE",
+      "fecha_salida_real : DATE NULL",
+      "estado : VARCHAR(20)",
+      "noches_cobradas : INTEGER NULL > 0"
     ],
     "ESTADIA_HUESPED": [
-      "PK/FK id_estadia: INTEGER NOT NULL",
-      "PK/FK id_huesped: INTEGER NOT NULL",
-      "tarifa_clp: INTEGER NULL, mayor o igual a 0",
-      "costo_clp: INTEGER NULL, mayor o igual a 0"
+      "PK/FK id_estadia : INTEGER",
+      "PK/FK id_huesped : INTEGER",
+      "tarifa_clp : INTEGER NULL >= 0",
+      "costo_clp : INTEGER NULL >= 0"
     ]
   },
   "relaciones": [
@@ -55,82 +55,12 @@
       "b": "USUARIO",
       "points": [
         [
-          600.0,
-          284
+          630,
+          188.0
         ],
         [
-          600.0,
-          400
-        ]
-      ],
-      "label": "",
-      "kind": "er",
-      "sm": "one",
-      "tm": "zeromany",
-      "source": [
-        0.5,
-        1
-      ],
-      "target": [
-        0.5,
-        0
-      ],
-      "labelpos": null
-    },
-    {
-      "a": "HABITACION",
-      "b": "RESERVA",
-      "points": [
-        [
-          100,
-          917.0
-        ],
-        [
-          40,
-          917
-        ],
-        [
-          40,
-          1798.5
-        ],
-        [
-          100,
-          1798.5
-        ]
-      ],
-      "label": "",
-      "kind": "er",
-      "sm": "one",
-      "tm": "zeromany",
-      "source": [
-        0,
-        0.25
-      ],
-      "target": [
-        0,
-        0.25
-      ],
-      "labelpos": null
-    },
-    {
-      "a": "HABITACION",
-      "b": "ESTADIA",
-      "points": [
-        [
-          1100,
-          917.0
-        ],
-        [
-          1160,
-          917
-        ],
-        [
-          1160,
-          2359
-        ],
-        [
-          1100,
-          2359.0
+          760,
+          219.0
         ]
       ],
       "label": "",
@@ -139,25 +69,35 @@
       "tm": "zeromany",
       "source": [
         1,
-        0.25
+        0.5
       ],
       "target": [
-        1,
-        0.25
+        0,
+        0.5
       ],
-      "labelpos": null
+      "labelpos": null,
+      "smpos": null,
+      "tmpos": null
     },
     {
       "a": "HUESPED",
       "b": "RESERVA",
       "points": [
         [
-          600.0,
-          1518
+          434.8,
+          824
         ],
         [
-          600.0,
-          1700
+          435,
+          1110
+        ],
+        [
+          648,
+          1110
+        ],
+        [
+          647.6,
+          1240
         ]
       ],
       "label": "",
@@ -165,26 +105,102 @@
       "sm": "one",
       "tm": "zeromany",
       "source": [
-        0.5,
+        0.48,
         1
       ],
       "target": [
-        0.5,
+        0.18,
         0
       ],
-      "labelpos": null
+      "labelpos": null,
+      "smpos": null,
+      "tmpos": null
+    },
+    {
+      "a": "HABITACION",
+      "b": "RESERVA",
+      "points": [
+        [
+          1242.8,
+          824
+        ],
+        [
+          1243,
+          1110
+        ],
+        [
+          1140,
+          1110
+        ],
+        [
+          1139.6,
+          1240
+        ]
+      ],
+      "label": "",
+      "kind": "er",
+      "sm": "one",
+      "tm": "zeromany",
+      "source": [
+        0.28,
+        1
+      ],
+      "target": [
+        0.78,
+        0
+      ],
+      "labelpos": null,
+      "smpos": null,
+      "tmpos": null
+    },
+    {
+      "a": "HABITACION",
+      "b": "ESTADIA",
+      "points": [
+        [
+          1577.1999999999998,
+          824
+        ],
+        [
+          1577,
+          1080
+        ],
+        [
+          1653,
+          1080
+        ],
+        [
+          1653.0,
+          1200
+        ]
+      ],
+      "label": "",
+      "kind": "er",
+      "sm": "one",
+      "tm": "zeromany",
+      "source": [
+        0.72,
+        1
+      ],
+      "target": [
+        0.18,
+        0
+      ],
+      "labelpos": null,
+      "smpos": null,
+      "tmpos": null
     },
     {
       "a": "RESERVA",
       "b": "ESTADIA",
       "points": [
         [
-          600.0,
-          2094
+          1320,
+          1442.12
         ],
         [
-          600.0,
-          2250
+          1500,
+          1423.2
         ]
       ],
       "label": "",
@@ -192,26 +208,28 @@
       "sm": "zeroone",
       "tm": "zeroone",
       "source": [
-        0.5,
-        1
+        1,
+        0.62
       ],
       "target": [
-        0.5,
-        0
+        0,
+        0.62
       ],
-      "labelpos": null
+      "labelpos": null,
+      "smpos": null,
+      "tmpos": null
     },
     {
       "a": "ESTADIA",
       "b": "ESTADIA_HUESPED",
       "points": [
         [
-          600.0,
-          2686
+          2350,
+          1473.6
         ],
         [
-          600.0,
-          2900
+          2380,
+          1414.08
         ]
       ],
       "label": "",
@@ -219,34 +237,36 @@
       "sm": "one",
       "tm": "onemany",
       "source": [
-        0.5,
-        1
+        1,
+        0.76
       ],
       "target": [
-        0.5,
-        0
+        0,
+        0.42
       ],
-      "labelpos": null
+      "labelpos": null,
+      "smpos": null,
+      "tmpos": null
     },
     {
       "a": "HUESPED",
       "b": "ESTADIA_HUESPED",
       "points": [
         [
-          1100,
-          1451.0
+          176.4,
+          824
         ],
         [
-          1185,
-          1451
+          176,
+          1940
         ],
         [
-          1185,
-          3034
+          2665,
+          1940
         ],
         [
-          1100,
-          3034.0
+          2665.0,
+          1544
         ]
       ],
       "label": "",
@@ -254,14 +274,16 @@
       "sm": "one",
       "tm": "zeromany",
       "source": [
-        1,
-        0.75
+        0.14,
+        1
       ],
       "target": [
-        1,
-        0.5
+        0.5,
+        1
       ],
-      "labelpos": null
+      "labelpos": null,
+      "smpos": null,
+      "tmpos": null
     }
   ]
 }

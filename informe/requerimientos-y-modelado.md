@@ -27,7 +27,7 @@ El sistema centraliza la información hoy mantenida en Excel. Las habitaciones c
 Registro y edición de habitaciones, registro de huéspedes, consulta de disponibilidad, asignación de huéspedes, cierre de estadías, cálculo individual, reservas, gestión de perfiles e informes.
 
 ### 2.3 Clases de usuario
-El caso identifica Administrador y Encargado. Para este diseño se propone que el Administrador herede las interacciones operativas del Encargado y además administre habitaciones, usuarios e informes. Es una matriz propuesta, no una respuesta real del hotel. En las clases de dominio se representa un Usuario asociado a un Rol; no se duplican las mismas personas en subclases de usuarios.
+El caso identifica Administrador y Encargado. En el diagrama de casos de uso, Administrador generaliza a Encargado y agrega las tareas administrativas. En el diagrama de clases ambos especializan a la clase abstracta Usuario para hacer visible la herencia solicitada por la pauta. En el modelo relacional esa especialización se implementa mediante USUARIO y ROL, evitando duplicar credenciales.
 
 ### 2.4 Entorno operativo
 El prototipo usa HTML, CSS y JavaScript en el navegador, con almacenamiento local. Implementa operaciones y validaciones para demostrar el diseño. La selección de usuario simula una sesión; no autentica identidades reales. El sistema final necesita servidor, base de datos, control transaccional y autenticación segura. El caso no fija motor ni infraestructura.
@@ -115,7 +115,7 @@ La actividad solicita entrevista simulada. El siguiente registro organiza pregun
 | P07 | ¿Condiciones definitivas para modificar/cancelar y extender salidas? | RF05, RF08 |
 | P08 | ¿Campos y filtros exactos de informes? | RF09 |
 | P09 | ¿Entorno final, respaldo y concurrencia? | RNF04, RNF05 |
-| P10 | ¿Plantilla original, rúbrica y retroalimentación de Evaluación 1? | Evaluación 2 |
+| P10 | ¿Cuál fue la retroalimentación detallada de la Evaluación 1? | Evaluación 2 |
 
 ## 6. Factibilidad
 
@@ -128,7 +128,7 @@ La propuesta responde al objetivo de centralizar el registro, evitar duplicados 
 ## 7. Modelado funcional
 
 ### 7.1 Casos de uso
-Se presentan dos vistas del mismo sistema: operación y administración. CU01-CU12 mantienen el mismo significado en diagramas, especificaciones y trazabilidad. Las asociaciones actor-caso son continuas y sin flecha. Las inclusiones son discontinuas, con flecha hacia el caso incluido. CU04, CU09 y CU11 incluyen consultar disponibilidad; CU06 incluye calcular cuenta. El Administrador especializa al actor Encargado en la matriz propuesta, mediante triángulo hueco hacia Encargado. No se inventa una extensión sólo para mostrar el símbolo extend. El Huésped es una entidad atendida por los encargados, no un usuario directo del sistema en el caso dado.
+Un diagrama único muestra el límite del sistema, los dos actores y CU01-CU12. Las asociaciones actor-caso son continuas y sin flecha. Las inclusiones son discontinuas, con flecha hacia el caso incluido. CU04, CU09 y CU11 incluyen consultar disponibilidad; CU06 incluye calcular cuenta. Ingreso directo extiende CU04 sólo bajo la condición sin reserva, por lo que no modifica el flujo normal. El Administrador especializa al actor Encargado mediante triángulo hueco hacia Encargado. El Huésped es una entidad atendida por los encargados, no un usuario directo del sistema.
 
 ### CU01 - Iniciar sesión
 
@@ -423,7 +423,7 @@ Los flujos muestran inicio/fin, entradas/salidas, acciones, decisiones con salid
 ## 8. Clases y modelo de datos
 
 ### 8.1 Clases de dominio
-Rol, Usuario, Habitacion, Huesped, Reserva, Estadia y EstadiaHuesped muestran nombre, atributos privados y operaciones públicas con tipos. Usuario se asocia a Rol. Estadia compone sus participaciones EstadiaHuesped; el rombo sólido se ubica en Estadia. Huesped existe independientemente de una participación. Las multiplicidades se indican en cada extremo, no como una etiqueta ambigua en el centro. Los actores Administrador/Encargado representan interacciones; los registros de usuarios se almacenan mediante Usuario y Rol.
+Usuario es una clase abstracta y Administrador/Encargado heredan sus datos de acceso. Habitacion agrega reservas históricas con rombo vacío. Estadia compone sus participaciones EstadiaHuesped con rombo sólido. Huesped existe independientemente de una participación. Las demás relaciones son asociaciones. Cada clase muestra atributos privados, métodos públicos y tipos; las multiplicidades aparecen junto a cada extremo y fuera de las líneas.
 
 ### 8.2 Diccionario y claves
 | Entidad | Clave primaria | Referencias y unicidad | Uso |
@@ -480,7 +480,7 @@ El prototipo registra y edita habitaciones, identifica huéspedes, gestiona rese
 
 ## 10. Planificación Kanban
 
-El tablero conserva tareas técnicas terminadas, artefactos en revisión y decisiones pendientes. Terminar la implementación no equivale a aprobación del docente. No se inventan integrantes ni plazos. Las decisiones sobre identificación, cobro, permisos, habitación compartida y entorno permanecen por validar; la rúbrica y retroalimentación no fueron recibidas.
+El tablero conserva tareas técnicas terminadas, artefactos en revisión y decisiones pendientes. Terminar la implementación no equivale a aprobación del docente. No se inventan integrantes ni plazos. La pauta de la Evaluación 2 fue revisada; las decisiones sobre identificación, cobro, permisos, habitación compartida y entorno, además de la retroalimentación detallada de la Evaluación 1, permanecen por validar.
 
 ## 11. Trazabilidad
 | RF | Casos de uso | Clases/entidades | Pantallas |
@@ -500,7 +500,7 @@ Las pruebas del motor comprueban acceso restringido, duplicados, capacidad, fech
 
 ## 12. Referencias
 
-Materiales del profesor utilizados: Definición de proyectos(2).docx; UML_CASOS_DE_USO_2(2).jpg; UML_CASOS_DE_USO(2).jpg; CASOS_DE_USO_como_iniciar(2).pdf; CASOS_DE_USO_extend_y_include(2).pdf; diagrama_de_procesos(2).jpg; Diagramas de Clase(2).pdf; GUIA_diagramas_de_clase(2).pdf; MODELO_E_R_NORMALIZACION(1).pdf; MOCKUP_COMPLETO(2).pdf; Github_Git_VSCode(1).docx. Se conservan los originales en fuentes/.
+Materiales del profesor utilizados: Evaluación_2_MSI.pdf; Definición de proyectos(2).docx; UML_CASOS_DE_USO_2(2).jpg; UML_CASOS_DE_USO(2).jpg; CASOS_DE_USO_como_iniciar(2).pdf; CASOS_DE_USO_extend_y_include(2).pdf; diagrama_de_procesos(2).jpg; Diagramas de Clase(2).pdf; GUIA_diagramas_de_clase(2).pdf; MODELO_E_R_NORMALIZACION(1).pdf; MOCKUP_COMPLETO(2).pdf; Github_Git_VSCode(1).docx. Se conservan los originales en fuentes/.
 
 Referencias técnicas de notación y diseño consultadas para la revisión:
 1. OMG. UML 2.5.1: https://www.omg.org/spec/UML/2.5.1
@@ -509,4 +509,4 @@ Referencias técnicas de notación y diseño consultadas para la revisión:
 4. Balsamiq. Wireframes: https://balsamiq.com/blog/what-are-wireframes/
 5. Referencia de organización y prototipo inicial: https://github.com/Yutre3/diego
 
-Estas referencias aportan notación y técnicas, no funciones nuevas del negocio. El alcance proviene del tema 6. No se recibieron rúbrica, plantilla IEEE original, PPT/PPTX ni videos; no se simula haberlos consultado.
+Estas referencias aportan notación y técnicas, no funciones nuevas del negocio. El alcance proviene del tema 6 y de la pauta de Evaluación 2. No se agregan funciones que no estén sustentadas por esos materiales.

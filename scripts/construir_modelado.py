@@ -10,8 +10,8 @@ class D:
  def __init__(self,key,title,w,h):self.key=key;self.title=title;self.w=w;self.h=h;self.nodes={};self.edges=[];self.notes=[];ALL.append(self)
  def node(self,id,label,x,y,w=400,h=90,shape='rect',attrs=None,methods=None,fill=WHITE,stroke=EDGE):
   self.nodes[id]=dict(id=id,label=label,x=x,y=y,w=w,h=h,shape=shape,attrs=attrs or [],methods=methods or [],fill=fill,stroke=stroke);return id
- def edge(self,a,b,points=None,label='',kind='arrow',source=(.5,1),target=(.5,0),sm='',tm='',labelpos=None):
-  A=self.nodes[a];B=self.nodes[b];p=(A['x']+A['w']*source[0],A['y']+A['h']*source[1]);q=(B['x']+B['w']*target[0],B['y']+B['h']*target[1]);self.edges.append(dict(a=a,b=b,points=[p]+(points or [])+[q],label=label,kind=kind,sm=sm,tm=tm,source=source,target=target,labelpos=labelpos))
+ def edge(self,a,b,points=None,label='',kind='arrow',source=(.5,1),target=(.5,0),sm='',tm='',labelpos=None,smpos=None,tmpos=None):
+  A=self.nodes[a];B=self.nodes[b];p=(A['x']+A['w']*source[0],A['y']+A['h']*source[1]);q=(B['x']+B['w']*target[0],B['y']+B['h']*target[1]);self.edges.append(dict(a=a,b=b,points=[p]+(points or [])+[q],label=label,kind=kind,sm=sm,tm=tm,source=source,target=target,labelpos=labelpos,smpos=smpos,tmpos=tmpos))
  def note(self,text,x,y,size=16):self.notes.append((text,x,y,size))
  def save(self):
   svg=[];c=canvas.Canvas(str(ROOT/'diagramas'/f'{self.key}.pdf'),pagesize=(self.w,self.h));c.setTitle(self.title)
@@ -35,6 +35,7 @@ class D:
    if kind=='arrow':path([p(13,-6),tip,p(13,6)])
    elif kind=='general':path([tip,p(19,-11),p(19,11)],WHITE,closed=True)
    elif kind=='composition':path([tip,p(10,-7),p(20,0),p(10,7)],EDGE,closed=True)
+   elif kind=='aggregation':path([tip,p(10,-7),p(20,0),p(10,7)],WHITE,closed=True)
    elif kind in ['one','zeroone','many','zeromany','onemany']:
     if 'many' in kind:
      path([p(18,0),p(0,-8)]);path([p(18,0),tip]);path([p(18,0),p(0,8)])
@@ -49,14 +50,19 @@ class D:
   for e in self.edges:
    pts=e['points'];path(pts,dash=e['kind']=='include')
    if e['kind'] in ['arrow','include','general']:mark(pts[-1],pts[-2],'general' if e['kind']=='general' else 'arrow')
-   if e['kind']=='composition':mark(pts[0],pts[1],'composition')
+   if e['kind'] in ['composition','aggregation']:mark(pts[0],pts[1],e['kind'])
    if e['kind']=='er':mark(pts[0],pts[1],e['sm']);mark(pts[-1],pts[-2],e['tm'])
    if e['label']:
     pos=e['labelpos'] or ((pts[0][0]+pts[-1][0])/2,(pts[0][1]+pts[-1][1])/2-13);boxed_text(e['label'],*pos,20)
    if e['kind']!='er':
-    for t,p,o in [(e['sm'],pts[0],pts[1]),(e['tm'],pts[-1],pts[-2])]:
+    for t,p,o,manual in [(e['sm'],pts[0],pts[1],e.get('smpos')),(e['tm'],pts[-1],pts[-2],e.get('tmpos'))]:
      if t:
-      dx,dy=o[0]-p[0],o[1]-p[1];l=math.hypot(dx,dy) or 1;boxed_text(t,p[0]+dx/l*85+(-34 if dy else 0),p[1]+dy/l*85-16,25)
+      if manual:
+       boxed_text(t,*manual,23)
+      else:
+       dx,dy=o[0]-p[0],o[1]-p[1];l=math.hypot(dx,dy) or 1
+       # La multiplicidad queda junto a su extremo y separada de la línea.
+       u,v=dx/l,dy/l;boxed_text(t,p[0]+u*55-v*24,p[1]+v*55+u*24,23)
   for n in self.nodes.values():
    x,y,w,h=n['x'],n['y'],n['w'],n['h'];sh=n['shape'];fill=n['fill'];stroke=n.get('stroke',EDGE)
    if sh=='frame':continue
@@ -100,6 +106,7 @@ class D:
    if kind in ['arrow','include']:ea='open'
    if kind=='general':ea='block'
    if kind=='composition':sa='diamond'
+   if kind=='aggregation':sa='diamond'
    er={'one':'ERmandOne','zeroone':'ERzeroToOne','many':'ERmany','zeromany':'ERzeroToMany','onemany':'ERoneToMany'}
    if kind=='er':sa=er[e['sm']];ea=er[e['tm']]
    style=f'html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor={EDGE};fontSize=22;fontStyle=1;fontColor={BLUE};labelBackgroundColor=#ffffff;endArrow={ea};endFill=0;startArrow={sa};startFill={1 if kind=="composition" else 0};exitX={e["source"][0]};exitY={e["source"][1]};exitPerimeter=0;entryX={e["target"][0]};entryY={e["target"][1]};entryPerimeter=0;'+('dashed=1;' if kind=='include' else '')
@@ -185,36 +192,57 @@ dbattrs={
  'RESERVA':['PK id_reserva : INTEGER','FK id_huesped_titular : INTEGER','FK id_habitacion : INTEGER','fecha_entrada : DATE','fecha_salida : DATE','cantidad_pasajeros : INTEGER > 0','estado : VARCHAR(20)'],
  'ESTADIA':['PK id_estadia : INTEGER','FK id_habitacion : INTEGER','FK/UQ id_reserva : INTEGER NULL','fecha_entrada : DATE','fecha_salida_prevista : DATE','fecha_salida_real : DATE NULL','estado : VARCHAR(20)','noches_cobradas : INTEGER NULL > 0'],
  'ESTADIA_HUESPED':['PK/FK id_estadia : INTEGER','PK/FK id_huesped : INTEGER','tarifa_clp : INTEGER NULL >= 0','costo_clp : INTEGER NULL >= 0']}
-layout={'ROL':(60,100),'USUARIO':(940,100),'HABITACION':(60,560),'HUESPED':(940,560),'RESERVA':(60,1120),'ESTADIA':(940,1120),'ESTADIA_HUESPED':(500,1860)}
-for key,title,cl in [('modelo-de-datos','Modelo lógico de datos · 3FN',False)]:
- d=D(key,title,1700,2400)
- for id,(x,y) in layout.items():
-  n,attrs,methods=tables[id];attrs=['- '+v for v in attrs] if cl else dbattrs[id];methods=['+ '+v for v in methods] if cl else [];h=88+(len(attrs)+len(methods))*34;d.node(id,n if cl else id,x,y,700,h,'table',attrs,methods)
- def rel(a,b,source,target,points=None,sm='1',tm='0..*',composition=False):d.edge(a,b,points=points,source=source,target=target,kind='composition' if composition else 'association' if cl else 'er',sm=sm if cl else {'1':'one','0..1':'zeroone'}[sm],tm=tm if cl else {'0..*':'zeromany','1..*':'onemany','0..1':'zeroone'}[tm])
- rel('ROL','USUARIO',(1,.35),(0,.22))
- rel('HABITACION','ESTADIA',(1,.25),(0,.25),[(850,650),(850,1210)])
- rel('HABITACION','RESERVA',(.35,1),(.35,0))
- rel('HUESPED','RESERVA',(0,.7),(1,.2),[(850,760),(850,1190)])
- rel('RESERVA','ESTADIA',(1,.7),(0,.7),sm='0..1',tm='0..1')
- rel('HUESPED','ESTADIA_HUESPED',(1,.55),(.75,0),[(1660,730),(1660,1800),(1025,1800)])
- rel('ESTADIA','ESTADIA_HUESPED',(.3,1),(1,.55),[(1150,1750),(1250,1750),(1250,2040)],tm='1..*',composition=cl)
+# Modelo lógico en formato horizontal. Las relaciones usan pasillos libres y
+# las cardinalidades se ubican junto a sus extremos, nunca sobre los campos.
+d=D('modelo-de-datos','Modelo lógico de datos · 3FN',3000,2100)
+db_layout={
+ 'ROL':(70,110,560),'USUARIO':(760,90,700),
+ 'HUESPED':(70,600,760),'HABITACION':(1030,600,760),
+ 'RESERVA':(500,1240,820),'ESTADIA':(1500,1200,850),
+ 'ESTADIA_HUESPED':(2380,1320,570)}
+for id,(x,y,w) in db_layout.items():
+ attrs=dbattrs[id];d.node(id,id,x,y,w,88+len(attrs)*34,'table',attrs,[])
+def dbrel(a,b,source,target,points,sm,tm):
+ d.edge(a,b,points=points,source=source,target=target,kind='er',sm=sm,tm=tm)
+dbrel('ROL','USUARIO',(1,.5),(0,.5),[], 'one','zeromany')
+dbrel('HUESPED','RESERVA',(.48,1),(.18,0),[(435,1110),(648,1110)],'one','zeromany')
+dbrel('HABITACION','RESERVA',(.28,1),(.78,0),[(1243,1110),(1140,1110)],'one','zeromany')
+dbrel('HABITACION','ESTADIA',(.72,1),(.18,0),[(1577,1080),(1653,1080)],'one','zeromany')
+dbrel('RESERVA','ESTADIA',(1,.62),(0,.62),[],'zeroone','zeroone')
+dbrel('ESTADIA','ESTADIA_HUESPED',(1,.76),(0,.42),[],'one','onemany')
+dbrel('HUESPED','ESTADIA_HUESPED',(.14,1),(.5,1),[(176,1940),(2665,1940)],'one','zeromany')
+d.note('PK = clave primaria   ·   FK = clave foránea   ·   UQ = valor único',1500,2035,22)
+db_model=d
 
-# Diagrama de clases compacto: relaciones cortas y cardinalidades junto a cada extremo.
-d=D('diagrama-de-clases','Clases de dominio · Duerme Bien',1600,1850)
-class_positions={'ROL':(50,100),'USUARIO':(950,100),'HABITACION':(50,600),'RESERVA':(575,570),'ESTADIA':(1100,550),'HUESPED':(150,1180),'ESTADIA_HUESPED':(900,1210)}
-class_widths={'ROL':600,'USUARIO':600,'HABITACION':450,'RESERVA':450,'ESTADIA':450,'HUESPED':600,'ESTADIA_HUESPED':550}
-class_colors={'ROL':'#e8ddff','USUARIO':'#d9efff','HABITACION':'#dff5e3','HUESPED':'#fff1c9','RESERVA':'#ffe0cf','ESTADIA':'#d9efff','ESTADIA_HUESPED':'#eadfff'}
-for id,(x,y) in class_positions.items():
- n,attrs,methods=tables[id];attrs=['- '+v for v in attrs];methods=['+ '+v for v in methods]
- d.node(id,n,x,y,class_widths[id],88+(len(attrs)+len(methods))*34,'table',attrs,methods,fill=class_colors[id])
-def class_rel(a,b,source,target,points=None,sm='1',tm='0..*',composition=False):
- d.edge(a,b,points=points,source=source,target=target,kind='composition' if composition else 'association',sm=sm,tm=tm)
-class_rel('ROL','USUARIO',(1,.5),(0,.291))
-class_rel('HABITACION','RESERVA',(1,.5),(0,.489))
-class_rel('HABITACION','ESTADIA',(.5,0),(.5,0),[(275,480),(1325,480)])
-class_rel('HUESPED','RESERVA',(.77,0),(.1,1))
-class_rel('RESERVA','ESTADIA',(1,.489),(0,.497),sm='0..1',tm='0..1')
-class_rel('ESTADIA','ESTADIA_HUESPED',(.5,1),(.77,0),tm='1..*',composition=True)
-class_rel('HUESPED','ESTADIA_HUESPED',(1,.428),(0,.5))
+# Clases de dominio. Incluye asociación, agregación, composición y herencia
+# sin repetir líneas ni hacer que las multiplicidades crucen las cajas.
+d=D('diagrama-de-clases','Clases de dominio · Duerme Bien',3000,2200)
+class_defs={
+ 'USUARIO':('«abstract» Usuario',['- id: int','- nombreUsuario: String','- hashClave: String','- activo: bool'],['+ iniciarSesion(clave: String): Sesion','+ tienePermiso(operacion: String): bool']),
+ 'ADMIN':('Administrador',[],['+ gestionarHabitaciones(): void','+ gestionarUsuarios(): void','+ generarInformes(): void']),
+ 'ENCARGADO':('Encargado',[],['+ registrarReserva(): void','+ registrarCheckIn(): void','+ registrarCheckOut(): void']),
+ 'HABITACION':('Habitacion',['- id: int','- numero: String','- capacidad: int','- orientacion: String'],['+ disponible(entrada, salida): bool','+ actualizarDatos(): void']),
+ 'HUESPED':('Huesped',['- id: int','- identificacion: String','- nombres: String','- apellidos: String'],['+ registrar(): void','+ consultarHistorial(): List<Estadia>']),
+ 'RESERVA':('Reserva',['- id: int','- entrada: Date','- salida: Date','- cantidadPasajeros: int','- estado: EstadoReserva'],['+ registrar(): void','+ modificar(): void','+ cancelar(): void']),
+ 'ESTADIA':('Estadia',['- id: int','- entrada: Date','- salidaPrevista: Date','- salidaReal: Date [0..1]','- estado: EstadoEstadia','- nochesCobradas: int [0..1]'],['+ registrarCheckIn(): void','+ calcularCuenta(): Dinero','+ registrarCheckOut(): void']),
+ 'ESTADIA_HUESPED':('EstadiaHuesped',['- tarifaCLP: Dinero [0..1]','- costoCLP: Dinero [0..1]'],['+ calcularCosto(regla): Dinero'])}
+class_layout={
+ 'USUARIO':(1080,80,820),'ADMIN':(450,520,650),'ENCARGADO':(1900,520,650),
+ 'HUESPED':(80,1050,760),'HABITACION':(940,1050,700),
+ 'RESERVA':(80,1600,760),'ESTADIA':(1040,1570,820),'ESTADIA_HUESPED':(2150,1640,780)}
+class_colors={'USUARIO':'#d9efff','ADMIN':'#e8ddff','ENCARGADO':'#e8ddff','HABITACION':'#dff5e3','HUESPED':'#fff1c9','RESERVA':'#ffe0cf','ESTADIA':'#d9efff','ESTADIA_HUESPED':'#eadfff'}
+for id,(x,y,w) in class_layout.items():
+ title,attrs,methods=class_defs[id];d.node(id,title,x,y,w,88+(len(attrs)+len(methods))*34,'table',attrs,methods,fill=class_colors[id])
+def classrel(a,b,source,target,points=None,sm='',tm='',kind='association',smpos=None,tmpos=None):
+ d.edge(a,b,points=points,source=source,target=target,kind=kind,sm=sm,tm=tm,smpos=smpos,tmpos=tmpos)
+classrel('ADMIN','USUARIO',(.72,0),(.28,1),kind='general')
+classrel('ENCARGADO','USUARIO',(.28,0),(.72,1),kind='general')
+classrel('HABITACION','RESERVA',(.25,1),(1,.45),[(1115,1500),(900,1500),(900,1770)],'1','0..*','aggregation',(1090,1470),(870,1740))
+classrel('HABITACION','ESTADIA',(.75,1),(.45,0),[(1465,1490),(1409,1490)],'1','0..*','association',(1490,1465),(1435,1535))
+classrel('HUESPED','RESERVA',(.5,1),(.5,0),[],'1','0..*','association',(430,1515),(500,1555))
+classrel('RESERVA','ESTADIA',(1,.58),(0,.58),[],'0..1','0..1','association',(880,1880),(1000,1880))
+classrel('ESTADIA','ESTADIA_HUESPED',(1,.72),(0,.52),[],'1','1..*','composition',(1920,1875),(2100,1855))
+classrel('HUESPED','ESTADIA_HUESPED',(0,.70),(.5,1),[(30,1235),(30,2120),(2540,2120)],'1','0..*','association',(38,1280),(2505,2085))
 for d in ALL:d.save()
 (ROOT/'modelo/diagramas.json').write_text(json.dumps([dict(key=d.key,title=d.title,nodes=d.nodes,edges=d.edges) for d in ALL],ensure_ascii=False,indent=2))
+(ROOT/'modelo/base-de-datos.json').write_text(json.dumps({'entidades':dbattrs,'relaciones':db_model.edges},ensure_ascii=False,indent=2))

@@ -1,66 +1,81 @@
 <?xml version='1.0' encoding='utf-8'?>
 <mxfile host="app.diagrams.net">
   <diagram id="proceso-completo" name="Proceso completo · Reserva, estadía y salida">
-    <mxGraphModel grid="1" gridSize="10" page="1" pageWidth="1400" pageHeight="2180">
+    <mxGraphModel grid="1" gridSize="10" page="1" pageWidth="2600" pageHeight="2500">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="inicio" value="Inicio" style="ellipse;html=0;whiteSpace=wrap;strokeColor=#ff7474;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="400" y="80" width="600" height="88" />
+          <mxGeometry as="geometry" x="930" y="80" width="740" height="96" />
         </mxCell>
         <mxCell id="acceso" value="Iniciar sesión y validar perfil" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="400" y="220" width="600" height="88" />
+          <mxGeometry as="geometry" x="930" y="240" width="740" height="96" />
         </mxCell>
         <mxCell id="huesped" value="Registrar o seleccionar huésped" style="shape=parallelogram;fixedSize=1;size=25;html=0;whiteSpace=wrap;strokeColor=#20aaa9;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="400" y="360" width="600" height="88" />
+          <mxGeometry as="geometry" x="930" y="400" width="740" height="96" />
         </mxCell>
         <mxCell id="solicitud" value="Ingresar fechas, habitación&#10;y cantidad de pasajeros" style="shape=parallelogram;fixedSize=1;size=25;html=0;whiteSpace=wrap;strokeColor=#20aaa9;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="400" y="500" width="600" height="88" />
+          <mxGeometry as="geometry" x="930" y="560" width="740" height="96" />
         </mxCell>
         <mxCell id="disp" value="¿Hay disponibilidad&#10;y capacidad suficiente?" style="rhombus;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="400" y="640" width="600" height="88" />
+          <mxGeometry as="geometry" x="930" y="720" width="740" height="96" />
         </mxCell>
-        <mxCell id="reserva" value="Registrar reserva" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="400" y="780" width="600" height="88" />
+        <mxCell id="reserva" value="Registrar reserva REGISTRADA" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="930" y="900" width="740" height="96" />
         </mxCell>
-        <mxCell id="cambio" value="¿Se requiere modificar&#10;o cancelar antes del ingreso?" style="rhombus;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="400" y="920" width="600" height="88" />
+        <mxCell id="cambio" value="¿Modificar o cancelar&#10;antes del ingreso?" style="rhombus;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="930" y="1060" width="740" height="96" />
         </mxCell>
         <mxCell id="checkin" value="Confirmar huéspedes y registrar check-in" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="400" y="1060" width="600" height="88" />
+          <mxGeometry as="geometry" x="930" y="1240" width="740" height="96" />
         </mxCell>
-        <mxCell id="estadia" value="Mantener estadía ACTIVA&#10;y habitación OCUPADA" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="400" y="1200" width="600" height="88" />
+        <mxCell id="estadia" value="Crear estadía ACTIVA&#10;y ocupar habitación" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="930" y="1400" width="740" height="96" />
         </mxCell>
-        <mxCell id="checkout" value="Registrar fecha de salida" style="shape=parallelogram;fixedSize=1;size=25;html=0;whiteSpace=wrap;strokeColor=#20aaa9;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="400" y="1340" width="600" height="88" />
+        <mxCell id="checkout" value="Registrar fecha de salida real" style="shape=parallelogram;fixedSize=1;size=25;html=0;whiteSpace=wrap;strokeColor=#20aaa9;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="930" y="1560" width="740" height="96" />
         </mxCell>
-        <mxCell id="cuenta" value="Calcular cuenta por pasajero y total" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="400" y="1480" width="600" height="88" />
+        <mxCell id="cuenta" value="Calcular costo por pasajero y total" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="930" y="1720" width="740" height="96" />
         </mxCell>
-        <mxCell id="confirma" value="¿Cuenta y salida confirmadas?" style="rhombus;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="400" y="1620" width="600" height="88" />
+        <mxCell id="confirma" value="¿Cuenta y salida&#10;confirmadas?" style="rhombus;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="930" y="1880" width="740" height="96" />
         </mxCell>
         <mxCell id="cierre" value="Guardar costos, finalizar estadía&#10;y liberar habitación" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="400" y="1760" width="600" height="88" />
+          <mxGeometry as="geometry" x="930" y="2060" width="740" height="96" />
         </mxCell>
         <mxCell id="informe" value="Actualizar informes de ocupación y reservas" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="400" y="1900" width="600" height="88" />
+          <mxGeometry as="geometry" x="930" y="2220" width="740" height="96" />
         </mxCell>
         <mxCell id="fin" value="Fin" style="ellipse;html=0;whiteSpace=wrap;strokeColor=#ff7474;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="400" y="2040" width="600" height="88" />
+          <mxGeometry as="geometry" x="930" y="2380" width="740" height="96" />
         </mxCell>
-        <mxCell id="sin" value="Fin · cambiar fechas&#10;o habitación" style="ellipse;html=0;whiteSpace=wrap;strokeColor=#ff7474;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1030" y="640" width="340" height="95" />
+        <mxCell id="sin-disp" value="Mostrar conflicto y solicitar&#10;otras fechas o habitación" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#20aaa9;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1850" y="720" width="650" height="100" />
         </mxCell>
-        <mxCell id="gestion" value="Modificar reserva o marcarla&#10;CANCELADA" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#20aaa9;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="20" y="920" width="340" height="95" />
+        <mxCell id="sin-disp-fin" value="Fin sin reserva" style="ellipse;html=0;whiteSpace=wrap;strokeColor=#ff7474;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1850" y="900" width="650" height="95" />
+        </mxCell>
+        <mxCell id="gestion" value="Seleccionar reserva REGISTRADA" style="shape=parallelogram;fixedSize=1;size=25;html=0;whiteSpace=wrap;strokeColor=#20aaa9;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="80" y="1060" width="650" height="96" />
+        </mxCell>
+        <mxCell id="cancelar" value="¿Cancelar reserva?" style="rhombus;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="80" y="1230" width="650" height="96" />
+        </mxCell>
+        <mxCell id="modificada" value="Guardar cambios y volver a&#10;validar disponibilidad" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="80" y="1410" width="650" height="100" />
+        </mxCell>
+        <mxCell id="cancelada" value="Marcar CANCELADA y&#10;liberar disponibilidad" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="80" y="1590" width="650" height="100" />
         </mxCell>
         <mxCell id="gestion-fin" value="Fin · reserva actualizada" style="ellipse;html=0;whiteSpace=wrap;strokeColor=#ff7474;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="20" y="1060" width="340" height="90" />
+          <mxGeometry as="geometry" x="80" y="1770" width="650" height="95" />
         </mxCell>
-        <mxCell id="rechazo" value="Fin · mantener estadía ACTIVA&#10;y corregir la cuenta" style="ellipse;html=0;whiteSpace=wrap;strokeColor=#ff7474;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1030" y="1620" width="340" height="95" />
+        <mxCell id="no-confirma" value="Mantener estadía ACTIVA&#10;y corregir la cuenta" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#20aaa9;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1850" y="1880" width="650" height="100" />
+        </mxCell>
+        <mxCell id="no-confirma-fin" value="Fin sin check-out" style="ellipse;html=0;whiteSpace=wrap;strokeColor=#ff7474;strokeWidth=4;fillColor=#ffffff;fontColor=#253747;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1850" y="2060" width="650" height="95" />
         </mxCell>
         <mxCell id="edge0" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=open;endFill=0;startArrow=none;startFill=0;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0;" edge="1" source="inicio" target="acceso" parent="1">
           <mxGeometry as="geometry" relative="1">
@@ -132,22 +147,58 @@
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge14" value="No" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=open;endFill=0;startArrow=none;startFill=0;exitX=1;exitY=0.5;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0;" edge="1" source="disp" target="sin" parent="1">
+        <mxCell id="edge14" value="No" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=open;endFill=0;startArrow=none;startFill=0;exitX=1;exitY=0.5;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0;" edge="1" source="disp" target="sin-disp" parent="1">
           <mxGeometry as="geometry" relative="1">
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge15" value="Sí" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=open;endFill=0;startArrow=none;startFill=0;exitX=0;exitY=0.5;exitPerimeter=0;entryX=1;entryY=0.5;entryPerimeter=0;" edge="1" source="cambio" target="gestion" parent="1">
+        <mxCell id="edge15" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=open;endFill=0;startArrow=none;startFill=0;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0;" edge="1" source="sin-disp" target="sin-disp-fin" parent="1">
           <mxGeometry as="geometry" relative="1">
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge16" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=open;endFill=0;startArrow=none;startFill=0;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0;" edge="1" source="gestion" target="gestion-fin" parent="1">
+        <mxCell id="edge16" value="Sí" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=open;endFill=0;startArrow=none;startFill=0;exitX=0;exitY=0.5;exitPerimeter=0;entryX=1;entryY=0.5;entryPerimeter=0;" edge="1" source="cambio" target="gestion" parent="1">
           <mxGeometry as="geometry" relative="1">
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge17" value="No" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=open;endFill=0;startArrow=none;startFill=0;exitX=1;exitY=0.5;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0;" edge="1" source="confirma" target="rechazo" parent="1">
+        <mxCell id="edge17" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=open;endFill=0;startArrow=none;startFill=0;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0;" edge="1" source="gestion" target="cancelar" parent="1">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge18" value="No" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=open;endFill=0;startArrow=none;startFill=0;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0;" edge="1" source="cancelar" target="modificada" parent="1">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge19" value="Sí" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=open;endFill=0;startArrow=none;startFill=0;exitX=0;exitY=0.5;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0;" edge="1" source="cancelar" target="cancelada" parent="1">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="25" y="1278" />
+              <mxPoint x="25" y="1640" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge20" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=open;endFill=0;startArrow=none;startFill=0;exitX=0.5;exitY=1;exitPerimeter=0;entryX=1;entryY=0.5;entryPerimeter=0;" edge="1" source="modificada" target="gestion-fin" parent="1">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="760" y="1460" />
+              <mxPoint x="760" y="1818" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge21" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=open;endFill=0;startArrow=none;startFill=0;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0;" edge="1" source="cancelada" target="gestion-fin" parent="1">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge22" value="No" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=open;endFill=0;startArrow=none;startFill=0;exitX=1;exitY=0.5;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0;" edge="1" source="confirma" target="no-confirma" parent="1">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge23" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=open;endFill=0;startArrow=none;startFill=0;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0;" edge="1" source="no-confirma" target="no-confirma-fin" parent="1">
           <mxGeometry as="geometry" relative="1">
             <Array as="points" />
           </mxGeometry>
