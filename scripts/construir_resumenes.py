@@ -100,7 +100,7 @@ def interface(key, title, mockup):
     d.node('nav', 'MENÚ\n\nDisponibilidad\nHabitaciones\nHuéspedes\nReservas\nCheck-in\nCheck-out\nInformes\nUsuarios',
            35, 180, 280, 960, 'rect', fill=soft)
 
-    cards = [('Disponibles', '8'), ('Ocupadas', '12'), ('Reservas', '5'), ('Estadías activas', '10')]
+    cards = [('Disponibles', '8'), ('Ocupadas', '12'), ('Reservas', '5'), ('Estadías activas', '12')]
     for i, (label, value) in enumerate(cards):
         x = 350 + i * 345
         d.node('card' + str(i), label + '\n' + (value if mockup else '[ dato ]'), x, 180, 310, 120,
@@ -139,7 +139,7 @@ def interface(key, title, mockup):
          if mockup else '[ registro con estado y acciones ]')
     ]
     d.node('result', 'Reservas y estadías', 350, 760, 1380, 230, 'table', attrs=attrs)
-    d.node('summary', 'Cuenta seleccionada: 2 pasajeros · 2 noches · Total $40.000 CLP',
+    d.node('summary', 'Cuenta seleccionada: 2 personas · 2 noches · $10.000 por persona/noche · Total $40.000 CLP',
            350, 1020, 1380, 78, 'rounded' if mockup else 'rect', fill=soft)
     d.save()
 

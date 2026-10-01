@@ -1,0 +1,20 @@
+{
+  "herramienta_de_los_videos": "Figma",
+  "file_url": null,
+  "estado": "Pendiente de crear el archivo en Figma",
+  "pantallas": [
+    "acceso",
+    "disponibilidad",
+    "habitaciones",
+    "huespedes",
+    "reservas",
+    "checkin",
+    "checkout",
+    "informes",
+    "usuarios"
+  ],
+  "fuentes": [
+    "https://www.youtube.com/watch?v=PbjNO8Ya3_0",
+    "https://www.youtube.com/watch?v=pM53Vj2yqMo&list=PLyezufEz_5vbqXgI9b30PF4_XLInLYGe_"
+  ]
+}

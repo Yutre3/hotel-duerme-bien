@@ -418,7 +418,7 @@ Trazabilidad: RF08.
 Observación: La cancelación no se modela como extend obligatorio ni como borrado de datos.
 
 ### 7.2 Procesos
-Los flujos muestran inicio/fin, entradas/salidas, acciones, decisiones con salidas etiquetadas, retornos por error y finalización sin cambios. Se separan registrar reserva, check-in, check-out y modificar/cancelar reserva. Cada decisión tiene dos salidas. Cancelar una operación conserva el registro original; cancelar una reserva cambia su estado, no borra su historial.
+Los flujos muestran inicio/fin, entradas/salidas, acciones y decisiones. El proceso completo devuelve los errores al formulario. Los diagramas detallados también muestran salidas sin cambios. Se separan registrar reserva, check-in, check-out y modificar/cancelar reserva. Cada decisión tiene dos salidas. Cancelar una operación conserva el registro original; cancelar una reserva cambia su estado, no borra su historial.
 
 ## 8. Clases y modelo de datos
 
@@ -473,7 +473,7 @@ Sketch: distribución inicial de cabecera, navegación, indicadores, formulario 
 | Usuarios | Nombre único, perfil y estado; registrar y editar. | CU08 |
 
 ### 9.1 Archivos editables
-Los diagramas y todas las vistas de interfaz tienen archivos nativos .drawio con figuras, textos y conectores unidos a los elementos; no son imágenes pegadas en un lienzo. La galería permite abrir cada archivo directamente en diagrams.net. interfaces.drawio reúne sketch y las dieciocho vistas de wireframe/mockup. Los enlaces de edición de código usan github.dev. El material de mockups menciona distintas plataformas, incluido Cacoo, Balsamiq y prototipos HTML/CSS. Se conserva diagrams.net porque es el formato del repositorio de referencia. No se afirma haber creado proyectos en plataformas distintas.
+Los diagramas y todas las vistas de interfaz tienen archivos nativos .drawio con figuras, textos y conectores unidos a los elementos; no son imágenes pegadas en un lienzo. La galería permite abrir cada archivo directamente en diagrams.net. interfaces.drawio reúne sketch y las dieciocho vistas de wireframe/mockup. Los enlaces de edición de código usan github.dev. El material de mockups menciona distintas plataformas, incluido Cacoo, Balsamiq y prototipos HTML/CSS. Los diagramas UML y de datos se editan en diagrams.net. Las interfaces también cuentan con SVG de capas separadas para Figma, la herramienta de los videos. El enlace del archivo de Figma se registra únicamente después de crearlo.
 
 ### 9.2 Alcance implementado
 El prototipo registra y edita habitaciones, identifica huéspedes, gestiona reservas, realiza check-in con o sin reserva, registra cada pasajero, calcula noches a partir de fechas y conserva costos individuales al salir. Controla las operaciones por rol demo y genera informes por período. No implementa autenticación productiva, servidor, base de datos central ni exclusión concurrente entre dispositivos. Estas diferencias se mantienen visibles en la documentación para no presentar una maqueta como un sistema instalado en el hotel.
@@ -509,4 +509,4 @@ Referencias técnicas de notación y diseño consultadas para la revisión:
 4. Balsamiq. Wireframes: https://balsamiq.com/blog/what-are-wireframes/
 5. Referencia de organización y prototipo inicial: https://github.com/Yutre3/diego
 
-Estas referencias aportan notación y técnicas, no funciones nuevas del negocio. El alcance proviene del tema 6. No se recibieron rúbrica, plantilla IEEE original, PPT/PPTX ni videos; no se simula haberlos consultado.
+Estas referencias aportan notación y técnicas, no funciones nuevas del negocio. El alcance proviene del tema 6. Se recibieron tres enlaces de video: Wireframes en Figma, Introducción a Figma y Cómo usar GitHub. Los dos primeros identifican Figma como herramienta de interfaces. No se recibieron rúbrica ni plantilla IEEE original. [Videos y herramientas](../fuentes/videos-y-herramientas.md).

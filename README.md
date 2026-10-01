@@ -1,49 +1,55 @@
-# Sistema de Pasajeros · Hotel Duerme Bien
+# Hotel Duerme Bien
 
-**Tema 6 · Luis Huenchul**
+**Proyecto 6 · Luis Huenchul**
 
-[Ver entrega](https://yutre3.github.io/hotel-duerme-bien/) · [Probar demo](https://yutre3.github.io/hotel-duerme-bien/prototipo/) · [Informe completo](informe/informe-con-diagramas.pdf)
-
-## Informe
-
-[Informe PDF completo](informe/informe-con-diagramas.pdf) · [Documento editable](informe/requerimientos-y-modelado.md)
+[Ver proyecto](https://yutre3.github.io/hotel-duerme-bien/) · [Probar sistema](https://yutre3.github.io/hotel-duerme-bien/prototipo/) · [Informe](informe/informe-con-diagramas.pdf)
 
 ## Casos de uso
 
-<p align="center"><img src="resumenes/casos-de-uso.png" alt="Diagrama completo de casos de uso" width="720"></p>
+![Quién hace cada tarea](resumenes/casos-de-uso.png)
 
-[SVG](diagramas/sistema-casos-de-uso.svg) · [PDF](diagramas/sistema-casos-de-uso.pdf) · [Editar](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fsistema-casos-de-uso.drawio)
+[Ver grande](diagramas/sistema-casos-de-uso.svg) · [Editar en diagrams.net](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fsistema-casos-de-uso.drawio) · [PDF](diagramas/sistema-casos-de-uso.pdf)
 
-## Proceso completo
+## Diagrama de flujo
 
-<p align="center"><img src="resumenes/procesos.png" alt="Proceso completo del hotel" width="720"></p>
+![Reservar, llegar y salir](resumenes/procesos.png)
 
-[SVG](diagramas/proceso-completo.svg) · [PDF](diagramas/proceso-completo.pdf) · [Editar](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fproceso-completo.drawio)
+[Ver grande](diagramas/proceso-completo.svg) · [Editar en diagrams.net](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fproceso-completo.drawio) · [PDF](diagramas/proceso-completo.pdf)
 
 ## Diagrama de clases
 
-<p align="center"><img src="resumenes/clases.png" alt="Diagrama de clases completo" width="720"></p>
+![Las partes del sistema](resumenes/clases.png)
 
-[SVG](diagramas/diagrama-de-clases.svg) · [PDF](diagramas/diagrama-de-clases.pdf) · [Editar](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fdiagrama-de-clases.drawio)
+[Ver grande](diagramas/diagrama-de-clases.svg) · [Editar en diagrams.net](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fdiagrama-de-clases.drawio) · [PDF](diagramas/diagrama-de-clases.pdf)
 
-## Modelo de base de datos
+## Base de datos
 
-<p align="center"><img src="resumenes/base-de-datos.png" alt="Modelo de base de datos completo" width="720"></p>
+![Dónde se guardan los datos](resumenes/base-de-datos.png)
 
-[SVG](diagramas/modelo-de-datos.svg) · [PDF](diagramas/modelo-de-datos.pdf) · [Editar](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fmodelo-de-datos.drawio)
+[Ver grande](diagramas/modelo-de-datos.svg) · [Editar en diagrams.net](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fmodelo-de-datos.drawio) · [PDF](diagramas/modelo-de-datos.pdf)
 
-## Wireframe completo
+## Wireframe
 
-<p align="center"><img src="resumenes/wireframe.png" alt="Wireframe completo del sistema" width="720"></p>
+![Dónde va cada botón](resumenes/wireframe.png)
 
-[SVG](diagramas/wireframe-completo.svg) · [PDF](diagramas/wireframe-completo.pdf) · [Editar](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fwireframe-completo.drawio)
+[Ver grande](diagramas/wireframe-completo.svg) · [Editar en diagrams.net](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fwireframe-completo.drawio) · [PDF](diagramas/wireframe-completo.pdf)
 
-## Mockup completo
+## Mockup
 
-<p align="center"><img src="resumenes/mockup.png" alt="Mockup completo del sistema" width="720"></p>
+![Cómo se verá el sistema](resumenes/mockup.png)
 
-[SVG](diagramas/mockup-completo.svg) · [PDF](diagramas/mockup-completo.pdf) · [Editar](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fmockup-completo.drawio) · [Abrir demo](https://yutre3.github.io/hotel-duerme-bien/prototipo/)
+[Ver grande](diagramas/mockup-completo.svg) · [Editar en diagrams.net](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fmockup-completo.drawio) · [PDF](diagramas/mockup-completo.pdf)
 
-## Materiales
+## Kanban
 
-[Archivos originales](https://github.com/Yutre3/hotel-duerme-bien/tree/main/fuentes) · [Referencias](informe/requerimientos-y-modelado.md#12-referencias) · [Kanban](planificacion/kanban.md) · [Pruebas](tests/)
+![Qué está hecho y qué falta](resumenes/kanban.png)
+
+[Ver grande](diagramas/kanban.svg) · [Editar en diagrams.net](https://app.diagrams.net/?mode=device#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FYutre3%2Fhotel-duerme-bien%2Fmain%2Fdiagramas-editables%2Fkanban.drawio) · [PDF](diagramas/kanban.pdf)
+
+## Pantallas
+
+[Ver las nueve pantallas](https://yutre3.github.io/hotel-duerme-bien/mockups/) · [Archivo de Figma](figma/)
+
+## Entregas
+
+[Informe editable](informe/requerimientos-y-modelado.md) · [Kanban](planificacion/kanban.md) · [Material del profesor](fuentes/) · [Videos y herramientas](fuentes/videos-y-herramientas.md)

@@ -3778,5 +3778,1694 @@
         "labelpos": null
       }
     ]
+  },
+  {
+    "key": "sistema-casos-de-uso",
+    "title": "Casos de uso · Hotel Duerme Bien",
+    "nodes": {
+      "system": {
+        "id": "system",
+        "label": "Sistema del hotel",
+        "x": 300,
+        "y": 90,
+        "w": 1490,
+        "h": 1740,
+        "shape": "frame",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "admin": {
+        "id": "admin",
+        "label": "Administrador",
+        "x": 50,
+        "y": 120,
+        "w": 170,
+        "h": 175,
+        "shape": "actor",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "enc": {
+        "id": "enc",
+        "label": "Encargado",
+        "x": 50,
+        "y": 1060,
+        "w": 170,
+        "h": 175,
+        "shape": "actor",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "CU02": {
+        "id": "CU02",
+        "label": "CU02\nGestionar habitaciones",
+        "x": 420,
+        "y": 165,
+        "w": 580,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "CU08": {
+        "id": "CU08",
+        "label": "CU08\nGestionar usuarios",
+        "x": 420,
+        "y": 320,
+        "w": 580,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "CU10": {
+        "id": "CU10",
+        "label": "CU10\nGenerar informes",
+        "x": 420,
+        "y": 475,
+        "w": 580,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "CU01": {
+        "id": "CU01",
+        "label": "CU01\nIniciar sesión",
+        "x": 420,
+        "y": 700,
+        "w": 580,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "CU03": {
+        "id": "CU03",
+        "label": "CU03\nRegistrar huéspedes",
+        "x": 420,
+        "y": 860,
+        "w": 580,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "CU09": {
+        "id": "CU09",
+        "label": "CU09\nRegistrar reserva",
+        "x": 420,
+        "y": 1020,
+        "w": 580,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "CU11": {
+        "id": "CU11",
+        "label": "CU11\nModificar reserva",
+        "x": 420,
+        "y": 1180,
+        "w": 580,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "CU12": {
+        "id": "CU12",
+        "label": "CU12\nCancelar reserva",
+        "x": 420,
+        "y": 1340,
+        "w": 580,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "CU04": {
+        "id": "CU04",
+        "label": "CU04\nRegistrar check-in",
+        "x": 420,
+        "y": 1500,
+        "w": 580,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "CU06": {
+        "id": "CU06",
+        "label": "CU06\nRegistrar check-out",
+        "x": 420,
+        "y": 1660,
+        "w": 580,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "CU05": {
+        "id": "CU05",
+        "label": "CU05\nConsultar disponibilidad",
+        "x": 1190,
+        "y": 1180,
+        "w": 500,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "CU07": {
+        "id": "CU07",
+        "label": "CU07\nCalcular cuenta por pasajero",
+        "x": 1190,
+        "y": 1660,
+        "w": 500,
+        "h": 90,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      }
+    },
+    "edges": [
+      {
+        "a": "admin",
+        "b": "enc",
+        "points": [
+          [
+            135.0,
+            295
+          ],
+          [
+            135.0,
+            1060
+          ]
+        ],
+        "label": "",
+        "kind": "general",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "admin",
+        "b": "CU02",
+        "points": [
+          [
+            135.0,
+            181.25
+          ],
+          [
+            260,
+            181
+          ],
+          [
+            260,
+            210
+          ],
+          [
+            420,
+            210.0
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          0.35
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "admin",
+        "b": "CU08",
+        "points": [
+          [
+            135.0,
+            181.25
+          ],
+          [
+            260,
+            181
+          ],
+          [
+            260,
+            365
+          ],
+          [
+            420,
+            365.0
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          0.35
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "admin",
+        "b": "CU10",
+        "points": [
+          [
+            135.0,
+            181.25
+          ],
+          [
+            260,
+            181
+          ],
+          [
+            260,
+            520
+          ],
+          [
+            420,
+            520.0
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          0.35
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "enc",
+        "b": "CU01",
+        "points": [
+          [
+            135.0,
+            1121.25
+          ],
+          [
+            270,
+            1121.25
+          ],
+          [
+            270,
+            745
+          ],
+          [
+            420,
+            745.0
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          0.35
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "enc",
+        "b": "CU03",
+        "points": [
+          [
+            135.0,
+            1121.25
+          ],
+          [
+            270,
+            1121.25
+          ],
+          [
+            270,
+            905
+          ],
+          [
+            420,
+            905.0
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          0.35
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "enc",
+        "b": "CU09",
+        "points": [
+          [
+            135.0,
+            1121.25
+          ],
+          [
+            270,
+            1121.25
+          ],
+          [
+            270,
+            1065
+          ],
+          [
+            420,
+            1065.0
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          0.35
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "enc",
+        "b": "CU11",
+        "points": [
+          [
+            135.0,
+            1121.25
+          ],
+          [
+            270,
+            1121.25
+          ],
+          [
+            270,
+            1225
+          ],
+          [
+            420,
+            1225.0
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          0.35
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "enc",
+        "b": "CU12",
+        "points": [
+          [
+            135.0,
+            1121.25
+          ],
+          [
+            270,
+            1121.25
+          ],
+          [
+            270,
+            1385
+          ],
+          [
+            420,
+            1385.0
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          0.35
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "enc",
+        "b": "CU04",
+        "points": [
+          [
+            135.0,
+            1121.25
+          ],
+          [
+            270,
+            1121.25
+          ],
+          [
+            270,
+            1545
+          ],
+          [
+            420,
+            1545.0
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          0.35
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "enc",
+        "b": "CU06",
+        "points": [
+          [
+            135.0,
+            1121.25
+          ],
+          [
+            270,
+            1121.25
+          ],
+          [
+            270,
+            1705
+          ],
+          [
+            420,
+            1705.0
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          0.35
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null
+      },
+      {
+        "a": "CU09",
+        "b": "CU05",
+        "points": [
+          [
+            1000,
+            1065.0
+          ],
+          [
+            1090,
+            1065
+          ],
+          [
+            1090,
+            1200
+          ],
+          [
+            1190,
+            1200.0
+          ]
+        ],
+        "label": "«include»",
+        "kind": "include",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0,
+          0.2222222222222222
+        ],
+        "labelpos": [
+          1045,
+          1037
+        ]
+      },
+      {
+        "a": "CU11",
+        "b": "CU05",
+        "points": [
+          [
+            1000,
+            1225.0
+          ],
+          [
+            1090,
+            1225
+          ],
+          [
+            1090,
+            1225
+          ],
+          [
+            1190,
+            1225.0
+          ]
+        ],
+        "label": "«include»",
+        "kind": "include",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": [
+          1045,
+          1197
+        ]
+      },
+      {
+        "a": "CU04",
+        "b": "CU05",
+        "points": [
+          [
+            1000,
+            1545.0
+          ],
+          [
+            1090,
+            1545
+          ],
+          [
+            1090,
+            1250
+          ],
+          [
+            1190,
+            1250.0
+          ]
+        ],
+        "label": "«include»",
+        "kind": "include",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0,
+          0.7777777777777778
+        ],
+        "labelpos": [
+          1045,
+          1517
+        ]
+      },
+      {
+        "a": "CU06",
+        "b": "CU07",
+        "points": [
+          [
+            1000,
+            1705.0
+          ],
+          [
+            1190,
+            1705.0
+          ]
+        ],
+        "label": "«include»",
+        "kind": "include",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": [
+          1090,
+          1686
+        ]
+      }
+    ]
+  },
+  {
+    "key": "proceso-completo",
+    "title": "Reservar · Entrar · Salir",
+    "nodes": {
+      "r-title": {
+        "id": "r-title",
+        "label": "1 Guardar una habitación",
+        "x": 50,
+        "y": 90,
+        "w": 560,
+        "h": 60,
+        "shape": "caption",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "rstart": {
+        "id": "rstart",
+        "label": "Inicio",
+        "x": 70,
+        "y": 190,
+        "w": 460,
+        "h": 105,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "rdata": {
+        "id": "rdata",
+        "label": "Anotar titular, habitación,\nfechas y cantidad de personas",
+        "x": 70,
+        "y": 365,
+        "w": 460,
+        "h": 105,
+        "shape": "input",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "rvalid": {
+        "id": "rvalid",
+        "label": "¿Datos correctos?",
+        "x": 70,
+        "y": 540,
+        "w": 460,
+        "h": 105,
+        "shape": "diamond",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "rfree": {
+        "id": "rfree",
+        "label": "¿Disponible y con espacio?",
+        "x": 70,
+        "y": 715,
+        "w": 460,
+        "h": 105,
+        "shape": "diamond",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "rsave": {
+        "id": "rsave",
+        "label": "Guardar reserva",
+        "x": 70,
+        "y": 890,
+        "w": 460,
+        "h": 105,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "rend": {
+        "id": "rend",
+        "label": "Fin · habitación reservada",
+        "x": 70,
+        "y": 1065,
+        "w": 460,
+        "h": 105,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "i-title": {
+        "id": "i-title",
+        "label": "2 Registrar la llegada",
+        "x": 850,
+        "y": 90,
+        "w": 560,
+        "h": 60,
+        "shape": "caption",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "istart": {
+        "id": "istart",
+        "label": "Inicio",
+        "x": 870,
+        "y": 190,
+        "w": 460,
+        "h": 105,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "idata": {
+        "id": "idata",
+        "label": "Elegir reserva o ingreso directo;\nanotar a todos los huéspedes",
+        "x": 870,
+        "y": 365,
+        "w": 460,
+        "h": 105,
+        "shape": "input",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "ivalid": {
+        "id": "ivalid",
+        "label": "¿Fechas y huéspedes correctos?",
+        "x": 870,
+        "y": 540,
+        "w": 460,
+        "h": 105,
+        "shape": "diamond",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "ifree": {
+        "id": "ifree",
+        "label": "¿Disponible y con espacio?",
+        "x": 870,
+        "y": 715,
+        "w": 460,
+        "h": 105,
+        "shape": "diamond",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "isave": {
+        "id": "isave",
+        "label": "Guardar estadía y pasajeros;\nmarcar reserva CHECK_IN si existe",
+        "x": 870,
+        "y": 890,
+        "w": 460,
+        "h": 105,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "iend": {
+        "id": "iend",
+        "label": "Fin · habitación ocupada",
+        "x": 870,
+        "y": 1065,
+        "w": 460,
+        "h": 105,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "o-title": {
+        "id": "o-title",
+        "label": "3 Registrar la salida",
+        "x": 1650,
+        "y": 90,
+        "w": 560,
+        "h": 60,
+        "shape": "caption",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "ostart": {
+        "id": "ostart",
+        "label": "Inicio",
+        "x": 1670,
+        "y": 190,
+        "w": 460,
+        "h": 105,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "odata": {
+        "id": "odata",
+        "label": "Elegir estadía activa\ny fecha de salida",
+        "x": 1670,
+        "y": 365,
+        "w": 460,
+        "h": 105,
+        "shape": "input",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "ovalid": {
+        "id": "ovalid",
+        "label": "¿Fecha y tarifa correctas?",
+        "x": 1670,
+        "y": 540,
+        "w": 460,
+        "h": 105,
+        "shape": "diamond",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "ocalc": {
+        "id": "ocalc",
+        "label": "Calcular cuenta por persona",
+        "x": 1670,
+        "y": 715,
+        "w": 460,
+        "h": 105,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "oconfirm": {
+        "id": "oconfirm",
+        "label": "¿Cuenta confirmada y\nsalida sin conflicto?",
+        "x": 1670,
+        "y": 890,
+        "w": 460,
+        "h": 105,
+        "shape": "diamond",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "osave": {
+        "id": "osave",
+        "label": "Guardar costos, cerrar estadía\ny liberar habitación",
+        "x": 1670,
+        "y": 1065,
+        "w": 460,
+        "h": 105,
+        "shape": "rect",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      },
+      "oend": {
+        "id": "oend",
+        "label": "Fin · salida registrada",
+        "x": 1670,
+        "y": 1240,
+        "w": 460,
+        "h": 105,
+        "shape": "ellipse",
+        "attrs": [],
+        "methods": [],
+        "fill": "#ffffff"
+      }
+    },
+    "edges": [
+      {
+        "a": "rstart",
+        "b": "rdata",
+        "points": [
+          [
+            300.0,
+            295
+          ],
+          [
+            300.0,
+            365
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          330,
+          334
+        ]
+      },
+      {
+        "a": "rdata",
+        "b": "rvalid",
+        "points": [
+          [
+            300.0,
+            470
+          ],
+          [
+            300.0,
+            540
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          330,
+          509
+        ]
+      },
+      {
+        "a": "rvalid",
+        "b": "rfree",
+        "points": [
+          [
+            300.0,
+            645
+          ],
+          [
+            300.0,
+            715
+          ]
+        ],
+        "label": "Sí",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          330,
+          684
+        ]
+      },
+      {
+        "a": "rfree",
+        "b": "rsave",
+        "points": [
+          [
+            300.0,
+            820
+          ],
+          [
+            300.0,
+            890
+          ]
+        ],
+        "label": "Sí",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          330,
+          859
+        ]
+      },
+      {
+        "a": "rsave",
+        "b": "rend",
+        "points": [
+          [
+            300.0,
+            995
+          ],
+          [
+            300.0,
+            1065
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          330,
+          1034
+        ]
+      },
+      {
+        "a": "rvalid",
+        "b": "rdata",
+        "points": [
+          [
+            530,
+            592.5
+          ],
+          [
+            610,
+            592.5
+          ],
+          [
+            610,
+            417.5
+          ],
+          [
+            517.5,
+            417.5
+          ]
+        ],
+        "label": "No: corregir",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0.9728260869565217,
+          0.5
+        ],
+        "labelpos": [
+          606,
+          572.5
+        ]
+      },
+      {
+        "a": "rfree",
+        "b": "rdata",
+        "points": [
+          [
+            530,
+            767.5
+          ],
+          [
+            646,
+            767.5
+          ],
+          [
+            646,
+            417.5
+          ],
+          [
+            517.5,
+            417.5
+          ]
+        ],
+        "label": "No: corregir",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0.9728260869565217,
+          0.5
+        ],
+        "labelpos": [
+          642,
+          747.5
+        ]
+      },
+      {
+        "a": "istart",
+        "b": "idata",
+        "points": [
+          [
+            1100.0,
+            295
+          ],
+          [
+            1100.0,
+            365
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          1130,
+          334
+        ]
+      },
+      {
+        "a": "idata",
+        "b": "ivalid",
+        "points": [
+          [
+            1100.0,
+            470
+          ],
+          [
+            1100.0,
+            540
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          1130,
+          509
+        ]
+      },
+      {
+        "a": "ivalid",
+        "b": "ifree",
+        "points": [
+          [
+            1100.0,
+            645
+          ],
+          [
+            1100.0,
+            715
+          ]
+        ],
+        "label": "Sí",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          1130,
+          684
+        ]
+      },
+      {
+        "a": "ifree",
+        "b": "isave",
+        "points": [
+          [
+            1100.0,
+            820
+          ],
+          [
+            1100.0,
+            890
+          ]
+        ],
+        "label": "Sí",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          1130,
+          859
+        ]
+      },
+      {
+        "a": "isave",
+        "b": "iend",
+        "points": [
+          [
+            1100.0,
+            995
+          ],
+          [
+            1100.0,
+            1065
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          1130,
+          1034
+        ]
+      },
+      {
+        "a": "ivalid",
+        "b": "idata",
+        "points": [
+          [
+            1330,
+            592.5
+          ],
+          [
+            1410,
+            592.5
+          ],
+          [
+            1410,
+            417.5
+          ],
+          [
+            1317.5,
+            417.5
+          ]
+        ],
+        "label": "No: corregir",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0.9728260869565217,
+          0.5
+        ],
+        "labelpos": [
+          1406,
+          572.5
+        ]
+      },
+      {
+        "a": "ifree",
+        "b": "idata",
+        "points": [
+          [
+            1330,
+            767.5
+          ],
+          [
+            1446,
+            767.5
+          ],
+          [
+            1446,
+            417.5
+          ],
+          [
+            1317.5,
+            417.5
+          ]
+        ],
+        "label": "No: corregir",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0.9728260869565217,
+          0.5
+        ],
+        "labelpos": [
+          1442,
+          747.5
+        ]
+      },
+      {
+        "a": "ostart",
+        "b": "odata",
+        "points": [
+          [
+            1900.0,
+            295
+          ],
+          [
+            1900.0,
+            365
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          1930,
+          334
+        ]
+      },
+      {
+        "a": "odata",
+        "b": "ovalid",
+        "points": [
+          [
+            1900.0,
+            470
+          ],
+          [
+            1900.0,
+            540
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          1930,
+          509
+        ]
+      },
+      {
+        "a": "ovalid",
+        "b": "ocalc",
+        "points": [
+          [
+            1900.0,
+            645
+          ],
+          [
+            1900.0,
+            715
+          ]
+        ],
+        "label": "Sí",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          1930,
+          684
+        ]
+      },
+      {
+        "a": "ocalc",
+        "b": "oconfirm",
+        "points": [
+          [
+            1900.0,
+            820
+          ],
+          [
+            1900.0,
+            890
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          1930,
+          859
+        ]
+      },
+      {
+        "a": "oconfirm",
+        "b": "osave",
+        "points": [
+          [
+            1900.0,
+            995
+          ],
+          [
+            1900.0,
+            1065
+          ]
+        ],
+        "label": "Sí",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          1930,
+          1034
+        ]
+      },
+      {
+        "a": "osave",
+        "b": "oend",
+        "points": [
+          [
+            1900.0,
+            1170
+          ],
+          [
+            1900.0,
+            1240
+          ]
+        ],
+        "label": "",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          0.5,
+          1
+        ],
+        "target": [
+          0.5,
+          0
+        ],
+        "labelpos": [
+          1930,
+          1209
+        ]
+      },
+      {
+        "a": "ovalid",
+        "b": "odata",
+        "points": [
+          [
+            2130,
+            592.5
+          ],
+          [
+            2210,
+            592.5
+          ],
+          [
+            2210,
+            417.5
+          ],
+          [
+            2117.5,
+            417.5
+          ]
+        ],
+        "label": "No: corregir",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0.9728260869565217,
+          0.5
+        ],
+        "labelpos": [
+          2206,
+          572.5
+        ]
+      },
+      {
+        "a": "oconfirm",
+        "b": "odata",
+        "points": [
+          [
+            2130,
+            942.5
+          ],
+          [
+            2282,
+            942.5
+          ],
+          [
+            2282,
+            417.5
+          ],
+          [
+            2117.5,
+            417.5
+          ]
+        ],
+        "label": "No: corregir",
+        "kind": "arrow",
+        "sm": "",
+        "tm": "",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0.9728260869565217,
+          0.5
+        ],
+        "labelpos": [
+          2278,
+          922.5
+        ]
+      }
+    ]
   }
 ]
