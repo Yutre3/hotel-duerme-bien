@@ -17,6 +17,11 @@ class D:
   svg=[];c=canvas.Canvas(str(ROOT/'diagramas'/f'{self.key}.pdf'),pagesize=(self.w,self.h));c.setTitle(self.title)
   def text(t,x,y,size=18,anchor='middle',bold=False,color=INK):
    svg.append(f'<text x="{x}" y="{y}" font-size="{size}" text-anchor="{anchor}" fill="{color}" font-weight="{"bold" if bold else "normal"}">{html.escape(str(t))}</text>');c.setFillColor(colors.HexColor(color));c.setFont('Helvetica-Bold' if bold else 'Helvetica',size);fn=c.drawCentredString if anchor=='middle' else c.drawString;fn(x,self.h-y,str(t))
+  def boxed_text(t,x,y,size=20,bold=True,color=BLUE):
+   width=max(48,len(str(t))*size*.62+20);height=size+14
+   svg.append(f'<rect x="{x-width/2}" y="{y-size-3}" width="{width}" height="{height}" rx="5" fill="#ffffff" stroke="none"/>')
+   c.setFillColor(colors.white);c.roundRect(x-width/2,self.h-y-8,width,height,5,fill=1,stroke=0)
+   text(t,x,y,size,'middle',bold,color)
   def path(pts,fill='none',dash=False,closed=False):
    d='M'+' L'.join(f'{x},{y}' for x,y in pts)+(' Z' if closed else '');svg.append(f'<path d="{d}" fill="{fill}" stroke="{EDGE}" stroke-width="4"'+(' stroke-dasharray="12 8"' if dash else '')+'/>');c.setStrokeColor(colors.HexColor(EDGE));c.setLineWidth(4);c.setDash(12,8) if dash else c.setDash();p=c.beginPath();p.moveTo(pts[0][0],self.h-pts[0][1]);[p.lineTo(x,self.h-y) for x,y in pts[1:]]
    if closed:p.close()
@@ -47,11 +52,11 @@ class D:
    if e['kind']=='composition':mark(pts[0],pts[1],'composition')
    if e['kind']=='er':mark(pts[0],pts[1],e['sm']);mark(pts[-1],pts[-2],e['tm'])
    if e['label']:
-    pos=e['labelpos'] or ((pts[0][0]+pts[-1][0])/2,(pts[0][1]+pts[-1][1])/2-13);text(e['label'],*pos,20,bold=True,color=BLUE)
+    pos=e['labelpos'] or ((pts[0][0]+pts[-1][0])/2,(pts[0][1]+pts[-1][1])/2-13);boxed_text(e['label'],*pos,20)
    if e['kind']!='er':
     for t,p,o in [(e['sm'],pts[0],pts[1]),(e['tm'],pts[-1],pts[-2])]:
      if t:
-      dx,dy=o[0]-p[0],o[1]-p[1];l=math.hypot(dx,dy) or 1;text(t,p[0]+dx/l*48+(-24 if dy else 0),p[1]+dy/l*48-16,25,bold=True,color=BLUE)
+      dx,dy=o[0]-p[0],o[1]-p[1];l=math.hypot(dx,dy) or 1;boxed_text(t,p[0]+dx/l*48+(-24 if dy else 0),p[1]+dy/l*48-16,25)
   for n in self.nodes.values():
    x,y,w,h=n['x'],n['y'],n['w'],n['h'];sh=n['shape'];fill=n['fill']
    if sh=='frame':continue
@@ -97,13 +102,13 @@ class D:
    if kind=='composition':sa='diamond'
    er={'one':'ERmandOne','zeroone':'ERzeroToOne','many':'ERmany','zeromany':'ERzeroToMany','onemany':'ERoneToMany'}
    if kind=='er':sa=er[e['sm']];ea=er[e['tm']]
-   style=f'html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor={EDGE};fontSize=22;fontStyle=1;endArrow={ea};endFill=0;startArrow={sa};startFill={1 if kind=="composition" else 0};exitX={e["source"][0]};exitY={e["source"][1]};exitPerimeter=0;entryX={e["target"][0]};entryY={e["target"][1]};entryPerimeter=0;'+('dashed=1;' if kind=='include' else '')
+   style=f'html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor={EDGE};fontSize=22;fontStyle=1;fontColor={BLUE};labelBackgroundColor=#ffffff;endArrow={ea};endFill=0;startArrow={sa};startFill={1 if kind=="composition" else 0};exitX={e["source"][0]};exitY={e["source"][1]};exitPerimeter=0;entryX={e["target"][0]};entryY={e["target"][1]};entryPerimeter=0;'+('dashed=1;' if kind=='include' else '')
    c=ET.SubElement(root,'mxCell',id='edge'+str(i),value=e['label'],style=style,edge='1',source=e['a'],target=e['b'],parent='1');geo=ET.SubElement(c,'mxGeometry',relative='1',attrib={'as':'geometry'});arr=ET.SubElement(geo,'Array',attrib={'as':'points'})
    for x,y in e['points'][1:-1]:ET.SubElement(arr,'mxPoint',x=str(x),y=str(y))
    if kind!='er':
     for j,(label,t) in enumerate([(e['sm'],-.9),(e['tm'],.9)]):
      if label:
-      v=ET.SubElement(root,'mxCell',id=f'edge{i}-label{j}',value=label,style='edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor='+BLUE+';',vertex='1',connectable='0',parent='edge'+str(i));gg=ET.SubElement(v,'mxGeometry',x=str(t),y='-1',relative='1',attrib={'as':'geometry'});ET.SubElement(gg,'mxPoint',y='-14',attrib={'as':'offset'})
+      v=ET.SubElement(root,'mxCell',id=f'edge{i}-label{j}',value=label,style='edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor='+BLUE+';labelBackgroundColor=#ffffff;',vertex='1',connectable='0',parent='edge'+str(i));gg=ET.SubElement(v,'mxGeometry',x=str(t),y='-1',relative='1',attrib={'as':'geometry'});ET.SubElement(gg,'mxPoint',y='-14',attrib={'as':'offset'})
   for i,(t,x,y,size) in enumerate(self.notes):vertex('note'+str(i),t,'text;html=0;strokeColor=none;fillColor=none;fontSize='+str(size)+';',x-450,y-25,900,35)
   ET.indent(mx);ET.ElementTree(mx).write(ROOT/'diagramas-editables'/f'{self.key}.drawio',encoding='utf-8',xml_declaration=True)
 

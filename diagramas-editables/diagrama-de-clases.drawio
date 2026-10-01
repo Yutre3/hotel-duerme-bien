@@ -89,22 +89,22 @@
         <mxCell id="ESTADIA_HUESPED-line" value="" style="shape=line;strokeColor=#546778;strokeWidth=3;" vertex="1" parent="ESTADIA_HUESPED">
           <mxGeometry as="geometry" x="0" y="130" width="1000" height="1" />
         </mxCell>
-        <mxCell id="edge0" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#546778;fontSize=22;fontStyle=1;endArrow=none;endFill=0;startArrow=none;startFill=0;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0;" edge="1" source="ROL" target="USUARIO" parent="1">
+        <mxCell id="edge0" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#546778;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=none;endFill=0;startArrow=none;startFill=0;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0;" edge="1" source="ROL" target="USUARIO" parent="1">
           <mxGeometry as="geometry" relative="1">
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge0-label0" value="1" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;" vertex="1" connectable="0" parent="edge0">
+        <mxCell id="edge0-label0" value="1" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge0">
           <mxGeometry as="geometry" x="-0.9" y="-1" relative="1">
             <mxPoint as="offset" y="-14" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge0-label1" value="0..*" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;" vertex="1" connectable="0" parent="edge0">
+        <mxCell id="edge0-label1" value="0..*" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge0">
           <mxGeometry as="geometry" x="0.9" y="-1" relative="1">
             <mxPoint as="offset" y="-14" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge1" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#546778;fontSize=22;fontStyle=1;endArrow=none;endFill=0;startArrow=none;startFill=0;exitX=0;exitY=0.25;exitPerimeter=0;entryX=0;entryY=0.25;entryPerimeter=0;" edge="1" source="HABITACION" target="RESERVA" parent="1">
+        <mxCell id="edge1" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#546778;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=none;endFill=0;startArrow=none;startFill=0;exitX=0;exitY=0.25;exitPerimeter=0;entryX=0;entryY=0.25;entryPerimeter=0;" edge="1" source="HABITACION" target="RESERVA" parent="1">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="40" y="973" />
@@ -112,17 +112,17 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge1-label0" value="1" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;" vertex="1" connectable="0" parent="edge1">
+        <mxCell id="edge1-label0" value="1" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge1">
           <mxGeometry as="geometry" x="-0.9" y="-1" relative="1">
             <mxPoint as="offset" y="-14" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge1-label1" value="0..*" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;" vertex="1" connectable="0" parent="edge1">
+        <mxCell id="edge1-label1" value="0..*" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge1">
           <mxGeometry as="geometry" x="0.9" y="-1" relative="1">
             <mxPoint as="offset" y="-14" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge2" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#546778;fontSize=22;fontStyle=1;endArrow=none;endFill=0;startArrow=none;startFill=0;exitX=1;exitY=0.25;exitPerimeter=0;entryX=1;entryY=0.25;entryPerimeter=0;" edge="1" source="HABITACION" target="ESTADIA" parent="1">
+        <mxCell id="edge2" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#546778;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=none;endFill=0;startArrow=none;startFill=0;exitX=1;exitY=0.25;exitPerimeter=0;entryX=1;entryY=0.25;entryPerimeter=0;" edge="1" source="HABITACION" target="ESTADIA" parent="1">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="1160" y="973" />
@@ -130,62 +130,62 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge2-label0" value="1" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;" vertex="1" connectable="0" parent="edge2">
+        <mxCell id="edge2-label0" value="1" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge2">
           <mxGeometry as="geometry" x="-0.9" y="-1" relative="1">
             <mxPoint as="offset" y="-14" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge2-label1" value="0..*" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;" vertex="1" connectable="0" parent="edge2">
+        <mxCell id="edge2-label1" value="0..*" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge2">
           <mxGeometry as="geometry" x="0.9" y="-1" relative="1">
             <mxPoint as="offset" y="-14" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge3" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#546778;fontSize=22;fontStyle=1;endArrow=none;endFill=0;startArrow=none;startFill=0;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0;" edge="1" source="HUESPED" target="RESERVA" parent="1">
+        <mxCell id="edge3" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#546778;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=none;endFill=0;startArrow=none;startFill=0;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0;" edge="1" source="HUESPED" target="RESERVA" parent="1">
           <mxGeometry as="geometry" relative="1">
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge3-label0" value="1" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;" vertex="1" connectable="0" parent="edge3">
+        <mxCell id="edge3-label0" value="1" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge3">
           <mxGeometry as="geometry" x="-0.9" y="-1" relative="1">
             <mxPoint as="offset" y="-14" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge3-label1" value="0..*" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;" vertex="1" connectable="0" parent="edge3">
+        <mxCell id="edge3-label1" value="0..*" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge3">
           <mxGeometry as="geometry" x="0.9" y="-1" relative="1">
             <mxPoint as="offset" y="-14" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge4" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#546778;fontSize=22;fontStyle=1;endArrow=none;endFill=0;startArrow=none;startFill=0;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0;" edge="1" source="RESERVA" target="ESTADIA" parent="1">
+        <mxCell id="edge4" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#546778;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=none;endFill=0;startArrow=none;startFill=0;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0;" edge="1" source="RESERVA" target="ESTADIA" parent="1">
           <mxGeometry as="geometry" relative="1">
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge4-label0" value="0..1" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;" vertex="1" connectable="0" parent="edge4">
+        <mxCell id="edge4-label0" value="0..1" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge4">
           <mxGeometry as="geometry" x="-0.9" y="-1" relative="1">
             <mxPoint as="offset" y="-14" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge4-label1" value="0..1" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;" vertex="1" connectable="0" parent="edge4">
+        <mxCell id="edge4-label1" value="0..1" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge4">
           <mxGeometry as="geometry" x="0.9" y="-1" relative="1">
             <mxPoint as="offset" y="-14" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge5" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#546778;fontSize=22;fontStyle=1;endArrow=none;endFill=0;startArrow=diamond;startFill=1;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0;" edge="1" source="ESTADIA" target="ESTADIA_HUESPED" parent="1">
+        <mxCell id="edge5" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#546778;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=none;endFill=0;startArrow=diamond;startFill=1;exitX=0.5;exitY=1;exitPerimeter=0;entryX=0.5;entryY=0;entryPerimeter=0;" edge="1" source="ESTADIA" target="ESTADIA_HUESPED" parent="1">
           <mxGeometry as="geometry" relative="1">
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge5-label0" value="1" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;" vertex="1" connectable="0" parent="edge5">
+        <mxCell id="edge5-label0" value="1" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge5">
           <mxGeometry as="geometry" x="-0.9" y="-1" relative="1">
             <mxPoint as="offset" y="-14" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge5-label1" value="1..*" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;" vertex="1" connectable="0" parent="edge5">
+        <mxCell id="edge5-label1" value="1..*" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge5">
           <mxGeometry as="geometry" x="0.9" y="-1" relative="1">
             <mxPoint as="offset" y="-14" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge6" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#546778;fontSize=22;fontStyle=1;endArrow=none;endFill=0;startArrow=none;startFill=0;exitX=1;exitY=0.75;exitPerimeter=0;entryX=1;entryY=0.5;entryPerimeter=0;" edge="1" source="HUESPED" target="ESTADIA_HUESPED" parent="1">
+        <mxCell id="edge6" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#546778;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=none;endFill=0;startArrow=none;startFill=0;exitX=1;exitY=0.75;exitPerimeter=0;entryX=1;entryY=0.5;entryPerimeter=0;" edge="1" source="HUESPED" target="ESTADIA_HUESPED" parent="1">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
               <mxPoint x="1185" y="1589" />
@@ -193,12 +193,12 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge6-label0" value="1" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;" vertex="1" connectable="0" parent="edge6">
+        <mxCell id="edge6-label0" value="1" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge6">
           <mxGeometry as="geometry" x="-0.9" y="-1" relative="1">
             <mxPoint as="offset" y="-14" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge6-label1" value="0..*" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;" vertex="1" connectable="0" parent="edge6">
+        <mxCell id="edge6-label1" value="0..*" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge6">
           <mxGeometry as="geometry" x="0.9" y="-1" relative="1">
             <mxPoint as="offset" y="-14" />
           </mxGeometry>
