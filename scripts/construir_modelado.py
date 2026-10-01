@@ -56,7 +56,7 @@ class D:
    if e['kind']!='er':
     for t,p,o in [(e['sm'],pts[0],pts[1]),(e['tm'],pts[-1],pts[-2])]:
      if t:
-      dx,dy=o[0]-p[0],o[1]-p[1];l=math.hypot(dx,dy) or 1;boxed_text(t,p[0]+dx/l*48+(-24 if dy else 0),p[1]+dy/l*48-16,25)
+      dx,dy=o[0]-p[0],o[1]-p[1];l=math.hypot(dx,dy) or 1;boxed_text(t,p[0]+dx/l*85+(-34 if dy else 0),p[1]+dy/l*85-16,25)
   for n in self.nodes.values():
    x,y,w,h=n['x'],n['y'],n['w'],n['h'];sh=n['shape'];fill=n['fill'];stroke=n.get('stroke',EDGE)
    if sh=='frame':continue
@@ -199,21 +199,22 @@ for key,title,cl in [('modelo-de-datos','Modelo lógico de datos · 3FN',False)]
  rel('HUESPED','ESTADIA_HUESPED',(1,.55),(.75,0),[(1660,730),(1660,1800),(1025,1800)])
  rel('ESTADIA','ESTADIA_HUESPED',(.3,1),(1,.55),[(1150,1750),(1250,1750),(1250,2040)],tm='1..*',composition=cl)
 
-# Diagrama de clases vertical: legible en celular y con cardinalidades fuera de las cajas.
-d=D('diagrama-de-clases','Clases de dominio · Duerme Bien',1200,3600)
-class_positions={'ROL':(100,100),'USUARIO':(100,410),'HABITACION':(100,900),'HUESPED':(100,1370),'RESERVA':(100,1840),'ESTADIA':(100,2440),'ESTADIA_HUESPED':(100,3150)}
+# Diagrama de clases compacto: relaciones cortas y cardinalidades junto a cada extremo.
+d=D('diagrama-de-clases','Clases de dominio · Duerme Bien',1600,1850)
+class_positions={'ROL':(50,100),'USUARIO':(950,100),'HABITACION':(50,600),'RESERVA':(575,570),'ESTADIA':(1100,550),'HUESPED':(150,1180),'ESTADIA_HUESPED':(900,1210)}
+class_widths={'ROL':600,'USUARIO':600,'HABITACION':450,'RESERVA':450,'ESTADIA':450,'HUESPED':600,'ESTADIA_HUESPED':550}
 class_colors={'ROL':'#e8ddff','USUARIO':'#d9efff','HABITACION':'#dff5e3','HUESPED':'#fff1c9','RESERVA':'#ffe0cf','ESTADIA':'#d9efff','ESTADIA_HUESPED':'#eadfff'}
 for id,(x,y) in class_positions.items():
  n,attrs,methods=tables[id];attrs=['- '+v for v in attrs];methods=['+ '+v for v in methods]
- d.node(id,n,x,y,1000,88+(len(attrs)+len(methods))*34,'table',attrs,methods,fill=class_colors[id])
+ d.node(id,n,x,y,class_widths[id],88+(len(attrs)+len(methods))*34,'table',attrs,methods,fill=class_colors[id])
 def class_rel(a,b,source,target,points=None,sm='1',tm='0..*',composition=False):
  d.edge(a,b,points=points,source=source,target=target,kind='composition' if composition else 'association',sm=sm,tm=tm)
-class_rel('ROL','USUARIO',(.5,1),(.5,0))
-class_rel('HABITACION','RESERVA',(0,.25),(0,.25),[(40,973),(40,1930)])
-class_rel('HABITACION','ESTADIA',(1,.25),(1,.25),[(1160,973),(1160,2538.5)])
-class_rel('HUESPED','RESERVA',(.5,1),(.5,0))
-class_rel('RESERVA','ESTADIA',(.5,1),(.5,0),sm='0..1',tm='0..1')
-class_rel('ESTADIA','ESTADIA_HUESPED',(.5,1),(.5,0),tm='1..*',composition=True)
-class_rel('HUESPED','ESTADIA_HUESPED',(1,.75),(1,.5),[(1185,1589),(1185,3245)])
+class_rel('ROL','USUARIO',(1,.5),(0,.291))
+class_rel('HABITACION','RESERVA',(1,.5),(0,.489))
+class_rel('HABITACION','ESTADIA',(.5,0),(.5,0),[(275,480),(1325,480)])
+class_rel('HUESPED','RESERVA',(.77,0),(.1,1))
+class_rel('RESERVA','ESTADIA',(1,.489),(0,.497),sm='0..1',tm='0..1')
+class_rel('ESTADIA','ESTADIA_HUESPED',(.5,1),(.77,0),tm='1..*',composition=True)
+class_rel('HUESPED','ESTADIA_HUESPED',(1,.428),(0,.5))
 for d in ALL:d.save()
 (ROOT/'modelo/diagramas.json').write_text(json.dumps([dict(key=d.key,title=d.title,nodes=d.nodes,edges=d.edges) for d in ALL],ensure_ascii=False,indent=2))
