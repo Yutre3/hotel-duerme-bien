@@ -84,6 +84,8 @@
 
 [Abrir prototipo](https://yutre3.github.io/hotel-duerme-bien/prototipo/) · [Editar código](https://github.dev/Yutre3/hotel-duerme-bien/tree/main/prototipo)
 
+![Cuenta individual verificada](evidencia/cuenta-verificada.jpg)
+
 ### 13. Kanban
 
 ![Kanban](diagramas/kanban.svg)
