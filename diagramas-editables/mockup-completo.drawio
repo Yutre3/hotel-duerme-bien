@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram id="mockup-completo" name="Mockup completo · Vista general">
+    <mxGraphModel grid="1" gridSize="10" page="1" pageWidth="1800" pageHeight="1220">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="header" value="Hotel Duerme Bien · Sistema de pasajeros" style="rounded=1;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#163b50;fontColor=#ffffff;fontSize=19;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="35" y="70" width="1730" height="80" />
+        </mxCell>
+        <mxCell id="nav" value="MENÚ&#10;&#10;Disponibilidad&#10;Habitaciones&#10;Huéspedes&#10;Reservas&#10;Check-in&#10;Check-out&#10;Informes&#10;Usuarios" style="rounded=0;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#d9eaf1;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="35" y="180" width="280" height="960" />
+        </mxCell>
+        <mxCell id="card0" value="Disponibles&#10;8" style="rounded=1;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#d9eaf1;fontColor=#253747;fontSize=19;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="350" y="180" width="310" height="120" />
+        </mxCell>
+        <mxCell id="card1" value="Ocupadas&#10;12" style="rounded=1;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#d9eaf1;fontColor=#253747;fontSize=19;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="695" y="180" width="310" height="120" />
+        </mxCell>
+        <mxCell id="card2" value="Reservas&#10;5" style="rounded=1;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#d9eaf1;fontColor=#253747;fontSize=19;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1040" y="180" width="310" height="120" />
+        </mxCell>
+        <mxCell id="card3" value="Estadías activas&#10;10" style="rounded=1;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#d9eaf1;fontColor=#253747;fontSize=19;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1385" y="180" width="310" height="120" />
+        </mxCell>
+        <mxCell id="form-title" value="Registrar reserva / ingreso" style="text;strokeColor=none;fillColor=none;align=left;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#ffffff;fontColor=#253747;fontSize=19;fontStyle=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="350" y="335" width="1380" height="55" />
+        </mxCell>
+        <mxCell id="field0" value="Titular&#10;Ana Ejemplo" style="rounded=1;align=left;spacingLeft=15;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#ffffff;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="350" y="410" width="420" height="78" />
+        </mxCell>
+        <mxCell id="field1" value="Habitación&#10;201 · Capacidad 2" style="rounded=1;align=left;spacingLeft=15;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#ffffff;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="810" y="410" width="420" height="78" />
+        </mxCell>
+        <mxCell id="field2" value="Entrada&#10;01/10/2026" style="rounded=1;align=left;spacingLeft=15;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#ffffff;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1270" y="410" width="420" height="78" />
+        </mxCell>
+        <mxCell id="field3" value="Salida&#10;03/10/2026" style="rounded=1;align=left;spacingLeft=15;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#ffffff;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="350" y="520" width="420" height="78" />
+        </mxCell>
+        <mxCell id="field4" value="Pasajeros&#10;2" style="rounded=1;align=left;spacingLeft=15;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#ffffff;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="810" y="520" width="420" height="78" />
+        </mxCell>
+        <mxCell id="field5" value="Estado&#10;REGISTRADA" style="rounded=1;align=left;spacingLeft=15;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#ffffff;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1270" y="520" width="420" height="78" />
+        </mxCell>
+        <mxCell id="primary" value="Guardar reserva" style="rounded=1;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#163b50;fontColor=#ffffff;fontSize=19;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="350" y="650" width="420" height="65" />
+        </mxCell>
+        <mxCell id="secondary" value="Confirmar check-in" style="rounded=1;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#163b50;fontColor=#ffffff;fontSize=19;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="810" y="650" width="420" height="65" />
+        </mxCell>
+        <mxCell id="third" value="Calcular check-out" style="rounded=1;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#163b50;fontColor=#ffffff;fontSize=19;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1270" y="650" width="420" height="65" />
+        </mxCell>
+        <mxCell id="result" value="Reservas y estadías" style="shape=swimlane;startSize=44;horizontal=1;collapsible=0;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#ffffff;fontColor=#253747;fontSize=19;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="350" y="760" width="1380" height="230" />
+        </mxCell>
+        <mxCell id="result-attrs" value="Reserva | Titular | Habitación | Fechas | Pasajeros | Estado | Acción&#10;#1 | Ana Ejemplo | 201 | 01/10–03/10 | 2 | REGISTRADA | Modificar / Cancelar&#10;#2 | Luis Ejemplo | 305 | 02/10–04/10 | 1 | CHECK_IN | Ver detalle" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=14;fontSize=17;" vertex="1" parent="result">
+          <mxGeometry as="geometry" x="0" y="54" width="1380" height="84" />
+        </mxCell>
+        <mxCell id="summary" value="Cuenta seleccionada: 2 pasajeros · 2 noches · Total $40.000 CLP" style="rounded=1;html=0;whiteSpace=wrap;strokeColor=#546778;strokeWidth=2;fillColor=#d9eaf1;fontColor=#253747;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="350" y="1020" width="1380" height="78" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
