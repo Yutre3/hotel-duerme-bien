@@ -18,12 +18,12 @@ class D:
   def text(t,x,y,size=18,anchor='middle',bold=False,color=INK):
    svg.append(f'<text x="{x}" y="{y}" font-size="{size}" text-anchor="{anchor}" fill="{color}" font-weight="{"bold" if bold else "normal"}">{html.escape(str(t))}</text>');c.setFillColor(colors.HexColor(color));c.setFont('Helvetica-Bold' if bold else 'Helvetica',size);fn=c.drawCentredString if anchor=='middle' else c.drawString;fn(x,self.h-y,str(t))
   def path(pts,fill='none',dash=False,closed=False):
-   d='M'+' L'.join(f'{x},{y}' for x,y in pts)+(' Z' if closed else '');svg.append(f'<path d="{d}" fill="{fill}" stroke="{EDGE}" stroke-width="2"'+(' stroke-dasharray="8 6"' if dash else '')+'/>');c.setStrokeColor(colors.HexColor(EDGE));c.setLineWidth(2);c.setDash(8,6) if dash else c.setDash();p=c.beginPath();p.moveTo(pts[0][0],self.h-pts[0][1]);[p.lineTo(x,self.h-y) for x,y in pts[1:]]
+   d='M'+' L'.join(f'{x},{y}' for x,y in pts)+(' Z' if closed else '');svg.append(f'<path d="{d}" fill="{fill}" stroke="{EDGE}" stroke-width="4"'+(' stroke-dasharray="12 8"' if dash else '')+'/>');c.setStrokeColor(colors.HexColor(EDGE));c.setLineWidth(4);c.setDash(12,8) if dash else c.setDash();p=c.beginPath();p.moveTo(pts[0][0],self.h-pts[0][1]);[p.lineTo(x,self.h-y) for x,y in pts[1:]]
    if closed:p.close()
    if fill!='none':c.setFillColor(colors.HexColor(fill))
    c.drawPath(p,fill=int(fill!='none'),stroke=1);c.setDash()
   def ellipse(x,y,w,h,fill=WHITE):
-   svg.append(f'<ellipse cx="{x+w/2}" cy="{y+h/2}" rx="{w/2}" ry="{h/2}" fill="{fill}" stroke="{EDGE}" stroke-width="2"/>');c.setStrokeColor(colors.HexColor(EDGE));c.setFillColor(colors.HexColor(fill));c.ellipse(x,self.h-y-h,x+w,self.h-y,fill=1)
+   svg.append(f'<ellipse cx="{x+w/2}" cy="{y+h/2}" rx="{w/2}" ry="{h/2}" fill="{fill}" stroke="{EDGE}" stroke-width="4"/>');c.setStrokeColor(colors.HexColor(EDGE));c.setLineWidth(4);c.setFillColor(colors.HexColor(fill));c.ellipse(x,self.h-y-h,x+w,self.h-y,fill=1)
   def mark(tip,other,kind):
    x,y=tip;dx,dy=other[0]-x,other[1]-y;l=math.hypot(dx,dy) or 1;u,v=dx/l,dy/l
    def p(a,b):return (x+u*a-v*b,y+v*a+u*b)
@@ -47,11 +47,11 @@ class D:
    if e['kind']=='composition':mark(pts[0],pts[1],'composition')
    if e['kind']=='er':mark(pts[0],pts[1],e['sm']);mark(pts[-1],pts[-2],e['tm'])
    if e['label']:
-    pos=e['labelpos'] or ((pts[0][0]+pts[-1][0])/2,(pts[0][1]+pts[-1][1])/2-13);text(e['label'],*pos,16)
+    pos=e['labelpos'] or ((pts[0][0]+pts[-1][0])/2,(pts[0][1]+pts[-1][1])/2-13);text(e['label'],*pos,20,bold=True,color=BLUE)
    if e['kind']!='er':
     for t,p,o in [(e['sm'],pts[0],pts[1]),(e['tm'],pts[-1],pts[-2])]:
      if t:
-      dx,dy=o[0]-p[0],o[1]-p[1];l=math.hypot(dx,dy) or 1;text(t,p[0]+dx/l*37+(-18 if dy else 0),p[1]+dy/l*37-12,17)
+      dx,dy=o[0]-p[0],o[1]-p[1];l=math.hypot(dx,dy) or 1;text(t,p[0]+dx/l*48+(-24 if dy else 0),p[1]+dy/l*48-16,25,bold=True,color=BLUE)
   for n in self.nodes.values():
    x,y,w,h=n['x'],n['y'],n['w'],n['h'];sh=n['shape'];fill=n['fill']
    if sh=='frame':continue
@@ -66,15 +66,15 @@ class D:
    elif sh=='input':path([(x+25,y),(x+w,y),(x+w-25,y+h),(x,y+h)],fill,closed=True)
    else:path([(x,y),(x+w,y),(x+w,y+h),(x,y+h)],fill,closed=True)
    if sh=='table':
-    path([(x,y+44),(x+w,y+44)]);text(n['label'],x+w/2,y+30,20,bold=True)
-    for i,t in enumerate(n['attrs']):text(t,x+14,y+72+i*28,17,'start')
-    sy=y+55+len(n['attrs'])*28
+    path([(x,y+50),(x+w,y+50)]);text(n['label'],x+w/2,y+34,24,bold=True)
+    for i,t in enumerate(n['attrs']):text(t,x+18,y+80+i*34,21,'start')
+    sy=y+62+len(n['attrs'])*34
     if n['methods']:
      path([(x,sy),(x+w,sy)])
-     for i,t in enumerate(n['methods']):text(t,x+14,sy+27+i*28,17,'start')
+     for i,t in enumerate(n['methods']):text(t,x+18,sy+31+i*34,21,'start')
    elif sh=='frame':text(n['label'],x+20,y+30,20,'start',True)
    else:
-    lines=n['label'].split('\n');size=19 if sh!='diamond' else 18
+    lines=n['label'].split('\n');size=22 if sh!='diamond' else 20
     for i,t in enumerate(lines):text(t,x+15 if sh=='control' else x+w/2,y+h/2+(i-(len(lines)-1)/2)*25+7,size,anchor='start' if sh=='control' else 'middle',bold=n.get('bold',False) or sh=='ellipse' and n['id'].startswith('CU'),color=n.get('color',INK))
   for t,x,y,size in self.notes:text(t,x,y,size)
   (ROOT/'diagramas'/f'{self.key}.svg').write_text(f'<svg xmlns="http://www.w3.org/2000/svg" width="{self.w}" height="{self.h}" viewBox="0 0 {self.w} {self.h}"><rect width="100%" height="100%" fill="white"/><g font-family="Arial,sans-serif">'+''.join(svg)+'</g></svg>');c.save()
@@ -83,13 +83,13 @@ class D:
    c=ET.SubElement(root,'mxCell',id=id,value=value,style=style,vertex='1',parent=parent);ET.SubElement(c,'mxGeometry',x=str(x),y=str(y),width=str(w),height=str(h),attrib={'as':'geometry'})
   for n in self.nodes.values():
    sh=n['shape'];styles={'caption':'text;strokeColor=none;fillColor=none;align=left;','control':'rounded=1;align=left;spacingLeft=15;','rounded':'rounded=1;','rect':'rounded=0;','ellipse':'ellipse;','input':'shape=parallelogram;fixedSize=1;size=25;','diamond':'rhombus;','actor':'shape=umlActor;','frame':'rounded=0;verticalAlign=top;align=left;spacing=18;','table':'shape=swimlane;startSize=44;horizontal=1;collapsible=0;'}
-   title=n['label'];style=styles[sh]+f'html=0;whiteSpace=wrap;strokeColor={EDGE};strokeWidth=2;fillColor={n["fill"]};fontColor={n.get('color',INK)};fontSize=19;'+('fontStyle=1;' if sh=='table' or n.get('bold') else '')
+   title=n['label'];style=styles[sh]+f'html=0;whiteSpace=wrap;strokeColor={EDGE};strokeWidth=4;fillColor={n["fill"]};fontColor={n.get('color',INK)};fontSize=21;'+('fontStyle=1;' if sh=='table' or n.get('bold') else '')
    if sh=='caption':style+='strokeColor=none;fillColor=none;'
    vertex(n['id'],title,style,n['x'],n['y'],n['w'],n['h'])
    if sh=='table':
-    vertex(n['id']+'-attrs','\n'.join(n['attrs']),f'text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=14;fontSize=17;',0,54,n['w'],len(n['attrs'])*28,n['id'])
+    vertex(n['id']+'-attrs','\n'.join(n['attrs']),f'text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=18;fontSize=21;',0,60,n['w'],len(n['attrs'])*34,n['id'])
     if n['methods']:
-     sy=55+len(n['attrs'])*28;vertex(n['id']+'-methods','\n'.join(n['methods']),f'text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=14;fontSize=17;',0,sy+13,n['w'],len(n['methods'])*28,n['id']);vertex(n['id']+'-line','',f'shape=line;strokeColor={EDGE};',0,sy,n['w'],1,n['id'])
+     sy=62+len(n['attrs'])*34;vertex(n['id']+'-methods','\n'.join(n['methods']),f'text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=18;fontSize=21;',0,sy+13,n['w'],len(n['methods'])*34,n['id']);vertex(n['id']+'-line','',f'shape=line;strokeColor={EDGE};strokeWidth=3;',0,sy,n['w'],1,n['id'])
   for i,e in enumerate(self.edges):
    sa='none';ea='none';kind=e['kind']
    if kind in ['arrow','include']:ea='open'
@@ -97,13 +97,13 @@ class D:
    if kind=='composition':sa='diamond'
    er={'one':'ERmandOne','zeroone':'ERzeroToOne','many':'ERmany','zeromany':'ERzeroToMany','onemany':'ERoneToMany'}
    if kind=='er':sa=er[e['sm']];ea=er[e['tm']]
-   style=f'html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=24;rounded=0;strokeWidth=2;strokeColor={EDGE};fontSize=16;endArrow={ea};endFill=0;startArrow={sa};startFill={1 if kind=="composition" else 0};exitX={e["source"][0]};exitY={e["source"][1]};exitPerimeter=0;entryX={e["target"][0]};entryY={e["target"][1]};entryPerimeter=0;'+('dashed=1;' if kind=='include' else '')
+   style=f'html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor={EDGE};fontSize=22;fontStyle=1;endArrow={ea};endFill=0;startArrow={sa};startFill={1 if kind=="composition" else 0};exitX={e["source"][0]};exitY={e["source"][1]};exitPerimeter=0;entryX={e["target"][0]};entryY={e["target"][1]};entryPerimeter=0;'+('dashed=1;' if kind=='include' else '')
    c=ET.SubElement(root,'mxCell',id='edge'+str(i),value=e['label'],style=style,edge='1',source=e['a'],target=e['b'],parent='1');geo=ET.SubElement(c,'mxGeometry',relative='1',attrib={'as':'geometry'});arr=ET.SubElement(geo,'Array',attrib={'as':'points'})
    for x,y in e['points'][1:-1]:ET.SubElement(arr,'mxPoint',x=str(x),y=str(y))
    if kind!='er':
     for j,(label,t) in enumerate([(e['sm'],-.9),(e['tm'],.9)]):
      if label:
-      v=ET.SubElement(root,'mxCell',id=f'edge{i}-label{j}',value=label,style='edgeLabel;html=0;align=center;fontSize=17;',vertex='1',connectable='0',parent='edge'+str(i));gg=ET.SubElement(v,'mxGeometry',x=str(t),y='-1',relative='1',attrib={'as':'geometry'});ET.SubElement(gg,'mxPoint',y='-10',attrib={'as':'offset'})
+      v=ET.SubElement(root,'mxCell',id=f'edge{i}-label{j}',value=label,style='edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor='+BLUE+';',vertex='1',connectable='0',parent='edge'+str(i));gg=ET.SubElement(v,'mxGeometry',x=str(t),y='-1',relative='1',attrib={'as':'geometry'});ET.SubElement(gg,'mxPoint',y='-14',attrib={'as':'offset'})
   for i,(t,x,y,size) in enumerate(self.notes):vertex('note'+str(i),t,'text;html=0;strokeColor=none;fillColor=none;fontSize='+str(size)+';',x-450,y-25,900,35)
   ET.indent(mx);ET.ElementTree(mx).write(ROOT/'diagramas-editables'/f'{self.key}.drawio',encoding='utf-8',xml_declaration=True)
 
@@ -179,19 +179,34 @@ dbattrs={
  'RESERVA':['PK id_reserva : INTEGER','FK id_huesped_titular : INTEGER','FK id_habitacion : INTEGER','fecha_entrada : DATE','fecha_salida : DATE','cantidad_pasajeros : INTEGER > 0','estado : VARCHAR(20)'],
  'ESTADIA':['PK id_estadia : INTEGER','FK id_habitacion : INTEGER','FK/UQ id_reserva : INTEGER NULL','fecha_entrada : DATE','fecha_salida_prevista : DATE','fecha_salida_real : DATE NULL','estado : VARCHAR(20)','noches_cobradas : INTEGER NULL > 0'],
  'ESTADIA_HUESPED':['PK/FK id_estadia : INTEGER','PK/FK id_huesped : INTEGER','tarifa_clp : INTEGER NULL >= 0','costo_clp : INTEGER NULL >= 0']}
-layout={'ROL':(75,110),'USUARIO':(800,110),'HABITACION':(1525,110),'HUESPED':(75,690),'RESERVA':(800,690),'ESTADIA':(1525,690),'ESTADIA_HUESPED':(800,1350)}
-layout['ESTADIA_HUESPED']=(800,1280)
-for key,title,cl in [('diagrama-de-clases','Clases de dominio · Duerme Bien',True),('modelo-de-datos','Modelo lógico de datos · 3FN',False)]:
- d=D(key,title,2200,1540)
+layout={'ROL':(60,100),'USUARIO':(940,100),'HABITACION':(60,560),'HUESPED':(940,560),'RESERVA':(60,1120),'ESTADIA':(940,1120),'ESTADIA_HUESPED':(500,1860)}
+for key,title,cl in [('modelo-de-datos','Modelo lógico de datos · 3FN',False)]:
+ d=D(key,title,1700,2400)
  for id,(x,y) in layout.items():
-  n,attrs,methods=tables[id];attrs=['- '+v for v in attrs] if cl else dbattrs[id];methods=['+ '+v for v in methods] if cl else [];h=70+(len(attrs)+len(methods))*28;d.node(id,n if cl else id,x,y,490,h,'table',attrs,methods)
+  n,attrs,methods=tables[id];attrs=['- '+v for v in attrs] if cl else dbattrs[id];methods=['+ '+v for v in methods] if cl else [];h=88+(len(attrs)+len(methods))*34;d.node(id,n if cl else id,x,y,700,h,'table',attrs,methods)
  def rel(a,b,source,target,points=None,sm='1',tm='0..*',composition=False):d.edge(a,b,points=points,source=source,target=target,kind='composition' if composition else 'association' if cl else 'er',sm=sm if cl else {'1':'one','0..1':'zeroone'}[sm],tm=tm if cl else {'0..*':'zeromany','1..*':'onemany','0..1':'zeroone'}[tm])
  rel('ROL','USUARIO',(1,.35),(0,.22))
- rel('HABITACION','ESTADIA',(.8,1),(.8,0))
- rel('HABITACION','RESERVA',(0,.25),(.5,0),[(1430,175),(1430,590),(1045,590)])
- rel('HUESPED','RESERVA',(1,.3),(0,.3))
+ rel('HABITACION','ESTADIA',(1,.25),(0,.25),[(850,650),(850,1210)])
+ rel('HABITACION','RESERVA',(.35,1),(.35,0))
+ rel('HUESPED','RESERVA',(0,.7),(1,.2),[(850,760),(850,1190)])
  rel('RESERVA','ESTADIA',(1,.7),(0,.7),sm='0..1',tm='0..1')
- rel('HUESPED','ESTADIA_HUESPED',(.5,1),(0,.5),[(320,1160),(700,1160),(700,1360)])
- rel('ESTADIA','ESTADIA_HUESPED',(.7,1),(1,.5),[(1868,1160),(2000,1160),(2000,1360)],tm='1..*',composition=cl)
+ rel('HUESPED','ESTADIA_HUESPED',(1,.55),(.75,0),[(1660,730),(1660,1800),(1025,1800)])
+ rel('ESTADIA','ESTADIA_HUESPED',(.3,1),(1,.55),[(1150,1750),(1250,1750),(1250,2040)],tm='1..*',composition=cl)
+
+# Diagrama de clases vertical: legible en celular y con cardinalidades fuera de las cajas.
+d=D('diagrama-de-clases','Clases de dominio · Duerme Bien',1200,3600)
+class_positions={'ROL':(100,100),'USUARIO':(100,410),'HABITACION':(100,900),'HUESPED':(100,1370),'RESERVA':(100,1840),'ESTADIA':(100,2440),'ESTADIA_HUESPED':(100,3150)}
+for id,(x,y) in class_positions.items():
+ n,attrs,methods=tables[id];attrs=['- '+v for v in attrs];methods=['+ '+v for v in methods]
+ d.node(id,n,x,y,1000,88+(len(attrs)+len(methods))*34,'table',attrs,methods)
+def class_rel(a,b,source,target,points=None,sm='1',tm='0..*',composition=False):
+ d.edge(a,b,points=points,source=source,target=target,kind='composition' if composition else 'association',sm=sm,tm=tm)
+class_rel('ROL','USUARIO',(.5,1),(.5,0))
+class_rel('HABITACION','RESERVA',(0,.25),(0,.25),[(40,973),(40,1930)])
+class_rel('HABITACION','ESTADIA',(1,.25),(1,.25),[(1160,973),(1160,2538.5)])
+class_rel('HUESPED','RESERVA',(.5,1),(.5,0))
+class_rel('RESERVA','ESTADIA',(.5,1),(.5,0),sm='0..1',tm='0..1')
+class_rel('ESTADIA','ESTADIA_HUESPED',(.5,1),(.5,0),tm='1..*',composition=True)
+class_rel('HUESPED','ESTADIA_HUESPED',(1,.75),(1,.5),[(1185,1589),(1185,3245)])
 for d in ALL:d.save()
 (ROOT/'modelo/diagramas.json').write_text(json.dumps([dict(key=d.key,title=d.title,nodes=d.nodes,edges=d.edges) for d in ALL],ensure_ascii=False,indent=2))
