@@ -48,7 +48,7 @@
 
 ## Pantallas
 
-[Ver las nueve pantallas](https://yutre3.github.io/hotel-duerme-bien/mockups/) · [Archivo de Figma](figma/)
+[Ver las nueve pantallas](https://yutre3.github.io/hotel-duerme-bien/mockups/) · [Abrir demo en Figma](https://www.figma.com/proto/7kS6Wuh6nwt2lcl4bB1w50/Hotel-Duerme-Bien?node-id=6-180&starting-point-node-id=6%3A180&scaling=contain) · [Editar en Figma](https://www.figma.com/design/7kS6Wuh6nwt2lcl4bB1w50/Hotel-Duerme-Bien)
 
 ## Entregas
 

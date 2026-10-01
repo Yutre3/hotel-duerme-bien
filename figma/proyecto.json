@@ -1,7 +1,7 @@
 {
   "herramienta_de_los_videos": "Figma",
-  "file_url": null,
-  "estado": "Pendiente de crear el archivo en Figma",
+  "file_url": "https://www.figma.com/design/7kS6Wuh6nwt2lcl4bB1w50/Hotel-Duerme-Bien",
+  "estado": "Demo creada en Figma con navegación verificada",
   "pantallas": [
     "acceso",
     "disponibilidad",
@@ -16,5 +16,10 @@
   "fuentes": [
     "https://www.youtube.com/watch?v=PbjNO8Ya3_0",
     "https://www.youtube.com/watch?v=pM53Vj2yqMo&list=PLyezufEz_5vbqXgI9b30PF4_XLInLYGe_"
-  ]
+  ],
+  "prototype_url": "https://www.figma.com/proto/7kS6Wuh6nwt2lcl4bB1w50/Hotel-Duerme-Bien?node-id=6-180&starting-point-node-id=6%3A180&scaling=contain",
+  "file_key": "7kS6Wuh6nwt2lcl4bB1w50",
+  "pantallas_prototipo": 22,
+  "conexiones_validas": 213,
+  "inicio": "6:180"
 }

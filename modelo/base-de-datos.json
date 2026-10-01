@@ -1,0 +1,283 @@
+{
+  "entidades": {
+    "ROL": [
+      "PK id_rol: INTEGER",
+      "nombre: VARCHAR(30) NOT NULL UNIQUE"
+    ],
+    "USUARIO": [
+      "PK id_usuario: INTEGER",
+      "FK id_rol: INTEGER NOT NULL",
+      "nombre_usuario: VARCHAR(50) NOT NULL UNIQUE",
+      "hash_clave: VARCHAR(255) NOT NULL",
+      "activo: BOOLEAN NOT NULL"
+    ],
+    "HABITACION": [
+      "PK id_habitacion: INTEGER",
+      "numero: VARCHAR(20) NOT NULL UNIQUE",
+      "capacidad: INTEGER NOT NULL, mayor que 0",
+      "orientacion: VARCHAR(30) NOT NULL"
+    ],
+    "HUESPED": [
+      "PK id_huesped: INTEGER",
+      "identificacion: VARCHAR(50) NOT NULL UNIQUE",
+      "nombres: VARCHAR(100) NOT NULL",
+      "apellidos: VARCHAR(100) NOT NULL"
+    ],
+    "RESERVA": [
+      "PK id_reserva: INTEGER",
+      "FK id_huesped_titular: INTEGER NOT NULL",
+      "FK id_habitacion: INTEGER NOT NULL",
+      "fecha_entrada: DATE NOT NULL",
+      "fecha_salida: DATE NOT NULL",
+      "cantidad_pasajeros: INTEGER NOT NULL, > 0",
+      "estado: VARCHAR(20) NOT NULL"
+    ],
+    "ESTADIA": [
+      "PK id_estadia: INTEGER",
+      "FK id_habitacion: INTEGER NOT NULL",
+      "FK id_reserva: INTEGER NULL UNIQUE",
+      "fecha_entrada: DATE NOT NULL",
+      "fecha_salida_prevista: DATE NOT NULL",
+      "fecha_salida_real: DATE NULL",
+      "estado: VARCHAR(20) NOT NULL",
+      "noches_cobradas: INTEGER NULL, > 0"
+    ],
+    "ESTADIA_HUESPED": [
+      "PK/FK id_estadia: INTEGER NOT NULL",
+      "PK/FK id_huesped: INTEGER NOT NULL",
+      "tarifa_clp: INTEGER NULL, mayor o igual a 0",
+      "costo_clp: INTEGER NULL, mayor o igual a 0"
+    ]
+  },
+  "relaciones": [
+    {
+      "a": "ROL",
+      "b": "USUARIO",
+      "points": [
+        [
+          700,
+          181.0
+        ],
+        [
+          880,
+          167.5
+        ]
+      ],
+      "label": "",
+      "kind": "er",
+      "sm": "one",
+      "tm": "zeromany",
+      "source": [
+        1,
+        0.5
+      ],
+      "target": [
+        0,
+        0.25
+      ],
+      "labelpos": null
+    },
+    {
+      "a": "HABITACION",
+      "b": "RESERVA",
+      "points": [
+        [
+          284.0,
+          714
+        ],
+        [
+          284.0,
+          970
+        ]
+      ],
+      "label": "",
+      "kind": "er",
+      "sm": "one",
+      "tm": "zeromany",
+      "source": [
+        0.35,
+        1
+      ],
+      "target": [
+        0.35,
+        0
+      ],
+      "labelpos": null
+    },
+    {
+      "a": "HABITACION",
+      "b": "ESTADIA",
+      "points": [
+        [
+          700,
+          526.8
+        ],
+        [
+          785,
+          527
+        ],
+        [
+          785,
+          1062
+        ],
+        [
+          880,
+          1045.6
+        ]
+      ],
+      "label": "",
+      "kind": "er",
+      "sm": "one",
+      "tm": "zeromany",
+      "source": [
+        1,
+        0.2
+      ],
+      "target": [
+        0,
+        0.2
+      ],
+      "labelpos": null
+    },
+    {
+      "a": "HUESPED",
+      "b": "RESERVA",
+      "points": [
+        [
+          880,
+          667.2
+        ],
+        [
+          815,
+          667
+        ],
+        [
+          815,
+          1032
+        ],
+        [
+          700,
+          1031.56
+        ]
+      ],
+      "label": "",
+      "kind": "er",
+      "sm": "one",
+      "tm": "zeromany",
+      "source": [
+        0,
+        0.8
+      ],
+      "target": [
+        1,
+        0.18
+      ],
+      "labelpos": null
+    },
+    {
+      "a": "RESERVA",
+      "b": "ESTADIA",
+      "points": [
+        [
+          700,
+          1192.3
+        ],
+        [
+          880,
+          1215.7
+        ]
+      ],
+      "label": "",
+      "kind": "er",
+      "sm": "zeroone",
+      "tm": "zeroone",
+      "source": [
+        1,
+        0.65
+      ],
+      "target": [
+        0,
+        0.65
+      ],
+      "labelpos": null
+    },
+    {
+      "a": "ESTADIA",
+      "b": "ESTADIA_HUESPED",
+      "points": [
+        [
+          1232.0,
+          1348
+        ],
+        [
+          1232,
+          1580
+        ],
+        [
+          1190,
+          1580
+        ],
+        [
+          1190,
+          1842
+        ],
+        [
+          1110,
+          1842.1
+        ]
+      ],
+      "label": "",
+      "kind": "er",
+      "sm": "one",
+      "tm": "onemany",
+      "source": [
+        0.55,
+        1
+      ],
+      "target": [
+        1,
+        0.65
+      ],
+      "labelpos": null
+    },
+    {
+      "a": "HUESPED",
+      "b": "ESTADIA_HUESPED",
+      "points": [
+        [
+          1520,
+          608.7
+        ],
+        [
+          1545,
+          609
+        ],
+        [
+          1545,
+          1620
+        ],
+        [
+          950,
+          1620
+        ],
+        [
+          950.0,
+          1690
+        ]
+      ],
+      "label": "",
+      "kind": "er",
+      "sm": "one",
+      "tm": "zeromany",
+      "source": [
+        1,
+        0.55
+      ],
+      "target": [
+        0.75,
+        0
+      ],
+      "labelpos": null
+    }
+  ]
+}
