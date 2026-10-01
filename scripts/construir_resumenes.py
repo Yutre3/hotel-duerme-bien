@@ -69,19 +69,20 @@ steps = [
     ('fin', 'Fin', 'ellipse'),
 ]
 for i, (node_id, label, shape) in enumerate(steps):
-    d.node(node_id, label, 400, 80 + i * 140, 600, 88, shape)
+    d.node(node_id, label, 400, 80 + i * 140, 600, 88, shape,
+           stroke=RED if shape == 'ellipse' else TEAL if shape == 'input' else EDGE)
 for i in range(len(steps) - 1):
     node_id, _, shape = steps[i]
     label = 'No' if node_id == 'cambio' else ('Sí' if shape == 'diamond' else '')
     d.edge(node_id, steps[i + 1][0], label=label)
 
-d.node('sin', 'Fin · cambiar fechas\no habitación', 1030, 640, 340, 95, 'ellipse')
+d.node('sin', 'Fin · cambiar fechas\no habitación', 1030, 640, 340, 95, 'ellipse', stroke=RED)
 d.edge('disp', 'sin', label='No', source=(1, .5), target=(0, .5))
-d.node('gestion', 'Modificar reserva o marcarla\nCANCELADA', 20, 920, 340, 95, 'rect')
+d.node('gestion', 'Modificar reserva o marcarla\nCANCELADA', 20, 920, 340, 95, 'rect', stroke=TEAL)
 d.edge('cambio', 'gestion', label='Sí', source=(0, .5), target=(1, .5))
-d.node('gestion-fin', 'Fin · reserva actualizada', 20, 1060, 340, 90, 'ellipse')
+d.node('gestion-fin', 'Fin · reserva actualizada', 20, 1060, 340, 90, 'ellipse', stroke=RED)
 d.edge('gestion', 'gestion-fin')
-d.node('rechazo', 'Fin · mantener estadía ACTIVA\ny corregir la cuenta', 1030, 1620, 340, 95, 'ellipse')
+d.node('rechazo', 'Fin · mantener estadía ACTIVA\ny corregir la cuenta', 1030, 1620, 340, 95, 'ellipse', stroke=RED)
 d.edge('confirma', 'rechazo', label='No', source=(1, .5), target=(0, .5))
 d.save()
 

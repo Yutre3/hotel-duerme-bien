@@ -13,7 +13,8 @@
         "shape": "frame",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "enc": {
         "id": "enc",
@@ -25,7 +26,8 @@
         "shape": "actor",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "CU01": {
         "id": "CU01",
@@ -37,7 +39,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "CU03": {
         "id": "CU03",
@@ -49,7 +52,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "CU04": {
         "id": "CU04",
@@ -61,7 +65,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "CU09": {
         "id": "CU09",
@@ -73,7 +78,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "CU11": {
         "id": "CU11",
@@ -85,7 +91,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "CU12": {
         "id": "CU12",
@@ -97,7 +104,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "CU06": {
         "id": "CU06",
@@ -109,7 +117,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "CU05": {
         "id": "CU05",
@@ -121,7 +130,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "CU07": {
         "id": "CU07",
@@ -133,7 +143,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       }
     },
     "edges": [
@@ -462,7 +473,8 @@
         "shape": "frame",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "enc": {
         "id": "enc",
@@ -474,7 +486,8 @@
         "shape": "actor",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "admin": {
         "id": "admin",
@@ -486,7 +499,8 @@
         "shape": "actor",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "CU02": {
         "id": "CU02",
@@ -498,7 +512,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "CU08": {
         "id": "CU08",
@@ -510,7 +525,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "CU10": {
         "id": "CU10",
@@ -522,7 +538,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       }
     },
     "edges": [
@@ -650,7 +667,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#ff7474"
       },
       "datos": {
         "id": "datos",
@@ -662,7 +680,8 @@
         "shape": "input",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#20aaa9"
       },
       "validar": {
         "id": "validar",
@@ -674,7 +693,8 @@
         "shape": "diamond",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "consultar": {
         "id": "consultar",
@@ -686,7 +706,8 @@
         "shape": "rect",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "disponible": {
         "id": "disponible",
@@ -698,7 +719,8 @@
         "shape": "diamond",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "confirmar": {
         "id": "confirmar",
@@ -710,7 +732,8 @@
         "shape": "diamond",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "guardar": {
         "id": "guardar",
@@ -722,7 +745,8 @@
         "shape": "rect",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "respuesta": {
         "id": "respuesta",
@@ -734,7 +758,8 @@
         "shape": "input",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#20aaa9"
       },
       "fin": {
         "id": "fin",
@@ -746,7 +771,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#ff7474"
       },
       "error0": {
         "id": "error0",
@@ -758,7 +784,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#ff7474"
       },
       "error1": {
         "id": "error1",
@@ -770,7 +797,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#ff7474"
       },
       "error2": {
         "id": "error2",
@@ -782,7 +810,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#ff7474"
       }
     },
     "edges": [
@@ -1132,7 +1161,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#ff7474"
       },
       "datos": {
         "id": "datos",
@@ -1144,7 +1174,8 @@
         "shape": "input",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#20aaa9"
       },
       "origen": {
         "id": "origen",
@@ -1156,7 +1187,8 @@
         "shape": "diamond",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "identificar": {
         "id": "identificar",
@@ -1168,7 +1200,8 @@
         "shape": "rect",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "validar": {
         "id": "validar",
@@ -1180,7 +1213,8 @@
         "shape": "diamond",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "consulta": {
         "id": "consulta",
@@ -1192,7 +1226,8 @@
         "shape": "rect",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "disponible": {
         "id": "disponible",
@@ -1204,7 +1239,8 @@
         "shape": "diamond",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "confirmar": {
         "id": "confirmar",
@@ -1216,7 +1252,8 @@
         "shape": "diamond",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "guardar": {
         "id": "guardar",
@@ -1228,7 +1265,8 @@
         "shape": "rect",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "actualizar": {
         "id": "actualizar",
@@ -1240,7 +1278,8 @@
         "shape": "rect",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "respuesta": {
         "id": "respuesta",
@@ -1252,7 +1291,8 @@
         "shape": "input",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#20aaa9"
       },
       "fin": {
         "id": "fin",
@@ -1264,7 +1304,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#ff7474"
       },
       "error0": {
         "id": "error0",
@@ -1276,7 +1317,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#ff7474"
       },
       "error1": {
         "id": "error1",
@@ -1288,7 +1330,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#ff7474"
       },
       "error2": {
         "id": "error2",
@@ -1300,7 +1343,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#ff7474"
       },
       "error3": {
         "id": "error3",
@@ -1312,7 +1356,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#ff7474"
       }
     },
     "edges": [
@@ -1782,7 +1827,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#ff7474"
       },
       "seleccionar": {
         "id": "seleccionar",
@@ -1794,7 +1840,8 @@
         "shape": "input",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#20aaa9"
       },
       "activa": {
         "id": "activa",
@@ -1806,7 +1853,8 @@
         "shape": "diamond",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "pasajeros": {
         "id": "pasajeros",
@@ -1818,7 +1866,8 @@
         "shape": "rect",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "regla": {
         "id": "regla",
@@ -1830,7 +1879,8 @@
         "shape": "diamond",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "cuenta": {
         "id": "cuenta",
@@ -1842,7 +1892,8 @@
         "shape": "rect",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "detalle": {
         "id": "detalle",
@@ -1854,7 +1905,8 @@
         "shape": "input",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#20aaa9"
       },
       "confirmar": {
         "id": "confirmar",
@@ -1866,7 +1918,8 @@
         "shape": "diamond",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "conflicto": {
         "id": "conflicto",
@@ -1878,7 +1931,8 @@
         "shape": "diamond",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "guardar": {
         "id": "guardar",
@@ -1890,7 +1944,8 @@
         "shape": "rect",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "liberar": {
         "id": "liberar",
@@ -1902,7 +1957,8 @@
         "shape": "rect",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "fin": {
         "id": "fin",
@@ -1914,7 +1970,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#ff7474"
       },
       "error0": {
         "id": "error0",
@@ -1926,7 +1983,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#ff7474"
       },
       "error1": {
         "id": "error1",
@@ -1938,7 +1996,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#ff7474"
       },
       "error2": {
         "id": "error2",
@@ -1950,7 +2009,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#ff7474"
       },
       "error3": {
         "id": "error3",
@@ -1962,7 +2022,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#ff7474"
       }
     },
     "edges": [
@@ -2432,7 +2493,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#ff7474"
       },
       "select": {
         "id": "select",
@@ -2444,7 +2506,8 @@
         "shape": "input",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#20aaa9"
       },
       "estado": {
         "id": "estado",
@@ -2456,7 +2519,8 @@
         "shape": "diamond",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "op": {
         "id": "op",
@@ -2468,7 +2532,8 @@
         "shape": "diamond",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "invalid": {
         "id": "invalid",
@@ -2480,7 +2545,8 @@
         "shape": "rect",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "invalidFin": {
         "id": "invalidFin",
@@ -2492,7 +2558,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#ff7474"
       },
       "mod": {
         "id": "mod",
@@ -2504,7 +2571,8 @@
         "shape": "input",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#20aaa9"
       },
       "disp": {
         "id": "disp",
@@ -2516,7 +2584,8 @@
         "shape": "rect",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "ok": {
         "id": "ok",
@@ -2528,7 +2597,8 @@
         "shape": "diamond",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "save": {
         "id": "save",
@@ -2540,7 +2610,8 @@
         "shape": "rect",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "modFin": {
         "id": "modFin",
@@ -2552,7 +2623,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#ff7474"
       },
       "modNo": {
         "id": "modNo",
@@ -2564,7 +2636,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#ff7474"
       },
       "cancel": {
         "id": "cancel",
@@ -2576,7 +2649,8 @@
         "shape": "diamond",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "canceled": {
         "id": "canceled",
@@ -2588,7 +2662,8 @@
         "shape": "rect",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "cancelFin": {
         "id": "cancelFin",
@@ -2600,7 +2675,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#ff7474"
       },
       "cancelNo": {
         "id": "cancelNo",
@@ -2612,7 +2688,8 @@
         "shape": "ellipse",
         "attrs": [],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#ff7474"
       }
     },
     "edges": [
@@ -3065,7 +3142,8 @@
           "UQ nombre : VARCHAR(30)"
         ],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "USUARIO": {
         "id": "USUARIO",
@@ -3083,7 +3161,8 @@
           "activo : BOOLEAN"
         ],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "HABITACION": {
         "id": "HABITACION",
@@ -3100,7 +3179,8 @@
           "orientacion : VARCHAR(30)"
         ],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "HUESPED": {
         "id": "HUESPED",
@@ -3117,7 +3197,8 @@
           "apellidos : VARCHAR(100)"
         ],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "RESERVA": {
         "id": "RESERVA",
@@ -3137,7 +3218,8 @@
           "estado : VARCHAR(20)"
         ],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "ESTADIA": {
         "id": "ESTADIA",
@@ -3158,7 +3240,8 @@
           "noches_cobradas : INTEGER NULL > 0"
         ],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       },
       "ESTADIA_HUESPED": {
         "id": "ESTADIA_HUESPED",
@@ -3175,7 +3258,8 @@
           "costo_clp : INTEGER NULL >= 0"
         ],
         "methods": [],
-        "fill": "#ffffff"
+        "fill": "#ffffff",
+        "stroke": "#30363b"
       }
     },
     "edges": [
@@ -3429,7 +3513,8 @@
         "methods": [
           "+ permite(operacion: String): bool"
         ],
-        "fill": "#ffffff"
+        "fill": "#e8ddff",
+        "stroke": "#30363b"
       },
       "USUARIO": {
         "id": "USUARIO",
@@ -3450,7 +3535,8 @@
           "+ asignarRol(rol: Rol): void",
           "+ desactivar(): void"
         ],
-        "fill": "#ffffff"
+        "fill": "#d9efff",
+        "stroke": "#30363b"
       },
       "HABITACION": {
         "id": "HABITACION",
@@ -3470,7 +3556,8 @@
           "+ disponible(entrada, salida): bool",
           "+ actualizarDatos(): void"
         ],
-        "fill": "#ffffff"
+        "fill": "#dff5e3",
+        "stroke": "#30363b"
       },
       "HUESPED": {
         "id": "HUESPED",
@@ -3490,7 +3577,8 @@
           "+ registrar(): void",
           "+ consultarHistorial(): List<Estadia>"
         ],
-        "fill": "#ffffff"
+        "fill": "#fff1c9",
+        "stroke": "#30363b"
       },
       "RESERVA": {
         "id": "RESERVA",
@@ -3512,7 +3600,8 @@
           "+ modificar(): void",
           "+ cancelar(): void"
         ],
-        "fill": "#ffffff"
+        "fill": "#ffe0cf",
+        "stroke": "#30363b"
       },
       "ESTADIA": {
         "id": "ESTADIA",
@@ -3535,7 +3624,8 @@
           "+ calcularCuenta(): Dinero",
           "+ registrarCheckOut(): void"
         ],
-        "fill": "#ffffff"
+        "fill": "#d9efff",
+        "stroke": "#30363b"
       },
       "ESTADIA_HUESPED": {
         "id": "ESTADIA_HUESPED",
@@ -3552,7 +3642,8 @@
         "methods": [
           "+ calcularCosto(regla): Dinero"
         ],
-        "fill": "#ffffff"
+        "fill": "#eadfff",
+        "stroke": "#30363b"
       }
     },
     "edges": [

@@ -4,12 +4,12 @@ from reportlab.pdfgen import canvas
 from reportlab.lib import colors
 ROOT=Path(__file__).resolve().parents[1]
 MODEL=json.loads((ROOT/'modelo/sistema.json').read_text())
-BLUE='#163b50';INK='#253747';EDGE='#546778';LIGHT='#edf4f7';WHITE='#ffffff'
+BLUE='#163b50';INK='#253747';EDGE='#30363b';LIGHT='#edf4f7';WHITE='#ffffff';TEAL='#20aaa9';RED='#ff7474'
 ALL=[]
 class D:
  def __init__(self,key,title,w,h):self.key=key;self.title=title;self.w=w;self.h=h;self.nodes={};self.edges=[];self.notes=[];ALL.append(self)
- def node(self,id,label,x,y,w=400,h=90,shape='rect',attrs=None,methods=None,fill=WHITE):
-  self.nodes[id]=dict(id=id,label=label,x=x,y=y,w=w,h=h,shape=shape,attrs=attrs or [],methods=methods or [],fill=fill);return id
+ def node(self,id,label,x,y,w=400,h=90,shape='rect',attrs=None,methods=None,fill=WHITE,stroke=EDGE):
+  self.nodes[id]=dict(id=id,label=label,x=x,y=y,w=w,h=h,shape=shape,attrs=attrs or [],methods=methods or [],fill=fill,stroke=stroke);return id
  def edge(self,a,b,points=None,label='',kind='arrow',source=(.5,1),target=(.5,0),sm='',tm='',labelpos=None):
   A=self.nodes[a];B=self.nodes[b];p=(A['x']+A['w']*source[0],A['y']+A['h']*source[1]);q=(B['x']+B['w']*target[0],B['y']+B['h']*target[1]);self.edges.append(dict(a=a,b=b,points=[p]+(points or [])+[q],label=label,kind=kind,sm=sm,tm=tm,source=source,target=target,labelpos=labelpos))
  def note(self,text,x,y,size=16):self.notes.append((text,x,y,size))
@@ -22,13 +22,13 @@ class D:
    svg.append(f'<rect x="{x-width/2}" y="{y-size-3}" width="{width}" height="{height}" rx="5" fill="#ffffff" stroke="none"/>')
    c.setFillColor(colors.white);c.roundRect(x-width/2,self.h-y-8,width,height,5,fill=1,stroke=0)
    text(t,x,y,size,'middle',bold,color)
-  def path(pts,fill='none',dash=False,closed=False):
-   d='M'+' L'.join(f'{x},{y}' for x,y in pts)+(' Z' if closed else '');svg.append(f'<path d="{d}" fill="{fill}" stroke="{EDGE}" stroke-width="4"'+(' stroke-dasharray="12 8"' if dash else '')+'/>');c.setStrokeColor(colors.HexColor(EDGE));c.setLineWidth(4);c.setDash(12,8) if dash else c.setDash();p=c.beginPath();p.moveTo(pts[0][0],self.h-pts[0][1]);[p.lineTo(x,self.h-y) for x,y in pts[1:]]
+  def path(pts,fill='none',dash=False,closed=False,stroke=EDGE):
+   d='M'+' L'.join(f'{x},{y}' for x,y in pts)+(' Z' if closed else '');svg.append(f'<path d="{d}" fill="{fill}" stroke="{stroke}" stroke-width="4"'+(' stroke-dasharray="12 8"' if dash else '')+'/>');c.setStrokeColor(colors.HexColor(stroke));c.setLineWidth(4);c.setDash(12,8) if dash else c.setDash();p=c.beginPath();p.moveTo(pts[0][0],self.h-pts[0][1]);[p.lineTo(x,self.h-y) for x,y in pts[1:]]
    if closed:p.close()
    if fill!='none':c.setFillColor(colors.HexColor(fill))
    c.drawPath(p,fill=int(fill!='none'),stroke=1);c.setDash()
-  def ellipse(x,y,w,h,fill=WHITE):
-   svg.append(f'<ellipse cx="{x+w/2}" cy="{y+h/2}" rx="{w/2}" ry="{h/2}" fill="{fill}" stroke="{EDGE}" stroke-width="4"/>');c.setStrokeColor(colors.HexColor(EDGE));c.setLineWidth(4);c.setFillColor(colors.HexColor(fill));c.ellipse(x,self.h-y-h,x+w,self.h-y,fill=1)
+  def ellipse(x,y,w,h,fill=WHITE,stroke=EDGE):
+   svg.append(f'<ellipse cx="{x+w/2}" cy="{y+h/2}" rx="{w/2}" ry="{h/2}" fill="{fill}" stroke="{stroke}" stroke-width="4"/>');c.setStrokeColor(colors.HexColor(stroke));c.setLineWidth(4);c.setFillColor(colors.HexColor(fill));c.ellipse(x,self.h-y-h,x+w,self.h-y,fill=1)
   def mark(tip,other,kind):
    x,y=tip;dx,dy=other[0]-x,other[1]-y;l=math.hypot(dx,dy) or 1;u,v=dx/l,dy/l
    def p(a,b):return (x+u*a-v*b,y+v*a+u*b)
@@ -58,24 +58,24 @@ class D:
      if t:
       dx,dy=o[0]-p[0],o[1]-p[1];l=math.hypot(dx,dy) or 1;boxed_text(t,p[0]+dx/l*48+(-24 if dy else 0),p[1]+dy/l*48-16,25)
   for n in self.nodes.values():
-   x,y,w,h=n['x'],n['y'],n['w'],n['h'];sh=n['shape'];fill=n['fill']
+   x,y,w,h=n['x'],n['y'],n['w'],n['h'];sh=n['shape'];fill=n['fill'];stroke=n.get('stroke',EDGE)
    if sh=='frame':continue
    if sh=='caption':
     text(n['label'],x+4,y+h/2+6,17,'start',color=n.get('color',INK));continue
    if sh=='actor':
-    ellipse(x+w/2-16,y,32,32);cx=x+w/2;path([(cx,y+32),(cx,y+90)]);path([(cx-35,y+57),(cx+35,y+57)]);path([(cx,y+90),(cx-30,y+135)]);path([(cx,y+90),(cx+30,y+135)]);text(n['label'],cx,y+162,20);continue
+    ellipse(x+w/2-16,y,32,32,WHITE,stroke);cx=x+w/2;path([(cx,y+32),(cx,y+90)],stroke=stroke);path([(cx-35,y+57),(cx+35,y+57)],stroke=stroke);path([(cx,y+90),(cx-30,y+135)],stroke=stroke);path([(cx,y+90),(cx+30,y+135)],stroke=stroke);text(n['label'],cx,y+162,20);continue
    if sh in ['rounded','control']:
-    svg.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="8" fill="{fill}" stroke="{EDGE}" stroke-width="1.3"/>');c.setFillColor(colors.HexColor(fill));c.setStrokeColor(colors.HexColor(EDGE));c.roundRect(x,self.h-y-h,w,h,8,fill=1)
-   elif sh=='ellipse':ellipse(x,y,w,h,fill)
-   elif sh=='diamond':path([(x+w/2,y),(x+w,y+h/2),(x+w/2,y+h),(x,y+h/2)],fill,closed=True)
-   elif sh=='input':path([(x+25,y),(x+w,y),(x+w-25,y+h),(x,y+h)],fill,closed=True)
-   else:path([(x,y),(x+w,y),(x+w,y+h),(x,y+h)],fill,closed=True)
+    svg.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="8" fill="{fill}" stroke="{stroke}" stroke-width="4"/>');c.setFillColor(colors.HexColor(fill));c.setStrokeColor(colors.HexColor(stroke));c.setLineWidth(4);c.roundRect(x,self.h-y-h,w,h,8,fill=1)
+   elif sh=='ellipse':ellipse(x,y,w,h,fill,stroke)
+   elif sh=='diamond':path([(x+w/2,y),(x+w,y+h/2),(x+w/2,y+h),(x,y+h/2)],fill,closed=True,stroke=stroke)
+   elif sh=='input':path([(x+25,y),(x+w,y),(x+w-25,y+h),(x,y+h)],fill,closed=True,stroke=stroke)
+   else:path([(x,y),(x+w,y),(x+w,y+h),(x,y+h)],fill,closed=True,stroke=stroke)
    if sh=='table':
-    path([(x,y+50),(x+w,y+50)]);text(n['label'],x+w/2,y+34,24,bold=True)
+    path([(x,y+50),(x+w,y+50)],stroke=stroke);text(n['label'],x+w/2,y+34,24,bold=True)
     for i,t in enumerate(n['attrs']):text(t,x+18,y+80+i*34,21,'start')
     sy=y+62+len(n['attrs'])*34
     if n['methods']:
-     path([(x,sy),(x+w,sy)])
+     path([(x,sy),(x+w,sy)],stroke=stroke)
      for i,t in enumerate(n['methods']):text(t,x+18,sy+31+i*34,21,'start')
    elif sh=='frame':text(n['label'],x+20,y+30,20,'start',True)
    else:
@@ -88,7 +88,7 @@ class D:
    c=ET.SubElement(root,'mxCell',id=id,value=value,style=style,vertex='1',parent=parent);ET.SubElement(c,'mxGeometry',x=str(x),y=str(y),width=str(w),height=str(h),attrib={'as':'geometry'})
   for n in self.nodes.values():
    sh=n['shape'];styles={'caption':'text;strokeColor=none;fillColor=none;align=left;','control':'rounded=1;align=left;spacingLeft=15;','rounded':'rounded=1;','rect':'rounded=0;','ellipse':'ellipse;','input':'shape=parallelogram;fixedSize=1;size=25;','diamond':'rhombus;','actor':'shape=umlActor;','frame':'rounded=0;verticalAlign=top;align=left;spacing=18;','table':'shape=swimlane;startSize=44;horizontal=1;collapsible=0;'}
-   title=n['label'];style=styles[sh]+f'html=0;whiteSpace=wrap;strokeColor={EDGE};strokeWidth=4;fillColor={n["fill"]};fontColor={n.get('color',INK)};fontSize=21;'+('fontStyle=1;' if sh=='table' or n.get('bold') else '')
+   title=n['label'];style=styles[sh]+f'html=0;whiteSpace=wrap;strokeColor={n.get("stroke",EDGE)};strokeWidth=4;fillColor={n["fill"]};fontColor={n.get('color',INK)};fontSize=21;'+('fontStyle=1;' if sh=='table' or n.get('bold') else '')
    if sh=='caption':style+='strokeColor=none;fillColor=none;'
    vertex(n['id'],title,style,n['x'],n['y'],n['w'],n['h'])
    if sh=='table':
@@ -132,14 +132,15 @@ for i,id in enumerate(['CU02','CU08','CU10']):
 # Flujos con rutas de validación, rechazo, cancelación y confirmación.
 def flow(key,title,steps,branches):
  h=180+len(steps)*165;d=D(key,title,1660,h)
- for i,(id,t,sh) in enumerate(steps):d.node(id,t,450,95+i*165,480,95,sh)
+ for i,(id,t,sh) in enumerate(steps):
+  d.node(id,t,450,95+i*165,480,95,sh,stroke=RED if sh=='ellipse' else TEAL if sh=='input' else EDGE)
  for i in range(len(steps)-1):
   id=steps[i][0];label='Sí' if steps[i][2]=='diamond' else '';d.edge(id,steps[i+1][0],label=label,labelpos=(720,95+i*165+130))
  for i,(origin,text,back) in enumerate(branches):
   n=d.nodes[origin];side='error'+str(i)
   # Cada alternativa termina en un solo resultado, sin retornos ni cajas repetidas.
   ending='Fin ·\n'+'\n'.join(textwrap.wrap(text.replace('\n',' ').lower(),28))
-  d.node(side,ending,1090,n['y'],390,95,'ellipse');d.edge(origin,side,label='No',source=(1,.5),target=(0,.5),labelpos=(1010,n['y']+32))
+  d.node(side,ending,1090,n['y'],390,95,'ellipse',stroke=RED);d.edge(origin,side,label='No',source=(1,.5),target=(0,.5),labelpos=(1010,n['y']+32))
  return d
 flow('flujo-reserva','Registrar reserva · CU09',[
  ('inicio','Inicio','ellipse'),('datos','Capturar titular, habitación,\nfechas y cantidad de pasajeros','input'),('validar','¿Titular registrado y\ndatos completos y válidos?','diamond'),('consultar','Consultar disponibilidad\npara intervalo y capacidad · CU05','rect'),('disponible','¿Habitación disponible\ny capacidad suficiente?','diamond'),('confirmar','¿Confirma la reserva?','diamond'),('guardar','Guardar reserva REGISTRADA','rect'),('respuesta','Mostrar número y resumen\nde reserva registrada','input'),('fin','Fin','ellipse')], [('validar','Mostrar campos\nque requieren corrección','datos'),('disponible','Mostrar conflicto y\notras habitaciones','datos'),('confirmar','Cancelar la operación',None)])
@@ -158,8 +159,8 @@ nodes=[
  ('modNo','Fin sin cambios',520,1040,'ellipse'),
  ('cancel','¿Confirma la cancelación?',950,730,'diamond'),('canceled','Marcar CANCELADA y\nliberar disponibilidad',950,930,'rect'),
  ('cancelFin','Fin · reserva cancelada',950,1090,'ellipse')]
-for id,t,x,y,sh in nodes:d.node(id,t,x,y,400,90,sh)
-d.node('cancelNo','Fin sin cambios',1450,850,300,80,'ellipse')
+for id,t,x,y,sh in nodes:d.node(id,t,x,y,400,90,sh,stroke=RED if sh=='ellipse' else TEAL if sh=='input' else EDGE)
+d.node('cancelNo','Fin sin cambios',1450,850,300,80,'ellipse',stroke=RED)
 for a,b in [('inicio','select'),('select','estado'),('estado','op'),('mod','disp'),('disp','ok'),('ok','save'),('save','modFin'),('invalid','invalidFin'),('cancel','canceled'),('canceled','cancelFin')]:d.edge(a,b,label='Sí' if a in ['estado','ok','cancel'] else '')
 d.edge('estado','invalid',source=(1,.5),target=(0,.5),label='No')
 d.edge('op','mod',points=[(320,650)],label='Modificar',labelpos=(350,650))
@@ -201,9 +202,10 @@ for key,title,cl in [('modelo-de-datos','Modelo lógico de datos · 3FN',False)]
 # Diagrama de clases vertical: legible en celular y con cardinalidades fuera de las cajas.
 d=D('diagrama-de-clases','Clases de dominio · Duerme Bien',1200,3600)
 class_positions={'ROL':(100,100),'USUARIO':(100,410),'HABITACION':(100,900),'HUESPED':(100,1370),'RESERVA':(100,1840),'ESTADIA':(100,2440),'ESTADIA_HUESPED':(100,3150)}
+class_colors={'ROL':'#e8ddff','USUARIO':'#d9efff','HABITACION':'#dff5e3','HUESPED':'#fff1c9','RESERVA':'#ffe0cf','ESTADIA':'#d9efff','ESTADIA_HUESPED':'#eadfff'}
 for id,(x,y) in class_positions.items():
  n,attrs,methods=tables[id];attrs=['- '+v for v in attrs];methods=['+ '+v for v in methods]
- d.node(id,n,x,y,1000,88+(len(attrs)+len(methods))*34,'table',attrs,methods)
+ d.node(id,n,x,y,1000,88+(len(attrs)+len(methods))*34,'table',attrs,methods,fill=class_colors[id])
 def class_rel(a,b,source,target,points=None,sm='1',tm='0..*',composition=False):
  d.edge(a,b,points=points,source=source,target=target,kind='composition' if composition else 'association',sm=sm,tm=tm)
 class_rel('ROL','USUARIO',(.5,1),(.5,0))
