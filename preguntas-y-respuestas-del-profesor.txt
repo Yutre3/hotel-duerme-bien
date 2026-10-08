@@ -1,0 +1,150 @@
+PREGUNTAS Y RESPUESTAS PARA LA INTERROGACIÓN
+Proyecto: Sistema de Pasajeros del Hotel Duerme Bien - Tema 6
+Estudiante: Luis Huenchul
+
+El profesor seleccionará 5 preguntas de este banco. Las respuestas están adaptadas al proyecto y redactadas para explicarlas oralmente.
+
+============================================================
+BLOQUE A: MODELADO DE CASOS DE USO Y PROCESOS
+============================================================
+
+PREGUNTA 1
+¿Cuál es la diferencia conceptual entre una relación <<include>> y una <<extend>> en un diagrama de casos de uso y cómo se justifica su uso en tu sistema?
+
+RESPUESTA:
+<<include>> representa una acción obligatoria que otro caso de uso necesita para completarse. En nuestro sistema, registrar un check-in, registrar una reserva y modificar una reserva incluyen consultar disponibilidad, porque siempre se debe verificar la habitación antes de guardar. <<extend>> representa una acción opcional que ocurre bajo una condición. Por eso el ingreso directo extiende el check-in solamente cuando el huésped llega sin reserva.
+
+PREGUNTA 2
+¿Cómo definiste los límites del sistema (System Boundary) en tu Diagrama de Casos de Uso y qué elementos quedaron deliberadamente fuera del alcance?
+
+RESPUESTA:
+El rectángulo del sistema contiene las funciones que realiza el Sistema de Pasajeros del Hotel Duerme Bien, como habitaciones, huéspedes, reservas, disponibilidad, check-in, check-out, usuarios e informes. Los actores Administrador y Encargado están fuera porque interactúan con el sistema, pero no forman parte de él. Dejamos fuera pagos electrónicos, restaurante, inventario y otros servicios porque el tema 6 no los solicita.
+
+PREGUNTA 3
+Explica la diferencia entre el flujo principal (camino feliz) y los flujos alternativos o de excepción en tu Diagrama de Flujos.
+
+RESPUESTA:
+El flujo principal muestra lo que ocurre cuando los datos son correctos y la operación termina bien. Por ejemplo, en una reserva se ingresan los datos, se consulta disponibilidad, se confirma y se guarda. Los flujos alternativos muestran situaciones como fechas incorrectas, habitación ocupada, capacidad insuficiente o cancelación del usuario. Esos caminos regresan a corregir los datos o terminan sin guardar cambios.
+
+PREGUNTA 4
+¿Qué es una precondición y una postcondición en un caso de uso, y da un ejemplo práctico aplicado a tu modelo?
+
+RESPUESTA:
+Una precondición es algo que debe cumplirse antes de comenzar el caso de uso. Una postcondición es el resultado que debe quedar después de terminarlo correctamente. En el check-out, la precondición es que exista una estadía ACTIVA. La postcondición es que la estadía quede finalizada, los costos queden registrados y la habitación vuelva a estar disponible.
+
+PREGUNTA 5
+Si agregamos un nuevo actor con permisos restringidos a tu sistema, ¿qué casos de uso se verían modificados o creados?
+
+RESPUESTA:
+Primero definiríamos qué tareas puede realizar el nuevo actor. Si agregamos un Recepcionista con permisos limitados, podría acceder a CU01, CU03, CU04, CU05, CU06, CU09, CU11 y CU12, pero no a gestionar usuarios, habitaciones ni informes administrativos. También actualizaríamos la matriz de permisos, la clase o rol correspondiente, la tabla ROL, las pantallas visibles y las pruebas de autorización.
+
+============================================================
+BLOQUE B: DIAGRAMA DE CLASES Y ORIENTACIÓN A OBJETOS
+============================================================
+
+PREGUNTA 6
+¿Cuál es la diferencia entre una relación de Agregación y una de Composición en un Diagrama de Clases y da un ejemplo de tu proyecto?
+
+RESPUESTA:
+En la agregación, los objetos relacionados pueden seguir existiendo de forma independiente. En nuestro modelo, Habitación agrega reservas históricas, porque una reserva puede conservarse como registro aunque la habitación siga existiendo. En la composición existe una dependencia más fuerte. Estadia compone EstadiaHuesped, porque esas participaciones sólo tienen sentido dentro de una estadía determinada.
+
+PREGUNTA 7
+Justifica la presencia de los atributos y métodos principales en la clase central de tu dominio.
+
+RESPUESTA:
+Una clase central es Estadia, porque representa el alojamiento real de los pasajeros. Sus atributos incluyen habitación, fechas, estado, reserva opcional y noches cobradas, ya que permiten controlar el ingreso, la ocupación y la salida. Sus métodos permiten iniciar, validar, calcular la cuenta y finalizar la estadía. Se relaciona con Habitacion y con EstadiaHuesped para identificar dónde se alojan y quiénes participan.
+
+PREGUNTA 8
+¿Utilizaste herencia o generalización en tu Diagrama de Clases? Si es así, ¿por qué? Si no, ¿en qué entidad se podría aplicar?
+
+RESPUESTA:
+Sí. Usuario es una clase abstracta y Administrador y Encargado heredan sus datos y comportamientos comunes, como nombre de usuario, credencial, estado e inicio de sesión. Así evitamos repetir los mismos atributos y métodos en dos clases. En la base de datos esta estructura se representa con las tablas USUARIO y ROL para no duplicar credenciales.
+
+PREGUNTA 9
+¿Cómo se refleja la cardinalidad/multiplicidad definida en tu Diagrama de Clases en la lógica de negocio de tu sistema?
+
+RESPUESTA:
+Las multiplicidades indican cuántos objetos pueden relacionarse. Una habitación puede tener muchas reservas y estadías a lo largo del tiempo, pero cada reserva y cada estadía corresponde a una sola habitación. Una estadía debe tener uno o más pasajeros. Estas reglas se aplican al validar capacidad, evitar superposiciones y registrar cada huésped mediante EstadiaHuesped.
+
+PREGUNTA 10
+¿Cómo garantizas la encapsulación y visibilidad (pública, privada, protegida) de los atributos en tus clases?
+
+RESPUESTA:
+Los atributos se definieron como privados para impedir que se modifiquen directamente sin validación. Las operaciones necesarias se ofrecen mediante métodos públicos, como registrar, modificar, consultar disponibilidad o finalizar una estadía. Si existiera comportamiento compartido sólo por las subclases de Usuario, se podría usar visibilidad protegida. Así los cambios pasan por reglas controladas y se protege la consistencia de los datos.
+
+============================================================
+BLOQUE C: BASE DE DATOS Y TRAZABILIDAD
+============================================================
+
+PREGUNTA 11
+Explica la diferencia entre una clave primaria (PK) y una clave foránea (FK), identificando un par PK/FK clave en tu diagrama de BD.
+
+RESPUESTA:
+La clave primaria identifica de forma única cada registro de una tabla. La clave foránea conecta ese registro con la clave primaria de otra tabla. Por ejemplo, HABITACION tiene como PK id_habitacion y RESERVA guarda id_habitacion como FK. Esto permite saber qué habitación pertenece a cada reserva sin repetir todos los datos de la habitación.
+
+PREGUNTA 12
+¿Cómo garantizaste la normalización en el diseño de tu Base de Datos para evitar redundancias?
+
+RESPUESTA:
+Aplicamos las tres primeras formas normales. Cada campo guarda un solo valor; por eso los pasajeros no se guardan como una lista. Separamos datos por entidad: el rol está en ROL, la habitación en HABITACION y los datos personales en HUESPED. La relación entre estadías y huéspedes se guarda en ESTADIA_HUESPED, evitando repetir nombres, habitaciones o fechas en varias tablas.
+
+PREGUNTA 13
+¿Cómo se mapea una relación de "Muchos a Muchos" (N:M) de tu modelo conceptual a la estructura física de tu Base de Datos?
+
+RESPUESTA:
+Una relación muchos a muchos se transforma en una tabla intermedia. En nuestro proyecto, un huésped puede participar en varias estadías a lo largo del tiempo y una estadía puede incluir varios huéspedes. La tabla ESTADIA_HUESPED resuelve esa relación usando id_estadia e id_huesped como clave primaria compuesta y como claves foráneas. Además guarda la tarifa y el costo individual de cada pasajero.
+
+PREGUNTA 14
+Demuestra la trazabilidad: Toma un Requerimiento Funcional específico y muestra cómo se refleja en el Caso de Uso, el Diagrama de Clases y la BD.
+
+RESPUESTA:
+Tomemos RF04, Registrar check-in. Se representa en CU04, donde se selecciona una reserva o ingreso directo, se identifican los pasajeros y se consulta disponibilidad. En el diagrama de clases intervienen Estadia, Habitacion, Huesped y EstadiaHuesped. En la base de datos se crea un registro ACTIVO en ESTADIA y una fila en ESTADIA_HUESPED por cada pasajero. Finalmente, el flujo se prueba en la pantalla Check-in del prototipo.
+
+PREGUNTA 15
+¿Qué ajustes o correcciones realizaste en tus requerimientos y diagramas en base a la retroalimentación de la Evaluación 1?
+
+RESPUESTA:
+Reorganizamos los diagramas para mejorar la legibilidad, separamos líneas y textos, corregimos la dirección de las flechas y ubicamos las multiplicidades junto a cada extremo. También definimos códigos CU01 a CU12, agregamos precondiciones, postcondiciones y caminos alternativos, y relacionamos cada requerimiento con clases, tablas y pantallas. En la base de datos aclaramos PK, FK, datos únicos, tipos y la tabla ESTADIA_HUESPED. La retroalimentación específica de la Evaluación 1 no estaba documentada completa, por eso no inventamos observaciones que el profesor no hubiera entregado.
+
+============================================================
+BLOQUE D: MOCKUPS, PROTOTIPADO Y EXPERIENCIA DE USUARIO
+============================================================
+
+PREGUNTA 16
+¿Cómo se relaciona una pantalla o vista específica de tus Mockups con un Caso de Uso particular de tu sistema?
+
+RESPUESTA:
+La pantalla Reservas se relaciona con CU09 Registrar reserva, CU11 Modificar reserva y CU12 Cancelar reserva. Contiene los campos de titular, habitación, fecha de entrada, fecha de salida y cantidad de pasajeros. También muestra el estado y las acciones de modificar o cancelar. Antes de guardar, se conecta con CU05 para comprobar disponibilidad.
+
+PREGUNTA 17
+¿Qué criterios de usabilidad y distribución de componentes aplicaste al diseñar la interfaz gráfica en Figma?
+
+RESPUESTA:
+Usamos una navegación lateral constante, títulos claros, formularios ordenados y botones con acciones fáciles de reconocer. Mantuvimos los mismos colores, espacios y posiciones en todas las vistas para que el usuario no tenga que aprender cada pantalla de nuevo. Los resultados aparecen en tablas y los mensajes indican qué dato debe corregirse. También se separaron las funciones según el perfil del usuario.
+
+PREGUNTA 18
+Explica el flujo de navegación de un usuario desde que ingresa a la aplicación hasta completar su tarea principal según tus Mockups.
+
+RESPUESTA:
+El usuario entra por Acceso y el sistema carga las opciones permitidas por su perfil. Para registrar una reserva, abre Reservas, selecciona al titular y la habitación, ingresa las fechas y la cantidad de pasajeros. El sistema consulta disponibilidad, muestra si existe conflicto y, si todo es correcto, guarda la reserva como REGISTRADA. Después puede modificarla, cancelarla o usarla para realizar el check-in.
+
+PREGUNTA 19
+¿Cómo representan tus Wireframes/Mockups las validaciones de datos o los mensajes de error frente a acciones incorrectas del usuario?
+
+RESPUESTA:
+Las vistas incluyen campos obligatorios, resultados y mensajes concretos cuando una operación no puede continuar. El prototipo rechaza números o identificaciones duplicadas, capacidad inválida, fechas incoherentes, habitaciones ocupadas y pasajeros no identificados. También impide modificar o cancelar una reserva que ya no está REGISTRADA. El mensaje explica el problema y permite corregir sin guardar datos incorrectos.
+
+PREGUNTA 20
+Si el cliente te pide modificar un flujo de pantalla en Figma, ¿qué diagramas de tu informe técnico se verían impactados y deberían actualizarse?
+
+RESPUESTA:
+Primero revisaría qué requerimiento y caso de uso cambia. Después actualizaría el flujo de proceso, el mockup y el prototipo; si cambia información o una regla, también el diagrama de clases y la base de datos. Finalmente actualizaría la matriz de trazabilidad y las pruebas. No se debe cambiar sólo la pantalla, porque todos los artefactos deben seguir representando el mismo funcionamiento.
+
+============================================================
+FRASE CORTA PARA EXPLICAR EL PROYECTO COMPLETO
+============================================================
+
+Nuestro proyecto reemplaza las planillas Excel del Hotel Duerme Bien por un sistema que gestiona habitaciones, huéspedes, disponibilidad, reservas, check-in, check-out, costos, usuarios e informes. Todo está conectado mediante la trazabilidad: requerimiento, caso de uso, proceso, clase, tabla, pantalla y prueba.
+
+Fuente de las preguntas: Evaluación_2_MSI.pdf entregado por el profesor.
+Respuestas elaboradas según los requerimientos, diagramas, modelo de datos, mockups y prototipo del repositorio.
