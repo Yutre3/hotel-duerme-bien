@@ -1,0 +1,54 @@
+BANCO OFICIAL DE PREGUNTAS DEL PROFESOR
+Evaluación 2 - Modelado de Sistemas de Información
+
+De este listado, el profesor seleccionará 5 preguntas al azar o a su criterio para la interrogación individual.
+
+BLOQUE A: MODELADO DE CASOS DE USO Y PROCESOS
+
+1. ¿Cuál es la diferencia conceptual entre una relación <<include>> y una <<extend>> en un diagrama de casos de uso y cómo se justifica su uso en tu sistema?
+
+2. ¿Cómo definiste los límites del sistema (System Boundary) en tu Diagrama de Casos de Uso y qué elementos quedaron deliberadamente fuera del alcance?
+
+3. Explica la diferencia entre el flujo principal (camino feliz) y los flujos alternativos o de excepción en tu Diagrama de Flujos.
+
+4. ¿Qué es una precondición y una postcondición en un caso de uso, y da un ejemplo práctico aplicado a tu modelo?
+
+5. Si agregamos un nuevo actor con permisos restringidos a tu sistema, ¿qué casos de uso se verían modificados o creados?
+
+BLOQUE B: DIAGRAMA DE CLASES Y ORIENTACIÓN A OBJETOS
+
+6. ¿Cuál es la diferencia entre una relación de Agregación y una de Composición en un Diagrama de Clases y da un ejemplo de tu proyecto?
+
+7. Justifica la presencia de los atributos y métodos principales en la clase central de tu dominio.
+
+8. ¿Utilizaste herencia o generalización en tu Diagrama de Clases? Si es así, ¿por qué? Si no, ¿en qué entidad se podría aplicar?
+
+9. ¿Cómo se refleja la cardinalidad/multiplicidad definida en tu Diagrama de Clases en la lógica de negocio de tu sistema?
+
+10. ¿Cómo garantizas la encapsulación y visibilidad (pública, privada, protegida) de los atributos en tus clases?
+
+BLOQUE C: DIAGRAMA DE BASE DE DATOS Y TRAZABILIDAD
+
+11. Explica la diferencia entre una clave primaria (PK) y una clave foránea (FK), identificando un par PK/FK clave en tu diagrama de BD.
+
+12. ¿Cómo garantizaste la normalización en el diseño de tu Base de Datos para evitar redundancias?
+
+13. ¿Cómo se mapea una relación de "Muchos a Muchos" (N:M) de tu modelo conceptual a la estructura física de tu Base de Datos?
+
+14. Demuestra la trazabilidad: Toma un Requerimiento Funcional específico y muestra cómo se refleja en el Caso de Uso, el Diagrama de Clases y la BD.
+
+15. ¿Qué ajustes o correcciones realizaste en tus requerimientos y diagramas en base a la retroalimentación de la Evaluación 1?
+
+BLOQUE D: MOCKUPS, PROTOTIPADO Y EXPERIENCIA DE USUARIO (UX/UI)
+
+16. ¿Cómo se relaciona una pantalla o vista específica de tus Mockups con un Caso de Uso particular de tu sistema?
+
+17. ¿Qué criterios de usabilidad y distribución de componentes aplicaste al diseñar la interfaz gráfica en Figma?
+
+18. Explica el flujo de navegación de un usuario desde que ingresa a la aplicación hasta completar su tarea principal según tus Mockups.
+
+19. ¿Cómo representan tus Wireframes/Mockups las validaciones de datos o los mensajes de error frente a acciones incorrectas del usuario?
+
+20. Si el cliente te pide modificar un flujo de pantalla en Figma, ¿qué diagramas de tu informe técnico se verían impactados y deberían actualizarse?
+
+Fuente: Evaluación_2_MSI.pdf entregado por el profesor.
