@@ -3269,19 +3269,19 @@
   },
   {
     "key": "modelo-de-datos",
-    "title": "Modelo lógico de datos · 3FN",
+    "title": "Modelo lógico de datos completo · Hotel Duerme Bien · 3FN",
     "nodes": {
       "ROL": {
         "id": "ROL",
         "label": "ROL",
-        "x": 70,
+        "x": 80,
         "y": 110,
-        "w": 560,
-        "h": 156,
+        "w": 620,
+        "h": 184,
         "shape": "table",
         "attrs": [
           "PK id_rol : INTEGER",
-          "UQ nombre : VARCHAR(30)"
+          "UQ nombre : VARCHAR(30) NOT NULL"
         ],
         "methods": [],
         "fill": "#ffffff",
@@ -3290,17 +3290,17 @@
       "USUARIO": {
         "id": "USUARIO",
         "label": "USUARIO",
-        "x": 760,
+        "x": 850,
         "y": 90,
-        "w": 700,
-        "h": 258,
+        "w": 1260,
+        "h": 310,
         "shape": "table",
         "attrs": [
           "PK id_usuario : INTEGER",
           "FK id_rol : INTEGER NOT NULL",
-          "UQ nombre_usuario : VARCHAR(50)",
-          "hash_clave : VARCHAR(255)",
-          "activo : BOOLEAN"
+          "UQ nombre_usuario : VARCHAR(50) NOT NULL",
+          "hash_clave : VARCHAR(255) NOT NULL",
+          "activo : BOOLEAN NOT NULL"
         ],
         "methods": [],
         "fill": "#ffffff",
@@ -3309,16 +3309,16 @@
       "HUESPED": {
         "id": "HUESPED",
         "label": "HUESPED",
-        "x": 70,
-        "y": 600,
-        "w": 760,
-        "h": 224,
+        "x": 80,
+        "y": 620,
+        "w": 900,
+        "h": 268,
         "shape": "table",
         "attrs": [
           "PK id_huesped : INTEGER",
-          "UQ identificacion : VARCHAR(50)",
-          "nombres : VARCHAR(100)",
-          "apellidos : VARCHAR(100)"
+          "UQ identificacion : VARCHAR(50) NOT NULL",
+          "nombres : VARCHAR(100) NOT NULL",
+          "apellidos : VARCHAR(100) NOT NULL"
         ],
         "methods": [],
         "fill": "#ffffff",
@@ -3327,16 +3327,16 @@
       "HABITACION": {
         "id": "HABITACION",
         "label": "HABITACION",
-        "x": 1030,
-        "y": 600,
-        "w": 760,
-        "h": 224,
+        "x": 1200,
+        "y": 620,
+        "w": 900,
+        "h": 268,
         "shape": "table",
         "attrs": [
           "PK id_habitacion : INTEGER",
-          "UQ numero : VARCHAR(20)",
-          "capacidad : INTEGER CHECK > 0",
-          "orientacion : VARCHAR(30)"
+          "UQ numero : VARCHAR(20) NOT NULL",
+          "capacidad : INTEGER NOT NULL CHECK (capacidad > 0)",
+          "orientacion : VARCHAR(30) NOT NULL"
         ],
         "methods": [],
         "fill": "#ffffff",
@@ -3345,19 +3345,21 @@
       "RESERVA": {
         "id": "RESERVA",
         "label": "RESERVA",
-        "x": 500,
-        "y": 1240,
-        "w": 820,
-        "h": 326,
+        "x": 80,
+        "y": 1260,
+        "w": 980,
+        "h": 478,
         "shape": "table",
         "attrs": [
           "PK id_reserva : INTEGER",
-          "FK id_huesped_titular : INTEGER",
-          "FK id_habitacion : INTEGER",
-          "fecha_entrada : DATE",
-          "fecha_salida : DATE",
-          "cantidad_pasajeros : INTEGER > 0",
-          "estado : VARCHAR(20)"
+          "FK id_huesped_titular : INTEGER NOT NULL",
+          "FK id_habitacion : INTEGER NOT NULL",
+          "fecha_entrada : DATE NOT NULL",
+          "fecha_salida : DATE NOT NULL",
+          "cantidad_pasajeros : INTEGER NOT NULL CHECK > 0",
+          "estado : VARCHAR(20) NOT NULL",
+          "CHECK (fecha_salida > fecha_entrada)",
+          "CHECK estado: REGISTRADA / CHECK_IN / CANCELADA / FINALIZADA"
         ],
         "methods": [],
         "fill": "#ffffff",
@@ -3366,20 +3368,21 @@
       "ESTADIA": {
         "id": "ESTADIA",
         "label": "ESTADIA",
-        "x": 1500,
-        "y": 1200,
-        "w": 850,
-        "h": 360,
+        "x": 1200,
+        "y": 1260,
+        "w": 900,
+        "h": 478,
         "shape": "table",
         "attrs": [
           "PK id_estadia : INTEGER",
-          "FK id_habitacion : INTEGER",
+          "FK id_habitacion : INTEGER NOT NULL",
           "FK/UQ id_reserva : INTEGER NULL",
-          "fecha_entrada : DATE",
-          "fecha_salida_prevista : DATE",
+          "fecha_entrada : DATE NOT NULL",
+          "fecha_salida_prevista : DATE NOT NULL",
           "fecha_salida_real : DATE NULL",
-          "estado : VARCHAR(20)",
-          "noches_cobradas : INTEGER NULL > 0"
+          "estado : VARCHAR(20) NOT NULL",
+          "noches_cobradas : INTEGER NULL CHECK > 0",
+          "CHECK estado: ACTIVA / FINALIZADA"
         ],
         "methods": [],
         "fill": "#ffffff",
@@ -3388,16 +3391,16 @@
       "ESTADIA_HUESPED": {
         "id": "ESTADIA_HUESPED",
         "label": "ESTADIA_HUESPED",
-        "x": 2380,
-        "y": 1320,
-        "w": 570,
-        "h": 224,
+        "x": 650,
+        "y": 2210,
+        "w": 980,
+        "h": 268,
         "shape": "table",
         "attrs": [
           "PK/FK id_estadia : INTEGER",
           "PK/FK id_huesped : INTEGER",
-          "tarifa_clp : INTEGER NULL >= 0",
-          "costo_clp : INTEGER NULL >= 0"
+          "tarifa_clp : INTEGER NULL CHECK >= 0",
+          "costo_clp : INTEGER NULL CHECK >= 0"
         ],
         "methods": [],
         "fill": "#ffffff",
@@ -3410,12 +3413,12 @@
         "b": "USUARIO",
         "points": [
           [
-            630,
-            188.0
+            700,
+            202.0
           ],
           [
-            760,
-            219.0
+            850,
+            245.0
           ]
         ],
         "label": "",
@@ -3439,20 +3442,20 @@
         "b": "RESERVA",
         "points": [
           [
-            434.8,
-            824
+            458.0,
+            888
           ],
           [
-            435,
-            1110
+            458,
+            1135
           ],
           [
-            648,
-            1110
+            374,
+            1135
           ],
           [
-            647.6,
-            1240
+            374.0,
+            1260
           ]
         ],
         "label": "",
@@ -3460,11 +3463,11 @@
         "sm": "one",
         "tm": "zeromany",
         "source": [
-          0.48,
+          0.42,
           1
         ],
         "target": [
-          0.18,
+          0.3,
           0
         ],
         "labelpos": null,
@@ -3476,20 +3479,24 @@
         "b": "RESERVA",
         "points": [
           [
-            1242.8,
-            824
+            1425.0,
+            888
           ],
           [
-            1243,
-            1110
+            1425,
+            1140
           ],
           [
-            1140,
-            1110
+            1110,
+            1140
           ],
           [
-            1139.6,
-            1240
+            1110,
+            1375
+          ],
+          [
+            1060,
+            1365.16
           ]
         ],
         "label": "",
@@ -3497,12 +3504,12 @@
         "sm": "one",
         "tm": "zeromany",
         "source": [
-          0.28,
+          0.25,
           1
         ],
         "target": [
-          0.78,
-          0
+          1,
+          0.22
         ],
         "labelpos": null,
         "smpos": null,
@@ -3513,20 +3520,20 @@
         "b": "ESTADIA",
         "points": [
           [
-            1577.1999999999998,
-            824
+            1875.0,
+            888
           ],
           [
-            1577,
-            1080
+            1875,
+            1140
           ],
           [
-            1653,
-            1080
+            1848,
+            1140
           ],
           [
-            1653.0,
-            1200
+            1848.0,
+            1260
           ]
         ],
         "label": "",
@@ -3534,11 +3541,11 @@
         "sm": "one",
         "tm": "zeromany",
         "source": [
-          0.72,
+          0.75,
           1
         ],
         "target": [
-          0.18,
+          0.72,
           0
         ],
         "labelpos": null,
@@ -3550,12 +3557,12 @@
         "b": "ESTADIA",
         "points": [
           [
-            1320,
-            1442.12
+            1060,
+            1556.3600000000001
           ],
           [
-            1500,
-            1423.2
+            1200,
+            1556.3600000000001
           ]
         ],
         "label": "",
@@ -3579,12 +3586,24 @@
         "b": "ESTADIA_HUESPED",
         "points": [
           [
-            2350,
-            1473.6
+            1695.0,
+            1738
           ],
           [
-            2380,
-            1414.08
+            1695,
+            2110
+          ],
+          [
+            1680,
+            2110
+          ],
+          [
+            1680,
+            2315
+          ],
+          [
+            1630,
+            2295.76
           ]
         ],
         "label": "",
@@ -3592,12 +3611,12 @@
         "sm": "one",
         "tm": "onemany",
         "source": [
-          1,
-          0.76
+          0.55,
+          1
         ],
         "target": [
-          0,
-          0.42
+          1,
+          0.32
         ],
         "labelpos": null,
         "smpos": null,
@@ -3608,20 +3627,20 @@
         "b": "ESTADIA_HUESPED",
         "points": [
           [
-            176.4,
-            824
+            80,
+            754.0
           ],
           [
-            176,
-            1940
+            25,
+            754
           ],
           [
-            2665,
-            1940
+            25,
+            2344
           ],
           [
-            2665.0,
-            1544
+            650,
+            2344.0
           ]
         ],
         "label": "",
@@ -3629,12 +3648,12 @@
         "sm": "one",
         "tm": "zeromany",
         "source": [
-          0.14,
-          1
+          0,
+          0.5
         ],
         "target": [
-          0.5,
-          1
+          0,
+          0.5
         ],
         "labelpos": null,
         "smpos": null,
@@ -3644,15 +3663,33 @@
   },
   {
     "key": "diagrama-de-clases",
-    "title": "Clases de dominio · Duerme Bien",
+    "title": "Diagrama de clases completo · Hotel Duerme Bien",
     "nodes": {
+      "ROL": {
+        "id": "ROL",
+        "label": "Rol",
+        "x": 80,
+        "y": 110,
+        "w": 620,
+        "h": 226,
+        "shape": "table",
+        "attrs": [
+          "- id: int",
+          "- nombre: String"
+        ],
+        "methods": [
+          "+ permite(operacion: String): bool"
+        ],
+        "fill": "#f1f3f4",
+        "stroke": "#30363b"
+      },
       "USUARIO": {
         "id": "USUARIO",
         "label": "«abstract» Usuario",
-        "x": 1080,
+        "x": 850,
         "y": 80,
-        "w": 820,
-        "h": 292,
+        "w": 1260,
+        "h": 352,
         "shape": "table",
         "attrs": [
           "- id: int",
@@ -3670,10 +3707,10 @@
       "ADMIN": {
         "id": "ADMIN",
         "label": "Administrador",
-        "x": 450,
-        "y": 520,
-        "w": 650,
-        "h": 190,
+        "x": 180,
+        "y": 600,
+        "w": 800,
+        "h": 226,
         "shape": "table",
         "attrs": [],
         "methods": [
@@ -3687,10 +3724,10 @@
       "ENCARGADO": {
         "id": "ENCARGADO",
         "label": "Encargado",
-        "x": 1900,
-        "y": 520,
-        "w": 650,
-        "h": 190,
+        "x": 1220,
+        "y": 600,
+        "w": 800,
+        "h": 226,
         "shape": "table",
         "attrs": [],
         "methods": [
@@ -3705,9 +3742,9 @@
         "id": "HUESPED",
         "label": "Huesped",
         "x": 80,
-        "y": 1050,
-        "w": 760,
-        "h": 292,
+        "y": 1080,
+        "w": 940,
+        "h": 352,
         "shape": "table",
         "attrs": [
           "- id: int",
@@ -3725,10 +3762,10 @@
       "HABITACION": {
         "id": "HABITACION",
         "label": "Habitacion",
-        "x": 940,
-        "y": 1050,
-        "w": 700,
-        "h": 292,
+        "x": 1180,
+        "y": 1080,
+        "w": 940,
+        "h": 352,
         "shape": "table",
         "attrs": [
           "- id: int",
@@ -3747,9 +3784,9 @@
         "id": "RESERVA",
         "label": "Reserva",
         "x": 80,
-        "y": 1600,
-        "w": 760,
-        "h": 360,
+        "y": 1710,
+        "w": 940,
+        "h": 436,
         "shape": "table",
         "attrs": [
           "- id: int",
@@ -3769,10 +3806,10 @@
       "ESTADIA": {
         "id": "ESTADIA",
         "label": "Estadia",
-        "x": 1040,
-        "y": 1570,
-        "w": 820,
-        "h": 394,
+        "x": 1180,
+        "y": 1690,
+        "w": 940,
+        "h": 478,
         "shape": "table",
         "attrs": [
           "- id: int",
@@ -3793,10 +3830,10 @@
       "ESTADIA_HUESPED": {
         "id": "ESTADIA_HUESPED",
         "label": "EstadiaHuesped",
-        "x": 2150,
-        "y": 1640,
-        "w": 780,
-        "h": 190,
+        "x": 650,
+        "y": 2360,
+        "w": 980,
+        "h": 226,
         "shape": "table",
         "attrs": [
           "- tarifaCLP: Dinero [0..1]",
@@ -3811,16 +3848,51 @@
     },
     "edges": [
       {
+        "a": "ROL",
+        "b": "USUARIO",
+        "points": [
+          [
+            700,
+            223.0
+          ],
+          [
+            850,
+            256.0
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "1",
+        "tm": "0..*",
+        "source": [
+          1,
+          0.5
+        ],
+        "target": [
+          0,
+          0.5
+        ],
+        "labelpos": null,
+        "smpos": [
+          715,
+          230
+        ],
+        "tmpos": [
+          815,
+          230
+        ]
+      },
+      {
         "a": "ADMIN",
         "b": "USUARIO",
         "points": [
           [
-            918.0,
-            520
+            756.0,
+            600
           ],
           [
-            1309.6,
-            372
+            1202.8,
+            432
           ]
         ],
         "label": "",
@@ -3844,12 +3916,12 @@
         "b": "USUARIO",
         "points": [
           [
-            2082.0,
-            520
+            1444.0,
+            600
           ],
           [
-            1670.4,
-            372
+            1757.1999999999998,
+            432
           ]
         ],
         "label": "",
@@ -3873,24 +3945,24 @@
         "b": "RESERVA",
         "points": [
           [
-            1115.0,
-            1342
+            1405.6,
+            1432
           ],
           [
-            1115,
-            1500
+            1406,
+            1580
           ],
           [
-            900,
-            1500
+            1080,
+            1580
           ],
           [
-            900,
-            1770
+            1080,
+            1870
           ],
           [
-            840,
-            1762.0
+            1020,
+            1858.24
           ]
         ],
         "label": "",
@@ -3898,21 +3970,21 @@
         "sm": "1",
         "tm": "0..*",
         "source": [
-          0.25,
+          0.24,
           1
         ],
         "target": [
           1,
-          0.45
+          0.34
         ],
         "labelpos": null,
         "smpos": [
-          1090,
-          1470
+          1380,
+          1545
         ],
         "tmpos": [
-          870,
-          1740
+          1055,
+          1840
         ]
       },
       {
@@ -3920,20 +3992,20 @@
         "b": "ESTADIA",
         "points": [
           [
-            1465.0,
-            1342
+            1894.4,
+            1432
           ],
           [
-            1465,
-            1490
+            1894,
+            1580
           ],
           [
-            1409,
-            1490
+            1894,
+            1690
           ],
           [
-            1409.0,
-            1570
+            1894.4,
+            1690
           ]
         ],
         "label": "",
@@ -3941,7 +4013,42 @@
         "sm": "1",
         "tm": "0..*",
         "source": [
-          0.75,
+          0.76,
+          1
+        ],
+        "target": [
+          0.76,
+          0
+        ],
+        "labelpos": null,
+        "smpos": [
+          1920,
+          1545
+        ],
+        "tmpos": [
+          1920,
+          1655
+        ]
+      },
+      {
+        "a": "HUESPED",
+        "b": "RESERVA",
+        "points": [
+          [
+            503.0,
+            1432
+          ],
+          [
+            503.0,
+            1710
+          ]
+        ],
+        "label": "",
+        "kind": "association",
+        "sm": "1",
+        "tm": "0..*",
+        "source": [
+          0.45,
           1
         ],
         "target": [
@@ -3950,47 +4057,12 @@
         ],
         "labelpos": null,
         "smpos": [
-          1490,
-          1465
+          475,
+          1650
         ],
         "tmpos": [
-          1435,
-          1535
-        ]
-      },
-      {
-        "a": "HUESPED",
-        "b": "RESERVA",
-        "points": [
-          [
-            460.0,
-            1342
-          ],
-          [
-            460.0,
-            1600
-          ]
-        ],
-        "label": "",
-        "kind": "association",
-        "sm": "1",
-        "tm": "0..*",
-        "source": [
-          0.5,
-          1
-        ],
-        "target": [
-          0.5,
-          0
-        ],
-        "labelpos": null,
-        "smpos": [
-          430,
-          1515
-        ],
-        "tmpos": [
-          500,
-          1555
+          525,
+          1680
         ]
       },
       {
@@ -3998,12 +4070,12 @@
         "b": "ESTADIA",
         "points": [
           [
-            840,
-            1808.8
+            1020,
+            1971.6
           ],
           [
-            1040,
-            1798.52
+            1180,
+            1976.8
           ]
         ],
         "label": "",
@@ -4012,20 +4084,20 @@
         "tm": "0..1",
         "source": [
           1,
-          0.58
+          0.6
         ],
         "target": [
           0,
-          0.58
+          0.6
         ],
         "labelpos": null,
         "smpos": [
-          880,
-          1880
+          1060,
+          1975
         ],
         "tmpos": [
-          1000,
-          1880
+          1140,
+          1975
         ]
       },
       {
@@ -4033,12 +4105,24 @@
         "b": "ESTADIA_HUESPED",
         "points": [
           [
-            1860,
-            1853.68
+            1697.0,
+            2168
           ],
           [
-            2150,
-            1738.8
+            1697,
+            2240
+          ],
+          [
+            1690,
+            2240
+          ],
+          [
+            1690,
+            2450
+          ],
+          [
+            1630,
+            2450.4
           ]
         ],
         "label": "",
@@ -4046,21 +4130,21 @@
         "sm": "1",
         "tm": "1..*",
         "source": [
-          1,
-          0.72
+          0.55,
+          1
         ],
         "target": [
-          0,
-          0.52
+          1,
+          0.4
         ],
         "labelpos": null,
         "smpos": [
-          1920,
-          1875
+          1725,
+          2210
         ],
         "tmpos": [
-          2100,
-          1855
+          1660,
+          2420
         ]
       },
       {
@@ -4069,23 +4153,19 @@
         "points": [
           [
             80,
-            1254.4
+            1256.0
           ],
           [
-            30,
-            1235
+            25,
+            1256
           ],
           [
-            30,
-            2120
+            25,
+            2473
           ],
           [
-            2540,
-            2120
-          ],
-          [
-            2540.0,
-            1830
+            650,
+            2473.0
           ]
         ],
         "label": "",
@@ -4094,20 +4174,20 @@
         "tm": "0..*",
         "source": [
           0,
-          0.7
+          0.5
         ],
         "target": [
-          0.5,
-          1
+          0,
+          0.5
         ],
         "labelpos": null,
         "smpos": [
-          38,
-          1280
+          55,
+          1300
         ],
         "tmpos": [
-          2505,
-          2085
+          690,
+          2440
         ]
       }
     ]

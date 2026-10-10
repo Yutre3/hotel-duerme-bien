@@ -77,12 +77,12 @@ class D:
    elif sh=='input':path([(x+25,y),(x+w,y),(x+w-25,y+h),(x,y+h)],fill,closed=True,stroke=stroke)
    else:path([(x,y),(x+w,y),(x+w,y+h),(x,y+h)],fill,closed=True,stroke=stroke)
    if sh=='table':
-    path([(x,y+50),(x+w,y+50)],stroke=stroke);text(n['label'],x+w/2,y+34,24,bold=True)
-    for i,t in enumerate(n['attrs']):text(t,x+18,y+80+i*34,21,'start')
-    sy=y+62+len(n['attrs'])*34
+    path([(x,y+58),(x+w,y+58)],stroke=stroke);text(n['label'],x+w/2,y+39,28,bold=True)
+    for i,t in enumerate(n['attrs']):text(t,x+22,y+94+i*42,27,'start')
+    sy=y+72+len(n['attrs'])*42
     if n['methods']:
      path([(x,sy),(x+w,sy)],stroke=stroke)
-     for i,t in enumerate(n['methods']):text(t,x+18,sy+31+i*34,21,'start')
+     for i,t in enumerate(n['methods']):text(t,x+22,sy+37+i*42,27,'start')
    elif sh=='frame':text(n['label'],x+20,y+30,20,'start',True)
    else:
     lines=n['label'].split('\n');size=22 if sh!='diamond' else 20
@@ -98,9 +98,9 @@ class D:
    if sh=='caption':style+='strokeColor=none;fillColor=none;'
    vertex(n['id'],title,style,n['x'],n['y'],n['w'],n['h'])
    if sh=='table':
-    vertex(n['id']+'-attrs','\n'.join(n['attrs']),f'text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=18;fontSize=21;',0,60,n['w'],len(n['attrs'])*34,n['id'])
+    vertex(n['id']+'-attrs','\n'.join(n['attrs']),f'text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=20;fontSize=27;',0,68,n['w'],len(n['attrs'])*42,n['id'])
     if n['methods']:
-     sy=62+len(n['attrs'])*34;vertex(n['id']+'-methods','\n'.join(n['methods']),f'text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=18;fontSize=21;',0,sy+13,n['w'],len(n['methods'])*34,n['id']);vertex(n['id']+'-line','',f'shape=line;strokeColor={EDGE};strokeWidth=3;',0,sy,n['w'],1,n['id'])
+     sy=72+len(n['attrs'])*42;vertex(n['id']+'-methods','\n'.join(n['methods']),f'text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=20;fontSize=27;',0,sy+13,n['w'],len(n['methods'])*42,n['id']);vertex(n['id']+'-line','',f'shape=line;strokeColor={EDGE};strokeWidth=3;',0,sy,n['w'],1,n['id'])
   for i,e in enumerate(self.edges):
    sa='none';ea='none';kind=e['kind']
    if kind in ['arrow','include']:ea='open'
@@ -185,39 +185,40 @@ tables={
  'ESTADIA':('Estadia',['id: int','entrada: Date','salidaPrevista: Date','salidaReal: Date [0..1]','estado: EstadoEstadia','nochesCobradas: int [0..1]'],['registrarCheckIn(): void','calcularCuenta(): Dinero','registrarCheckOut(): void']),
  'ESTADIA_HUESPED':('EstadiaHuesped',['tarifaCLP: Dinero [0..1]','costoCLP: Dinero [0..1]'],['calcularCosto(regla): Dinero'])}
 dbattrs={
- 'ROL':['PK id_rol : INTEGER','UQ nombre : VARCHAR(30)'],
- 'USUARIO':['PK id_usuario : INTEGER','FK id_rol : INTEGER NOT NULL','UQ nombre_usuario : VARCHAR(50)','hash_clave : VARCHAR(255)','activo : BOOLEAN'],
- 'HABITACION':['PK id_habitacion : INTEGER','UQ numero : VARCHAR(20)','capacidad : INTEGER CHECK > 0','orientacion : VARCHAR(30)'],
- 'HUESPED':['PK id_huesped : INTEGER','UQ identificacion : VARCHAR(50)','nombres : VARCHAR(100)','apellidos : VARCHAR(100)'],
- 'RESERVA':['PK id_reserva : INTEGER','FK id_huesped_titular : INTEGER','FK id_habitacion : INTEGER','fecha_entrada : DATE','fecha_salida : DATE','cantidad_pasajeros : INTEGER > 0','estado : VARCHAR(20)'],
- 'ESTADIA':['PK id_estadia : INTEGER','FK id_habitacion : INTEGER','FK/UQ id_reserva : INTEGER NULL','fecha_entrada : DATE','fecha_salida_prevista : DATE','fecha_salida_real : DATE NULL','estado : VARCHAR(20)','noches_cobradas : INTEGER NULL > 0'],
- 'ESTADIA_HUESPED':['PK/FK id_estadia : INTEGER','PK/FK id_huesped : INTEGER','tarifa_clp : INTEGER NULL >= 0','costo_clp : INTEGER NULL >= 0']}
+ 'ROL':['PK id_rol : INTEGER','UQ nombre : VARCHAR(30) NOT NULL'],
+ 'USUARIO':['PK id_usuario : INTEGER','FK id_rol : INTEGER NOT NULL','UQ nombre_usuario : VARCHAR(50) NOT NULL','hash_clave : VARCHAR(255) NOT NULL','activo : BOOLEAN NOT NULL'],
+ 'HABITACION':['PK id_habitacion : INTEGER','UQ numero : VARCHAR(20) NOT NULL','capacidad : INTEGER NOT NULL CHECK (capacidad > 0)','orientacion : VARCHAR(30) NOT NULL'],
+ 'HUESPED':['PK id_huesped : INTEGER','UQ identificacion : VARCHAR(50) NOT NULL','nombres : VARCHAR(100) NOT NULL','apellidos : VARCHAR(100) NOT NULL'],
+ 'RESERVA':['PK id_reserva : INTEGER','FK id_huesped_titular : INTEGER NOT NULL','FK id_habitacion : INTEGER NOT NULL','fecha_entrada : DATE NOT NULL','fecha_salida : DATE NOT NULL','cantidad_pasajeros : INTEGER NOT NULL CHECK > 0','estado : VARCHAR(20) NOT NULL','CHECK (fecha_salida > fecha_entrada)','CHECK estado: REGISTRADA / CHECK_IN / CANCELADA / FINALIZADA'],
+ 'ESTADIA':['PK id_estadia : INTEGER','FK id_habitacion : INTEGER NOT NULL','FK/UQ id_reserva : INTEGER NULL','fecha_entrada : DATE NOT NULL','fecha_salida_prevista : DATE NOT NULL','fecha_salida_real : DATE NULL','estado : VARCHAR(20) NOT NULL','noches_cobradas : INTEGER NULL CHECK > 0','CHECK estado: ACTIVA / FINALIZADA'],
+ 'ESTADIA_HUESPED':['PK/FK id_estadia : INTEGER','PK/FK id_huesped : INTEGER','tarifa_clp : INTEGER NULL CHECK >= 0','costo_clp : INTEGER NULL CHECK >= 0']}
 # Modelo lógico en formato horizontal. Las relaciones usan pasillos libres y
 # las cardinalidades se ubican junto a sus extremos, nunca sobre los campos.
-d=D('modelo-de-datos','Modelo lógico de datos · 3FN',3000,2100)
+d=D('modelo-de-datos','Modelo lógico de datos completo · Hotel Duerme Bien · 3FN',2200,3000)
 db_layout={
- 'ROL':(70,110,560),'USUARIO':(760,90,700),
- 'HUESPED':(70,600,760),'HABITACION':(1030,600,760),
- 'RESERVA':(500,1240,820),'ESTADIA':(1500,1200,850),
- 'ESTADIA_HUESPED':(2380,1320,570)}
+ 'ROL':(80,110,620),'USUARIO':(850,90,1260),
+ 'HUESPED':(80,620,900),'HABITACION':(1200,620,900),
+ 'RESERVA':(80,1260,980),'ESTADIA':(1200,1260,900),
+ 'ESTADIA_HUESPED':(650,2210,980)}
 for id,(x,y,w) in db_layout.items():
- attrs=dbattrs[id];d.node(id,id,x,y,w,88+len(attrs)*34,'table',attrs,[])
+ attrs=dbattrs[id];d.node(id,id,x,y,w,100+len(attrs)*42,'table',attrs,[])
 def dbrel(a,b,source,target,points,sm,tm):
  d.edge(a,b,points=points,source=source,target=target,kind='er',sm=sm,tm=tm)
 dbrel('ROL','USUARIO',(1,.5),(0,.5),[], 'one','zeromany')
-dbrel('HUESPED','RESERVA',(.48,1),(.18,0),[(435,1110),(648,1110)],'one','zeromany')
-dbrel('HABITACION','RESERVA',(.28,1),(.78,0),[(1243,1110),(1140,1110)],'one','zeromany')
-dbrel('HABITACION','ESTADIA',(.72,1),(.18,0),[(1577,1080),(1653,1080)],'one','zeromany')
+dbrel('HUESPED','RESERVA',(.42,1),(.30,0),[(458,1135),(374,1135)],'one','zeromany')
+dbrel('HABITACION','RESERVA',(.25,1),(1,.22),[(1425,1140),(1110,1140),(1110,1375)],'one','zeromany')
+dbrel('HABITACION','ESTADIA',(.75,1),(.72,0),[(1875,1140),(1848,1140)],'one','zeromany')
 dbrel('RESERVA','ESTADIA',(1,.62),(0,.62),[],'zeroone','zeroone')
-dbrel('ESTADIA','ESTADIA_HUESPED',(1,.76),(0,.42),[],'one','onemany')
-dbrel('HUESPED','ESTADIA_HUESPED',(.14,1),(.5,1),[(176,1940),(2665,1940)],'one','zeromany')
-d.note('PK = clave primaria   ·   FK = clave foránea   ·   UQ = valor único',1500,2035,22)
+dbrel('ESTADIA','ESTADIA_HUESPED',(.55,1),(1,.32),[(1695,2110),(1680,2110),(1680,2315)],'one','onemany')
+dbrel('HUESPED','ESTADIA_HUESPED',(0,.50),(0,.50),[(25,754),(25,2344)],'one','zeromany')
+d.note('PK = clave primaria   ·   FK = clave foránea   ·   UQ = valor único   ·   NULL = dato opcional',1100,2935,25)
 db_model=d
 
 # Clases de dominio. Incluye asociación, agregación, composición y herencia
 # sin repetir líneas ni hacer que las multiplicidades crucen las cajas.
-d=D('diagrama-de-clases','Clases de dominio · Duerme Bien',3000,2200)
+d=D('diagrama-de-clases','Diagrama de clases completo · Hotel Duerme Bien',2200,2920)
 class_defs={
+ 'ROL':('Rol',['- id: int','- nombre: String'],['+ permite(operacion: String): bool']),
  'USUARIO':('«abstract» Usuario',['- id: int','- nombreUsuario: String','- hashClave: String','- activo: bool'],['+ iniciarSesion(clave: String): Sesion','+ tienePermiso(operacion: String): bool']),
  'ADMIN':('Administrador',[],['+ gestionarHabitaciones(): void','+ gestionarUsuarios(): void','+ generarInformes(): void']),
  'ENCARGADO':('Encargado',[],['+ registrarReserva(): void','+ registrarCheckIn(): void','+ registrarCheckOut(): void']),
@@ -227,22 +228,25 @@ class_defs={
  'ESTADIA':('Estadia',['- id: int','- entrada: Date','- salidaPrevista: Date','- salidaReal: Date [0..1]','- estado: EstadoEstadia','- nochesCobradas: int [0..1]'],['+ registrarCheckIn(): void','+ calcularCuenta(): Dinero','+ registrarCheckOut(): void']),
  'ESTADIA_HUESPED':('EstadiaHuesped',['- tarifaCLP: Dinero [0..1]','- costoCLP: Dinero [0..1]'],['+ calcularCosto(regla): Dinero'])}
 class_layout={
- 'USUARIO':(1080,80,820),'ADMIN':(450,520,650),'ENCARGADO':(1900,520,650),
- 'HUESPED':(80,1050,760),'HABITACION':(940,1050,700),
- 'RESERVA':(80,1600,760),'ESTADIA':(1040,1570,820),'ESTADIA_HUESPED':(2150,1640,780)}
-class_colors={'USUARIO':'#d9efff','ADMIN':'#e8ddff','ENCARGADO':'#e8ddff','HABITACION':'#dff5e3','HUESPED':'#fff1c9','RESERVA':'#ffe0cf','ESTADIA':'#d9efff','ESTADIA_HUESPED':'#eadfff'}
+ 'ROL':(80,110,620),'USUARIO':(850,80,1260),
+ 'ADMIN':(180,600,800),'ENCARGADO':(1220,600,800),
+ 'HUESPED':(80,1080,940),'HABITACION':(1180,1080,940),
+ 'RESERVA':(80,1710,940),'ESTADIA':(1180,1690,940),
+ 'ESTADIA_HUESPED':(650,2360,980)}
+class_colors={'ROL':'#f1f3f4','USUARIO':'#d9efff','ADMIN':'#e8ddff','ENCARGADO':'#e8ddff','HABITACION':'#dff5e3','HUESPED':'#fff1c9','RESERVA':'#ffe0cf','ESTADIA':'#d9efff','ESTADIA_HUESPED':'#eadfff'}
 for id,(x,y,w) in class_layout.items():
- title,attrs,methods=class_defs[id];d.node(id,title,x,y,w,88+(len(attrs)+len(methods))*34,'table',attrs,methods,fill=class_colors[id])
+ title,attrs,methods=class_defs[id];d.node(id,title,x,y,w,100+(len(attrs)+len(methods))*42,'table',attrs,methods,fill=class_colors[id])
 def classrel(a,b,source,target,points=None,sm='',tm='',kind='association',smpos=None,tmpos=None):
  d.edge(a,b,points=points,source=source,target=target,kind=kind,sm=sm,tm=tm,smpos=smpos,tmpos=tmpos)
+classrel('ROL','USUARIO',(1,.5),(0,.5),sm='1',tm='0..*',kind='association',smpos=(715,230),tmpos=(815,230))
 classrel('ADMIN','USUARIO',(.72,0),(.28,1),kind='general')
 classrel('ENCARGADO','USUARIO',(.28,0),(.72,1),kind='general')
-classrel('HABITACION','RESERVA',(.25,1),(1,.45),[(1115,1500),(900,1500),(900,1770)],'1','0..*','aggregation',(1090,1470),(870,1740))
-classrel('HABITACION','ESTADIA',(.75,1),(.45,0),[(1465,1490),(1409,1490)],'1','0..*','association',(1490,1465),(1435,1535))
-classrel('HUESPED','RESERVA',(.5,1),(.5,0),[],'1','0..*','association',(430,1515),(500,1555))
-classrel('RESERVA','ESTADIA',(1,.58),(0,.58),[],'0..1','0..1','association',(880,1880),(1000,1880))
-classrel('ESTADIA','ESTADIA_HUESPED',(1,.72),(0,.52),[],'1','1..*','composition',(1920,1875),(2100,1855))
-classrel('HUESPED','ESTADIA_HUESPED',(0,.70),(.5,1),[(30,1235),(30,2120),(2540,2120)],'1','0..*','association',(38,1280),(2505,2085))
+classrel('HABITACION','RESERVA',(.24,1),(1,.34),[(1406,1580),(1080,1580),(1080,1870)],'1','0..*','aggregation',(1380,1545),(1055,1840))
+classrel('HABITACION','ESTADIA',(.76,1),(.76,0),[(1894,1580),(1894,1690)],'1','0..*','association',(1920,1545),(1920,1655))
+classrel('HUESPED','RESERVA',(.45,1),(.45,0),[],'1','0..*','association',(475,1650),(525,1680))
+classrel('RESERVA','ESTADIA',(1,.60),(0,.60),[],'0..1','0..1','association',(1060,1975),(1140,1975))
+classrel('ESTADIA','ESTADIA_HUESPED',(.55,1),(1,.40),[(1697,2240),(1690,2240),(1690,2450)],'1','1..*','composition',(1725,2210),(1660,2420))
+classrel('HUESPED','ESTADIA_HUESPED',(0,.50),(0,.50),[(25,1256),(25,2473)],'1','0..*','association',(55,1300),(690,2440))
 for d in ALL:d.save()
 (ROOT/'modelo/diagramas.json').write_text(json.dumps([dict(key=d.key,title=d.title,nodes=d.nodes,edges=d.edges) for d in ALL],ensure_ascii=False,indent=2))
 (ROOT/'modelo/base-de-datos.json').write_text(json.dumps({'entidades':dbattrs,'relaciones':db_model.edges},ensure_ascii=False,indent=2))

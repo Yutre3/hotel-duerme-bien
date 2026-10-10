@@ -18,7 +18,14 @@ def png_from_pdf(pdf, output, dpi=150):
     image = Image.frombytes('RGB', (pix.width, pix.height), pix.samples)
     # Mantener RGB evita archivos de paleta truncados en imágenes UML grandes
     # y asegura que GitHub y los navegadores móviles puedan mostrarlos.
-    image.save(OUT / output, format='PNG', optimize=True, compress_level=9)
+    destination = OUT / output
+    temporary = destination.with_suffix(destination.suffix + '.tmp')
+    image.save(temporary, format='PNG', optimize=True, compress_level=9)
+    with Image.open(temporary) as check:
+        check.verify()
+    if not temporary.read_bytes().endswith(b'\x00\x00\x00\x00IEND\xaeB`\x82'):
+        raise RuntimeError(f'PNG truncado: {temporary}')
+    temporary.replace(destination)
 
 
 # 1. Un único UML completo. Cada actor usa una zona propia y ninguna

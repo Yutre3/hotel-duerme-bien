@@ -31,4 +31,27 @@ for key,name in model['pantallas']:
   for ext in ['svg','pdf']:assert (r/'mockups'/f'{mode}-{key}.{ext}').stat().st_size>0
   ET.parse(r/'diagramas-editables'/f'{mode}-{key}.drawio')
 assert len(ET.parse(r/'diagramas-editables/interfaces.drawio').findall('diagram'))==19
+
+# Las imágenes publicadas en el README deben ser PNG completos. Un archivo
+# truncado puede conservar su cabecera y dimensiones, pero GitHub sólo muestra
+# la parte anterior al corte.
+png_end=b'\x00\x00\x00\x00IEND\xaeB`\x82'
+for filename in ['casos-de-uso.png','procesos.png','clases.png','base-de-datos.png','wireframe.png','mockup.png']:
+ data=(r/'resumenes'/filename).read_bytes()
+ assert data.startswith(b'\x89PNG\r\n\x1a\n'),filename+' no tiene cabecera PNG'
+ assert data.endswith(png_end),filename+' está truncado'
+
+# El modelo de clases debe representar el rol que controla los permisos y que
+# también aparece como entidad en el modelo relacional.
+class_scene=next(d for d in scenes if d['key']=='diagrama-de-clases')
+assert 'ROL' in class_scene['nodes'],'Falta la clase Rol'
+assert any({e['a'],e['b']}=={'ROL','USUARIO'} for e in class_scene['edges']),'Falta relación Rol-Usuario'
+
+# Las siete entidades requeridas y sus restricciones esenciales deben quedar
+# visibles en la fuente que genera el diagrama de base de datos.
+db=json.loads((r/'modelo/base-de-datos.json').read_text())['entidades']
+assert set(db)=={'ROL','USUARIO','HABITACION','HUESPED','RESERVA','ESTADIA','ESTADIA_HUESPED'}
+assert any('fecha_salida > fecha_entrada' in x for x in db['RESERVA'])
+assert any('REGISTRADA' in x and 'CANCELADA' in x for x in db['RESERVA'])
+assert any('ACTIVA' in x and 'FINALIZADA' in x for x in db['ESTADIA'])
 print('Modelado aprobado: CU/RF coherentes, 12 casos representados, decisiones completas, conectores unidos, sin cruces con cajas y 9 interfaces en ambos niveles.')
