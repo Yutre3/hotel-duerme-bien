@@ -423,7 +423,7 @@ Los flujos muestran inicio/fin, entradas/salidas, acciones, decisiones con salid
 ## 8. Clases y modelo de datos
 
 ### 8.1 Clases de dominio
-Usuario es una clase abstracta y Administrador/Encargado heredan sus datos de acceso. Habitacion agrega reservas históricas con rombo vacío. Estadia compone sus participaciones EstadiaHuesped con rombo sólido. Huesped existe independientemente de una participación. Las demás relaciones son asociaciones. Cada clase muestra atributos privados, métodos públicos y tipos; las multiplicidades aparecen junto a cada extremo y fuera de las líneas.
+Usuario es una clase abstracta y Administrador/Encargado heredan sus datos de acceso. Administrador genera informes de ocupación y reservas. Un Huesped puede ser titular de reservas y tener participaciones históricas; cada Reserva se asigna a una Habitacion y puede originar una Estadia. Habitacion aloja estadías y Estadia compone una o más ParticipacionEstadia con rombo sólido. Las demás relaciones son asociaciones. Cada relación incluye un verbo y multiplicidades junto a sus extremos; las clases muestran atributos privados, métodos públicos y tipos.
 
 ### 8.2 Diccionario y claves
 | Entidad | Clave primaria | Referencias y unicidad | Uso |

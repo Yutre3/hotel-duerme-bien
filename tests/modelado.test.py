@@ -41,11 +41,18 @@ for filename in ['casos-de-uso.png','procesos.png','clases.png','base-de-datos.p
  assert data.startswith(b'\x89PNG\r\n\x1a\n'),filename+' no tiene cabecera PNG'
  assert data.endswith(png_end),filename+' está truncado'
 
-# El modelo de clases debe representar el rol que controla los permisos y que
-# también aparece como entidad en el modelo relacional.
+# El modelo conceptual usa herencia para los dos perfiles. ROL pertenece al
+# modelo relacional y no se duplica como clase junto a Administrador/Encargado.
 class_scene=next(d for d in scenes if d['key']=='diagrama-de-clases')
-assert 'ROL' in class_scene['nodes'],'Falta la clase Rol'
-assert any({e['a'],e['b']}=={'ROL','USUARIO'} for e in class_scene['edges']),'Falta relación Rol-Usuario'
+expected_classes={'USUARIO','ADMIN','ENCARGADO','INFORME','HUESPED','RESERVA','HABITACION','ESTADIA','ESTADIA_HUESPED'}
+assert set(class_scene['nodes'])==expected_classes,(set(class_scene['nodes']),expected_classes)
+assert 'ROL' not in class_scene['nodes'],'Rol duplica la herencia de Administrador y Encargado'
+assert any({e['a'],e['b']}=={'ADMIN','INFORME'} for e in class_scene['edges']),'Falta relación Administrador-Informe'
+for edge in class_scene['edges']:
+ if edge['kind']!='general':
+  assert edge['label'].strip(),(edge['a'],edge['b'],'relación sin verbo')
+all_class_text=' '.join(n['label']+' '+' '.join(n['attrs'])+' '+' '.join(n['methods']) for n in class_scene['nodes'].values())
+assert ': Sesion' not in all_class_text,'Tipo Sesion usado sin clase definida'
 # Ningún conector del diagrama de clases debe escapar por el borde de la
 # página ni usar recorridos tan largos que separen visualmente la relación.
 for edge in class_scene['edges']:
