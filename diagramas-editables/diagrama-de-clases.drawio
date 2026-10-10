@@ -1,117 +1,117 @@
 <?xml version='1.0' encoding='utf-8'?>
 <mxfile host="app.diagrams.net">
   <diagram id="diagrama-de-clases" name="Diagrama de clases completo · Hotel Duerme Bien">
-    <mxGraphModel grid="1" gridSize="10" page="1" pageWidth="2200" pageHeight="2920">
+    <mxGraphModel grid="1" gridSize="10" page="1" pageWidth="2400" pageHeight="2500">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="ROL" value="Rol" style="shape=swimlane;startSize=44;horizontal=1;collapsible=0;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#f1f3f4;fontColor=#253747;fontSize=21;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="80" y="110" width="620" height="226" />
+          <mxGeometry as="geometry" x="70" y="110" width="560" height="226" />
         </mxCell>
         <mxCell id="ROL-attrs" value="- id: int&#10;- nombre: String" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=20;fontSize=27;" vertex="1" parent="ROL">
-          <mxGeometry as="geometry" x="0" y="68" width="620" height="84" />
+          <mxGeometry as="geometry" x="0" y="68" width="560" height="84" />
         </mxCell>
         <mxCell id="ROL-methods" value="+ permite(operacion: String): bool" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=20;fontSize=27;" vertex="1" parent="ROL">
-          <mxGeometry as="geometry" x="0" y="169" width="620" height="42" />
+          <mxGeometry as="geometry" x="0" y="169" width="560" height="42" />
         </mxCell>
         <mxCell id="ROL-line" value="" style="shape=line;strokeColor=#30363b;strokeWidth=3;" vertex="1" parent="ROL">
-          <mxGeometry as="geometry" x="0" y="156" width="620" height="1" />
+          <mxGeometry as="geometry" x="0" y="156" width="560" height="1" />
         </mxCell>
         <mxCell id="USUARIO" value="«abstract» Usuario" style="shape=swimlane;startSize=44;horizontal=1;collapsible=0;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#d9efff;fontColor=#253747;fontSize=21;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="850" y="80" width="1260" height="352" />
+          <mxGeometry as="geometry" x="720" y="80" width="1600" height="352" />
         </mxCell>
         <mxCell id="USUARIO-attrs" value="- id: int&#10;- nombreUsuario: String&#10;- hashClave: String&#10;- activo: bool" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=20;fontSize=27;" vertex="1" parent="USUARIO">
-          <mxGeometry as="geometry" x="0" y="68" width="1260" height="168" />
+          <mxGeometry as="geometry" x="0" y="68" width="1600" height="168" />
         </mxCell>
         <mxCell id="USUARIO-methods" value="+ iniciarSesion(clave: String): Sesion&#10;+ tienePermiso(operacion: String): bool" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=20;fontSize=27;" vertex="1" parent="USUARIO">
-          <mxGeometry as="geometry" x="0" y="253" width="1260" height="84" />
+          <mxGeometry as="geometry" x="0" y="253" width="1600" height="84" />
         </mxCell>
         <mxCell id="USUARIO-line" value="" style="shape=line;strokeColor=#30363b;strokeWidth=3;" vertex="1" parent="USUARIO">
-          <mxGeometry as="geometry" x="0" y="240" width="1260" height="1" />
+          <mxGeometry as="geometry" x="0" y="240" width="1600" height="1" />
         </mxCell>
         <mxCell id="ADMIN" value="Administrador" style="shape=swimlane;startSize=44;horizontal=1;collapsible=0;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#e8ddff;fontColor=#253747;fontSize=21;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="180" y="600" width="800" height="226" />
+          <mxGeometry as="geometry" x="200" y="520" width="850" height="226" />
         </mxCell>
         <mxCell id="ADMIN-attrs" value="" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=20;fontSize=27;" vertex="1" parent="ADMIN">
-          <mxGeometry as="geometry" x="0" y="68" width="800" height="0" />
+          <mxGeometry as="geometry" x="0" y="68" width="850" height="0" />
         </mxCell>
         <mxCell id="ADMIN-methods" value="+ gestionarHabitaciones(): void&#10;+ gestionarUsuarios(): void&#10;+ generarInformes(): void" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=20;fontSize=27;" vertex="1" parent="ADMIN">
-          <mxGeometry as="geometry" x="0" y="85" width="800" height="126" />
+          <mxGeometry as="geometry" x="0" y="85" width="850" height="126" />
         </mxCell>
         <mxCell id="ADMIN-line" value="" style="shape=line;strokeColor=#30363b;strokeWidth=3;" vertex="1" parent="ADMIN">
-          <mxGeometry as="geometry" x="0" y="72" width="800" height="1" />
+          <mxGeometry as="geometry" x="0" y="72" width="850" height="1" />
         </mxCell>
         <mxCell id="ENCARGADO" value="Encargado" style="shape=swimlane;startSize=44;horizontal=1;collapsible=0;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#e8ddff;fontColor=#253747;fontSize=21;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1220" y="600" width="800" height="226" />
+          <mxGeometry as="geometry" x="1350" y="520" width="850" height="226" />
         </mxCell>
         <mxCell id="ENCARGADO-attrs" value="" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=20;fontSize=27;" vertex="1" parent="ENCARGADO">
-          <mxGeometry as="geometry" x="0" y="68" width="800" height="0" />
+          <mxGeometry as="geometry" x="0" y="68" width="850" height="0" />
         </mxCell>
         <mxCell id="ENCARGADO-methods" value="+ registrarReserva(): void&#10;+ registrarCheckIn(): void&#10;+ registrarCheckOut(): void" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=20;fontSize=27;" vertex="1" parent="ENCARGADO">
-          <mxGeometry as="geometry" x="0" y="85" width="800" height="126" />
+          <mxGeometry as="geometry" x="0" y="85" width="850" height="126" />
         </mxCell>
         <mxCell id="ENCARGADO-line" value="" style="shape=line;strokeColor=#30363b;strokeWidth=3;" vertex="1" parent="ENCARGADO">
-          <mxGeometry as="geometry" x="0" y="72" width="800" height="1" />
+          <mxGeometry as="geometry" x="0" y="72" width="850" height="1" />
         </mxCell>
         <mxCell id="HUESPED" value="Huesped" style="shape=swimlane;startSize=44;horizontal=1;collapsible=0;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#fff1c9;fontColor=#253747;fontSize=21;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="80" y="1080" width="940" height="352" />
+          <mxGeometry as="geometry" x="60" y="950" width="680" height="352" />
         </mxCell>
         <mxCell id="HUESPED-attrs" value="- id: int&#10;- identificacion: String&#10;- nombres: String&#10;- apellidos: String" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=20;fontSize=27;" vertex="1" parent="HUESPED">
-          <mxGeometry as="geometry" x="0" y="68" width="940" height="168" />
+          <mxGeometry as="geometry" x="0" y="68" width="680" height="168" />
         </mxCell>
         <mxCell id="HUESPED-methods" value="+ registrar(): void&#10;+ consultarHistorial(): List&lt;Estadia&gt;" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=20;fontSize=27;" vertex="1" parent="HUESPED">
-          <mxGeometry as="geometry" x="0" y="253" width="940" height="84" />
+          <mxGeometry as="geometry" x="0" y="253" width="680" height="84" />
         </mxCell>
         <mxCell id="HUESPED-line" value="" style="shape=line;strokeColor=#30363b;strokeWidth=3;" vertex="1" parent="HUESPED">
-          <mxGeometry as="geometry" x="0" y="240" width="940" height="1" />
-        </mxCell>
-        <mxCell id="HABITACION" value="Habitacion" style="shape=swimlane;startSize=44;horizontal=1;collapsible=0;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#dff5e3;fontColor=#253747;fontSize=21;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1180" y="1080" width="940" height="352" />
-        </mxCell>
-        <mxCell id="HABITACION-attrs" value="- id: int&#10;- numero: String&#10;- capacidad: int&#10;- orientacion: String" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=20;fontSize=27;" vertex="1" parent="HABITACION">
-          <mxGeometry as="geometry" x="0" y="68" width="940" height="168" />
-        </mxCell>
-        <mxCell id="HABITACION-methods" value="+ disponible(entrada, salida): bool&#10;+ actualizarDatos(): void" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=20;fontSize=27;" vertex="1" parent="HABITACION">
-          <mxGeometry as="geometry" x="0" y="253" width="940" height="84" />
-        </mxCell>
-        <mxCell id="HABITACION-line" value="" style="shape=line;strokeColor=#30363b;strokeWidth=3;" vertex="1" parent="HABITACION">
-          <mxGeometry as="geometry" x="0" y="240" width="940" height="1" />
+          <mxGeometry as="geometry" x="0" y="240" width="680" height="1" />
         </mxCell>
         <mxCell id="RESERVA" value="Reserva" style="shape=swimlane;startSize=44;horizontal=1;collapsible=0;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#ffe0cf;fontColor=#253747;fontSize=21;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="80" y="1710" width="940" height="436" />
+          <mxGeometry as="geometry" x="860" y="950" width="720" height="436" />
         </mxCell>
         <mxCell id="RESERVA-attrs" value="- id: int&#10;- entrada: Date&#10;- salida: Date&#10;- cantidadPasajeros: int&#10;- estado: EstadoReserva" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=20;fontSize=27;" vertex="1" parent="RESERVA">
-          <mxGeometry as="geometry" x="0" y="68" width="940" height="210" />
+          <mxGeometry as="geometry" x="0" y="68" width="720" height="210" />
         </mxCell>
         <mxCell id="RESERVA-methods" value="+ registrar(): void&#10;+ modificar(): void&#10;+ cancelar(): void" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=20;fontSize=27;" vertex="1" parent="RESERVA">
-          <mxGeometry as="geometry" x="0" y="295" width="940" height="126" />
+          <mxGeometry as="geometry" x="0" y="295" width="720" height="126" />
         </mxCell>
         <mxCell id="RESERVA-line" value="" style="shape=line;strokeColor=#30363b;strokeWidth=3;" vertex="1" parent="RESERVA">
-          <mxGeometry as="geometry" x="0" y="282" width="940" height="1" />
+          <mxGeometry as="geometry" x="0" y="282" width="720" height="1" />
         </mxCell>
-        <mxCell id="ESTADIA" value="Estadia" style="shape=swimlane;startSize=44;horizontal=1;collapsible=0;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#d9efff;fontColor=#253747;fontSize=21;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1180" y="1690" width="940" height="478" />
+        <mxCell id="HABITACION" value="Habitacion" style="shape=swimlane;startSize=44;horizontal=1;collapsible=0;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#dff5e3;fontColor=#253747;fontSize=21;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1720" y="950" width="620" height="352" />
         </mxCell>
-        <mxCell id="ESTADIA-attrs" value="- id: int&#10;- entrada: Date&#10;- salidaPrevista: Date&#10;- salidaReal: Date [0..1]&#10;- estado: EstadoEstadia&#10;- nochesCobradas: int [0..1]" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=20;fontSize=27;" vertex="1" parent="ESTADIA">
-          <mxGeometry as="geometry" x="0" y="68" width="940" height="252" />
+        <mxCell id="HABITACION-attrs" value="- id: int&#10;- numero: String&#10;- capacidad: int&#10;- orientacion: String" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=20;fontSize=27;" vertex="1" parent="HABITACION">
+          <mxGeometry as="geometry" x="0" y="68" width="620" height="168" />
         </mxCell>
-        <mxCell id="ESTADIA-methods" value="+ registrarCheckIn(): void&#10;+ calcularCuenta(): Dinero&#10;+ registrarCheckOut(): void" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=20;fontSize=27;" vertex="1" parent="ESTADIA">
-          <mxGeometry as="geometry" x="0" y="337" width="940" height="126" />
+        <mxCell id="HABITACION-methods" value="+ disponible(entrada, salida): bool&#10;+ actualizarDatos(): void" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=20;fontSize=27;" vertex="1" parent="HABITACION">
+          <mxGeometry as="geometry" x="0" y="253" width="620" height="84" />
         </mxCell>
-        <mxCell id="ESTADIA-line" value="" style="shape=line;strokeColor=#30363b;strokeWidth=3;" vertex="1" parent="ESTADIA">
-          <mxGeometry as="geometry" x="0" y="324" width="940" height="1" />
+        <mxCell id="HABITACION-line" value="" style="shape=line;strokeColor=#30363b;strokeWidth=3;" vertex="1" parent="HABITACION">
+          <mxGeometry as="geometry" x="0" y="240" width="620" height="1" />
         </mxCell>
         <mxCell id="ESTADIA_HUESPED" value="EstadiaHuesped" style="shape=swimlane;startSize=44;horizontal=1;collapsible=0;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#eadfff;fontColor=#253747;fontSize=21;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="650" y="2360" width="980" height="226" />
+          <mxGeometry as="geometry" x="60" y="1900" width="740" height="226" />
         </mxCell>
         <mxCell id="ESTADIA_HUESPED-attrs" value="- tarifaCLP: Dinero [0..1]&#10;- costoCLP: Dinero [0..1]" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=20;fontSize=27;" vertex="1" parent="ESTADIA_HUESPED">
-          <mxGeometry as="geometry" x="0" y="68" width="980" height="84" />
+          <mxGeometry as="geometry" x="0" y="68" width="740" height="84" />
         </mxCell>
         <mxCell id="ESTADIA_HUESPED-methods" value="+ calcularCosto(regla): Dinero" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=20;fontSize=27;" vertex="1" parent="ESTADIA_HUESPED">
-          <mxGeometry as="geometry" x="0" y="169" width="980" height="42" />
+          <mxGeometry as="geometry" x="0" y="169" width="740" height="42" />
         </mxCell>
         <mxCell id="ESTADIA_HUESPED-line" value="" style="shape=line;strokeColor=#30363b;strokeWidth=3;" vertex="1" parent="ESTADIA_HUESPED">
-          <mxGeometry as="geometry" x="0" y="156" width="980" height="1" />
+          <mxGeometry as="geometry" x="0" y="156" width="740" height="1" />
+        </mxCell>
+        <mxCell id="ESTADIA" value="Estadia" style="shape=swimlane;startSize=44;horizontal=1;collapsible=0;html=0;whiteSpace=wrap;strokeColor=#30363b;strokeWidth=4;fillColor=#d9efff;fontColor=#253747;fontSize=21;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="1450" y="1680" width="890" height="478" />
+        </mxCell>
+        <mxCell id="ESTADIA-attrs" value="- id: int&#10;- entrada: Date&#10;- salidaPrevista: Date&#10;- salidaReal: Date [0..1]&#10;- estado: EstadoEstadia&#10;- nochesCobradas: int [0..1]" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=20;fontSize=27;" vertex="1" parent="ESTADIA">
+          <mxGeometry as="geometry" x="0" y="68" width="890" height="252" />
+        </mxCell>
+        <mxCell id="ESTADIA-methods" value="+ registrarCheckIn(): void&#10;+ calcularCuenta(): Dinero&#10;+ registrarCheckOut(): void" style="text;html=0;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=20;fontSize=27;" vertex="1" parent="ESTADIA">
+          <mxGeometry as="geometry" x="0" y="337" width="890" height="126" />
+        </mxCell>
+        <mxCell id="ESTADIA-line" value="" style="shape=line;strokeColor=#30363b;strokeWidth=3;" vertex="1" parent="ESTADIA">
+          <mxGeometry as="geometry" x="0" y="324" width="890" height="1" />
         </mxCell>
         <mxCell id="edge0" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=none;endFill=0;startArrow=none;startFill=0;exitX=1;exitY=0.5;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0;" edge="1" source="ROL" target="USUARIO" parent="1">
           <mxGeometry as="geometry" relative="1">
@@ -128,23 +128,19 @@
             <mxPoint as="offset" y="-14" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge1" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=block;endFill=0;startArrow=none;startFill=0;exitX=0.72;exitY=0;exitPerimeter=0;entryX=0.28;entryY=1;entryPerimeter=0;" edge="1" source="ADMIN" target="USUARIO" parent="1">
+        <mxCell id="edge1" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=block;endFill=0;startArrow=none;startFill=0;exitX=0.65;exitY=0;exitPerimeter=0;entryX=0.3;entryY=1;entryPerimeter=0;" edge="1" source="ADMIN" target="USUARIO" parent="1">
           <mxGeometry as="geometry" relative="1">
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge2" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=block;endFill=0;startArrow=none;startFill=0;exitX=0.28;exitY=0;exitPerimeter=0;entryX=0.72;entryY=1;entryPerimeter=0;" edge="1" source="ENCARGADO" target="USUARIO" parent="1">
+        <mxCell id="edge2" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=block;endFill=0;startArrow=none;startFill=0;exitX=0.35;exitY=0;exitPerimeter=0;entryX=0.7;entryY=1;entryPerimeter=0;" edge="1" source="ENCARGADO" target="USUARIO" parent="1">
           <mxGeometry as="geometry" relative="1">
             <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge3" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=none;endFill=0;startArrow=diamond;startFill=0;exitX=0.24;exitY=1;exitPerimeter=0;entryX=1;entryY=0.34;entryPerimeter=0;" edge="1" source="HABITACION" target="RESERVA" parent="1">
+        <mxCell id="edge3" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=none;endFill=0;startArrow=none;startFill=0;exitX=1;exitY=0.45;exitPerimeter=0;entryX=0;entryY=0.36;entryPerimeter=0;" edge="1" source="HUESPED" target="RESERVA" parent="1">
           <mxGeometry as="geometry" relative="1">
-            <Array as="points">
-              <mxPoint x="1406" y="1580" />
-              <mxPoint x="1080" y="1580" />
-              <mxPoint x="1080" y="1870" />
-            </Array>
+            <Array as="points" />
           </mxGeometry>
         </mxCell>
         <mxCell id="edge3-label0" value="1" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge3">
@@ -157,25 +153,22 @@
             <mxPoint as="offset" y="-14" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge4" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=none;endFill=0;startArrow=none;startFill=0;exitX=0.76;exitY=1;exitPerimeter=0;entryX=0.76;entryY=0;entryPerimeter=0;" edge="1" source="HABITACION" target="ESTADIA" parent="1">
+        <mxCell id="edge4" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=none;endFill=0;startArrow=none;startFill=0;exitX=1;exitY=0.44;exitPerimeter=0;entryX=0;entryY=0.55;entryPerimeter=0;" edge="1" source="RESERVA" target="HABITACION" parent="1">
           <mxGeometry as="geometry" relative="1">
-            <Array as="points">
-              <mxPoint x="1894" y="1580" />
-              <mxPoint x="1894" y="1690" />
-            </Array>
+            <Array as="points" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge4-label0" value="1" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge4">
+        <mxCell id="edge4-label0" value="0..*" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge4">
           <mxGeometry as="geometry" x="-0.9" y="-1" relative="1">
             <mxPoint as="offset" y="-14" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge4-label1" value="0..*" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge4">
+        <mxCell id="edge4-label1" value="1" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge4">
           <mxGeometry as="geometry" x="0.9" y="-1" relative="1">
             <mxPoint as="offset" y="-14" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge5" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=none;endFill=0;startArrow=none;startFill=0;exitX=0.45;exitY=1;exitPerimeter=0;entryX=0.45;entryY=0;entryPerimeter=0;" edge="1" source="HUESPED" target="RESERVA" parent="1">
+        <mxCell id="edge5" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=none;endFill=0;startArrow=none;startFill=0;exitX=0.72;exitY=1;exitPerimeter=0;entryX=0.8;entryY=0;entryPerimeter=0;" edge="1" source="HABITACION" target="ESTADIA" parent="1">
           <mxGeometry as="geometry" relative="1">
             <Array as="points" />
           </mxGeometry>
@@ -190,9 +183,13 @@
             <mxPoint as="offset" y="-14" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge6" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=none;endFill=0;startArrow=none;startFill=0;exitX=1;exitY=0.6;exitPerimeter=0;entryX=0;entryY=0.6;entryPerimeter=0;" edge="1" source="RESERVA" target="ESTADIA" parent="1">
+        <mxCell id="edge6" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=none;endFill=0;startArrow=none;startFill=0;exitX=0.72;exitY=1;exitPerimeter=0;entryX=0;entryY=0.2;entryPerimeter=0;" edge="1" source="RESERVA" target="ESTADIA" parent="1">
           <mxGeometry as="geometry" relative="1">
-            <Array as="points" />
+            <Array as="points">
+              <mxPoint x="1378" y="1560" />
+              <mxPoint x="1400" y="1560" />
+              <mxPoint x="1400" y="1776" />
+            </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="edge6-label0" value="0..1" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge6">
@@ -205,13 +202,9 @@
             <mxPoint as="offset" y="-14" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge7" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=none;endFill=0;startArrow=diamond;startFill=1;exitX=0.55;exitY=1;exitPerimeter=0;entryX=1;entryY=0.4;entryPerimeter=0;" edge="1" source="ESTADIA" target="ESTADIA_HUESPED" parent="1">
+        <mxCell id="edge7" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=none;endFill=0;startArrow=none;startFill=0;exitX=0.25;exitY=1;exitPerimeter=0;entryX=0.25;entryY=0;entryPerimeter=0;" edge="1" source="HUESPED" target="ESTADIA_HUESPED" parent="1">
           <mxGeometry as="geometry" relative="1">
-            <Array as="points">
-              <mxPoint x="1697" y="2240" />
-              <mxPoint x="1690" y="2240" />
-              <mxPoint x="1690" y="2450" />
-            </Array>
+            <Array as="points" />
           </mxGeometry>
         </mxCell>
         <mxCell id="edge7-label0" value="1" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge7">
@@ -219,17 +212,14 @@
             <mxPoint as="offset" y="-14" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge7-label1" value="1..*" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge7">
+        <mxCell id="edge7-label1" value="0..*" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge7">
           <mxGeometry as="geometry" x="0.9" y="-1" relative="1">
             <mxPoint as="offset" y="-14" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge8" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=none;endFill=0;startArrow=none;startFill=0;exitX=0;exitY=0.5;exitPerimeter=0;entryX=0;entryY=0.5;entryPerimeter=0;" edge="1" source="HUESPED" target="ESTADIA_HUESPED" parent="1">
+        <mxCell id="edge8" value="" style="html=0;edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=32;rounded=0;strokeWidth=4;strokeColor=#30363b;fontSize=22;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;endArrow=none;endFill=0;startArrow=diamond;startFill=1;exitX=0;exitY=0.68;exitPerimeter=0;entryX=1;entryY=0.48;entryPerimeter=0;" edge="1" source="ESTADIA" target="ESTADIA_HUESPED" parent="1">
           <mxGeometry as="geometry" relative="1">
-            <Array as="points">
-              <mxPoint x="25" y="1256" />
-              <mxPoint x="25" y="2473" />
-            </Array>
+            <Array as="points" />
           </mxGeometry>
         </mxCell>
         <mxCell id="edge8-label0" value="1" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge8">
@@ -237,10 +227,13 @@
             <mxPoint as="offset" y="-14" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="edge8-label1" value="0..*" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge8">
+        <mxCell id="edge8-label1" value="1..*" style="edgeLabel;html=0;align=center;fontSize=25;fontStyle=1;fontColor=#163b50;labelBackgroundColor=#ffffff;" vertex="1" connectable="0" parent="edge8">
           <mxGeometry as="geometry" x="0.9" y="-1" relative="1">
             <mxPoint as="offset" y="-14" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="note0" value="1 = uno   ·   0..1 = opcional   ·   0..* = cero o muchos   ·   1..* = uno o muchos   ·   △ = herencia   ·   ◆ = composición" style="text;html=0;strokeColor=none;fillColor=none;fontSize=23;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="750" y="2385" width="900" height="35" />
         </mxCell>
       </root>
     </mxGraphModel>

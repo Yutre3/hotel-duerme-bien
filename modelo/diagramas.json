@@ -3668,9 +3668,9 @@
       "ROL": {
         "id": "ROL",
         "label": "Rol",
-        "x": 80,
+        "x": 70,
         "y": 110,
-        "w": 620,
+        "w": 560,
         "h": 226,
         "shape": "table",
         "attrs": [
@@ -3686,9 +3686,9 @@
       "USUARIO": {
         "id": "USUARIO",
         "label": "«abstract» Usuario",
-        "x": 850,
+        "x": 720,
         "y": 80,
-        "w": 1260,
+        "w": 1600,
         "h": 352,
         "shape": "table",
         "attrs": [
@@ -3707,9 +3707,9 @@
       "ADMIN": {
         "id": "ADMIN",
         "label": "Administrador",
-        "x": 180,
-        "y": 600,
-        "w": 800,
+        "x": 200,
+        "y": 520,
+        "w": 850,
         "h": 226,
         "shape": "table",
         "attrs": [],
@@ -3724,9 +3724,9 @@
       "ENCARGADO": {
         "id": "ENCARGADO",
         "label": "Encargado",
-        "x": 1220,
-        "y": 600,
-        "w": 800,
+        "x": 1350,
+        "y": 520,
+        "w": 850,
         "h": 226,
         "shape": "table",
         "attrs": [],
@@ -3741,9 +3741,9 @@
       "HUESPED": {
         "id": "HUESPED",
         "label": "Huesped",
-        "x": 80,
-        "y": 1080,
-        "w": 940,
+        "x": 60,
+        "y": 950,
+        "w": 680,
         "h": 352,
         "shape": "table",
         "attrs": [
@@ -3759,33 +3759,12 @@
         "fill": "#fff1c9",
         "stroke": "#30363b"
       },
-      "HABITACION": {
-        "id": "HABITACION",
-        "label": "Habitacion",
-        "x": 1180,
-        "y": 1080,
-        "w": 940,
-        "h": 352,
-        "shape": "table",
-        "attrs": [
-          "- id: int",
-          "- numero: String",
-          "- capacidad: int",
-          "- orientacion: String"
-        ],
-        "methods": [
-          "+ disponible(entrada, salida): bool",
-          "+ actualizarDatos(): void"
-        ],
-        "fill": "#dff5e3",
-        "stroke": "#30363b"
-      },
       "RESERVA": {
         "id": "RESERVA",
         "label": "Reserva",
-        "x": 80,
-        "y": 1710,
-        "w": 940,
+        "x": 860,
+        "y": 950,
+        "w": 720,
         "h": 436,
         "shape": "table",
         "attrs": [
@@ -3803,393 +3782,11 @@
         "fill": "#ffe0cf",
         "stroke": "#30363b"
       },
-      "ESTADIA": {
-        "id": "ESTADIA",
-        "label": "Estadia",
-        "x": 1180,
-        "y": 1690,
-        "w": 940,
-        "h": 478,
+      "HABITACION": {
+        "id": "HABITACION",
+        "label": "Habitacion",
+        "x": 1720,
+        "y": 950,
+        "w": 620,
+        "h": 352,
         "shape": "table",
-        "attrs": [
-          "- id: int",
-          "- entrada: Date",
-          "- salidaPrevista: Date",
-          "- salidaReal: Date [0..1]",
-          "- estado: EstadoEstadia",
-          "- nochesCobradas: int [0..1]"
-        ],
-        "methods": [
-          "+ registrarCheckIn(): void",
-          "+ calcularCuenta(): Dinero",
-          "+ registrarCheckOut(): void"
-        ],
-        "fill": "#d9efff",
-        "stroke": "#30363b"
-      },
-      "ESTADIA_HUESPED": {
-        "id": "ESTADIA_HUESPED",
-        "label": "EstadiaHuesped",
-        "x": 650,
-        "y": 2360,
-        "w": 980,
-        "h": 226,
-        "shape": "table",
-        "attrs": [
-          "- tarifaCLP: Dinero [0..1]",
-          "- costoCLP: Dinero [0..1]"
-        ],
-        "methods": [
-          "+ calcularCosto(regla): Dinero"
-        ],
-        "fill": "#eadfff",
-        "stroke": "#30363b"
-      }
-    },
-    "edges": [
-      {
-        "a": "ROL",
-        "b": "USUARIO",
-        "points": [
-          [
-            700,
-            223.0
-          ],
-          [
-            850,
-            256.0
-          ]
-        ],
-        "label": "",
-        "kind": "association",
-        "sm": "1",
-        "tm": "0..*",
-        "source": [
-          1,
-          0.5
-        ],
-        "target": [
-          0,
-          0.5
-        ],
-        "labelpos": null,
-        "smpos": [
-          715,
-          230
-        ],
-        "tmpos": [
-          815,
-          230
-        ]
-      },
-      {
-        "a": "ADMIN",
-        "b": "USUARIO",
-        "points": [
-          [
-            756.0,
-            600
-          ],
-          [
-            1202.8,
-            432
-          ]
-        ],
-        "label": "",
-        "kind": "general",
-        "sm": "",
-        "tm": "",
-        "source": [
-          0.72,
-          0
-        ],
-        "target": [
-          0.28,
-          1
-        ],
-        "labelpos": null,
-        "smpos": null,
-        "tmpos": null
-      },
-      {
-        "a": "ENCARGADO",
-        "b": "USUARIO",
-        "points": [
-          [
-            1444.0,
-            600
-          ],
-          [
-            1757.1999999999998,
-            432
-          ]
-        ],
-        "label": "",
-        "kind": "general",
-        "sm": "",
-        "tm": "",
-        "source": [
-          0.28,
-          0
-        ],
-        "target": [
-          0.72,
-          1
-        ],
-        "labelpos": null,
-        "smpos": null,
-        "tmpos": null
-      },
-      {
-        "a": "HABITACION",
-        "b": "RESERVA",
-        "points": [
-          [
-            1405.6,
-            1432
-          ],
-          [
-            1406,
-            1580
-          ],
-          [
-            1080,
-            1580
-          ],
-          [
-            1080,
-            1870
-          ],
-          [
-            1020,
-            1858.24
-          ]
-        ],
-        "label": "",
-        "kind": "aggregation",
-        "sm": "1",
-        "tm": "0..*",
-        "source": [
-          0.24,
-          1
-        ],
-        "target": [
-          1,
-          0.34
-        ],
-        "labelpos": null,
-        "smpos": [
-          1380,
-          1545
-        ],
-        "tmpos": [
-          1055,
-          1840
-        ]
-      },
-      {
-        "a": "HABITACION",
-        "b": "ESTADIA",
-        "points": [
-          [
-            1894.4,
-            1432
-          ],
-          [
-            1894,
-            1580
-          ],
-          [
-            1894,
-            1690
-          ],
-          [
-            1894.4,
-            1690
-          ]
-        ],
-        "label": "",
-        "kind": "association",
-        "sm": "1",
-        "tm": "0..*",
-        "source": [
-          0.76,
-          1
-        ],
-        "target": [
-          0.76,
-          0
-        ],
-        "labelpos": null,
-        "smpos": [
-          1920,
-          1545
-        ],
-        "tmpos": [
-          1920,
-          1655
-        ]
-      },
-      {
-        "a": "HUESPED",
-        "b": "RESERVA",
-        "points": [
-          [
-            503.0,
-            1432
-          ],
-          [
-            503.0,
-            1710
-          ]
-        ],
-        "label": "",
-        "kind": "association",
-        "sm": "1",
-        "tm": "0..*",
-        "source": [
-          0.45,
-          1
-        ],
-        "target": [
-          0.45,
-          0
-        ],
-        "labelpos": null,
-        "smpos": [
-          475,
-          1650
-        ],
-        "tmpos": [
-          525,
-          1680
-        ]
-      },
-      {
-        "a": "RESERVA",
-        "b": "ESTADIA",
-        "points": [
-          [
-            1020,
-            1971.6
-          ],
-          [
-            1180,
-            1976.8
-          ]
-        ],
-        "label": "",
-        "kind": "association",
-        "sm": "0..1",
-        "tm": "0..1",
-        "source": [
-          1,
-          0.6
-        ],
-        "target": [
-          0,
-          0.6
-        ],
-        "labelpos": null,
-        "smpos": [
-          1060,
-          1975
-        ],
-        "tmpos": [
-          1140,
-          1975
-        ]
-      },
-      {
-        "a": "ESTADIA",
-        "b": "ESTADIA_HUESPED",
-        "points": [
-          [
-            1697.0,
-            2168
-          ],
-          [
-            1697,
-            2240
-          ],
-          [
-            1690,
-            2240
-          ],
-          [
-            1690,
-            2450
-          ],
-          [
-            1630,
-            2450.4
-          ]
-        ],
-        "label": "",
-        "kind": "composition",
-        "sm": "1",
-        "tm": "1..*",
-        "source": [
-          0.55,
-          1
-        ],
-        "target": [
-          1,
-          0.4
-        ],
-        "labelpos": null,
-        "smpos": [
-          1725,
-          2210
-        ],
-        "tmpos": [
-          1660,
-          2420
-        ]
-      },
-      {
-        "a": "HUESPED",
-        "b": "ESTADIA_HUESPED",
-        "points": [
-          [
-            80,
-            1256.0
-          ],
-          [
-            25,
-            1256
-          ],
-          [
-            25,
-            2473
-          ],
-          [
-            650,
-            2473.0
-          ]
-        ],
-        "label": "",
-        "kind": "association",
-        "sm": "1",
-        "tm": "0..*",
-        "source": [
-          0,
-          0.5
-        ],
-        "target": [
-          0,
-          0.5
-        ],
-        "labelpos": null,
-        "smpos": [
-          55,
-          1300
-        ],
-        "tmpos": [
-          690,
-          2440
-        ]
-      }
-    ]
-  }
-]

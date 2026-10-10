@@ -214,9 +214,10 @@ dbrel('HUESPED','ESTADIA_HUESPED',(0,.50),(0,.50),[(25,754),(25,2344)],'one','ze
 d.note('PK = clave primaria   ·   FK = clave foránea   ·   UQ = valor único   ·   NULL = dato opcional',1100,2935,25)
 db_model=d
 
-# Clases de dominio. Incluye asociación, agregación, composición y herencia
-# sin repetir líneas ni hacer que las multiplicidades crucen las cajas.
-d=D('diagrama-de-clases','Diagrama de clases completo · Hotel Duerme Bien',2200,2920)
+# Clases de dominio. La zona operativa usa una distribución planar: huésped,
+# reserva y habitación arriba; la clase asociativa y la estadía abajo. Así cada
+# relación tiene un pasillo propio y ninguna línea necesita rodear la página.
+d=D('diagrama-de-clases','Diagrama de clases completo · Hotel Duerme Bien',2400,2500)
 class_defs={
  'ROL':('Rol',['- id: int','- nombre: String'],['+ permite(operacion: String): bool']),
  'USUARIO':('«abstract» Usuario',['- id: int','- nombreUsuario: String','- hashClave: String','- activo: bool'],['+ iniciarSesion(clave: String): Sesion','+ tienePermiso(operacion: String): bool']),
@@ -228,25 +229,27 @@ class_defs={
  'ESTADIA':('Estadia',['- id: int','- entrada: Date','- salidaPrevista: Date','- salidaReal: Date [0..1]','- estado: EstadoEstadia','- nochesCobradas: int [0..1]'],['+ registrarCheckIn(): void','+ calcularCuenta(): Dinero','+ registrarCheckOut(): void']),
  'ESTADIA_HUESPED':('EstadiaHuesped',['- tarifaCLP: Dinero [0..1]','- costoCLP: Dinero [0..1]'],['+ calcularCosto(regla): Dinero'])}
 class_layout={
- 'ROL':(80,110,620),'USUARIO':(850,80,1260),
- 'ADMIN':(180,600,800),'ENCARGADO':(1220,600,800),
- 'HUESPED':(80,1080,940),'HABITACION':(1180,1080,940),
- 'RESERVA':(80,1710,940),'ESTADIA':(1180,1690,940),
- 'ESTADIA_HUESPED':(650,2360,980)}
+ 'ROL':(70,110,560),'USUARIO':(720,80,1600),
+ 'ADMIN':(200,520,850),'ENCARGADO':(1350,520,850),
+ 'HUESPED':(60,950,680),'RESERVA':(860,950,720),'HABITACION':(1720,950,620),
+ 'ESTADIA_HUESPED':(60,1900,740),'ESTADIA':(1450,1680,890)}
 class_colors={'ROL':'#f1f3f4','USUARIO':'#d9efff','ADMIN':'#e8ddff','ENCARGADO':'#e8ddff','HABITACION':'#dff5e3','HUESPED':'#fff1c9','RESERVA':'#ffe0cf','ESTADIA':'#d9efff','ESTADIA_HUESPED':'#eadfff'}
 for id,(x,y,w) in class_layout.items():
  title,attrs,methods=class_defs[id];d.node(id,title,x,y,w,100+(len(attrs)+len(methods))*42,'table',attrs,methods,fill=class_colors[id])
 def classrel(a,b,source,target,points=None,sm='',tm='',kind='association',smpos=None,tmpos=None):
  d.edge(a,b,points=points,source=source,target=target,kind=kind,sm=sm,tm=tm,smpos=smpos,tmpos=tmpos)
-classrel('ROL','USUARIO',(1,.5),(0,.5),sm='1',tm='0..*',kind='association',smpos=(715,230),tmpos=(815,230))
-classrel('ADMIN','USUARIO',(.72,0),(.28,1),kind='general')
-classrel('ENCARGADO','USUARIO',(.28,0),(.72,1),kind='general')
-classrel('HABITACION','RESERVA',(.24,1),(1,.34),[(1406,1580),(1080,1580),(1080,1870)],'1','0..*','aggregation',(1380,1545),(1055,1840))
-classrel('HABITACION','ESTADIA',(.76,1),(.76,0),[(1894,1580),(1894,1690)],'1','0..*','association',(1920,1545),(1920,1655))
-classrel('HUESPED','RESERVA',(.45,1),(.45,0),[],'1','0..*','association',(475,1650),(525,1680))
-classrel('RESERVA','ESTADIA',(1,.60),(0,.60),[],'0..1','0..1','association',(1060,1975),(1140,1975))
-classrel('ESTADIA','ESTADIA_HUESPED',(.55,1),(1,.40),[(1697,2240),(1690,2240),(1690,2450)],'1','1..*','composition',(1725,2210),(1660,2420))
-classrel('HUESPED','ESTADIA_HUESPED',(0,.50),(0,.50),[(25,1256),(25,2473)],'1','0..*','association',(55,1300),(690,2440))
+classrel('ROL','USUARIO',(1,.5),(0,.5),sm='1',tm='0..*',kind='association',smpos=(655,225),tmpos=(695,225))
+classrel('ADMIN','USUARIO',(.65,0),(.30,1),kind='general')
+classrel('ENCARGADO','USUARIO',(.35,0),(.70,1),kind='general')
+
+# Relaciones del negocio: todos los conectores quedan entre clases vecinas.
+classrel('HUESPED','RESERVA',(1,.45),(0,.36),sm='1',tm='0..*',kind='association',smpos=(775,1165),tmpos=(825,1165))
+classrel('RESERVA','HABITACION',(1,.44),(0,.55),sm='0..*',tm='1',kind='association',smpos=(1620,1170),tmpos=(1680,1170))
+classrel('HABITACION','ESTADIA',(.72,1),(.80,0),sm='1',tm='0..*',kind='association',smpos=(2200,1350),tmpos=(2200,1635))
+classrel('RESERVA','ESTADIA',(.72,1),(0,.20),[(1378,1560),(1400,1560),(1400,1776)],'0..1','0..1','association',(1340,1430),(1410,1820))
+classrel('HUESPED','ESTADIA_HUESPED',(.25,1),(.25,0),sm='1',tm='0..*',kind='association',smpos=(270,1350),tmpos=(270,1860))
+classrel('ESTADIA','ESTADIA_HUESPED',(0,.68),(1,.48),sm='1',tm='1..*',kind='composition',smpos=(1400,1970),tmpos=(850,1970))
+d.note('1 = uno   ·   0..1 = opcional   ·   0..* = cero o muchos   ·   1..* = uno o muchos   ·   △ = herencia   ·   ◆ = composición',1200,2410,23)
 for d in ALL:d.save()
 (ROOT/'modelo/diagramas.json').write_text(json.dumps([dict(key=d.key,title=d.title,nodes=d.nodes,edges=d.edges) for d in ALL],ensure_ascii=False,indent=2))
 (ROOT/'modelo/base-de-datos.json').write_text(json.dumps({'entidades':dbattrs,'relaciones':db_model.edges},ensure_ascii=False,indent=2))

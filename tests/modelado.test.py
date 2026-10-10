@@ -46,6 +46,13 @@ for filename in ['casos-de-uso.png','procesos.png','clases.png','base-de-datos.p
 class_scene=next(d for d in scenes if d['key']=='diagrama-de-clases')
 assert 'ROL' in class_scene['nodes'],'Falta la clase Rol'
 assert any({e['a'],e['b']}=={'ROL','USUARIO'} for e in class_scene['edges']),'Falta relación Rol-Usuario'
+# Ningún conector del diagrama de clases debe escapar por el borde de la
+# página ni usar recorridos tan largos que separen visualmente la relación.
+for edge in class_scene['edges']:
+ for x,y in edge['points'][1:-1]:
+  assert x >= 40,(edge['a'],edge['b'],'conector pegado al borde')
+ for (x1,y1),(x2,y2) in zip(edge['points'],edge['points'][1:]):
+  assert max(abs(x2-x1),abs(y2-y1)) <= 900,(edge['a'],edge['b'],'tramo demasiado largo')
 
 # Las siete entidades requeridas y sus restricciones esenciales deben quedar
 # visibles en la fuente que genera el diagrama de base de datos.
